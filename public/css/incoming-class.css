@@ -1,0 +1,299 @@
+.container-countdown {
+    display: flex;
+    gap: 12rem;
+    flex-direction: row;
+    align-items: center;
+}
+
+.countdown-card {
+    background-image: url('../img/savethedate.png');
+    border-radius: 15px;
+    padding: 50px 20px;
+    height: auto;
+    width: 6rem;
+    background-size: cover;
+    margin-bottom: -3rem;
+    margin-left: -2rem;
+}
+
+/* Enlarged calendar image and adjusted layout */
+.calendar-image {
+    background-image: url('../img/Gradient_Red_Calendar-removebg-preview.png');
+    /* Replace with your calendar image URL */
+    background-size: cover;
+    z-index: -1;
+    background-position: center;
+    width: 8rem;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    /* Space for Save the Date label */
+}
+
+.save-date {
+    font-size: 14px;
+    color: #ff4d4d;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 5px;
+    position: absolute;
+    top: -20px;
+}
+
+.days-left {
+    font-size: 48px;
+    /* Enlarged for better visibility */
+    font-weight: bold;
+    color: #333;
+    margin-top: 0.3rem;
+}
+
+.days-label {
+    font-size: 14px;
+    color: #555;
+    margin-top: -5px;
+}
+
+.countdown-timer {
+    font-size: 0.9rem;
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: -1.2rem;
+}
+
+.countdown {
+    margin-left: 10rem;
+    margin-right: -8rem;
+}
+
+.course-title {
+    padding-bottom: 1rem;
+    text-align: left;
+}
+
+.course-carousel {
+    text-align: left;
+}
+
+.carousel {
+    display: flex;
+    border-radius: 15px;
+}
+
+.hourglass-icon {
+    font-size: 18px;
+    color: #ff4d4d;
+    margin-right: 5px;
+}
+
+.carousel-nav {
+    margin-top: 10px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+@media (min-width: 950px) {
+    .container-countdown {
+        gap: 2rem;
+        padding-left: 0.5rem;
+        padding-right: 0rem;
+        justify-content: center;
+        /* ini yang bikin rata tengah */
+    }
+
+    .countdown {
+        margin-left: 3rem;
+        margin-right: 1rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown {
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
+
+    .course-title {
+        text-align: left;
+    }
+
+    .course-carousel {
+        margin-top: -10rem;
+        margin-left: 2rem;
+        overflow: hidden;
+    }
+
+    .container-countdown {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .carousel-nav {
+        margin-top: 5px;
+    }
+
+    .dot {
+        height: 10px;
+        width: 10px;
+    }
+}
+
+/* card-incoming Container */
+.card-incoming {
+    display: flex;
+    width: 85%;
+    max-width: 900px;
+    height: auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Image Section */
+.card-incoming img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text Content Section */
+.course-info {
+    width: 50%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Heading Style */
+.course-info h1 {
+    color: #000;
+    font-size: 28px;
+    margin: 0;
+}
+
+.course-info h1 span {
+    color: #ff6600;
+}
+
+/* Paragraph Style */
+.course-info p {
+    color: #555;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Button Style */
+.course-info a {
+    display: inline-block;
+    background-color: #ff6600;
+    margin: 0 auto;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.course-info a:hover {
+    background-color: #e55a00;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .card-incoming {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .card-incoming img {
+        width: 100%;
+        height: auto;
+    }
+
+    .course-info {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .course-info h1 {
+        font-size: 24px;
+    }
+
+    .course-info p {
+        font-size: 16px;
+    }
+
+    .course-info a {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .course-info h1 {
+        font-size: 20px;
+    }
+
+    .course-info p {
+        font-size: 14px;
+    }
+
+    .course-info a {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Extra Small Devices (Mobile Portrait) */
+@media (max-width: 480px) {
+    .course-info h1 {
+        font-size: 18px;
+    }
+
+    .course-info p {
+        font-size: 13px;
+    }
+
+    .course-info a {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
