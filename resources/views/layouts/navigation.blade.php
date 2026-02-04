@@ -29,7 +29,6 @@
         <!-- Desktop kanan -->
         <div class="hidden md:flex items-center space-x-4">
 
-            {{-- ================= GUEST ================= --}}
             @guest
                 <a href="{{ route('login') }}" class="font-semibold hover:text-orange-500">
                     Login
@@ -40,11 +39,10 @@
                 </a>
             @endguest
 
-            {{-- ================= AUTH ================= --}}
             @auth
                 <div class="text-right">
                     <p class="font-semibold hover:text-orange-500">
-                        {{ Auth::user()->name }}
+                        {{ Auth::user()->full_name }}
                     </p>
                     <p class="text-sm text-gray-300">Student</p>
                 </div>
