@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('teacher_profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->decimal('price', 10, 2);
-            $table->string('thumbnail')->nullable();
+            $table->string('whatsapp', 20);
+            $table->date('position');
+            $table->foreignId('teacher_id')
+                ->unique()
+                ->constrained('users')
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('teacher_profiles');
     }
 };
