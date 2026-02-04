@@ -18,15 +18,18 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'username',
-        'whatsapp',
-        'gender',
+        'full_name',
         'email',
         'password',
+        'email_verified_at',
+        'role',
         'google_id',
-        'google_token',
-        'google_refresh_token',
+        'avatar'
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
 
     /**
@@ -50,5 +53,42 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function teacher_profiles()
+    {
+        return $this->hasOne(TeacherProfile::class);
+    }
+
+    public function student_profiles()
+    {
+        return $this->hasOne(StudentProfile::class);
+    }
+
+    public function enrollments()
+    {
+        return $this->belongsToMany(Course::class, 'enrollments', 'student_id', 'course_id')
+            ->withPivot('is_paid', 'paid_at')
+            ->withTimestamps();
+    }
+
+    public function enrolled_classes()
+    {
+        return $this->hasMany(ClassEnrollment::class, 'student_id');
+    }
+
+    public function teaching_classes()
+    {
+        return $this->hasMany(ClassEnrollment::class, 'teacher_id');
+    }
+
+    public function course_teachers()
+    {
+        return $this->belongsToMany(
+            Course::class,
+            'course_teachers',
+            'teacher_id',
+            'course_id'
+        )->withTimestamps();
     }
 }
