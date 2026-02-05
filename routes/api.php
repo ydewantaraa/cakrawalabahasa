@@ -11,10 +11,15 @@ Route::get('/user', function (Request $request) {
 
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/email/verified', [AuthController::class, 'checkVerified']);
-    Route::post('/email/resend', [AuthController::class, 'resendVerification']);
+    Route::prefix('auth')->group(function () {
+        Route::post('/logout', [AuthController::class, 'logout']);
+        Route::get('/email/verified', [AuthController::class, 'checkVerified']);
+        Route::post('/email/resend', [AuthController::class, 'resendVerification']);
+        Route::post('/change-password', [PasswordController::class, 'change']);
+        Route::post('/logout', [AuthController::class, 'logout']);
+    });
 });
+
 
 Route::prefix('auth')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
