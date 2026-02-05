@@ -20,7 +20,7 @@ class AuthController extends Controller
             $request->email,
             $request->password
         );
-        $url = url("/api/email/verify/{$user->id}/" . sha1($user->email));
+        $url = url("/api/auth/email/verify/{$user->id}/" . sha1($user->email));
 
         Mail::to($user->email)->send(new VerifyEmailMail($url));
 

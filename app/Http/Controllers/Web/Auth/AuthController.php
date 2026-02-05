@@ -63,6 +63,6 @@ class AuthController extends Controller
     public function resendVerification(Request $request)
     {
         $request->user()->sendEmailVerificationNotification();
-        return back()->with('message', 'Link verifikasi baru telah dikirim.');
+        return back()->with('status', 'verification-link-sent');
     }
 }
