@@ -1,36 +1,61 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('password.update') }}">
-        @csrf
+@extends('layouts.app')
 
-        <input type="hidden" name="token" value="{{ $token }}">
+@section('content')
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+        <div class="w-full max-w-md bg-white shadow-md rounded-lg p-6">
 
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $email)" required
-                autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <!-- Logo -->
+            <div class="flex justify-center mb-6">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" class="h-16">
+            </div>
+
+            <h1 class="text-xl font-semibold mb-6 text-center text-gray-800">
+                Reset Password
+            </h1>
+
+            @if ($errors->any())
+                <div class="mb-4 p-2 text-sm text-center bg-red-100 text-red-700 rounded">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @endif
+
+            <form method="POST" action="{{ route('password.update') }}">
+                @csrf
+
+                <!-- Token -->
+                <input type="hidden" name="token" value="{{ $token }}">
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-700 mb-1">Email</label>
+                    <input type="email" name="email" value="{{ old('email', $email) }}" required autofocus
+                        autocomplete="username"
+                        class="w-full rounded border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+
+                <!-- Password -->
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-700 mb-1">New Password</label>
+                    <input type="password" name="password" required autocomplete="new-password"
+                        class="w-full rounded border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+
+                <!-- Password Confirmation -->
+                <div class="mb-6">
+                    <label class="block text-sm text-gray-700 mb-1">
+                        Confirm New Password
+                    </label>
+                    <input type="password" name="password_confirmation" required autocomplete="new-password"
+                        class="w-full rounded border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+
+                <button type="submit" class="w-full bg-navy_1 text-white py-2 rounded hover:bg-navy_2">
+                    Reset Password
+                </button>
+            </form>
+
         </div>
-
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Reset Password') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection
