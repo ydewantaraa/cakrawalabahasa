@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Mail\VerifyEmailMail;
 use App\Models\User;
 use App\Services\AuthService;
@@ -20,10 +20,8 @@ class AuthController extends Controller
             $request->email,
             $request->password
         );
-        // Link API verifikasi
         $url = url("/api/email/verify/{$user->id}/" . sha1($user->email));
 
-        // Kirim email verifikasi
         Mail::to($user->email)->send(new VerifyEmailMail($url));
 
         return response()->json([
@@ -46,19 +44,12 @@ class AuthController extends Controller
         ]);
     }
 
-
-    // ----------------------
-    // LOGOUT
-    // ----------------------
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
         return response()->json(['message' => 'Logged out']);
     }
 
-    // ----------------------
-    // EMAIL VERIFICATION
-    // ----------------------
     public function checkVerified(Request $request)
     {
         return response()->json([
@@ -70,7 +61,6 @@ class AuthController extends Controller
     {
         $user = User::findOrFail($id);
 
-        // Pastikan hash cocok dengan email
         if (! hash_equals(sha1($user->email), $hash)) {
             return response()->json(['message' => 'Invalid verification link'], 403);
         }
@@ -96,7 +86,6 @@ class AuthController extends Controller
 
         $url = url("/api/email/verify/{$user->id}/" . sha1($user->email));
 
-        // Kirim email verifikasi lagi
         Mail::to($user->email)->send(new VerifyEmailMail($url));
 
         return response()->json([

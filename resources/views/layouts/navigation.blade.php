@@ -6,14 +6,15 @@
             <a href="/">
                 <img src="/img/logo.png" alt="Logo" class="h-12 hover:scale-105 transition">
             </a>
+            @auth
+                <a href="{{ route('dashboard') }}" class="font-semibold hover:text-orange-500 transition">
+                    Dashboard
+                </a>
 
-            <a href="{{ route('dashboard') }}" class="font-semibold hover:text-orange-500 transition">
-                Dashboard
-            </a>
-
-            <a href="{{ route('cart.index') }}" class="font-semibold hover:text-orange-500 transition">
-                Keranjang
-            </a>
+                <a href="{{ route('cart.index') }}" class="font-semibold hover:text-orange-500 transition">
+                    Keranjang
+                </a>
+            @endauth
         </div>
 
         <!-- Hamburger (mobile) -->
@@ -29,15 +30,21 @@
         <!-- Desktop kanan -->
         <div class="hidden md:flex items-center space-x-4">
 
-            @guest
-                <a href="{{ route('login') }}" class="font-semibold hover:text-orange-500">
-                    Login
-                </a>
-
-                <a href="{{ route('register') }}" class="bg-orange-500 px-4 py-2 rounded hover:bg-orange-600 transition">
-                    Register
-                </a>
-            @endguest
+            <div class="flex gap-4">
+                @guest
+                    @if (request()->routeIs('login.form'))
+                        <a href="{{ route('register') }}"
+                            class="bg-orange-500 px-4 py-2 rounded hover:bg-orange-600 transition">
+                            Register
+                        </a>
+                    @elseif (request()->routeIs('register.form'))
+                        <a href="{{ route('login') }}"
+                            class="bg-orange-500 px-4 py-2 rounded hover:bg-orange-600 transition">
+                            Login
+                        </a>
+                    @endif
+                @endguest
+            </div>
 
             @auth
                 <div class="text-right">
@@ -78,13 +85,15 @@
     <!-- Mobile menu -->
     <div x-show="open" class="md:hidden px-6 pb-4 space-y-2 bg-[#232c5f] text-white">
 
-        <a href="{{ route('dashboard') }}" class="block py-2 font-semibold hover:text-orange-500">
-            Dashboard
-        </a>
+        @auth
+            <a href="{{ route('dashboard') }}" class="font-semibold hover:text-orange-500 transition">
+                Dashboard
+            </a>
 
-        <a href="{{ route('cart.index') }}" class="block py-2 font-semibold hover:text-orange-500">
-            Keranjang
-        </a>
+            <a href="{{ route('cart.index') }}" class="font-semibold hover:text-orange-500 transition">
+                Keranjang
+            </a>
+        @endauth
 
         {{-- GUEST --}}
         @guest
