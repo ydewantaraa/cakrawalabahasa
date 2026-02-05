@@ -4,13 +4,11 @@ namespace App\Http\Controllers\Web\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Requests\RegisterRequest;
-use App\Models\User;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Services\AuthService;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -26,10 +24,6 @@ class AuthController extends Controller
             $request->email,
             $request->password
         );
-
-        if (! $user->hasVerifiedEmail()) {
-            return redirect()->back()->with('error', 'Email belum diverifikasi. Silakan cek inbox.');
-        }
 
         Auth::login($user);
 

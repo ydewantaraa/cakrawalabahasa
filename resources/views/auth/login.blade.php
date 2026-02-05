@@ -19,6 +19,13 @@
                 Login
             </h1>
 
+            @if ($errors->any())
+                <div class="mb-4 p-1 text-center bg-red-100 text-red-700 rounded">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @endif
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -49,7 +56,7 @@
             <!-- Login with Google -->
             {{-- <a href="{{ route('auth.google.redirect') }}" --}}
             <a href=""
-                class="w-full flex items-center justify-center gap-3 border border-gray-300 py-2 rounded hover:bg-gray-200">
+                class="w-full flex items-center justify-center gap-3 border border-gray-300 py-2 rounded hover:bg-gray-200 mb-3">
 
                 <!-- Google Icon (SVG) -->
                 <svg class="h-5 w-5" viewBox="0 0 48 48">
@@ -67,6 +74,14 @@
                     Login with Google
                 </span>
             </a>
+
+            <div class="text-sm text-center">
+                <span>allready have an account? <a href="{{ route('register') }}"
+                        class="text-blue-500 underline">register</a></span>
+                <br>
+                <span>forgot password? <a href="{{ route('password.request') }}"
+                        class="text-blue-500 underline">reset</a></span>
+            </div>
 
 
         </div>

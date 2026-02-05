@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\Auth\PasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +18,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/email/resend', [AuthController::class, 'resendVerification']);
 });
 
-// Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])
-//     ->middleware('signed')
-//     ->name('api.verification.verify');
 Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])
     ->name('api.verification.verify');
+Route::post('/password/forgot', [PasswordController::class, 'forgot']);
+Route::post('/password/reset', [PasswordController::class, 'reset']);
+
 
 
 
