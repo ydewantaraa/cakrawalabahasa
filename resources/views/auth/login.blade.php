@@ -55,7 +55,7 @@
 
             <!-- Login with Google -->
             {{-- <a href="{{ route('auth.google.redirect') }}" --}}
-            <a href=""
+            <a href="{{ route('google.redirect') }}"
                 class="w-full flex items-center justify-center gap-3 border border-gray-300 py-2 rounded hover:bg-gray-200 mb-3">
 
                 <!-- Google Icon (SVG) -->

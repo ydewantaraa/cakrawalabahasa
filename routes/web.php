@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\SocialiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
@@ -9,8 +8,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\Web\Auth\AuthController;
+use App\Http\Controllers\Web\Auth\GoogleAuthController;
 use App\Http\Controllers\Web\Auth\PasswordController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -29,6 +28,13 @@ Route::middleware('guest')->group(function () {
     // Reset password
     Route::get('/reset-password/{token}', [PasswordController::class, 'resetPasswordForm'])->name('password.reset');
     Route::post('/reset-password', [PasswordController::class, 'resetPassword'])->name('password.update');
+
+    //Google Authentication
+    Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect'])
+        ->name('google.redirect');
+
+    Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])
+        ->name('google.callback');
 });
 
 // Email verification
@@ -38,6 +44,8 @@ Route::middleware('auth')->group(function () {
         ->middleware('signed')->name('verification.verify');
     Route::post('/email/verification-notification', [AuthController::class, 'resendVerification'])
         ->middleware('throttle:6,1')->name('verification.send');
+    // Logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -47,8 +55,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/change-password', [PasswordController::class, 'changePasswordForm'])->name('password.change.form');
 });
 
-// Logout
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::post('/payment', function (Request $request) {
     \Midtrans\Config::$serverKey    = config('midtrans.server_key');
@@ -97,8 +103,6 @@ Route::get('/', function () {
     return view('landing.index');
 });
 
-// Route::get('/auth/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
-// Route::get('/auth/google/callback', [SocialiteController::class, 'callback'])->name('google.callback');
 
 Route::get('/cb for you', function () {
     return view('landing.cb for you');
