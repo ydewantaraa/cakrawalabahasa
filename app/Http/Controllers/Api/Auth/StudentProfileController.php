@@ -8,6 +8,7 @@ use App\Mail\VerifyEmailMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class StudentProfileController extends Controller
 {
@@ -42,6 +43,22 @@ class StudentProfileController extends Controller
             $emailChanged = false;
 
             // --- UPDATE USER ---
+            // $userData = [
+            //     'full_name' => $data['full_name'],
+            // ];
+
+            // if (
+            //     isset($data['email']) &&
+            //     $data['email'] !== $user->email
+            // ) {
+            //     $emailChanged = true;
+
+            //     $userData['email'] = $data['email'];
+            //     $userData['email_verified_at'] = null;
+            //     $userData['google_id'] = null;
+            //     $userData['avatar'] = null;
+            // }
+
             $userData = [
                 'full_name' => $data['full_name'],
             ];
@@ -52,22 +69,50 @@ class StudentProfileController extends Controller
             ) {
                 $emailChanged = true;
 
+                // 🔴 SIMPAN STATUS SEBELUM UPDATE
+                $wasGoogleUser = !is_null($user->google_id);
+
                 $userData['email'] = $data['email'];
                 $userData['email_verified_at'] = null;
-                $userData['google_id'] = null;
-                $userData['avatar'] = null;
+
+                // Jika user dari Google → putuskan koneksi Google
+                if ($wasGoogleUser) {
+                    $userData['google_id'] = null;
+
+                    // HAPUS AVATAR HANYA JIKA DARI GOOGLE
+                    if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
+                        Storage::disk('public')->delete($user->avatar);
+                    }
+
+                    $userData['avatar'] = null;
+                }
+            }
+
+            if ($request->hasFile('avatar')) {
+                // hapus avatar lama kalau ada
+                if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
+                    Storage::disk('public')->delete($user->avatar);
+                }
+
+                $userData['avatar'] = $request
+                    ->file('avatar')
+                    ->store('avatars', 'public');
             }
 
             $user->update($userData);
 
             // --- UPDATE / CREATE STUDENT PROFILE ---
-            $user->student_profiles()->updateOrCreate(
-                ['student_id' => $user->id],
-                [
-                    'whatsapp' => $data['whatsapp'],
-                    'birthday' => $data['birthday'],
-                ]
-            );
+            $studentProfileData = [
+                'whatsapp' => $data['whatsapp'],
+                'birthday' => $data['birthday'],
+                'student_id' => $user->id,
+            ];
+
+            $user->student_profiles()
+                ->updateOrCreate(
+                    ['student_id' => $user->id],
+                    $studentProfileData
+                );
 
             DB::commit();
 

@@ -1,8 +1,28 @@
 <div id="profile-edit" class="space-y-4 hidden">
-    <form method="POST" action="{{ route('student-profile.update') }}">
+    <form method="POST" action="{{ route('student-profile.update') }}" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
+        <div class="flex flex-col items-start gap-4 pb-6 border-b">
+            {{-- Avatar Preview --}}
+            <img src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('img/default-avatar.png') }}"
+                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border" alt="Avatar">
 
+            {{-- Upload Avatar --}}
+            <div class="w-full max-w-sm">
+                <label class="block mb-2 font-semibold text-gray-700">
+                    Ubah Avatar
+                </label>
+
+                <input type="file" name="avatar" accept="image/*"
+                    class="block w-full text-sm text-gray-600
+                   file:mr-3 file:py-2 file:px-4
+                   file:rounded-md file:border-0
+                   file:text-sm file:font-semibold
+                   file:bg-navy_1 file:text-white
+                   hover:file:bg-navy_2
+                   focus:outline-none">
+            </div>
+        </div>
         <div>
             <label class="block font-semibold text-gray-700">Nama</label>
             <input type="text" name="full_name" value="{{ old('full_name', $user->full_name) }}"

@@ -9,12 +9,6 @@
                 <img src="{{ asset('img/logo.png') }}" alt="Logo" class="h-16">
             </div>
 
-            @if (session('status'))
-                <div class="mb-4 text-sm text-green-600 text-center">
-                    {{ session('status') }}
-                </div>
-            @endif
-
             <h1 class="text-xl font-semibold mb-6 text-center text-gray-800">
                 Login
             </h1>
