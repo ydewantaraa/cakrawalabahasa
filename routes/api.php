@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\Auth\GoogleAuthController;
 use App\Http\Controllers\Api\Auth\PasswordController;
+use App\Http\Controllers\Api\Auth\StudentProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -11,15 +12,25 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::prefix('auth')->group(function () {
-        Route::post('/logout', [AuthController::class, 'logout']);
-        Route::get('/email/verified', [AuthController::class, 'checkVerified']);
-        Route::post('/email/resend', [AuthController::class, 'resendVerification']);
-        Route::post('/change-password', [PasswordController::class, 'change']);
-        Route::post('/logout', [AuthController::class, 'logout']);
+Route::middleware('auth:sanctum')->prefix('auth')->group(function () {
+
+    // Auth
+    Route::post('/logout', [AuthController::class, 'logout']);
+
+    // Email verification
+    Route::get('/email/verified', [AuthController::class, 'checkVerified']);
+    Route::post('/email/resend', [AuthController::class, 'resendVerification']);
+
+    // Password
+    Route::post('/change-password', [PasswordController::class, 'change']);
+
+    // Student Profile (WAJIB VERIFIED)
+    Route::middleware('verified')->group(function () {
+        Route::get('/student-profile', [StudentProfileController::class, 'show']);
+        Route::patch('/student-profile', [StudentProfileController::class, 'update']);
     });
 });
+
 
 
 Route::prefix('auth')->group(function () {
