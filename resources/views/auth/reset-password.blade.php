@@ -13,13 +13,7 @@
                 Reset Password
             </h1>
 
-            @if ($errors->any())
-                <div class="mb-4 p-2 text-sm text-center bg-red-100 text-red-700 rounded">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }}
-                    @endforeach
-                </div>
-            @endif
+            @include('components.status-message')
 
             <form method="POST" action="{{ route('password.update') }}">
                 @csrf

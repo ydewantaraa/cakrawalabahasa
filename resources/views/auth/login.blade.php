@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Login')
 @section('content')
     <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
         <div class="w-full max-w-md bg-white shadow-md rounded-lg p-6">
@@ -18,14 +18,7 @@
             <h1 class="text-xl font-semibold mb-6 text-center text-gray-800">
                 Login
             </h1>
-
-            @if ($errors->any())
-                <div class="mb-4 p-1 text-center bg-red-100 text-red-700 rounded">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }}
-                    @endforeach
-                </div>
-            @endif
+            @include('components.status-message')
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 

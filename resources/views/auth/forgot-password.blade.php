@@ -17,19 +17,7 @@
                 Enter your email address and we'll send you a password reset link.
             </p>
 
-            @if (session('status'))
-                <div class="mb-4 text-sm text-green-600 text-center">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            @if ($errors->any())
-                <div class="mb-4 p-2 text-sm text-center bg-red-100 text-red-700 rounded">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }}
-                    @endforeach
-                </div>
-            @endif
+            @include('components.status-message')
 
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf

@@ -65,7 +65,7 @@
 
                     <div x-show="dropdown" @click.away="dropdown = false"
                         class="absolute right-0 mt-2 w-48 bg-[#232c5f] rounded shadow-lg z-50">
-                        <a href="{{ route('profile.edit') }}" class="block px-4 py-2 hover:text-orange-500">
+                        <a href="{{ route('student-profile.show') }}" class="block px-4 py-2 hover:text-orange-500">
                             Profile
                         </a>
 
@@ -111,7 +111,7 @@
                 <p class="font-semibold">{{ Auth::user()->name }}</p>
                 <p class="text-sm text-gray-300 mb-2">Student</p>
 
-                <a href="{{ route('profile.edit') }}" class="block py-2 hover:text-orange-500">
+                <a href="{{ route('student-profile.show') }}" class="block py-2 hover:text-orange-500">
                     Profile
                 </a>
 
