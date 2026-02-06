@@ -3,17 +3,17 @@
         @csrf
 
         <div class="mb-4">
-            <label class="block text-sm text-gray-700 mb-1">Old Password</label>
+            <label class="block font-semibold text-sm text-gray-700 mb-1">Old Password</label>
             <input type="password" name="current_password" class="w-full rounded border-gray-300" required>
         </div>
 
         <div class="mb-4">
-            <label class="block text-sm text-gray-700 mb-1">New Password</label>
+            <label class="block font-semibold text-sm text-gray-700 mb-1">New Password</label>
             <input type="password" name="password" class="w-full rounded border-gray-300" required>
         </div>
 
         <div class="mb-6">
-            <label class="block text-sm text-gray-700 mb-1">Password Confirmation</label>
+            <label class="block font-semibold text-sm text-gray-700 mb-1">Password Confirmation</label>
             <input type="password" name="password_confirmation" class="w-full rounded border-gray-300" required>
         </div>
 

@@ -13,7 +13,10 @@
 
             @include('components.status-message')
 
-            <h1 class="text-xl font-bold mb-6 text-center text-gray-800">Profil Saya</h1>
+            <h1 id="page-title" class="text-xl font-bold mb-6 text-center text-gray-800">
+                Profil Saya
+            </h1>
+
 
             {{-- Tabs --}}
             <div class="flex border-b mb-6">
@@ -48,6 +51,7 @@
         const tabSecurity = document.getElementById('tab-security');
         const contentInfo = document.getElementById('content-info');
         const contentSecurity = document.getElementById('content-security');
+        const pageTitle = document.getElementById('page-title');
 
         tabInfo.addEventListener('click', () => {
             contentInfo.classList.remove('hidden');
@@ -55,6 +59,7 @@
             tabInfo.classList.add('border-navy_1');
             tabSecurity.classList.remove('border-navy_1');
             tabSecurity.classList.add('border-transparent');
+            pageTitle.textContent = 'Profil Saya';
         });
 
         tabSecurity.addEventListener('click', () => {
@@ -63,6 +68,7 @@
             tabSecurity.classList.add('border-navy_1');
             tabInfo.classList.remove('border-navy_1');
             tabInfo.classList.add('border-transparent');
+            pageTitle.textContent = 'Ubah Password';
         });
 
         // Toggle Edit Form

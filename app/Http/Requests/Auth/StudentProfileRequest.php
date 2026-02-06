@@ -26,6 +26,7 @@ class StudentProfileRequest extends FormRequest
             'email' => 'required|email|max:255',
             'whatsapp' => 'required|string|max:20',
             'birthday' => 'required|date',
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ];
     }
 }
