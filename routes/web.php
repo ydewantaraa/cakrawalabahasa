@@ -10,6 +10,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\Web\Auth\AuthController;
 use App\Http\Controllers\Web\Auth\GoogleAuthController;
 use App\Http\Controllers\Web\Auth\PasswordController;
+use App\Http\Controllers\Web\Auth\StudentProfileController;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -50,6 +51,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/student-profile', [StudentProfileController::class, 'show'])->name('student-profile.show');
+    Route::patch('/student-profile', [StudentProfileController::class, 'update'])->name('student-profile.update');
     // change password
     Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('password.change');
     Route::get('/change-password', [PasswordController::class, 'changePasswordForm'])->name('password.change.form');
@@ -194,9 +197,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 
     // Profile management (default dari breeze)
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 

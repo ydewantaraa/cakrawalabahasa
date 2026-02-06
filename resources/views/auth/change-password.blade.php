@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Change Password')
 
 @section('content')
     <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -9,11 +10,7 @@
                 <img src="{{ asset('img/logo.png') }}" alt="Logo" class="h-16">
             </div>
 
-            @if (session('status'))
-                <div class="mb-4 text-sm text-green-600 text-center">
-                    {{ session('status') }}
-                </div>
-            @endif
+            @include('components.status-message')
 
             <h1 class="text-xl font-semibold mb-6 text-center text-gray-800">
                 Change Password
