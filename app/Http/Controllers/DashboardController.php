@@ -6,8 +6,19 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard');
+        $user = $request->user();
+
+        switch ($user->role) {
+            case 'student':
+                return view('student.dashboard');
+            case 'teacher':
+                return view('teacher.dashboard');
+            case 'admin':
+                return view('admin.dashboard');
+            default:
+                abort(403, 'Unauthorized');
+        }
     }
 }
