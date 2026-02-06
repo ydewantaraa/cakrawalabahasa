@@ -19,7 +19,6 @@ class GoogleAuthController extends Controller
     public function callback()
     {
         try {
-            // Ambil data user dari Google
             $googleUser = Socialite::driver('google')->user();
         } catch (\Exception $e) {
             return redirect('/login')->with('error', 'Google login failed.');
@@ -30,7 +29,6 @@ class GoogleAuthController extends Controller
         $googleId = $googleUser->getId();
         $avatar   = $googleUser->getAvatar();
 
-        // Update atau buat user baru
         $user = User::updateOrCreate(
             ['email' => $email],
             [

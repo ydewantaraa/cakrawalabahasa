@@ -43,22 +43,3 @@ Route::prefix('auth')->group(function () {
     Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect']);
     Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback']);
 });
-
-
-
-
-    
-// Route::post('/login', [AuthController::class, 'login']);
-
-// Route::middleware(['auth:sanctum'])->group(function () {
-//     Route::get('/email/verify', function (Request $request) {
-//         return response()->json([
-//             'verified' => $request->user()->hasVerifiedEmail()
-//         ]);
-//     });
-
-//     Route::post('/email/verification-notification', function (Request $request) {
-//         $request->user()->sendEmailVerificationNotification();
-//         return response()->json(['message' => 'Verification email sent']);
-//     });
-// });

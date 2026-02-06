@@ -6,7 +6,7 @@
             <a href="/">
                 <img src="/img/logo.png" alt="Logo" class="h-12 hover:scale-105 transition">
             </a>
-            @auth
+            @can('student')
                 <a href="{{ route('dashboard') }}" class="font-semibold hover:text-orange-500 transition">
                     Dashboard
                 </a>
@@ -14,7 +14,7 @@
                 <a href="{{ route('cart.index') }}" class="font-semibold hover:text-orange-500 transition">
                     Keranjang
                 </a>
-            @endauth
+            @endcan
         </div>
 
         <!-- Hamburger (mobile) -->
@@ -51,12 +51,14 @@
                     <p class="font-semibold hover:text-orange-500">
                         {{ Auth::user()->full_name }}
                     </p>
-                    <p class="text-sm text-gray-300">Student</p>
+                    <span class="text-sm text-gray-300">{{ Auth::user()->role }}</span>
                 </div>
 
                 <div class="relative" x-data="{ dropdown: false }">
                     <button @click="dropdown = !dropdown" class="flex items-center space-x-1">
-                        <img src="/img/default-avatar.png" class="h-10 w-10 rounded-full">
+                        <img src="{{ Auth::user()->avatar ? asset('storage/' . Auth::user()->avatar) : asset('img/default-avatar.png') }}"
+                            class="h-10 w-10 rounded-full">
+
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />

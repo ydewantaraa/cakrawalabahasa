@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\StudentProfileRequest;
 use App\Models\StudentProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class StudentProfileController extends Controller
@@ -19,25 +20,9 @@ class StudentProfileController extends Controller
         return view('profile.show', compact('user', 'studentProfile'));
     }
 
-    public function create()
-    {
-        return view('profile.create');
-    }
-
-    public function store(StudentProfileRequest $request)
-    {
-        StudentProfile::create($request->validated());
-
-        return redirect()->route('profile.index')->with('success', 'Profile berhasil dibuat');
-    }
-
-    public function edit(StudentProfile $profile)
-    {
-        return view('web.profile.edit', compact('profile'));
-    }
-
     public function update(StudentProfileRequest $request)
     {
+        Gate::authorize('student');
         $user = auth()->user();
         $data = $request->validated();
 
@@ -45,7 +30,6 @@ class StudentProfileController extends Controller
         try {
             $emailChanged = false;
 
-            // --- UPDATE USER ---
             $userData = [
                 'full_name' => $data['full_name'],
             ];
@@ -56,17 +40,14 @@ class StudentProfileController extends Controller
             ) {
                 $emailChanged = true;
 
-                // 🔴 SIMPAN STATUS SEBELUM UPDATE
                 $wasGoogleUser = !is_null($user->google_id);
 
                 $userData['email'] = $data['email'];
                 $userData['email_verified_at'] = null;
 
-                // Jika user dari Google → putuskan koneksi Google
                 if ($wasGoogleUser) {
                     $userData['google_id'] = null;
 
-                    // HAPUS AVATAR HANYA JIKA DARI GOOGLE
                     if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
                         Storage::disk('public')->delete($user->avatar);
                     }
@@ -74,21 +55,6 @@ class StudentProfileController extends Controller
                     $userData['avatar'] = null;
                 }
             }
-            // $userData = [
-            //     'full_name' => $data['full_name'],
-            // ];
-
-            // if (
-            //     isset($data['email']) &&
-            //     $data['email'] !== $user->email
-            // ) {
-            //     $emailChanged = true;
-
-            //     $userData['email'] = $data['email'];
-            //     $userData['email_verified_at'] = null;
-            //     $userData['google_id'] = null;
-            //     $userData['avatar'] = null;
-            // }
 
             if ($request->hasFile('avatar')) {
                 if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
@@ -102,7 +68,6 @@ class StudentProfileController extends Controller
 
             $user->update($userData);
 
-            // --- UPDATE / CREATE STUDENT PROFILE ---
             $studentProfileData = [
                 'whatsapp' => $data['whatsapp'],
                 'birthday' => $data['birthday'],
@@ -117,7 +82,6 @@ class StudentProfileController extends Controller
 
             DB::commit();
 
-            // KIRIM EMAIL VERIFIKASI SETELAH COMMIT
             if ($emailChanged) {
                 $user->sendEmailVerificationNotification();
 

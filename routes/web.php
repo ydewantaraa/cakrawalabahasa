@@ -49,13 +49,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth', 'verified', 'can:student'])->group(function () {
     Route::get('/student-profile', [StudentProfileController::class, 'show'])->name('student-profile.show');
     Route::patch('/student-profile', [StudentProfileController::class, 'update'])->name('student-profile.update');
     // change password
     Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('password.change');
     Route::get('/change-password', [PasswordController::class, 'changePasswordForm'])->name('password.change.form');
+});
+
+Route::middleware(['auth', 'verified', 'can:all-users'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 
@@ -177,9 +180,11 @@ Route::get('/privacy_policy', function () {
     return view('privacy_policy');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'student'])->name('dashboard.student');
+//     Route::get('/dashboard', [DashboardController::class, 'teacher'])->name('dashboard.teacher');
+//     Route::get('/dashboard', [DashboardController::class, 'admin'])->name('dashboard.admin');
+// });
 
 Route::middleware(['auth'])->group(function () {
 
@@ -195,11 +200,6 @@ Route::middleware(['auth'])->group(function () {
 
     // Checkout Midtrans
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
-
-    // Profile management (default dari breeze)
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 

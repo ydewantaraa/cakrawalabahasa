@@ -42,23 +42,6 @@ class StudentProfileController extends Controller
         try {
             $emailChanged = false;
 
-            // --- UPDATE USER ---
-            // $userData = [
-            //     'full_name' => $data['full_name'],
-            // ];
-
-            // if (
-            //     isset($data['email']) &&
-            //     $data['email'] !== $user->email
-            // ) {
-            //     $emailChanged = true;
-
-            //     $userData['email'] = $data['email'];
-            //     $userData['email_verified_at'] = null;
-            //     $userData['google_id'] = null;
-            //     $userData['avatar'] = null;
-            // }
-
             $userData = [
                 'full_name' => $data['full_name'],
             ];
@@ -69,17 +52,14 @@ class StudentProfileController extends Controller
             ) {
                 $emailChanged = true;
 
-                // 🔴 SIMPAN STATUS SEBELUM UPDATE
                 $wasGoogleUser = !is_null($user->google_id);
 
                 $userData['email'] = $data['email'];
                 $userData['email_verified_at'] = null;
 
-                // Jika user dari Google → putuskan koneksi Google
                 if ($wasGoogleUser) {
                     $userData['google_id'] = null;
 
-                    // HAPUS AVATAR HANYA JIKA DARI GOOGLE
                     if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
                         Storage::disk('public')->delete($user->avatar);
                     }
@@ -89,7 +69,6 @@ class StudentProfileController extends Controller
             }
 
             if ($request->hasFile('avatar')) {
-                // hapus avatar lama kalau ada
                 if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
                     Storage::disk('public')->delete($user->avatar);
                 }
@@ -101,7 +80,6 @@ class StudentProfileController extends Controller
 
             $user->update($userData);
 
-            // --- UPDATE / CREATE STUDENT PROFILE ---
             $studentProfileData = [
                 'whatsapp' => $data['whatsapp'],
                 'birthday' => $data['birthday'],
@@ -116,7 +94,6 @@ class StudentProfileController extends Controller
 
             DB::commit();
 
-            // Kirim ulang email verifikasi jika email berubah
             if ($emailChanged) {
                 $verificationUrl = url(
                     "/api/auth/email/verify/{$user->id}/" . sha1($user->email)

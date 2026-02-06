@@ -18,7 +18,6 @@ class GoogleAuthController extends Controller
     public function callback()
     {
         try {
-            // Ambil data user dari Google
             $googleUser = Socialite::driver('google')->stateless()->user();
         } catch (\Exception $e) {
             return response()->json([
@@ -32,7 +31,6 @@ class GoogleAuthController extends Controller
         $googleId = $googleUser->getId();
         $avatar   = $googleUser->getAvatar();
 
-        // Update atau buat user baru
         $user = User::updateOrCreate(
             ['email' => $email],
             [
@@ -44,7 +42,6 @@ class GoogleAuthController extends Controller
             ]
         );
 
-        // Buat token API
         $token = $user->createToken('google_token')->plainTextToken;
 
         return response()->json([
