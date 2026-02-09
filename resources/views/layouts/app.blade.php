@@ -18,7 +18,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
 
         <!-- Page Heading -->
@@ -30,11 +30,26 @@
             </header>
         @endisset
 
-        <!-- Page Content -->
-        <main>
-            @yield('content')
-        </main>
+        <div class="flex">
+
+            {{-- SIDEBAR --}}
+            @auth
+                <div x-data="{ open: true }" class="flex min-h-screen">
+                    @include('partials.sidebar.main-sidebar')
+                </div>
+            @endauth
+
+            {{-- CONTENT --}}
+            <main class="flex-1 p-6">
+                @yield('content')
+            </main>
+
+            {{-- GLOBAL MODAL --}}
+            @include('components.modal')
+
+        </div>
     </div>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 </body>
 
 </html>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\Auth\AuthController;
 use App\Http\Controllers\Web\Auth\GoogleAuthController;
 use App\Http\Controllers\Web\Auth\PasswordController;
 use App\Http\Controllers\Web\Auth\StudentProfileController;
+use App\Http\Controllers\Web\ProgramServiceController;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -59,6 +60,15 @@ Route::middleware(['auth', 'verified', 'can:student'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'can:all-users'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::get('/program-services/create', [ProgramServiceController::class, 'create'])->name('program-services.create');
+    Route::get('/program-services/edit', [ProgramServiceController::class, 'edit'])->name('program-services.edit');
+    Route::get('/program-services', [ProgramServiceController::class, 'index'])->name('program-services.index');
+    Route::post('/program-services', [ProgramServiceController::class, 'store'])->name('program-services.store');
+    Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update'])->name('program-services.update');
+    Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy'])->name('program-services.destroy');
 });
 
 

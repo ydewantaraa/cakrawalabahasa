@@ -8,7 +8,9 @@ class ProgramService extends Model
 {
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'show_in_dropdown',
+        'slug'
     ];
 
     public function courses()
