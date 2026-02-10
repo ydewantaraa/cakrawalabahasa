@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Auth\GoogleAuthController;
 use App\Http\Controllers\Api\Auth\PasswordController;
 use App\Http\Controllers\Api\Auth\StudentProfileController;
 use App\Http\Controllers\Api\ProgramServiceController;
+use App\Http\Controllers\Api\CourseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::post('/program-services', [ProgramServiceController::class, 'store']);
     Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update']);
     Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy']);
+    Route::apiResource('/courses', CourseController::class);
 });
 
 Route::prefix('auth')->group(function () {

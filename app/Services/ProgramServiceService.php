@@ -10,7 +10,14 @@ class ProgramServiceService
     /**
      * Create a new class instance.
      */
-    public function __construct() {}
+
+
+    public function all()
+    {
+        return ProgramService::orderBy('created_at', 'desc')->get();
+    }
+
+
     public function store(array $data): ProgramService
     {
         $data['slug'] = Str::slug($data['name']);

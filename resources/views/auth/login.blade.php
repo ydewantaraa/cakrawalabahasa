@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Login')
 @section('content')
-    <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 pt-20 px-4">
         <div class="w-full max-w-md bg-white shadow-md rounded-lg p-6">
 
             <!-- Logo -->
