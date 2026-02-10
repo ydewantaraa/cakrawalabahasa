@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white shadow">
+<nav x-data="{ open: false }" class="bg-white shadow fixed top-0 left-0 right-0 z-50">
     <div class="bg-[#232c5f] text-white flex justify-between items-center px-6 py-4">
 
         <!-- Logo & Menu kiri -->
