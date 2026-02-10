@@ -1,38 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Dashboard Admin')
 
 @section('content')
+    <div class="p-8">
+        <h1 class="text-2xl font-semibold text-gray-800 mb-6">
+            Dashboard Siswa
+        </h1>
 
-    <div class="min-h-screen flex bg-gray-100 px-4">
-        <div class="flex flex-col md:flex-row p-6 space-y-6 md:space-y-0 md:space-x-6" x-data="{ activeTab: 'courses' }">
-            <!-- Sidebar -->
-            <div class="w-full md:w-1/5 bg-white rounded-3xl shadow-lg p-6">
-                <nav class="space-y-4">
-                    <!-- tombol sidebar -->
-                </nav>
-            </div>
-
-            <!-- Main Content -->
-            <div class="w-full md:w-4/5 space-y-6">
-                <h1>Dashboard Siswa</h1>
-
-                <!-- My Courses -->
-                <section x-show="activeTab === 'courses'" x-cloak>
-                    ...
-                </section>
-
-                <!-- History -->
-                <section x-show="activeTab === 'history'" x-cloak>
-                    ...
-                </section>
-
-                <!-- Favourite -->
-                <section x-show="activeTab === 'favourite'" x-cloak>
-                    ...
-                </section>
-
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded shadow">Total Siswa</div>
+            <div class="bg-white p-6 rounded shadow">Total Kelas</div>
+            <div class="bg-white p-6 rounded shadow">Total Guru</div>
+            <div class="bg-white p-6 rounded shadow">Total Layanan</div>
         </div>
     </div>
 @endsection
