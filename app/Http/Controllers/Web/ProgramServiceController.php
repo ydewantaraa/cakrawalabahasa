@@ -11,12 +11,27 @@ use Illuminate\Http\Request;
 
 class ProgramServiceController extends Controller
 {
-    public function index()
-    {
-        $programServices = ProgramService::latest()->get();
+    // public function index(Request $request)
+    // {
+    //     $search = $request->query('search');
 
-        return view('admin.program-services.index', compact('programServices'));
-    }
+    //     $query = ProgramService::query();
+
+    //     if ($search) {
+    //         $query->where('name', 'like', "%{$search}%")
+    //             ->orWhere('description', 'like', "%{$search}%");
+    //     }
+
+    //     $programServices = $query->orderBy('created_at', 'desc')
+    //         ->paginate(10)  // PENTING: paginate() tanpa get()
+    //         ->withQueryString();
+
+    //     dd(get_class($programServices)); // HARUSNYA: Illuminate\Pagination\LengthAwarePaginator
+
+    //     // return view('test', compact('programServices', 'search'));
+    //     return view('admin.program-services.index', compact('programServices', 'search'));
+    // }
+
     public function store(
         StoreRequest $request,
         ProgramServiceService $service
@@ -47,15 +62,5 @@ class ProgramServiceController extends Controller
         return redirect()
             ->back()
             ->with('success', 'Program service berhasil dihapus');
-    }
-
-    public function create()
-    {
-        return view('admin.program-services.create');
-    }
-
-    public function edit(ProgramService $programService)
-    {
-        return view('program-services.edit', compact('programService'));
     }
 }

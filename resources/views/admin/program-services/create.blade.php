@@ -1,5 +1,4 @@
 <div class="bg-white rounded shadow-lg w-full max-w-2xl z-50 p-6">
-    <h2 class="text-xl font-semibold mb-4">Tambah Program Service</h2>
     <form action="{{ route('program-services.store') }}" method="POST" class="space-y-4">
         @csrf
         <div>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\Auth\AuthController;
 use App\Http\Controllers\Web\Auth\GoogleAuthController;
 use App\Http\Controllers\Web\Auth\PasswordController;
 use App\Http\Controllers\Web\Auth\StudentProfileController;
+use App\Http\Controllers\Web\CourseController as WebCourseController;
 use App\Http\Controllers\Web\ProgramServiceController;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
@@ -63,12 +64,15 @@ Route::middleware(['auth', 'verified', 'can:all-users'])->group(function () {
 });
 
 Route::middleware(['auth', 'can:admin'])->group(function () {
-    Route::get('/program-services/create', [ProgramServiceController::class, 'create'])->name('program-services.create');
-    Route::get('/program-services/edit', [ProgramServiceController::class, 'edit'])->name('program-services.edit');
     Route::get('/program-services', [ProgramServiceController::class, 'index'])->name('program-services.index');
     Route::post('/program-services', [ProgramServiceController::class, 'store'])->name('program-services.store');
     Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update'])->name('program-services.update');
     Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy'])->name('program-services.destroy');
+    // course
+    Route::get('/courses}', [WebCourseController::class, 'index'])->name('courses.index');
+    Route::post('/courses}', [WebCourseController::class, 'store'])->name('courses.store');
+    Route::put('/courses/{course}', [WebCourseController::class, 'update'])->name('courses.update');
+    Route::delete('/courses/{course}', [WebCourseController::class, 'destroy'])->name('courses.destroy');
 });
 
 
@@ -202,7 +206,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Course management (bisa untuk listing kursus, detail, dll)
-    Route::resource('/courses', CourseController::class);
+    // Route::resource('/courses', CourseController::class);
 
     // Cart management
     Route::post('/cart/add/{course}', [CartController::class, 'add'])->name('cart.add');

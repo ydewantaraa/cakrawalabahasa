@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
@@ -20,6 +20,14 @@ class Course extends Model
         'thumbnail',
         'program_service_id'
     ];
+
+    // agar properti virtual muncul di JSON
+    protected function thumbnail(): Attribute
+    {
+        return Attribute::make(
+            get: fn($gambar) => url('/storage/' . $gambar),
+        );
+    }
 
     public function program_service()
     {

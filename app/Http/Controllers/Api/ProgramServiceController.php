@@ -11,6 +11,18 @@ use Illuminate\Http\Request;
 
 class ProgramServiceController extends Controller
 {
+
+    // Ambil semua program services
+    public function index(ProgramServiceService $service)
+    {
+        $programServices = $service->all(); // method di service
+
+        return response()->json([
+            'success' => true,
+            'data' => $programServices,
+        ]);
+    }
+
     public function store(
         StoreRequest $request,
         ProgramServiceService $service
