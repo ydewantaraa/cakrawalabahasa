@@ -30,24 +30,13 @@
             </header>
         @endisset
 
-        <div class="flex">
+        {{-- CONTENT --}}
+        <main class="flex-1 p-6 mt-5">
+            @yield('content')
+        </main>
 
-            {{-- SIDEBAR --}}
-            @auth
-                <div x-data="{ open: true }" class="flex min-h-screen">
-                    @include('partials.sidebar.main-sidebar')
-                </div>
-            @endauth
-
-            {{-- CONTENT --}}
-            <main class="flex-1 p-6">
-                @yield('content')
-            </main>
-
-            {{-- GLOBAL MODAL --}}
-            @include('components.modal')
-
-        </div>
+        {{-- GLOBAL MODAL --}}
+        @include('components.modal')
     </div>
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 </body>
