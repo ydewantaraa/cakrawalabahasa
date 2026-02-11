@@ -54,21 +54,24 @@
             <p class="font-medium capitalize">{{ $course->learning_type }}</p>
         </div>
 
-        <div>
-            <p class="text-gray-500">Sub Deskripsi</p>
-            <p class="font-medium">
-                {{ $course->sub_description_title ?? '-' }}
-            </p>
-        </div>
-
     </div>
 
     {{-- Sub Description Detail --}}
-    <div>
-        <p class="text-gray-500 text-sm mb-1">Penjelasan Tambahan</p>
-        <div class="bg-gray-50 border rounded p-3 text-sm text-gray-700">
+    <p class="text-gray-700 font-medium mb-2">Sub Deskripsi</p>
+
+    {{-- Kotak Sub Deskripsi --}}
+    <div class="border rounded p-4 space-y-2">
+        {{-- Title Sub --}}
+        <p class="text-gray-500 text-sm">
+            {{ $course->sub_description_title ?? '-' }}
+        </p>
+
+        <hr class="border-gray-200">
+
+        {{-- Isi Sub --}}
+        <p class="text-gray-700 text-sm">
             {{ $course->sub_description ?? '-' }}
-        </div>
+        </p>
     </div>
 
 </div>

@@ -13,6 +13,7 @@ use App\Http\Controllers\Web\Auth\PasswordController;
 use App\Http\Controllers\Web\Auth\StudentProfileController;
 use App\Http\Controllers\Web\CourseController as WebCourseController;
 use App\Http\Controllers\Web\ProgramServiceController;
+use App\Http\Controllers\Web\RegisterTeacherController;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -73,6 +74,10 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::post('/courses}', [WebCourseController::class, 'store'])->name('courses.store');
     Route::put('/courses/{course}', [WebCourseController::class, 'update'])->name('courses.update');
     Route::delete('/courses/{course}', [WebCourseController::class, 'destroy'])->name('courses.destroy');
+    // register teacher
+    Route::post('/teachers', [RegisterTeacherController::class, 'store'])->name('admin.teachers.store');
+    Route::delete('/teachers/{teacher}', [RegisterTeacherController::class, 'destroy'])->name('admin.teachers.destroy');
+    Route::put('/teachers/{teacher}', [RegisterTeacherController::class, 'update'])->name('admin.teachers.update');
 });
 
 
@@ -194,19 +199,7 @@ Route::get('/privacy_policy', function () {
     return view('privacy_policy');
 });
 
-// Route::middleware(['auth', 'verified'])->group(function () {
-//     Route::get('/dashboard', [DashboardController::class, 'student'])->name('dashboard.student');
-//     Route::get('/dashboard', [DashboardController::class, 'teacher'])->name('dashboard.teacher');
-//     Route::get('/dashboard', [DashboardController::class, 'admin'])->name('dashboard.admin');
-// });
-
 Route::middleware(['auth'])->group(function () {
-
-    // Dashboard
-    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    // Course management (bisa untuk listing kursus, detail, dll)
-    // Route::resource('/courses', CourseController::class);
 
     // Cart management
     Route::post('/cart/add/{course}', [CartController::class, 'add'])->name('cart.add');

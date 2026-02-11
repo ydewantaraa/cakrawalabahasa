@@ -56,15 +56,7 @@
 
                 <div class="relative" x-data="{ dropdown: false }">
                     <button @click="dropdown = !dropdown" class="flex items-center space-x-1">
-                        {{-- <img src="{{ Auth::user()->avatar ? asset('storage/' . Auth::user()->avatar) : asset('img/default-avatar.png') }}"
-                            class="h-10 w-10 rounded-full"> --}}
-                        <img src="{{ Auth::user()->avatar
-                            ? (filter_var(Auth::user()->avatar, FILTER_VALIDATE_URL)
-                                ? Auth::user()->avatar
-                                : asset('storage/' . Auth::user()->avatar))
-                            : asset('img/default-avatar.png') }}"
-                            class="h-10 w-10 rounded-full">
-
+                        <img src="{{ Auth::user()->avatar }}" class="h-10 w-10 rounded-full" alt="Avatar">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />

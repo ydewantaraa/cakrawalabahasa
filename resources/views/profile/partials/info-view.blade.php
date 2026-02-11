@@ -2,8 +2,7 @@
 
     {{-- AVATAR --}}
     <div class="flex items-center gap-4 pb-4 border-b">
-        <img src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('img/default-avatar.png') }}"
-            alt="Avatar" class="w-20 h-20 rounded-full object-cover border shadow">
+        <img src="{{ $user->avatar }}" alt="Avatar" class="w-20 h-20 rounded-full object-cover border shadow">
 
         <div>
             <p class="text-lg font-semibold text-gray-900">

@@ -22,7 +22,8 @@
         {{-- Nama --}}
         <div>
             <label class="block mb-1 font-medium">Nama Kelas</label>
-            <input type="text" name="name" x-model="form.name" class="w-full border rounded px-3 py-2">
+            <input type="text" name="name" x-model="form.name" placeholder="Contoh: Kelas Python Dasar"
+                class="w-full border rounded px-3 py-2">
         </div>
 
         {{-- Program Service --}}
@@ -43,43 +44,48 @@
         </div>
 
         {{-- Sub Deskripsi --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <h3 class="text-lg font-semibold mb-2">Sub Deskripsi (Opsional)</h3>
+        <div class="border rounded p-4 space-y-4">
             <div>
-                <label class="block mb-1 font-medium">Judul Sub Deskripsi</label>
+                <label class="block mb-1 text-sm font-medium">Judul Sub Deskripsi</label>
                 <input type="text" name="sub_description_title" x-model="form.sub_description_title"
-                    class="w-full border rounded px-3 py-2">
+                    placeholder="Masukan judul deskripsi" class="w-full border rounded px-3 py-2">
             </div>
 
             <div>
-                <label class="block mb-1 font-medium">Isi Sub Deskripsi</label>
-                <input type="text" name="sub_description" x-model="form.sub_description"
-                    class="w-full border rounded px-3 py-2">
+                <label class="block mb-1 text-sm font-medium">Isi Sub Deskripsi</label>
+                <textarea name="sub_description" x-model="form.sub_description" rows="4" placeholder="Contoh: Pengenalan Python"
+                    class="w-full border rounded px-3 py-2"></textarea>
             </div>
         </div>
+
 
         {{-- Kategori --}}
         <div>
             <label class="block mb-1 font-medium">Kategori</label>
-            <input type="text" name="category" x-model="form.category" class="w-full border rounded px-3 py-2">
+            <input type="text" name="category" x-model="form.category" placeholder="Contoh: Coding"
+                class="w-full border rounded px-3 py-2">
         </div>
 
         {{-- Kuota & Durasi --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block mb-1 font-medium">Kuota</label>
-                <input type="number" name="quota" x-model="form.quota" class="w-full border rounded px-3 py-2">
+                <input type="number" name="quota" x-model="form.quota" placeholder="Contoh: 20"
+                    class="w-full border rounded px-3 py-2">
             </div>
 
             <div>
                 <label class="block mb-1 font-medium">Durasi (jam)</label>
-                <input type="number" name="duration" x-model="form.duration" class="w-full border rounded px-3 py-2">
+                <input type="number" name="duration" x-model="form.duration" placeholder="Contoh: 40"
+                    class="w-full border rounded px-3 py-2">
             </div>
         </div>
 
         {{-- Harga --}}
         <div>
             <label class="block mb-1 font-medium">Harga</label>
-            <input type="number" name="price" step="0.01" x-model="form.price"
+            <input type="number" name="price" step="0.01" x-model="form.price" placeholder="Contoh: 500000"
                 class="w-full border rounded px-3 py-2">
         </div>
 

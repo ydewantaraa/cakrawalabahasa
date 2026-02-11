@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\ProgramService;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
@@ -18,6 +19,10 @@ class AdminDashboardController extends Controller
 
         if ($tab === 'classes-management') {
             $data += $this->courseTab($request);
+        }
+
+        if ($tab === 'teachers-management') {
+            $data += $this->teacherTab($request);
         }
 
         return view('admin.dashboard', $data);
@@ -60,6 +65,33 @@ class AdminDashboardController extends Controller
             'courseCount' => Course::count(),
             'search' => $search,
             'programServices' => ProgramService::orderBy('name')->get(),
+        ];
+    }
+
+    protected function teacherTab(Request $request): array
+    {
+        $search = $request->query('search');
+
+        // Query hanya untuk teacher
+        $query = User::where('role', 'teacher')
+            ->with('teacher_profile');
+
+        // Filter search
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('full_name', 'like', "%{$search}%")
+                    ->orWhereHas('teacher_profile', function ($q2) use ($search) {
+                        $q2->where('position', 'like', "%{$search}%");
+                    });
+            });
+        }
+
+        $teachers = $query->orderBy('full_name')->paginate(10)->withQueryString();
+
+        return [
+            'teachers' => $teachers,
+            'teacherCount' => User::where('role', 'teacher')->count(),
+            'search' => $search,
         ];
     }
 }

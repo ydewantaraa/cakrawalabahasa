@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Auth\PasswordController;
 use App\Http\Controllers\Api\Auth\StudentProfileController;
 use App\Http\Controllers\Api\ProgramServiceController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\RegisterTeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,10 @@ Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update']);
     Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy']);
     Route::apiResource('/courses', CourseController::class);
+    Route::post('/teachers', [RegisterTeacherController::class, 'store']);
+    Route::delete('/teachers/{teacher}', [RegisterTeacherController::class, 'destroy']);
+    Route::put('/teachers/{teacher}', [RegisterTeacherController::class, 'update']);
+    Route::get('/teachers', [RegisterTeacherController::class, 'getAllTeachers']);
 });
 
 Route::prefix('auth')->group(function () {

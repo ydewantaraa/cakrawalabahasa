@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -56,9 +57,20 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    public function teacher_profiles()
+    protected function avatar(): Attribute
     {
-        return $this->hasOne(TeacherProfile::class);
+        return Attribute::make(
+            get: fn($value) => $value
+                ? (filter_var($value, FILTER_VALIDATE_URL)
+                    ? $value                 // external URL
+                    : url('storage/' . $value)) // storage link
+                : asset('img/default-avatar.png')   // default
+        );
+    }
+
+    public function teacher_profile()
+    {
+        return $this->hasOne(TeacherProfile::class, 'teacher_id');
     }
 
     public function student_profiles()
