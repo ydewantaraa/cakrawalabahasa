@@ -1,11 +1,11 @@
 <div id="profile-edit" class="space-y-4 hidden">
-    <form method="POST" action="{{ route('student-profile.update') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('teacher-profile.update') }}" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="flex flex-col items-start gap-4 pb-6 border-b">
             {{-- Avatar Preview --}}
-            <img src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('img/default-avatar.png') }}"
-                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border" alt="Avatar">
+            <img src="{{ $user->avatar }}" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border"
+                alt="Avatar">
 
             {{-- Upload Avatar --}}
             <div class="w-full max-w-sm">
@@ -37,13 +37,7 @@
 
         <div>
             <label class="block font-semibold text-gray-700">Nomor WhatsApp</label>
-            <input type="text" name="whatsapp" value="{{ old('whatsapp', $studentProfile?->whatsapp) }}"
-                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-        </div>
-
-        <div>
-            <label class="block font-semibold text-gray-700">Tanggal Lahir</label>
-            <input type="date" name="birthday" value="{{ old('birthday', $studentProfile?->birthday) }}"
+            <input type="text" name="whatsapp" value="{{ old('whatsapp', $teacherProfile?->whatsapp) }}"
                 class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
         </div>
 

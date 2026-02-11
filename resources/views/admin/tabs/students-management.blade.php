@@ -1,3 +1,3 @@
-<h1 class="text-3xl font-semibold mb-4">
-    Student Management
-</h1>
+<div class="md:pl-6">
+    @include('admin.students-management.index')
+</div>

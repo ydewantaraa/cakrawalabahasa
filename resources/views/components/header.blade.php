@@ -187,8 +187,7 @@
             @endguest
             @auth
                 <a href="{{ route('student-profile.show') }}" class="block">
-                    <img src="{{ Auth::user()->profile_photo_url ?? '/img/default-avatar.png' }}"
-                        alt="{{ Auth::user()->name }}"
+                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}"
                         class="ml-4 h-10 w-10 rounded-full border-2 border-white shadow-lg hover:scale-105 transition" />
                 </a>
             @endauth

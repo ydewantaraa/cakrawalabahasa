@@ -6,11 +6,12 @@ use App\Http\Controllers\Api\Auth\PasswordController;
 use App\Http\Controllers\Api\Auth\StudentProfileController;
 use App\Http\Controllers\Api\ProgramServiceController;
 use App\Http\Controllers\Api\CourseController;
-use App\Http\Controllers\Api\RegisterTeacherController;
+use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
+Route::get('/me', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
@@ -19,10 +20,12 @@ Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update']);
     Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy']);
     Route::apiResource('/courses', CourseController::class);
-    Route::post('/teachers', [RegisterTeacherController::class, 'store']);
-    Route::delete('/teachers/{teacher}', [RegisterTeacherController::class, 'destroy']);
-    Route::put('/teachers/{teacher}', [RegisterTeacherController::class, 'update']);
-    Route::get('/teachers', [RegisterTeacherController::class, 'getAllTeachers']);
+    Route::post('/teachers', [TeacherController::class, 'store']);
+    Route::delete('/teachers/{teacher}', [TeacherController::class, 'destroy']);
+    Route::put('/teachers/{teacher}', [TeacherController::class, 'update']);
+    Route::get('/teachers', [TeacherController::class, 'getAllTeachers']);
+    Route::get('/students', [StudentController::class, 'getAllStudents']);
+    Route::delete('/students/{student}', [StudentController::class, 'destroy']);
 });
 
 Route::prefix('auth')->group(function () {

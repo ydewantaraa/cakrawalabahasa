@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Web\Auth;
+namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\StudentProfileRequest;
-use App\Services\StudentProfileService;
+use App\Http\Requests\TeacherProfileRequest;
+use App\services\TeacherProfileService;
 use Illuminate\Support\Facades\Gate;
 
-class StudentProfileController extends Controller
+class TeacherProfileController extends Controller
 {
-    protected StudentProfileService $service;
+    protected TeacherProfileService $service;
 
-    public function __construct(StudentProfileService $service)
+    public function __construct(TeacherProfileService $service)
     {
         $this->service = $service;
     }
@@ -19,14 +19,14 @@ class StudentProfileController extends Controller
     public function show()
     {
         $user = auth()->user();
-        $studentProfile = $user->student_profile;
+        $teacherProfile = $user->teacher_profile;
 
-        return view('profile.show', compact('user', 'studentProfile'));
+        return view('profile.show', compact('user', 'teacherProfile'));
     }
 
-    public function update(StudentProfileRequest $request)
+    public function update(TeacherProfileRequest $request)
     {
-        Gate::authorize('student');
+        Gate::authorize('teacher');
 
         try {
             $result = $this->service->update(
@@ -47,7 +47,7 @@ class StudentProfileController extends Controller
             }
 
             return redirect()
-                ->route('student-profile.show')
+                ->route('teacher-profile.show')
                 ->with('status', 'Profile berhasil diperbarui');
         } catch (\Throwable $e) {
             return back()->withErrors([

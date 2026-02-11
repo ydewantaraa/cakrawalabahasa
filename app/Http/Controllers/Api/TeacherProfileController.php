@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\StudentProfileRequest;
-use App\Mail\VerifyEmailMail;
-use App\services\StudentProfileService;
+use App\Http\Requests\TeacherProfileRequest;
+use App\services\TeacherProfileService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 
-class StudentProfileController extends Controller
+class TeacherProfileController extends Controller
 {
-    protected StudentProfileService $service;
+    protected TeacherProfileService $service;
 
-    public function __construct(StudentProfileService $service)
+    public function __construct(TeacherProfileService $service)
     {
         $this->service = $service;
     }
@@ -33,12 +29,12 @@ class StudentProfileController extends Controller
                     'email' => $user->email,
                     'email_verified' => $user->hasVerifiedEmail(),
                 ],
-                'student_profile' => $user->student_profile,
+                'teacher_profile' => $user->teacher_profile,
             ],
         ]);
     }
 
-    public function update(StudentProfileRequest $request)
+    public function update(TeacherProfileRequest $request)
     {
         try {
             $result = $this->service->update(

@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterTeacherRequest;
 use App\Models\User;
-use App\Services\RegisterTeacherService;
+use App\Services\TeacherService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class RegisterTeacherController extends Controller
+class TeacherController extends Controller
 {
     public function __construct(
-        protected RegisterTeacherService $teacherService
+        protected TeacherService $teacherService
     ) {}
 
     public function create()
