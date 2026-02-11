@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 use function Symfony\Component\Clock\now;
 
-class RegisterTeacherService
+class TeacherService
 {
     /**
      * Create a new class instance.

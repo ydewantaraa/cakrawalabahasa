@@ -1,5 +1,5 @@
 <aside :class="open ? 'w-64' : 'w-16'"
-    class="bg-navy_2 text-white flex flex-col fixed left-0 top-20 bottom-0 z-50 transition-all duration-300">
+    class="bg-navy_2 text-white flex flex-col fixed left-0 top-20 bottom-0 z-40 transition-all duration-300">
     <!-- Header -->
     <div class="h-16 flex items-center justify-between px-4 border-b border-white/20 flex-shrink-0">
         <span x-show="open" class="text-xl font-semibold truncate">

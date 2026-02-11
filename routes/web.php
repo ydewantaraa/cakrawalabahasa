@@ -13,7 +13,9 @@ use App\Http\Controllers\Web\Auth\PasswordController;
 use App\Http\Controllers\Web\Auth\StudentProfileController;
 use App\Http\Controllers\Web\CourseController as WebCourseController;
 use App\Http\Controllers\Web\ProgramServiceController;
-use App\Http\Controllers\Web\RegisterTeacherController;
+use App\Http\Controllers\Web\StudentController;
+use App\Http\Controllers\Web\TeacherController;
+use App\Http\Controllers\Web\TeacherProfileController;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -55,16 +57,24 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified', 'can:student'])->group(function () {
     Route::get('/student-profile', [StudentProfileController::class, 'show'])->name('student-profile.show');
     Route::patch('/student-profile', [StudentProfileController::class, 'update'])->name('student-profile.update');
+});
+
+Route::middleware(['auth', 'verified', 'can:teacher'])->group(function () {
+    Route::get('/teacher-profile', [TeacherProfileController::class, 'show'])->name('teacher-profile.show');
+    Route::patch('/teacher-profile', [teacherProfileController::class, 'update'])->name('teacher-profile.update');
+});
+
+Route::middleware(['auth', 'verified', 'can:all-users'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     // change password
     Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('password.change');
     Route::get('/change-password', [PasswordController::class, 'changePasswordForm'])->name('password.change.form');
 });
 
-Route::middleware(['auth', 'verified', 'can:all-users'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
-
 Route::middleware(['auth', 'can:admin'])->group(function () {
+    // get students
+    Route::get('/students', [StudentController::class, 'getAllStudents'])->name('students.index');
     Route::get('/program-services', [ProgramServiceController::class, 'index'])->name('program-services.index');
     Route::post('/program-services', [ProgramServiceController::class, 'store'])->name('program-services.store');
     Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update'])->name('program-services.update');
@@ -75,9 +85,11 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::put('/courses/{course}', [WebCourseController::class, 'update'])->name('courses.update');
     Route::delete('/courses/{course}', [WebCourseController::class, 'destroy'])->name('courses.destroy');
     // register teacher
-    Route::post('/teachers', [RegisterTeacherController::class, 'store'])->name('admin.teachers.store');
-    Route::delete('/teachers/{teacher}', [RegisterTeacherController::class, 'destroy'])->name('admin.teachers.destroy');
-    Route::put('/teachers/{teacher}', [RegisterTeacherController::class, 'update'])->name('admin.teachers.update');
+    Route::post('/teachers', [TeacherController::class, 'store'])->name('admin.teachers.store');
+    Route::delete('/teachers/{teacher}', [TeacherController::class, 'destroy'])->name('admin.teachers.destroy');
+    Route::put('/teachers/{teacher}', [TeacherController::class, 'update'])->name('admin.teachers.update');
+    // delete teacher
+    Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('admin.students.destroy');
 });
 
 

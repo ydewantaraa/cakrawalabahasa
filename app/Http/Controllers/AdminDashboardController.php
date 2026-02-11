@@ -25,6 +25,18 @@ class AdminDashboardController extends Controller
             $data += $this->teacherTab($request);
         }
 
+        if ($tab === 'students-management') {
+            $data += $this->studentTab($request);
+        }
+
+        // if ($tab === 'enrollments-management') {
+        //     $data += $this->teacherTab($request);
+        // }
+
+        // if ($tab === 'payment-history') {
+        //     $data += $this->teacherTab($request);
+        // }
+
         return view('admin.dashboard', $data);
     }
 
@@ -91,6 +103,30 @@ class AdminDashboardController extends Controller
         return [
             'teachers' => $teachers,
             'teacherCount' => User::where('role', 'teacher')->count(),
+            'search' => $search,
+        ];
+    }
+
+    protected function studentTab(Request $request): array
+    {
+        $search = $request->query('search');
+
+        // Query hanya untuk student
+        $query = User::where('role', 'student')
+            ->with('student_profile');
+
+        // Filter search
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('full_name', 'like', "%{$search}%");
+            });
+        }
+
+        $students = $query->orderBy('full_name')->paginate(10)->withQueryString();
+
+        return [
+            'students' => $students,
+            'studentCount' => User::where('role', 'student')->count(),
             'search' => $search,
         ];
     }
