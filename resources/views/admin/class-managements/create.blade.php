@@ -1,4 +1,3 @@
-{{-- <div class="bg-white rounded shadow-lg w-full max-w-2xl z-50 p-6"> --}}
 <div class="space-y-4">
     <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
         @csrf
@@ -6,7 +5,7 @@
         {{-- Nama Kelas --}}
         <div>
             <label class="block mb-1 font-medium">Nama Kelas</label>
-            <input type="text" name="name" value="{{ old('name') }}"
+            <input type="text" name="name" value="{{ old('name') }}" placeholder="Contoh: Kelas Coding Dasar"
                 class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">
             @error('name')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -33,28 +32,32 @@
         {{-- Deskripsi --}}
         <div>
             <label class="block mb-1 font-medium">Deskripsi</label>
-            <textarea name="description" rows="3" class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">{{ old('description') }}</textarea>
+            <textarea name="description" rows="3" placeholder="Contoh: Deskripsi singkat kelas"
+                class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">{{ old('description') }}</textarea>
         </div>
 
         {{-- Sub Deskripsi --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <h3 class="text-lg font-semibold mb-2">Sub Deskripsi (Opsional)</h3>
+        <div class="border rounded p-4 space-y-4">
             <div>
-                <label class="block mb-1 font-medium">Judul Sub Deskripsi</label>
+                <label class="block mb-1 text-sm font-medium">Judul Sub Deskripsi</label>
                 <input type="text" name="sub_description_title" value="{{ old('sub_description_title') }}"
-                    class="w-full border rounded px-3 py-2">
+                    placeholder="Contoh: Materi Tambahan" class="w-full border rounded px-3 py-2">
             </div>
 
             <div>
-                <label class="block mb-1 font-medium">Isi Sub Deskripsi</label>
-                <input type="text" name="sub_description" value="{{ old('sub_description') }}"
-                    class="w-full border rounded px-3 py-2">
+                <label class="block mb-1 text-sm font-medium">Isi Sub Deskripsi</label>
+                <textarea name="sub_description" rows="4" placeholder="Contoh: Penjelasan detail materi"
+                    class="w-full border rounded px-3 py-2">{{ old('sub_description') }}</textarea>
             </div>
         </div>
 
+
+
         {{-- Kategori --}}
         <div>
-            <label class="block mb-1 font-medium">Kategori</label>
-            <input type="text" name="category" value="{{ old('category') }}"
+            <label class="block mb-1 font-medium">Kategori Usia</label>
+            <input type="text" name="category" value="{{ old('category') }}" placeholder="Contoh: 5-9 tahun"
                 class="w-full border rounded px-3 py-2">
         </div>
 
@@ -62,13 +65,13 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block mb-1 font-medium">Kuota</label>
-                <input type="number" name="quota" value="{{ old('quota') }}"
+                <input type="number" name="quota" value="{{ old('quota') }}" placeholder="Contoh: 20"
                     class="w-full border rounded px-3 py-2">
             </div>
 
             <div>
-                <label class="block mb-1 font-medium">Durasi (jam)</label>
-                <input type="number" name="duration" value="{{ old('duration') }}"
+                <label class="block mb-1 font-medium">Durasi</label>
+                <input type="number" name="duration" value="{{ old('duration') }}" placeholder="Contoh: 90 menit/sesi"
                     class="w-full border rounded px-3 py-2">
             </div>
         </div>
@@ -77,7 +80,7 @@
         <div>
             <label class="block mb-1 font-medium">Harga</label>
             <input type="number" name="price" step="0.01" value="{{ old('price') }}"
-                class="w-full border rounded px-3 py-2">
+                placeholder="Contoh: 150000" class="w-full border rounded px-3 py-2">
         </div>
 
         {{-- Tipe Pembelajaran --}}

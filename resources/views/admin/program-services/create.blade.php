@@ -4,6 +4,7 @@
         <div>
             <label for="name" class="block mb-1 font-medium">Nama Program</label>
             <input type="text" name="name" id="name" value="{{ old('name') }}"
+                placeholder="Contoh: CB For Kids"
                 class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
             @error('name')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -28,7 +29,6 @@
                 Tampilkan di dropdown
             </label>
         </div>
-
 
         <div class="flex justify-end gap-2 mt-4">
             <button type="button" @click="$store.modal.close()"

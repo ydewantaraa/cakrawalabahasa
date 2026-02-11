@@ -14,7 +14,8 @@
         {{-- Nama --}}
         <div>
             <label class="block mb-1 font-medium">Nama Program</label>
-            <input type="text" name="name" x-model="form.name" class="w-full border rounded px-3 py-2">
+            <input type="text" name="name" x-model="form.name" placeholder="Contoh: CB For Kids"
+                class="w-full border rounded px-3 py-2">
         </div>
 
         {{-- Deskripsi --}}
@@ -35,7 +36,6 @@
                 class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-100 transition">
                 Batal
             </button>
-
 
             <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">
                 Update

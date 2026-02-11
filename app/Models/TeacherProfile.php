@@ -9,7 +9,8 @@ class TeacherProfile extends Model
     protected $fillable = [
         'whatsapp',
         'position',
-        'teacher_id'
+        'teacher_id',
+        'initial_password'
     ];
     public function user()
     {

@@ -53,6 +53,10 @@
                         @include('admin.tabs.classes-management')
                     @break
 
+                    @case('teachers-management')
+                        @include('admin.tabs.teachers-management')
+                    @break
+
                     @default
                         @include('admin.tabs.overview')
                 @endswitch
