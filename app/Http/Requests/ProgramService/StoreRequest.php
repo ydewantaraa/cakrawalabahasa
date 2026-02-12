@@ -25,6 +25,10 @@ class StoreRequest extends FormRequest
             'name' => 'required|string|max:255|unique:program_services,name',
             'description' => 'required|string',
             'show_in_dropdown' => 'sometimes|boolean',
+            'features' => 'nullable|array',
+            'features.*.title' => 'required|string|max:255',
+            'features.*.description' => 'required|string',
+            'features.*.thumbnail' => 'nullable|image',
         ];
     }
 }

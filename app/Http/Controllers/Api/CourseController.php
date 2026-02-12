@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Services\CourseService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class CourseController extends Controller
 {
@@ -36,28 +37,58 @@ class CourseController extends Controller
         return response()->json($course);
     }
 
+    /**
+     * Store new course
+     */
     public function store(CourseRequest $request): JsonResponse
     {
-        $data = $request->validated();
+        try {
+            $data = $request->validated();
 
-        if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail');
+            if ($request->hasFile('thumbnail')) {
+                $data['thumbnail'] = $request->file('thumbnail');
+            }
+
+            $course = $this->service->create($data);
+
+            return response()->json([
+                'message' => 'Course created successfully',
+                'data' => $course
+            ], 201);
+        } catch (ValidationException $e) {
+
+            return response()->json([
+                'message' => 'Validation error',
+                'errors' => $e->errors()
+            ], 422);
         }
-
-        $course = $this->service->create($data);
-        return response()->json($course, 201);
     }
 
+    /**
+     * Update course
+     */
     public function update(CourseRequest $request, Course $course): JsonResponse
     {
-        $data = $request->validated();
+        try {
+            $data = $request->validated();
 
-        if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail');
+            if ($request->hasFile('thumbnail')) {
+                $data['thumbnail'] = $request->file('thumbnail');
+            }
+
+            $course = $this->service->update($course, $data);
+
+            return response()->json([
+                'message' => 'Course updated successfully',
+                'data' => $course
+            ]);
+        } catch (ValidationException $e) {
+
+            return response()->json([
+                'message' => 'Validation error',
+                'errors' => $e->errors()
+            ], 422);
         }
-
-        $course = $this->service->update($course, $data);
-        return response()->json($course);
     }
 
 

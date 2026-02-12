@@ -1,28 +1,40 @@
-<div id="profile-edit" class="space-y-4 hidden">
+<div id="profile-edit" class="space-y-4 hidden" x-data="{
+    avatarPreview: @js($user->avatar),
+    handleAvatarChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => this.avatarPreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            this.avatarPreview = @js($user->avatar);
+        }
+    }
+}">
     <form method="POST" action="{{ route('student-profile.update') }}" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
+
         <div class="flex flex-col items-start gap-4 pb-6 border-b">
             {{-- Avatar Preview --}}
-            <img src="{{ $user->avatar }}" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border"
-                alt="Avatar">
+            <img :src="avatarPreview" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border" alt="Avatar">
 
             {{-- Upload Avatar --}}
             <div class="w-full max-w-sm">
                 <label class="block mb-2 font-semibold text-gray-700">
                     Ubah Avatar
                 </label>
-
-                <input type="file" name="avatar" accept="image/*"
+                <input type="file" name="avatar" accept="image/*" @change="handleAvatarChange"
                     class="block w-full text-sm text-gray-600
-                   file:mr-3 file:py-2 file:px-4
-                   file:rounded-md file:border-0
-                   file:text-sm file:font-semibold
-                   file:bg-navy_1 file:text-white
-                   hover:file:bg-navy_2
-                   focus:outline-none">
+                           file:mr-3 file:py-2 file:px-4
+                           file:rounded-md file:border-0
+                           file:text-sm file:font-semibold
+                           file:bg-navy_1 file:text-white
+                           hover:file:bg-navy_2
+                           focus:outline-none">
             </div>
         </div>
+
         <div>
             <label class="block font-semibold text-gray-700">Nama</label>
             <input type="text" name="full_name" value="{{ old('full_name', $user->full_name) }}"
