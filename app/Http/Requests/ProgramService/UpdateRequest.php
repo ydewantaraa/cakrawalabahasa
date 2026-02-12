@@ -29,6 +29,10 @@ class UpdateRequest extends FormRequest
             'features.*.title' => 'required|string|max:255',
             'features.*.description' => 'required|string',
             'features.*.thumbnail' => 'nullable|image',
+            'advantages' => 'nullable|array',
+            'advantages.*.title' => 'required|string|max:255',
+            'advantages.*.description' => 'required|string',
+            'advantages.*.thumbnail' => 'nullable|image',
         ];
     }
 }

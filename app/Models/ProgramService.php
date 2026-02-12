@@ -23,6 +23,11 @@ class ProgramService extends Model
         return $this->hasMany(FeatureProgramService::class);
     }
 
+    public function advantage_program_services()
+    {
+        return $this->hasMany(AdvantageProgramService::class);
+    }
+
     public function getRouteKeyName(): string
     {
         return 'slug';
