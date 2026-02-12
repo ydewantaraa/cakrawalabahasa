@@ -46,12 +46,12 @@ class ProgramServiceController extends Controller
             ->with('success', 'Program service berhasil diperbarui');
     }
 
-    public function destroy(ProgramService $programService)
+    public function destroy(ProgramService $programService, ProgramServiceService $service)
     {
-        $programService->delete();
+        $service->destroy($programService);
 
         return redirect()
             ->back()
-            ->with('success', 'Program service berhasil dihapus');
+            ->with('success', 'Program service berhasil dihapus beserta semua fitur dan keunggulannya');
     }
 }

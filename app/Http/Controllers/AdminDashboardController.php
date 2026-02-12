@@ -49,7 +49,7 @@ class AdminDashboardController extends Controller
                 ->orWhere('description', 'like', "%{$search}%");
         })
             ->latest()
-            ->paginate(3)
+            ->paginate(10)
             ->withQueryString();
 
         return [

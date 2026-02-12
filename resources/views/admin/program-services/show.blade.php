@@ -7,6 +7,7 @@
         <p><strong>Deskripsi:</strong> {{ $programService->description ?? '-' }}</p>
     </div>
 
+    {{-- Fitur Program --}}
     @if ($programService->feature_program_services->isNotEmpty())
         <h3 class="text-lg font-semibold mb-2">Fitur Program</h3>
         <div class="space-y-4">
@@ -27,5 +28,28 @@
         </div>
     @else
         <p class="text-gray-500">Belum ada fitur untuk program ini.</p>
+    @endif
+
+    {{-- Advantage Program --}}
+    @if ($programService->advantage_program_services->isNotEmpty())
+        <h3 class="text-lg font-semibold mt-6 mb-2">Keunggulan Program</h3>
+        <div class="space-y-4">
+            @foreach ($programService->advantage_program_services as $advantage)
+                <div class="border rounded p-3 flex flex-col sm:flex-row gap-4 items-start">
+                    {{-- Thumbnail --}}
+                    @if ($advantage->thumbnail)
+                        <img src="{{ $advantage->thumbnail }}" alt="{{ $advantage->title }}"
+                            class="w-32 h-32 object-cover rounded border">
+                    @endif
+
+                    <div class="flex-1 space-y-1">
+                        <p><strong>Nama Keunggulan:</strong> {{ $advantage->title }}</p>
+                        <p><strong>Deskripsi Keunggulan:</strong> {{ $advantage->description ?? '-' }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @else
+        <p class="text-gray-500 mt-4">Belum ada keunggulan untuk program ini.</p>
     @endif
 </div>
