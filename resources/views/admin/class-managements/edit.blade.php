@@ -7,9 +7,18 @@
         category: @js(old('category', $course->category)),
         quota: @js(old('quota', $course->quota)),
         duration: @js(old('duration', $course->duration)),
-        price: @js(old('price', $course->price)),
-        learning_type: @js(old('learning_type', $course->learning_type)),
-        program_service_id: @js(old('program_service_id', $course->program_service_id))
+        program_service_id: @js(old('program_service_id', $course->program_service_id)),
+        thumbnailPreview: @js($course->thumbnail ? $course->thumbnail : null)
+    },
+    handleThumbnailChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => this.form.thumbnailPreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            this.form.thumbnailPreview = null;
+        }
     }
 }" class="bg-white rounded shadow-lg w-full max-w-2xl z-50 p-6">
 
@@ -59,7 +68,6 @@
             </div>
         </div>
 
-
         {{-- Kategori --}}
         <div>
             <label class="block mb-1 font-medium">Kategori</label>
@@ -99,13 +107,9 @@
                     <input type="checkbox" x-model="types.offline">
                     Offline
                 </label>
-
                 <div x-show="types.offline">
                     <input type="number" name="learning_types[offline][price]"
-                        value="{{ old(
-                            'learning_types.offline.price',
-                            optional($course->learning_types->where('type', 'offline')->first())->price,
-                        ) }}"
+                        value="{{ old('learning_types.offline.price', optional($course->learning_types->where('type', 'offline')->first())->price) }}"
                         placeholder="Harga Offline" class="w-full border rounded px-3 py-2">
                 </div>
             </div>
@@ -116,13 +120,9 @@
                     <input type="checkbox" x-model="types.online">
                     Online
                 </label>
-
                 <div x-show="types.online">
                     <input type="number" name="learning_types[online][price]"
-                        value="{{ old(
-                            'learning_types.online.price',
-                            optional($course->learning_types->where('type', 'online')->first())->price,
-                        ) }}"
+                        value="{{ old('learning_types.online.price', optional($course->learning_types->where('type', 'online')->first())->price) }}"
                         placeholder="Harga Online" class="w-full border rounded px-3 py-2">
                 </div>
             </div>
@@ -133,26 +133,24 @@
                     <input type="checkbox" x-model="types.hybrid">
                     Hybrid
                 </label>
-
                 <div x-show="types.hybrid">
                     <input type="number" name="learning_types[hybrid][price]"
-                        value="{{ old(
-                            'learning_types.hybrid.price',
-                            optional($course->learning_types->where('type', 'hybrid')->first())->price,
-                        ) }}"
+                        value="{{ old('learning_types.hybrid.price', optional($course->learning_types->where('type', 'hybrid')->first())->price) }}"
                         placeholder="Harga Hybrid" class="w-full border rounded px-3 py-2">
                 </div>
             </div>
-
-            @error('learning_types')
-                <p class="text-red-600 text-sm">{{ $message }}</p>
-            @enderror
         </div>
 
         {{-- Thumbnail --}}
         <div>
             <label class="block mb-1 font-medium">Thumbnail (opsional)</label>
-            <input type="file" name="thumbnail" class="w-full border rounded px-3 py-2">
+            <input type="file" name="thumbnail" class="w-full border rounded px-3 py-2"
+                @change="handleThumbnailChange">
+
+            {{-- Preview --}}
+            <div x-show="form.thumbnailPreview" class="mt-2">
+                <img :src="form.thumbnailPreview" class="w-32 h-32 object-cover border rounded">
+            </div>
         </div>
 
         {{-- Action --}}
