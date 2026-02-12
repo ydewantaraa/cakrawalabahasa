@@ -20,7 +20,7 @@ class ProgramService extends Model
 
     public function future_program_services()
     {
-        return $this->hasMany(FutureProgramService::class);
+        return $this->hasMany(ProgramService::class);
     }
 
     public function getRouteKeyName(): string

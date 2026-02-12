@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('future_program_services', function (Blueprint $table) {
+        Schema::create('feature_program_services', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('description');
