@@ -18,9 +18,9 @@ class ProgramService extends Model
         return $this->hasMany(Course::class);
     }
 
-    public function future_program_services()
+    public function feature_program_services()
     {
-        return $this->hasMany(ProgramService::class);
+        return $this->hasMany(FeatureProgramService::class);
     }
 
     public function getRouteKeyName(): string

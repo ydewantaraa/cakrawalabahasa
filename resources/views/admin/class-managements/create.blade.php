@@ -1,4 +1,16 @@
-<div class="space-y-4">
+<div class="space-y-4" x-data="{
+    thumbnailPreview: null,
+    handleThumbnailChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => this.thumbnailPreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            this.thumbnailPreview = null;
+        }
+    }
+}">
     <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
         @csrf
 
@@ -52,8 +64,6 @@
             </div>
         </div>
 
-
-
         {{-- Kategori --}}
         <div>
             <label class="block mb-1 font-medium">Kategori Usia</label>
@@ -92,7 +102,6 @@
                     <input type="checkbox" x-model="types.offline">
                     Offline
                 </label>
-
                 <div x-show="types.offline" x-transition>
                     <input type="number" name="learning_types[offline][price]"
                         value="{{ old('learning_types.offline.price') }}" placeholder="Harga Offline"
@@ -106,7 +115,6 @@
                     <input type="checkbox" x-model="types.online">
                     Online
                 </label>
-
                 <div x-show="types.online" x-transition>
                     <input type="number" name="learning_types[online][price]"
                         value="{{ old('learning_types.online.price') }}" placeholder="Harga Online"
@@ -120,24 +128,24 @@
                     <input type="checkbox" x-model="types.hybrid">
                     Hybrid
                 </label>
-
                 <div x-show="types.hybrid" x-transition>
                     <input type="number" name="learning_types[hybrid][price]"
                         value="{{ old('learning_types.hybrid.price') }}" placeholder="Harga Hybrid"
                         class="w-full border rounded px-3 py-2">
                 </div>
             </div>
-
-            @error('learning_types')
-                <p class="text-red-600 text-sm">{{ $message }}</p>
-            @enderror
         </div>
-
 
         {{-- Thumbnail --}}
         <div>
             <label class="block mb-1 font-medium">Thumbnail</label>
-            <input type="file" name="thumbnail" class="w-full border rounded px-3 py-2">
+            <input type="file" name="thumbnail" class="w-full border rounded px-3 py-2"
+                @change="handleThumbnailChange">
+
+            {{-- Preview --}}
+            <div x-show="thumbnailPreview" class="mt-2">
+                <img :src="thumbnailPreview" class="w-32 h-32 object-cover border rounded">
+            </div>
         </div>
 
         {{-- Action --}}
