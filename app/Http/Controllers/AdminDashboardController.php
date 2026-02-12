@@ -63,11 +63,16 @@ class AdminDashboardController extends Controller
     {
         $search = $request->query('search');
 
-        $courses = Course::when($search, function ($q) use ($search) {
-            $q->where('name', 'like', "%{$search}%")
-                ->orWhere('category', 'like', "%{$search}%")
-                ->orWhere('learning_type', 'like', "%{$search}%");
-        })
+        $courses = Course::with(['learning_types', 'program_service'])
+            ->when($search, function ($q) use ($search) {
+                $q->where(function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%")
+                        ->orWhere('category', 'like', "%{$search}%")
+                        ->orWhereHas('learning_types', function ($lt) use ($search) {
+                            $lt->where('type', 'like', "%{$search}%");
+                        });
+                });
+            })
             ->latest()
             ->paginate(10)
             ->withQueryString();
@@ -79,6 +84,7 @@ class AdminDashboardController extends Controller
             'programServices' => ProgramService::orderBy('name')->get(),
         ];
     }
+
 
     protected function teacherTab(Request $request): array
     {

@@ -31,6 +31,7 @@
                 <tr>
                     <th class="p-3 text-left normal-case">Nama</th>
                     <th class="p-3 text-left">Kategori</th>
+                    <th class="p-3 text-left">Tipe Pembelajaran</th>
                     <th class="p-3 text-left normal-case">Layanan Program</th>
                     <th class="p-3 text-center">Aksi</th>
                 </tr>
@@ -39,31 +40,53 @@
                 @foreach ($courses as $course)
                     <tr class="border-t">
                         <td class="p-3 break-words">{{ $course->name }}</td>
-                        <td class="p-3 break-words">{{ $course->category }}</td>
-                        <td class="p-3 break-words normal-case">
-                            {{ $course->program_service ? $course->program_service->name : '-' }}
+
+                        <td class="p-3 break-words">
+                            {{ $course->category }}
                         </td>
+
+                        {{-- MEDIA --}}
+                        <td class="p-3 break-words">
+                            @if ($course->learning_types->count())
+                                <div class="flex flex-wrap gap-1">
+                                    @foreach ($course->learning_types as $lt)
+                                        <span class="px-2 py-1 text-xs rounded bg-gray-200 capitalize">
+                                            {{ $lt->type }}
+                                        </span>
+                                    @endforeach
+                                </div>
+                            @else
+                                -
+                            @endif
+                        </td>
+
+                        {{-- PROGRAM SERVICE --}}
+                        <td class="p-3 break-words">
+                            {{ $course->program_service?->name ?? '-' }}
+                        </td>
+
+                        {{-- AKSI --}}
                         <td class="p-3 flex flex-wrap gap-2 justify-center">
-                            <!-- Edit Button -->
+                            <!-- Edit -->
                             <button @click="$store.modal.show('Edit Kelas', $refs.edit{{ $course->id }}.innerHTML)"
-                                class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
+                                class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded text-xs sm:text-sm">
                                 Edit
                             </button>
 
-                            <!-- Delete Button -->
+                            <!-- Delete -->
                             <form action="{{ route('courses.destroy', $course) }}" method="POST"
                                 @submit.prevent="$store.alert.confirm({ title: 'Hapus Kelas?' }, ()=> $el.submit())">
                                 @csrf
                                 @method('DELETE')
                                 <button
-                                    class="bg-red-600 hover:bg-red-500 text-white px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
+                                    class="bg-red-600 hover:bg-red-500 text-white px-3 py-1 rounded text-xs sm:text-sm">
                                     Hapus
                                 </button>
                             </form>
 
-                            <!-- Detail Button -->
+                            <!-- Detail -->
                             <button @click="detailId = {{ $course->id }}"
-                                class="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
+                                class="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded text-xs sm:text-sm">
                                 Detail
                             </button>
                         </td>

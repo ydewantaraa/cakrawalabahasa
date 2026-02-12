@@ -31,8 +31,9 @@ class CourseRequest extends FormRequest
             'category' => 'required|string|max:255',
             'quota' => 'required|integer|min:1',
             'duration' => 'required|integer|min:1',
-            'price' => 'required|numeric|min:0',
-            'learning_type' => 'required|in:offline,hybrid,online',
+            'learning_types' => 'required|array',
+            'learning_types.*.type' => 'sometimes|string',
+            'learning_types.*.price' => 'nullable|numeric|min:0',
             'thumbnail' => $isCreate
                 ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // wajib saat create
                 : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // optional saat update

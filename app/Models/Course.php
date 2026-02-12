@@ -15,8 +15,6 @@ class Course extends Model
         'category',
         'quota',
         'duration',
-        'price',
-        'learning_type',
         'thumbnail',
         'program_service_id'
     ];
@@ -59,5 +57,10 @@ class Course extends Model
             'course_id',
             'student_id'
         )->withTimestamps();
+    }
+
+    public function learning_types()
+    {
+        return $this->hasMany(CourseLearningType::class);
     }
 }

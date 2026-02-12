@@ -1,11 +1,12 @@
 <div class="bg-white p-4 sm:p-6 md:p-8 rounded shadow w-full space-y-6">
 
     {{-- Header --}}
-    <div class="flex flex-col md:flex-row gap-6">
+    <div class="flex flex-col lg:flex-row gap-6 items-start">
+
         {{-- Thumbnail --}}
-        <div class="w-full md:w-48 flex-shrink-0">
+        <div class="w-full lg:w-48 flex-shrink-0">
             <img src="{{ $course->thumbnail ? $course->thumbnail : asset('img/default-course.png') }}" alt="Thumbnail"
-                class="w-full h-32 md:h-40 object-cover rounded border">
+                class="w-full h-32 lg:h-40 object-cover rounded border">
         </div>
 
         {{-- Basic Info --}}
@@ -16,10 +17,6 @@
 
             <p class="text-sm text-gray-600">
                 {{ $course->description }}
-            </p>
-
-            <p class="text-lg font-semibold text-navy_2">
-                Rp {{ number_format($course->price, 0, ',', '.') }}
             </p>
         </div>
     </div>
@@ -49,11 +46,24 @@
             <p class="font-medium">{{ $course->duration }} jam</p>
         </div>
 
-        <div>
-            <p class="text-gray-500">Tipe Pembelajaran</p>
-            <p class="font-medium capitalize">{{ $course->learning_type }}</p>
-        </div>
+    </div>
+    {{-- Media & Harga --}}
+    <div class="w-full lg:w-64 space-y-2">
+        <p class="text-gray-500 text-sm font-medium">
+            Media & Harga
+        </p>
 
+        @foreach ($course->learning_types as $lt)
+            <div class="flex justify-between items-center border rounded px-3 py-2">
+                <span class="capitalize text-sm font-medium">
+                    {{ $lt->type }}
+                </span>
+
+                <span class="text-navy_2 font-semibold text-sm">
+                    Rp {{ number_format($lt->price, 0, ',', '.') }}
+                </span>
+            </div>
+        @endforeach
     </div>
 
     {{-- Sub Description Detail --}}
