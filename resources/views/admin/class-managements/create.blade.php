@@ -76,22 +76,63 @@
             </div>
         </div>
 
-        {{-- Harga --}}
-        <div>
-            <label class="block mb-1 font-medium">Harga</label>
-            <input type="number" name="price" step="0.01" value="{{ old('price') }}"
-                placeholder="Contoh: 150000" class="w-full border rounded px-3 py-2">
+        {{-- Media Pembelajaran --}}
+        <div x-data="{
+            types: {
+                offline: {{ old('learning_types.offline.price') ? 'true' : 'false' }},
+                online: {{ old('learning_types.online.price') ? 'true' : 'false' }},
+                hybrid: {{ old('learning_types.hybrid.price') ? 'true' : 'false' }},
+            }
+        }" class="space-y-4">
+            <label class="block font-medium">Media Pembelajaran</label>
+
+            {{-- OFFLINE --}}
+            <div class="border rounded p-3 space-y-2">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" x-model="types.offline">
+                    Offline
+                </label>
+
+                <div x-show="types.offline" x-transition>
+                    <input type="number" name="learning_types[offline][price]"
+                        value="{{ old('learning_types.offline.price') }}" placeholder="Harga Offline"
+                        class="w-full border rounded px-3 py-2">
+                </div>
+            </div>
+
+            {{-- ONLINE --}}
+            <div class="border rounded p-3 space-y-2">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" x-model="types.online">
+                    Online
+                </label>
+
+                <div x-show="types.online" x-transition>
+                    <input type="number" name="learning_types[online][price]"
+                        value="{{ old('learning_types.online.price') }}" placeholder="Harga Online"
+                        class="w-full border rounded px-3 py-2">
+                </div>
+            </div>
+
+            {{-- HYBRID --}}
+            <div class="border rounded p-3 space-y-2">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" x-model="types.hybrid">
+                    Hybrid
+                </label>
+
+                <div x-show="types.hybrid" x-transition>
+                    <input type="number" name="learning_types[hybrid][price]"
+                        value="{{ old('learning_types.hybrid.price') }}" placeholder="Harga Hybrid"
+                        class="w-full border rounded px-3 py-2">
+                </div>
+            </div>
+
+            @error('learning_types')
+                <p class="text-red-600 text-sm">{{ $message }}</p>
+            @enderror
         </div>
 
-        {{-- Tipe Pembelajaran --}}
-        <div>
-            <label class="block mb-1 font-medium">Tipe Pembelajaran</label>
-            <select name="learning_type" class="w-full border rounded px-3 py-2">
-                <option value="offline">Offline</option>
-                <option value="hybrid">Hybrid</option>
-                <option value="online">Online</option>
-            </select>
-        </div>
 
         {{-- Thumbnail --}}
         <div>

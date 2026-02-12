@@ -5,32 +5,23 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProgramService\StoreRequest;
 use App\Http\Requests\ProgramService\UpdateRequest;
+use App\Models\Course;
 use App\Models\ProgramService;
 use App\Services\ProgramServiceService;
 use Illuminate\Http\Request;
 
 class ProgramServiceController extends Controller
 {
-    // public function index(Request $request)
-    // {
-    //     $search = $request->query('search');
+    public function show($slug)
+    {
+        $programService = ProgramService::where('slug', $slug)->firstOrFail();
 
-    //     $query = ProgramService::query();
+        $courses = Course::where('program_service_id', $programService->id)
+            ->latest()
+            ->get();
 
-    //     if ($search) {
-    //         $query->where('name', 'like', "%{$search}%")
-    //             ->orWhere('description', 'like', "%{$search}%");
-    //     }
-
-    //     $programServices = $query->orderBy('created_at', 'desc')
-    //         ->paginate(10)  // PENTING: paginate() tanpa get()
-    //         ->withQueryString();
-
-    //     dd(get_class($programServices)); // HARUSNYA: Illuminate\Pagination\LengthAwarePaginator
-
-    //     // return view('test', compact('programServices', 'search'));
-    //     return view('admin.program-services.index', compact('programServices', 'search'));
-    // }
+        return view('landing.program-services.show', compact('programService', 'courses'));
+    }
 
     public function store(
         StoreRequest $request,

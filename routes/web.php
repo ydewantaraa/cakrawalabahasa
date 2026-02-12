@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LayananController;
@@ -11,7 +9,7 @@ use App\Http\Controllers\Web\Auth\AuthController;
 use App\Http\Controllers\Web\Auth\GoogleAuthController;
 use App\Http\Controllers\Web\Auth\PasswordController;
 use App\Http\Controllers\Web\Auth\StudentProfileController;
-use App\Http\Controllers\Web\CourseController as WebCourseController;
+use App\Http\Controllers\Web\CourseController;
 use App\Http\Controllers\Web\ProgramServiceController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
@@ -80,10 +78,10 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update'])->name('program-services.update');
     Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy'])->name('program-services.destroy');
     // course
-    Route::get('/courses}', [WebCourseController::class, 'index'])->name('courses.index');
-    Route::post('/courses}', [WebCourseController::class, 'store'])->name('courses.store');
-    Route::put('/courses/{course}', [WebCourseController::class, 'update'])->name('courses.update');
-    Route::delete('/courses/{course}', [WebCourseController::class, 'destroy'])->name('courses.destroy');
+    Route::get('/courses}', [CourseController::class, 'index'])->name('courses.index');
+    Route::post('/courses}', [CourseController::class, 'store'])->name('courses.store');
+    Route::put('/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
+    Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
     // register teacher
     Route::post('/teachers', [TeacherController::class, 'store'])->name('admin.teachers.store');
     Route::delete('/teachers/{teacher}', [TeacherController::class, 'destroy'])->name('admin.teachers.destroy');
@@ -91,6 +89,10 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     // delete teacher
     Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('admin.students.destroy');
 });
+
+Route::get('/program/{programService}', [ProgramServiceController::class, 'show'])->name('program-services.show');
+Route::get('/program/{slug}/service/{course}', [CourseController::class, 'show'])->name('courses.show-with-slug');
+
 
 
 Route::post('/payment', function (Request $request) {

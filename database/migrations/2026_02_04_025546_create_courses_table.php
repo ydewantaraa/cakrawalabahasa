@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('category');
             $table->integer('quota');
             $table->integer('duration');
-            $table->decimal('price', 10, 2);
-            $table->enum('learning_type', ['offline', 'hybrid', 'online'])->default('offline');
             $table->string('thumbnail')->nullable();
             $table->foreignId('program_service_id')
                 ->nullable()

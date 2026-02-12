@@ -82,21 +82,71 @@
             </div>
         </div>
 
-        {{-- Harga --}}
-        <div>
-            <label class="block mb-1 font-medium">Harga</label>
-            <input type="number" name="price" step="0.01" x-model="form.price" placeholder="Contoh: 500000"
-                class="w-full border rounded px-3 py-2">
-        </div>
+        {{-- Media Pembelajaran --}}
+        <div x-data="{
+            types: {
+                offline: {{ $course->learning_types->where('type', 'offline')->first() ? 'true' : 'false' }},
+                online: {{ $course->learning_types->where('type', 'online')->first() ? 'true' : 'false' }},
+                hybrid: {{ $course->learning_types->where('type', 'hybrid')->first() ? 'true' : 'false' }},
+            }
+        }" class="space-y-4">
 
-        {{-- Tipe Pembelajaran --}}
-        <div>
-            <label class="block mb-1 font-medium">Tipe Pembelajaran</label>
-            <select name="learning_type" x-model="form.learning_type" class="w-full border rounded px-3 py-2">
-                <option value="offline">Offline</option>
-                <option value="hybrid">Hybrid</option>
-                <option value="online">Online</option>
-            </select>
+            <label class="block font-medium">Media Pembelajaran</label>
+
+            {{-- OFFLINE --}}
+            <div class="border rounded p-3 space-y-2">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" x-model="types.offline">
+                    Offline
+                </label>
+
+                <div x-show="types.offline">
+                    <input type="number" name="learning_types[offline][price]"
+                        value="{{ old(
+                            'learning_types.offline.price',
+                            optional($course->learning_types->where('type', 'offline')->first())->price,
+                        ) }}"
+                        placeholder="Harga Offline" class="w-full border rounded px-3 py-2">
+                </div>
+            </div>
+
+            {{-- ONLINE --}}
+            <div class="border rounded p-3 space-y-2">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" x-model="types.online">
+                    Online
+                </label>
+
+                <div x-show="types.online">
+                    <input type="number" name="learning_types[online][price]"
+                        value="{{ old(
+                            'learning_types.online.price',
+                            optional($course->learning_types->where('type', 'online')->first())->price,
+                        ) }}"
+                        placeholder="Harga Online" class="w-full border rounded px-3 py-2">
+                </div>
+            </div>
+
+            {{-- HYBRID --}}
+            <div class="border rounded p-3 space-y-2">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" x-model="types.hybrid">
+                    Hybrid
+                </label>
+
+                <div x-show="types.hybrid">
+                    <input type="number" name="learning_types[hybrid][price]"
+                        value="{{ old(
+                            'learning_types.hybrid.price',
+                            optional($course->learning_types->where('type', 'hybrid')->first())->price,
+                        ) }}"
+                        placeholder="Harga Hybrid" class="w-full border rounded px-3 py-2">
+                </div>
+            </div>
+
+            @error('learning_types')
+                <p class="text-red-600 text-sm">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Thumbnail --}}

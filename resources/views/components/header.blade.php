@@ -53,7 +53,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="openLayanan" @click.away="clickLayanan = false; openLayanan = false" x-cloak
+                    {{-- <div x-show="openLayanan" @click.away="clickLayanan = false; openLayanan = false" x-cloak
                         @mouseenter="openLayanan = true" @mouseleave="if (!clickLayanan) openLayanan = false"
                         x-transition:enter="transition ease-out duration-700"
                         x-transition:enter-start="opacity-0 transform translate-y-5"
@@ -71,7 +71,20 @@
                         <a href="/cb extras"
                             class="hover:shadow-2xl transform hover:text-[#f78a28] hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base block px-4 py-2 hover:bg-[#171c26]">CB
                             Extras</a>
+                    </div> --}}
+                    <div x-show="openLayanan" @click.away="clickLayanan = false; openLayanan = false" x-cloak
+                        @mouseenter="openLayanan = true" @mouseleave="if (!clickLayanan) openLayanan = false"
+                        class="absolute bg-[#101851] text-white rounded shadow mt-2 w-40 py-2 z-50">
+
+                        @foreach ($dropdownProgramServices as $service)
+                            <a href="{{ route('program-services.show', $service) }}"
+                                class="hover:shadow-2xl transform hover:text-[#f78a28] hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base block px-4 py-2 hover:bg-[#171c26]">
+                                {{ $service->name }}
+                            </a>
+                        @endforeach
+
                     </div>
+
                 </div>
 
                 <a href="{{ route('cart.index') }}"

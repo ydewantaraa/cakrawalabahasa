@@ -24,32 +24,18 @@ class CourseController extends Controller
         return view('courses.index', compact('courses'));
     }
 
-    public function store(CourseRequest $request): RedirectResponse
+    public function store(CourseRequest $request)
     {
-        $data = $request->validated();
+        $this->service->create($request->validated());
 
-        if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail');
-        }
-
-        $this->service->create($data);
-        return redirect()
-            ->back()
-            ->with('success', 'Kelas/ Kursus berhasil ditambahkan');
+        return back()->with('success', 'Kelas berhasil ditambahkan');
     }
 
-    public function update(CourseRequest $request, Course $course): RedirectResponse
+    public function update(CourseRequest $request, Course $course)
     {
-        $data = $request->validated();
+        $this->service->update($course, $request->validated());
 
-        if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail');
-        }
-
-        $this->service->update($course, $data);
-        return redirect()
-            ->back()
-            ->with('success', 'Kelas/ Kursus berhasil diupdate');
+        return back()->with('success', 'Kelas berhasil diupdate');
     }
 
     public function destroy(Course $course)
@@ -60,9 +46,14 @@ class CourseController extends Controller
             ->with('success', 'Kelas/ Kursus berhasil dihapus');
     }
 
-    public function show(Course $course)
+    public function show($slug, Course $course)
     {
-        $course = $this->service->find($course->id);
-        return view('courses.show', compact('course'));
+        $programService = $course->program_service;
+
+        if ($programService->slug !== $slug) {
+            abort(404);
+        }
+
+        return view('landing.courses.show', compact('course', 'programService'));
     }
 }

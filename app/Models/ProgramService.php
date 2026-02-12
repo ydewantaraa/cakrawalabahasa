@@ -22,4 +22,9 @@ class ProgramService extends Model
     {
         return $this->hasMany(FutureProgramService::class);
     }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }
