@@ -6,7 +6,7 @@
                 fn($f) => [
                     'title' => $f->title,
                     'description' => $f->description,
-                    'thumbnailPreview' => $f->thumbnail,
+                    'thumbnailPreview' => $f->thumbnail ? $f->thumbnail : null,
                     'thumbnailFile' => null,
                 ],
             )
@@ -20,7 +20,7 @@
                 fn($a) => [
                     'title' => $a->title,
                     'description' => $a->description,
-                    'thumbnailPreview' => $a->thumbnail,
+                    'thumbnailPreview' => $a->thumbnail ? $a->thumbnail : null,
                     'thumbnailFile' => null,
                 ],
             )
@@ -32,6 +32,8 @@
     form: {
         name: @js(old('name', $programService->name)),
         description: @js(old('description', $programService->description)),
+        hero_text: @js(old('hero_text', $programService->hero_text)),
+        heroImagePreview: @js($programService->hero_image ? asset('storage/' . $programService->hero_image) : null),
         show_in_dropdown: Boolean(@js(old('show_in_dropdown', $programService->show_in_dropdown))),
         features: @js($featuresOld),
         advantages: @js($advantagesOld)
@@ -47,6 +49,16 @@
     },
     removeAdvantage(index) {
         this.form.advantages.splice(index, 1);
+    },
+    handleHeroImageChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => this.form.heroImagePreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            this.form.heroImagePreview = @js($programService->hero_image ? asset('storage/' . $programService->hero_image) : null);
+        }
     }
 }" class="bg-white rounded shadow-lg w-full max-w-3xl z-50 p-6">
 
@@ -70,6 +82,26 @@
             <textarea name="description" rows="4" x-model="form.description" class="w-full border rounded px-3 py-2"></textarea>
         </div>
 
+        {{-- Hero Text --}}
+        <div>
+            <label class="block mb-1 font-medium">Hero Text</label>
+            <input type="text" name="hero_text" x-model="form.hero_text"
+                placeholder="Fondasi Bahasa & Softskill Bangun Karakter Sejak Dini"
+                class="w-full border rounded px-3 py-2">
+        </div>
+
+        {{-- Hero Image --}}
+        <div>
+            <label class="block mb-1 font-medium">Hero Image</label>
+            <input type="file" name="hero_image" class="w-full border rounded px-3 py-2"
+                @change="handleHeroImageChange">
+
+            {{-- Preview --}}
+            <div x-show="form.heroImagePreview" class="mt-2">
+                <img :src="form.heroImagePreview" class="w-32 h-32 object-cover border rounded">
+            </div>
+        </div>
+
         {{-- Dropdown --}}
         <input type="hidden" name="show_in_dropdown" value="0">
         <div class="flex items-center gap-2">
@@ -86,19 +118,16 @@
                         <h4 class="font-medium">Fitur <span x-text="index + 1"></span></h4>
                         <button type="button" @click="removeFeature(index)" class="text-red-500 text-sm">Hapus</button>
                     </div>
-
                     <div>
                         <label class="block mb-1">Nama Fitur</label>
                         <input type="text" :name="`features[${index}][title]`" x-model="feature.title"
                             class="w-full border rounded px-3 py-2">
                     </div>
-
                     <div>
                         <label class="block mb-1">Deskripsi Fitur</label>
                         <textarea :name="`features[${index}][description]`" rows="2" x-model="feature.description"
                             class="w-full border rounded px-3 py-2"></textarea>
                     </div>
-
                     <div>
                         <label class="block mb-1">Thumbnail (opsional)</label>
                         <template x-if="feature.thumbnailPreview">
@@ -118,7 +147,6 @@
                     </div>
                 </div>
             </template>
-
             <div class="mt-2">
                 <button type="button" @click="addFeature()"
                     class="px-3 py-1 bg-green-500 text-white rounded text-sm">Tambah Fitur</button>
@@ -135,19 +163,16 @@
                         <button type="button" @click="removeAdvantage(index)"
                             class="text-red-500 text-sm">Hapus</button>
                     </div>
-
                     <div>
                         <label class="block mb-1">Nama Keunggulan</label>
                         <input type="text" :name="`advantages[${index}][title]`" x-model="advantage.title"
                             class="w-full border rounded px-3 py-2">
                     </div>
-
                     <div>
                         <label class="block mb-1">Deskripsi Keunggulan</label>
                         <textarea :name="`advantages[${index}][description]`" rows="2" x-model="advantage.description"
                             class="w-full border rounded px-3 py-2"></textarea>
                     </div>
-
                     <div>
                         <label class="block mb-1">Thumbnail (opsional)</label>
                         <template x-if="advantage.thumbnailPreview">
@@ -167,7 +192,6 @@
                     </div>
                 </div>
             </template>
-
             <div class="mt-2">
                 <button type="button" @click="addAdvantage()"
                     class="px-3 py-1 bg-purple-500 text-white rounded text-sm">Tambah Keunggulan</button>

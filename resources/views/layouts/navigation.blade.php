@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white shadow fixed top-0 left-0 right-0 z-50">
+<nav x-data="{ open: false }" class="bg-white shadow fixed top-0 left-0 right-0 z-50 border-b-4 border-white">
     <div class="bg-[#232c5f] text-white flex justify-between items-center px-6 py-4">
 
         <!-- Logo & Menu kiri -->
@@ -54,7 +54,7 @@
                     <span class="text-sm text-gray-300">{{ ucfirst(Auth::user()->role) }}</span>
                 </div>
 
-                <div class="relative" x-data="{ dropdown: false }">
+                <div class="relative " x-data="{ dropdown: false }">
                     <button @click="dropdown = !dropdown" class="flex items-center space-x-1">
                         <img src="{{ Auth::user()->avatar }}" class="h-10 w-10 rounded-full" alt="Avatar">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -64,7 +64,7 @@
                     </button>
 
                     <div x-show="dropdown" @click.away="dropdown = false"
-                        class="absolute right-0 mt-2 w-48 bg-[#232c5f] rounded shadow-lg z-50">
+                        class="absolute right-0 mt-2 w-48 bg-[#232c5f] rounded shadow-lg z-50 border border-white">
                         @if (Auth::user()->role === 'student')
                             <a href="{{ route('student-profile.show') }}" class="block px-4 py-2 hover:text-orange-500">
                                 Profile

@@ -27,7 +27,19 @@ class ProgramServiceController extends Controller
         StoreRequest $request,
         ProgramServiceService $service
     ) {
-        $programService = $service->store($request->validated());
+        $data = $request->validated();
+
+        // Ambil file langsung dari request
+        if ($request->hasFile('hero_image')) {
+            $data['hero_image'] = $request->file('hero_image');
+        }
+
+        if ($request->hasFile('image_service')) {
+            $data['image_service'] = $request->file('image_service');
+        }
+
+        $programService = $service->store($data);
+
 
         return response()->json([
             'success' => true,
@@ -36,23 +48,35 @@ class ProgramServiceController extends Controller
         ], 201);
     }
 
+
     public function update(
         UpdateRequest $request,
         ProgramService $programService,
         ProgramServiceService $service
     ) {
-        $programService = $service->update($programService, $request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('hero_image')) {
+            $data['hero_image'] = $request->file('hero_image');
+        }
+
+        if ($request->hasFile('image_service')) {
+            $data['image_service'] = $request->file('image_service');
+        }
+
+        $programService = $service->update($programService, $data);
 
         return response()->json([
             'success' => true,
             'message' => 'Program service berhasil diperbarui',
-            'data' => $programService,
+            'data' => $programService->fresh(),
         ]);
     }
 
-    public function destroy(ProgramService $programService)
+
+    public function destroy(ProgramService $programService, ProgramServiceService $service)
     {
-        $programService->delete();
+        $service->destroy($programService);
 
         return response()->json([
             'success' => true,
