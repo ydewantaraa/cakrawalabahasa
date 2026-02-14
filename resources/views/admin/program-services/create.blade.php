@@ -30,6 +30,9 @@
     form: {
         name: @js(old('name', '')),
         description: @js(old('description', '')),
+        hero_text: @js(old('hero_text', '')),
+        hero_image: @js(old('hero_image', '')),
+        image_service: @js(old('image_service', '')),
         show_in_dropdown: Boolean(@js(old('show_in_dropdown', true))),
         features: @js($featuresOld),
         advantages: @js($advantagesOld)
@@ -69,10 +72,30 @@
             advantage.thumbnailFile = null;
             advantage.thumbnailPreview = null;
         }
+    },
+    heroImagePreview: null,
+    handleHeroChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => this.heroImagePreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            this.heroImagePreview = null;
+        }
+    },
+    imageServicePreview: null,
+    handleImageServiceChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => this.imageServicePreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            this.imageServicePreview = null;
+        }
     }
 }" class="bg-white rounded shadow-lg w-full max-w-3xl z-50 p-6">
-
-    <h2 class="text-xl font-semibold mb-4">Tambah Program Service</h2>
 
     <form action="{{ route('program-services.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
         @csrf
@@ -87,6 +110,18 @@
             @enderror
         </div>
 
+        {{-- Image Service --}}
+        <div>
+            <label class="block mb-1 font-medium">Image Service</label>
+            <input type="file" name="image_service" class="w-full border rounded px-3 py-2"
+                @change="handleImageServiceChange">
+
+            {{-- Preview --}}
+            <div x-show="imageServicePreview" class="mt-2">
+                <img :src="imageServicePreview" class="w-32 h-32 object-cover border rounded">
+            </div>
+        </div>
+
         {{-- Deskripsi --}}
         <div>
             <label class="block mb-1 font-medium">Deskripsi</label>
@@ -94,6 +129,27 @@
             @error('description')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
+        </div>
+
+        {{-- Hero Text --}}
+        <div>
+            <label class="block mb-1 font-medium">Hero Text</label>
+            <input type="text" name="hero_text" x-model="form.hero_text" placeholder="Contoh: CB For Kids"
+                class="w-full border rounded px-3 py-2">
+            @error('hero_text')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        {{-- Hero Image --}}
+        <div>
+            <label class="block mb-1 font-medium">Hero Image</label>
+            <input type="file" name="hero_image" class="w-full border rounded px-3 py-2" @change="handleHeroChange">
+
+            {{-- Preview --}}
+            <div x-show="heroImagePreview" class="mt-2">
+                <img :src="heroImagePreview" class="w-32 h-32 object-cover border rounded">
+            </div>
         </div>
 
         {{-- Dropdown --}}

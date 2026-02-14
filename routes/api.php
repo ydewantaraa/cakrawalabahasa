@@ -17,6 +17,7 @@ Route::get('/me', function (Request $request) {
 
 Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::post('/program-services', [ProgramServiceController::class, 'store']);
+    // Route::show('/program-services', [ProgramServiceController::class, 'show']);
     Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update']);
     Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy']);
     Route::apiResource('/courses', CourseController::class);

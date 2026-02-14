@@ -24,7 +24,6 @@ class FeatureProgramService extends Model
         );
     }
 
-
     public function program_service()
     {
         return $this->belongsTo(ProgramService::class);

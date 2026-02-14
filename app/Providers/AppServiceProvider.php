@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $dropdownProgramServices = ProgramService::where('show_in_dropdown', true)
                 ->orderBy('name')
-                ->get(['id', 'name', 'slug']);
+                ->get(['id', 'name', 'slug', 'hero_text', 'hero_image']);
 
             $view->with('dropdownProgramServices', $dropdownProgramServices);
         });

@@ -87,8 +87,13 @@
 
                 </div>
 
-                <a href="{{ route('cart.index') }}"
-                    class="hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold">Keranjang</a>
+                @if (auth()->guest() || auth()->user()->role === 'student')
+                    <a href="{{ route('cart.index') }}"
+                        class="hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold">
+                        Keranjang
+                    </a>
+                @endif
+
             </nav>
             @guest
                 <a href="{{ route('login') }}"
@@ -99,7 +104,7 @@
             @auth
                 <div class="ml-4 relative" x-data="{ dropdown: false }">
                     <button @click="dropdown = !dropdown" class="flex items-center focus:outline-none">
-                        <a href="/dashboard"><img src="/img/default-avatar.png" alt="Profile"
+                        <a href="/dashboard"><img src="{{ Auth::user()->avatar }}" alt="Profile"
                                 class="h-10 w-10 rounded-full"></a>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -108,8 +113,17 @@
                     </button>
                     <div x-show="dropdown" @click.away="dropdown = false" x-cloak
                         class="bg-[#232c5f] absolute right-0 mt-2 w-48 border rounded-md shadow-lg z-50">
-                        <a href="{{ route('student-profile.show') }}"
-                            class="block px-4 py-2 text-white hover:text-orange-500">Profile</a>
+
+                        {{-- Profile link --}}
+                        @if (auth()->user()->role === 'student')
+                            <a href="{{ route('student-profile.show') }}"
+                                class="block px-4 py-2 text-white hover:text-orange-500">Profile</a>
+                        @elseif (auth()->user()->role === 'teacher')
+                            <a href="{{ route('teacher-profile.show') }}"
+                                class="block px-4 py-2 text-white hover:text-orange-500">Profile</a>
+                        @endif
+
+                        {{-- Logout --}}
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="w-full text-left px-4 py-2 text-white hover:text-orange-500">
@@ -117,6 +131,7 @@
                             </button>
                         </form>
                     </div>
+
                 </div>
             @endauth
             <div class="md:hidden ml-auto">

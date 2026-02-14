@@ -7,6 +7,58 @@
 
 <body class="mx-auto font-sans bg-[#f0f5ff]" x-data="{ open: false, openProgram: false, openLayanan: false, mobileProgram: false, mobileLayanan: false }">
     <x-header />
+    <!-- Section CB For Kids -->
+    <section
+        class="opacity-0 translate-y-5 transition-all duration-700 ease-out fade-el py-16 md:ps-4 pb-0 md:pr-0 2xl:ps-20 
+           bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#ea580c] via-[#fb923c] to-[#fed7aa] relative overflow-hidden">
+
+        <!-- Hiasan pattern -->
+        <img src="/img/hiasan1.png" alt="Pattern"
+            class="absolute right-0 bottom-0 h-[200px] md:h-[300px] xl:h-[400px] 2xl:h-[500px] w-auto z-0 md:bottom-0">
+
+        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between z-10">
+
+            <!-- Teks Kiri -->
+            <div class="md:w-1/2 text-left pl-10 md:pl-8 lg:pl-16 mb-10 md:mb-0 md:-mt-16 xl:-mt-20 2xl:-mt-24">
+                <p class="text-[#151d52] font-semibold text-xl md:text-3xl mb-3">{{ $programService->name }}</p>
+                <h1
+                    class="text-3xl text-white sm:text-4xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mb-6">
+                    {{ $programService->hero_text }}
+                </h1>
+            </div>
+
+            <!-- Gambar Orang -->
+            <div class="md:w-1/2 flex justify-end items-end pb-10 md:pb-16 mt-4 md:mt-8">
+                <img src="{{ $programService->hero_image && Storage::disk('public')->exists($programService->hero_image)
+                    ? asset('storage/' . $programService->hero_image)
+                    : asset('img/default-hero-image.png') }}"
+                    class="w-[350px] sm:w-[280px] md:w-[450px] lg:w-[550px] 2xl:w-[750px] object-contain">
+            </div>
+
+        </div>
+
+        <!-- Lengkungan valley -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none z-10">
+
+            <!-- Mobile -->
+            <svg class="block md:hidden w-full h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"
+                preserveAspectRatio="none">
+                <path fill="#f0f5ff" d="M0,20 Q720,100 1440,20 L1440,120 L0,120 Z" />
+                <path d="M0,20 Q720,100 1440,20" fill="none" stroke="#0b1a53" stroke-width="30"
+                    stroke-linecap="round" />
+            </svg>
+
+            <!-- md ke atas -->
+            <svg class="hidden md:block w-full h-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160"
+                preserveAspectRatio="none">
+                <path fill="#f0f5ff" d="M0,20 Q720,140 1440,20 L1440,160 L0,160 Z" />
+                <path d="M0,20 Q720,140 1440,20" fill="none" stroke="#0b1a53" stroke-width="30"
+                    stroke-linecap="round" />
+            </svg>
+
+        </div>
+    </section>
+
 
     <!-- Section CB For Kids -->
     <template x-for="card in cards" :key="card.id">
@@ -45,7 +97,8 @@
             <div class="relative flex-shrink-0">
                 <div
                     class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden border-4 border-[#151d52]">
-                    <img src="/img/apa-itu-cbforkids.png" alt="CB For Kids" class="object-cover w-full h-full">
+                    <img src="{{ $programService->image_service }}" alt="CB For Kids"
+                        class="object-cover w-full h-full">
                 </div>
 
                 <!-- Lingkaran Orange Dekoratif -->
@@ -55,13 +108,9 @@
             <!-- Teks -->
             <div class="max-w-xl text-center md:text-left">
                 <h2 class="text-xl md:text-2xl xl:text-3xl font-bold text-[#151d52] mb-4">
-                    Apa itu CB For Kids?
+                    Apa itu {{ $programService->name }}?
                 </h2>
                 <p class="text-[#151d52] text-xs md:text-base 2xl:text-lg leading-relaxed text-justify">
-                    {{-- CB for Kids adalah program pembelajaran bahasa asing yang dirancang khusus untuk anak-anak. Program
-                    ini bertujuan mendukung perkembangan anak di luar jam sekolah, dengan fokus pada bahasa, seni, dan
-                    keterampilan lainnya dengan menggabungkan pendekatan interaktif, kreatif, dan menyenangkan untuk
-                    memudahkan anak-anak dalam memahami dan menguasai berbagai kemampuan baru. --}}
                     {{ $programService->description }}
                 </p>
             </div>
@@ -69,39 +118,6 @@
         </div>
     </section>
 
-    <!-- Section Layanan Kami -->
-    {{-- <div x-data="{
-        sections: [{
-            title: 'Courses',
-            cards: @js($courses->map(fn($course) => ['id' => $course->id, 'title' => $course->name, 'img' => $course->thumbnail])->values())
-        }]
-    }"
-        class="opacity-0 translate-y-5 transition-all duration-1000 ease-out fade-el mb-10 md:mb-16 space-y-16 mt-8 px-0 xl:px-20">
-        <h2 class="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-[#f78a28]">
-            Layanan <span class="text-[#151d52]">Kami</span>
-        </h2>
-
-        <template x-for="section in sections" :key="section.title">
-            <section>
-                <div x-data="carousel(section.cards)" x-init="init()" x-ref="wrapper" class="relative overflow-hidden">
-
-                    <div x-ref="inner" class="flex">
-                        <template x-for="card in section.cards" :key="card.id">
-                            <div class="m-4">
-                                <div class="shadow bg-white rounded-2xl overflow-hidden min-w-[200px]">
-                                    <img :src="card.img" class="w-full h-[200px] object-cover" />
-                                    <div class="p-6 text-center">
-                                        <h3 class="font-bold text-[#151d52]" x-text="card.title"></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-
-                </div>
-            </section>
-        </template>
-    </div> --}}
     <div x-data="carouselSection()" x-init="sections = [{
         title: 'Courses',
         cards: @js(
@@ -172,65 +188,23 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 xl:gap-12">
 
-            <!-- Card 1 -->
-            <div
-                class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
-                <img src="/img/bermain.png" alt="Bermain" class="w-16 h-16 md:w-24 md:h-24">
-                <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">
-                        Bermain sambil belajar</h3>
-                    <p
-                        class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Anak-anak belajar melalui permainan, lagu, aktivitas seni, dan cerita yang menarik
-                        sehingga mereka merasa nyaman & antusias saat belajar.
-                    </p>
+            @foreach ($programService->feature_program_services as $feature)
+                <div
+                    class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
+                    <img src="{{ $feature->thumbnail }}" alt="{{ $feature->title }}"
+                        class="w-16 h-16 md:w-24 md:h-24 rounded-full object-cover aspect-square">
+                    <div>
+                        <h3
+                            class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">
+                            {{ $feature->title }}
+                        </h3>
+                        <p
+                            class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
+                            {{ $feature->description }}
+                        </p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div
-                class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
-                <img src="/img/kelas.png" alt="Kelas Kecil" class="w-16 h-16 md:w-24 md:h-24">
-                <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">
-                        Kelas Kecil & Interaktif</h3>
-                    <p
-                        class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Setiap kelas terdiri dari jumlah siswa yang terbatas untuk memastikan interaksi
-                        maksimal antara siswa dan tutor.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-                class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
-                <img src="/img/multibahasa.png" alt="Multibahasa" class="w-16 h-16 md:w-24 md:h-24">
-                <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">
-                        Kurikulum Multibahasa</h3>
-                    <p
-                        class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Anak-anak dapat memilih untuk belajar dari 25 pilihan bahasa, termasuk bahasa
-                        Inggris, Mandarin, Jepang, Prancis, dan lainnya.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div
-                class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
-                <img src="/img/blended.png" alt="Blended Learning" class="w-16 h-16 md:w-24 md:h-24">
-                <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">
-                        Metode Belajar Terintegrasi</h3>
-                    <p
-                        class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Menggunakan metode blended learning yang mengombinasikan pembelajaran offline
-                        dengan teknologi digital untuk pengalaman belajar yang optimal.
-                    </p>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </section>
