@@ -97,7 +97,7 @@
             <div>
             <h2 class="text-md sm:text-lg md:text-4xl xl:text-5xl font-bold mb-2 mt-4 pt-2 pb-2 xl:pt-0 xl:pb-0">About Us</h2>
             <p class="text-xs sm:text-sm md:pt-2 pb-2 mr-4 md:mr-0 italic md:text-md xl:text-xl leading-relaxed text-justify">
-                Cakrawala Bahasa is an integrated, globally connected center for language and arts soft skills, based at Universitas Indonesia and supported by DISTP UI. Offering diverse services with real-life experiences, blended learning, and international curricula, it is led by master tutors and native speakers from various countries. It contributes to SDGs in economic growth, quality education, and accessible learning for all.
+                Cakrawala Bahasa is an integrated, globally connected center for language, arts, and soft skills, based at Universitas Indonesia. It serves learners from children to adults through diverse, innovative learning programs and services, combining real-life experiences, blended learning, and support international curricula. Led by master tutors and native speakers from various countries, Cakrawala Bahasa is committed to contributing to the Sustainable Development Goals (SDGs), particularly in economic growth, quality education, and accessible, inclusive learning for all.
             </p>
             <div class="mt-4 mb-4 md:mb-0 md:mt-6 inline-block italic bg-gradient-to-r shadow-[5px_5px_8px_2px_#000000] from-orange-800 to-orange-400 text-white font-semibold px-4 py-2 md:px-8 md:py-4 rounded-full text-sm md:text-md xl:text-xl">
                 "Bridging The World Through Language"
@@ -392,7 +392,7 @@
                         <p class="text-white italic text-sm md:text-base">Chief Technology <br>Officer</p>
                         </div>
                     </div>
-                    <img src="/img/kak-yudha.png" alt="Kak Yudha"
+                    <img src="/img/our-team/kak yudha.png" alt="Kak Yudha"
                         class="absolute right-0 bottom-0 h-[240px] rounded-br-[24px] object-contain pointer-events-none" />
                     </div>
 
@@ -401,11 +401,11 @@
                     <div class="absolute inset-0 bg-[#142550] rounded-tl-[24px] rounded-tr-[80px] rounded-bl-[80px] rounded-br-[24px]
                                 bg-[url('/img/hiasan-our-team.png')] bg-[length:70%] bg-left bg-no-repeat shadow-[0_8px_14px_rgba(0,0,0,0.80)]">
                         <div class="absolute top-6 left-6">
-                        <p class="text-[#f78a28] font-bold text-xl md:text-2xl mt-4">Kak Sidiq</p>
-                        <p class="text-white italic text-sm md:text-base">Chief Product <br>Officer</p>
+                        <p class="text-[#f78a28] font-bold text-xl md:text-2xl mt-4">Kak Rina</p>
+                        <p class="text-white italic text-sm md:text-base">Chief Marketing <br>Officer</p>
                         </div>
                     </div>
-                    <img src="/img/kak-sidiq.png" alt="Kak Sidiq"
+                    <img src="/img/our-team/kak rina.png" alt="Kak Rina"
                         class="absolute right-0 bottom-0 h-[240px] rounded-br-[24px] object-contain pointer-events-none" />
                     </div>
 
@@ -427,11 +427,11 @@
                     <div class="absolute inset-0 bg-[#142550] rounded-tl-[24px] rounded-tr-[80px] rounded-bl-[80px] rounded-br-[24px]
                                 bg-[url('/img/hiasan-our-team.png')] bg-[length:70%] bg-left bg-no-repeat shadow-[0_8px_14px_rgba(0,0,0,0.80)]">
                         <div class="absolute top-6 left-6">
-                        <p class="text-[#f78a28] font-bold text-xl md:text-2xl mt-4">Kak Yudha</p>
-                        <p class="text-white italic text-sm md:text-base">Chief Technology <br>Officer</p>
+                        <p class="text-[#f78a28] font-bold text-xl md:text-2xl mt-4">Kak Sidiq</p>
+                        <p class="text-white italic text-sm md:text-base">Chief Product <br>Officer</p>
                         </div>
                     </div>
-                    <img src="/img/kak-yudha.png" alt="Kak Yudha"
+                    <img src="/img/our-team/kak sidiq.png" alt="Kak Sidiq"
                         class="absolute right-0 bottom-0 h-[240px] rounded-br-[24px] object-contain pointer-events-none" />
                     </div>
 
@@ -440,11 +440,11 @@
                     <div class="absolute inset-0 bg-[#142550] rounded-tl-[24px] rounded-tr-[80px] rounded-bl-[80px] rounded-br-[24px]
                                 bg-[url('/img/hiasan-our-team.png')] bg-[length:70%] bg-left bg-no-repeat shadow-[0_8px_14px_rgba(0,0,0,0.80)]">
                         <div class="absolute top-6 left-6">
-                        <p class="text-[#f78a28] font-bold text-xl md:text-2xl mt-4">Kak Sidiq</p>
-                        <p class="text-white italic text-sm md:text-base">Chief Product <br>Officer</p>
+                        <p class="text-[#f78a28] font-bold text-xl md:text-2xl mt-4">Kak Adrian</p>
+                        <p class="text-white italic text-sm md:text-base">Designer</p>
                         </div>
                     </div>
-                    <img src="/img/kak-sidiq.png" alt="Kak Sidiq"
+                    <img src="/img/our-team/kak adrian.png" alt="Kak Adrian"
                         class="absolute right-0 bottom-0 h-[240px] rounded-br-[24px] object-contain pointer-events-none" />
                     </div>
                 </div>
@@ -462,38 +462,38 @@
             
             <!-- Mentor Card -->
             <div class="flex-shrink-0 md:w-[150px] lg:w-[200px] transform transition-all duration-200 hover:-translate-y-2 text-center">
-                <img src="/img/kak-mentor.png" alt="Mentor"
+                <img src="/img/our-mentor/Prof. Seto Mulyadi.png" alt="Mentor"
                     class="w-32 h-32 lg:w-44 lg:h-44 rounded-full mx-auto bg-[#f78a28] object-cover" />
-                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Kak Fulan</p>
-                <p class="text-sm md:text-base lg:text-lg">English Mentor</p>
+                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Prof. Seto Mulyadi</p>
+                <p class="text-sm md:text-base lg:text-lg">Ketua LPAI</p>
             </div>
 
             <div class="flex-shrink-0 md:w-[150px] lg:w-[200px] transform transition-all duration-200 hover:-translate-y-2 text-center">
-                <img src="/img/kak-mentor.png" alt="Mentor"
+                <img src="/img/our-mentor/Dr. Ade Solihat.png" alt="Mentor"
                     class="w-32 h-32 lg:w-44 lg:h-44 rounded-full mx-auto bg-[#f78a28] object-cover" />
-                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Kak Fulan</p>
-                <p class="text-sm md:text-base lg:text-lg">English Mentor</p>
+                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Dr. Ade Solihat</p>
+                <p class="text-sm md:text-base lg:text-lg">Lektor FIB UI</p>
             </div>
 
             <div class="flex-shrink-0 md:w-[150px] lg:w-[200px] transform transition-all duration-200 hover:-translate-y-2 text-center">
-                <img src="/img/kak-mentor.png" alt="Mentor"
+                <img src="/img/our-mentor/Kak Ria Enes.png" alt="Mentor"
                     class="w-32 h-32 lg:w-44 lg:h-44 rounded-full mx-auto bg-[#f78a28] object-cover" />
-                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Kak Fulan</p>
-                <p class="text-sm md:text-base lg:text-lg">English Mentor</p>
+                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Kak Ria Enes</p>
+                <p class="text-sm md:text-base lg:text-lg">Mentor Public Speaking</p>
             </div>
 
             <div class="flex-shrink-0 md:w-[150px] lg:w-[200px] transform transition-all duration-200 hover:-translate-y-2 text-center">
-                <img src="/img/kak-mentor.png" alt="Mentor"
+                <img src="/img/our-mentor/Edy Fajar Prasetyo.png" alt="Mentor"
                     class="w-32 h-32 lg:w-44 lg:h-44 rounded-full mx-auto bg-[#f78a28] object-cover" />
-                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Kak Fulan</p>
-                <p class="text-sm md:text-base lg:text-lg">English Mentor</p>
+                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Edy Fajar Prasetyo</p>
+                <p class="text-sm md:text-base lg:text-lg">Aktivis Sociopreneur, Influencer</p>
             </div>
 
             <div class="flex-shrink-0 md:w-[150px] lg:w-[200px] transform transition-all duration-200 hover:-translate-y-2 text-center">
-                <img src="/img/kak-mentor.png" alt="Mentor"
+                <img src="/img/our-mentor/Panji Aziz.png" alt="Mentor"
                     class="w-32 h-32 lg:w-44 lg:h-44 rounded-full mx-auto bg-[#f78a28] object-cover" />
-                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Kak Fulan</p>
-                <p class="text-sm md:text-base lg:text-lg">English Mentor</p>
+                <p class="text-lg md:text-xl lg:text-2xl font-bold mt-4 text-[#f78a28]">Panji Aziz</p>
+                <p class="text-sm md:text-base lg:text-lg">Aktivis Sociopreneur, Influencer</p>
             </div>
 
         </div>
@@ -765,9 +765,11 @@
         function carouselStories(){
         return {
             items: [
-            { month:'March', year:'2018', img:'/img/stories/2018.png', desc:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-            { month:'June',  year:'2020', img:'/img/stories/2020.png', desc:'Praesent pretium neque ut erat semper, non efficitur lorem.' },
-            { month:'April', year:'2022', img:'/img/stories/2022.png', desc:'Proin diam neque, vulputate et orci nec, maximus hendrerit est.' }
+            { month:'March', year:'2019', img:'/img/stories/2018.png', desc:'Community Roots' },
+            { month:'June',  year:'2020', img:'/img/stories/2020.png', desc:'Private Course Initiative' },
+            { month:'April', year:'2021', img:'/img/stories/2022.png', desc:'Sociopreneurship Transformation' },
+            { month:'April', year:'2022', img:'/img/stories/2022.png', desc:'Program Consolidation and Service Expansion' },
+            { month:'April', year:'2024', img:'/img/stories/2022.png', desc:'AI-Driven Learning with a Child-Friendly Approach' },
             ],
             itemsLoop: [],
             wrapper: null,
@@ -820,56 +822,139 @@
         }
     </script>
 
-    <!-- Our Partners & Clients -->
-    <section
-        x-data="carouselPartners()"
-        x-init="init()"
-        class="py-28 bg-[#ededed]">
-        <h2 class="text-3xl md:text-5xl text-center font-bold mb-16">
+    <!-- ===========================
+        SECTION 1: PARTNERS & CLIENTS
+        =========================== -->
+    <section class="py-20 bg-[#f9f9f9]">
+        <h2 class="text-3xl md:text-5xl text-center font-bold mb-12">
             Our Partners &amp; Clients
         </h2>
 
-        <div class="relative overflow-hidden"
-            @mouseenter="paused = true"
-            @mouseleave="paused = false"
+        <!-- BARIS 1: PARTNERS -->
+        <div class="relative overflow-hidden mb-12"
+             x-data="carouselPartners(itemsRow1)"
+             x-init="init()"
+             @mouseenter="paused = true"
+             @mouseleave="paused = false"
         >
             <div
-            x-ref="wrapper"
-            class="flex items-center space-x-8 overflow-x-scroll no-scrollbar cursor-grab select-none"
-            @mousedown.prevent="startDrag($event)"
-            @mousemove.prevent="onDrag($event)"
-            @mouseup.prevent="stopDrag()"
-            @mouseleave="stopDrag()"
+                x-ref="wrapper"
+                class="flex items-center space-x-8 overflow-x-scroll no-scrollbar cursor-grab select-none"
+                @mousedown.prevent="startDrag($event)"
+                @mousemove.prevent="onDrag($event)"
+                @mouseup.prevent="stopDrag()"
+                @mouseleave="stopDrag()"
             >
-            <template x-for="(partner, i) in itemsLoop" :key="i">
-                <a 
-                :href="partner.url" 
-                target="_blank"
-                class="flex-shrink-0 h-32 flex items-center justify-center p-2 rounded-lg"
-                >
-                <img 
-                    :src="partner.img" 
-                    alt="" 
-                    class="object-contain w-full h-full"
-                />
-                </a>
-            </template>
+                <template x-for="(partner, i) in itemsLoop" :key="i">
+                    <a 
+                    {{-- :href="partner.url" target="_blank"  --}}
+                    class="flex-shrink-0 h-20 max-w-[140px] md:h-32 md:max-w-none flex items-center justify-center p-2 rounded-lg">
+                        <img :src="partner.img" alt="" class="object-contain w-full h-full" />
+                    </a>
+                </template>
+            </div>
+        </div>
+
+        <!-- BARIS 2: CLIENTS -->
+        <div class="relative overflow-hidden"
+             x-data="carouselPartners(itemsRow2)"
+             x-init="init()"
+             @mouseenter="paused = true"
+             @mouseleave="paused = false"
+        >
+            <div
+                x-ref="wrapper"
+                class="flex items-center space-x-8 overflow-x-scroll no-scrollbar cursor-grab select-none"
+                @mousedown.prevent="startDrag($event)"
+                @mousemove.prevent="onDrag($event)"
+                @mouseup.prevent="stopDrag()"
+                @mouseleave="stopDrag()"
+            >
+                <template x-for="(partner, i) in itemsLoop" :key="i">
+                    <a 
+                    {{-- :href="partner.url" target="_blank" --}}
+                    class="flex-shrink-0 h-20 max-w-[140px] md:h-32 md:max-w-none flex items-center justify-center p-2 rounded-lg">
+                        <img :src="partner.img" alt="" class="object-contain w-full h-full" />
+                    </a>
+                </template>
             </div>
         </div>
     </section>
 
-    {{-- logo scroll section --}}
+    <!-- ===========================
+        SECTION 2: SUPPORTED BY (Baru)
+        =========================== -->
+    <section class="py-20 bg-[#ededed]">
+        <h2 class="text-3xl md:text-5xl text-center font-bold mb-12">
+            Supported By
+        </h2>
+
+        <!-- BARIS 3: SUPPORTED BY LOGOS -->
+        <div class="relative overflow-hidden"
+             x-data="carouselPartners(itemsRow3)"
+             x-init="init()"
+             @mouseenter="paused = true"
+             @mouseleave="paused = false"
+        >
+            <div
+                x-ref="wrapper"
+                class="flex items-center space-x-8 overflow-x-scroll no-scrollbar cursor-grab select-none"
+                @mousedown.prevent="startDrag($event)"
+                @mousemove.prevent="onDrag($event)"
+                @mouseup.prevent="stopDrag()"
+                @mouseleave="stopDrag()"
+            >
+                <template x-for="(partner, i) in itemsLoop" :key="i">
+                    <a 
+                    {{-- :href="partner.url" target="_blank"  --}}
+                    class="flex-shrink-0 h-20 max-w-[140px] md:h-32 md:max-w-none flex items-center justify-center p-2 rounded-lg">
+                        <img :src="partner.img" alt="" class="object-contain w-full h-full" />
+                    </a>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    {{-- LOGO SCROLL SCRIPT --}}
     <script>
-        function carouselPartners(){
+        // --- DATA BARIS 1 (Partners) ---
+        const itemsRow1 = [
+            { img: '/img/logo1.png', url: '' },
+            { img: '/img/logo2.png', url: '' },
+            { img: '/img/logo3.png', url: '' },
+            { img: '/img/logo4.png', url: '' },
+            { img: '/img/logo5.png', url: '' },
+        ];
+
+        // --- DATA BARIS 2 (Clients) ---
+        const itemsRow2 = [
+            { img: '/img/logo/logo-yotz-media.webp', url: '#' },
+            { img: '/img/logo/logo-glints.webp', url: '#' },
+            { img: '/img/logo/logo-teman-karir.webp', url: '#' },
+            { img: '/img/logo/logo-sejuta-cita.webp', url: '#' },
+            { img: '/img/logo/logo-yot.webp', url: '#' },
+            { img: '/img/logo/logo-indo-milenial.webp', url: '#' },
+            { img: '/img/logo/logo-youth-ranger.webp', url: '#' },
+            { img: '/img/logo/logo-youth-break.webp', url: '#' },
+            { img: '/img/logo/logo-aiesec-ui.webp', url: '#' },
+            { img: '/img/logo/logo-ppi-dunia.webp', url: '#' },
+            { img: '/img/logo/logo-santri-mendunia.webp', url: '#' },
+            { img: '/img/logo/logo-humas-dpr.webp', url: '#' },
+        ];
+
+        // --- DATA BARIS 3 (Supported By) ---
+        const itemsRow3 = [
+            { img: '/img/logo/logo-distp-ui.webp', url: '#' },      // DISTP UI
+            { img: '/img/logo/logo-adb.webp', url: '#' },            // ADB
+            { img: '/img/logo/logo-kemendikti.webp', url: '#' },     // Kemendikti
+            { img: '/img/logo/logo-kemenpora.webp', url: '#' },      // Kemenpora RI
+            { img: '/img/logo/logo-pemkot-depok.webp', url: '#' },   // Pemkot Depok
+        ];
+
+        // --- FUNGSI CAROUSEL ---
+        function carouselPartners(items){
             return {
-                // sesuaikan src & url masing-masing partner
-                items: [
-                { img: '/img/logo1.png', url: 'https://diasporamengajar.id' },
-                { img: '/img/logo2.png', url: 'https://sekolahkakseto.com' },
-                { img: '/img/logo3.png', url: 'https://jetschool.academy' },
-                { img: '/img/logo4.png', url: 'https://alazhar.sch.id' },
-                { img: '/img/logo5.png', url: 'https://yapi.or.id' },
-                ],
+                items: items,
                 itemsLoop: [],
                 wrapper: null,
                 loopWidth: 0,
@@ -877,15 +962,13 @@
                 dragging: false,
                 startX: 0,
                 scrollStart: 0,
-                speed: 1,  // pixel per frame
+                speed: 1,
 
                 init(){
-                // triple‐duplicate untuk buffer infinite loop
                 this.itemsLoop = [...this.items, ...this.items, ...this.items];
                 this.$nextTick(()=>{
                     this.wrapper   = this.$refs.wrapper;
                     this.loopWidth = this.wrapper.scrollWidth / 4;
-                    // mulai di tengah buffer
                     this.wrapper.scrollLeft = this.loopWidth;
                     this.autoScroll();
                 });
@@ -894,7 +977,6 @@
                 autoScroll(){
                 if (!this.paused && !this.dragging){
                     this.wrapper.scrollLeft += this.speed;
-                    // wrap saat melewati cycle kedua
                     if (this.wrapper.scrollLeft >= this.loopWidth * 2){
                     this.wrapper.scrollLeft -= this.loopWidth;
                     }

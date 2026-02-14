@@ -1,69 +1,76 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.app')
+@section('title', 'Login')
+@section('content')
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+        <div class="w-full max-w-md bg-white shadow-md rounded-lg p-6">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+            <!-- Logo -->
+            <div class="flex justify-center mb-6">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" class="h-16">
+            </div>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+            <h1 class="text-xl font-semibold mb-6 text-center text-gray-800">
+                Login
+            </h1>
+            @include('components.status-message')
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-700 mb-1">Email</label>
+                    <input type="email" name="email"
+                        class="w-full rounded border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" required>
+                </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-700 mb-1">Password</label>
+                    <input type="password" name="password"
+                        class="w-full rounded border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" required>
+                </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+                <button class="w-full bg-navy_1 text-white py-2 rounded hover:bg-navy_2">
+                    Login
+                </button>
+            </form>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+            <!-- Separator -->
+            <div class="my-6 flex items-center">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="mx-3 text-sm text-gray-500">atau</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
 
-        <div>
+            <!-- Login with Google -->
+            {{-- <a href="{{ route('auth.google.redirect') }}" --}}
             <a href="{{ route('google.redirect') }}"
-            class="inline-flex items-center bg-white text-gray-800 font-medium px-4 py-2 rounded-lg shadow hover:bg-gray-100 transition">
-                {{-- Icon Google --}}
-            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                <path fill="#fbc02d" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12
-                s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4
-                C12.955,4,4,12.955,4,24s8.955,20,20,20  s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
-                <path fill="#e53935" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12
-                c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4
-                C16.318,4,9.656,8.337,6.306,14.691z"/>
-                <path fill="#4caf50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238
-                C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025
-                C9.505,39.556,16.227,44,24,44z"/>
-                <path fill="#1565c0" d="M43.611,20.083L43.595,20L42,20H24v8h11.303
-                c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238
-                C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
-            </svg>
-            Login with Google
+                class="w-full flex items-center justify-center gap-3 border border-gray-300 py-2 rounded hover:bg-gray-200 mb-3">
+
+                <!-- Google Icon (SVG) -->
+                <svg class="h-5 w-5" viewBox="0 0 48 48">
+                    <path fill="#EA4335"
+                        d="M24 9.5c3.54 0 6.72 1.22 9.22 3.6l6.88-6.88C35.9 2.36 30.47 0 24 0 14.64 0 6.52 5.38 2.56 13.22l8.02 6.22C12.36 13.2 17.74 9.5 24 9.5z" />
+                    <path fill="#4285F4"
+                        d="M46.1 24.5c0-1.64-.15-3.22-.42-4.75H24v9h12.7c-.55 2.94-2.18 5.44-4.63 7.12l7.18 5.56C43.97 37.02 46.1 31.23 46.1 24.5z" />
+                    <path fill="#FBBC05"
+                        d="M10.58 28.44c-.48-1.44-.76-2.98-.76-4.44s.27-3 .76-4.44l-8.02-6.22C.92 16.46 0 20.12 0 24s.92 7.54 2.56 10.66l8.02-6.22z" />
+                    <path fill="#34A853"
+                        d="M24 48c6.48 0 11.92-2.14 15.9-5.82l-7.18-5.56c-2 1.34-4.56 2.12-8.72 2.12-6.26 0-11.64-3.7-13.42-8.94l-8.02 6.22C6.52 42.62 14.64 48 24 48z" />
+                </svg>
+
+                <span class="text-sm font-medium text-gray-700">
+                    Login with Google
+                </span>
             </a>
-        </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+            <div class="text-sm text-center">
+                <span>allready have an account? <a href="{{ route('register') }}"
+                        class="text-blue-500 underline">register</a></span>
+                <br>
+                <span>forgot password? <a href="{{ route('password.request') }}"
+                        class="text-blue-500 underline">reset</a></span>
+            </div>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+
         </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection

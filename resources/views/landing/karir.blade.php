@@ -317,58 +317,58 @@
         </div>
     </section>
 
-    <!-- Section Testimoni -->
+    <!-- Section Testimoni Karier & Internship -->
     <section class="opacity-0 bg-[#ededed] translate-y-5 transition-all duration-700 ease-out fade-el py-20 px-4 md:px-10 2xl:px-32 text-center">
-        
-        <!-- Testimoni CB's Team -->
+
+        <!-- Testimoni CB’s Team -->
         <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-[#151d52] mb-16">
             Testimoni <span class="text-[#f78a28]">CB’s Team</span>
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10 mb-24">
-            <!-- Card -->
+
+            <!-- Card 1 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                    Sebagai mahasiswa yang tidak mempunyai background dunia HR, aku diberikan kesempatan yang luar biasa dan diamanahkan sebagai Vice Manager of HR. Dari Cakrawala Bahasa aku belajar bahwa setiap karakter itu unik dan setiap manusia itu setara. Aku juga belajar bagaimana cara berkomunikasi yang baik, pendekatan karakter individu, dan membentuk team building yang kuat.
                 </p>
                 <div class="flex items-center gap-3">
-                    <img src="/img/avatar.png" alt="Andita" class="w-10 sm:w-12 h-10 sm:h-12 rounded-full">
                     <div>
-                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Andita Putri</div>
-                        <div class="text-xs text-gray-500">@andita_putri68</div>
+                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Hanifah Ellia Guvranny</div>
+                        <div class="text-xs text-gray-500">Vice Manager of HR</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Duplicate card untuk contoh -->
+            <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                    Banyak hal baru yang aku temukan di Cakrawala Bahasa salah satunya relasi, semua anggota cakrawala Bahasa family friendly banget dan juga ga hanya di Indonesia bahkan aku dapat teman baru dari berbagai negara karena ini bahasa Inggris aku makin lancar dan banyak belajar bahasa-bahasa baru di Cakrawala Bahasa.
                 </p>
                 <div class="flex items-center gap-3">
-                    <img src="/img/avatar.png" alt="Andita" class="w-10 sm:w-12 h-10 sm:h-12 rounded-full">
                     <div>
-                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Andita Putri</div>
-                        <div class="text-xs text-gray-500">@andita_putri68</div>
+                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Nura</div>
+                        <div class="text-xs text-gray-500">Manager of Operator</div>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                    Saya merasa dihargai sebagai bagian dari tim. Setiap ide didengarkan dan ada banyak kesempatan untuk belajar hal baru.
                 </p>
                 <div class="flex items-center gap-3">
-                    <img src="/img/avatar.png" alt="Andita" class="w-10 sm:w-12 h-10 sm:h-12 rounded-full">
                     <div>
-                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Andita Putri</div>
-                        <div class="text-xs text-gray-500">@andita_putri68</div>
+                        <div class="font-bold text-sm sm:text-base text-[#151d52]">M. Ilham Bismo</div>
+                        <div class="text-xs text-gray-500">Staff Program</div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!-- Testimoni Internship -->
@@ -377,48 +377,49 @@
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10">
-            <!-- Card -->
+
+            <!-- Card 1 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                    Aku menikmati banget tugas-tugas yang diberikan selama magang di CB dan emang suka banget sama bidang HR yang aku jalani disini. Lingkungan kerjanya asik banget bukan cuma mengedepankan profesionalitas tapi kekeluargaannya juga kuat. Dari sesama anak magang maupun atasan juga baik semua dan saling suportif. Sejauh ini aku ngerasa cocok banget sama culture company dan visi CB.
                 </p>
                 <div class="flex items-center gap-3">
-                    <img src="/img/avatar.png" alt="Andita" class="w-10 sm:w-12 h-10 sm:h-12 rounded-full">
                     <div>
-                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Andita Putri</div>
-                        <div class="text-xs text-gray-500">@andita_putri68</div>
+                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Tami</div>
+                        <div class="text-xs text-gray-500">Magangers HR</div>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                    Magang di CB seru banget, senior-seniornya ramah dan mau membimbing anak magangnya. Sesama anak magang juga berasa deket banget walaupun belom pernah ketemu secara langsung. kerasa feel kekeluargaannya namun tetap menjaga profesionalitas. Selama jadi graphic designer di CB, aku juga bisa mengembangkan skill ku dalam mendesain dan mengeksplor berbagai gaya desain yang baru. Pokoknya seneng banget deh magang di CB!
                 </p>
                 <div class="flex items-center gap-3">
-                    <img src="/img/avatar.png" alt="Andita" class="w-10 sm:w-12 h-10 sm:h-12 rounded-full">
                     <div>
-                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Andita Putri</div>
-                        <div class="text-xs text-gray-500">@andita_putri68</div>
+                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Indah</div>
+                        <div class="text-xs text-gray-500">Magangers Graphic Design</div>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                    Sebagai fresh graduate, tentunya aku memerlukan pengalaman yang mumpuni sebelum benar benar terjun ke dunia pekerjaan. Pengalaman ini aku dapatkan selama menjadi Magangers di Cakrawala Bahasa sebagai Social Media Specialist. Aku mendapatkan banyak ilmu di bidang sosial media, tidak hanya mengelola akun tetapi juga mendapatkan kemampuan untuk menganalisis audiens di tiap sosial media tersebut dan content management.
                 </p>
                 <div class="flex items-center gap-3">
-                    <img src="/img/avatar.png" alt="Andita" class="w-10 sm:w-12 h-10 sm:h-12 rounded-full">
                     <div>
-                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Andita Putri</div>
-                        <div class="text-xs text-gray-500">@andita_putri68</div>
+                        <div class="font-bold text-sm sm:text-base text-[#151d52]">Restu Kusuma S.</div>
+                        <div class="text-xs text-gray-500">Magangers Social Media Specialist</div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -433,25 +434,40 @@
                 searchQuery: '',
 
                 categories: [
-                    'Product Management',
-                    'Sales & Marketing',
-                    'Finance',
                     'General Management',
-                    'Media and Socials'
+                    'Program Management',
+                    'Marketing Management',
+                    'Finance & Accounting',
+                    'IT & Programming',
+                    'Media & Socials',
+                    'Tutor & Native Speaker',
+                    'Internship',
                 ],
-                selectedCategory: 'Media and Socials',
+                selectedCategory: 'General Management',
                 selectedJob: null,
                 jobs: [
-                    { category: 'Product Management', title: 'Product Manager', tags: ['Full Time', 'Senior'], requirements: ['Pengalaman 3 tahun', 'Analisa pasar', 'Leadership', 'Problem solving'] },
-                    { category: 'Product Management', title: 'UI/UX Designer', tags: ['Full Time'], requirements: ['Menguasai Figma', 'Design thinking', 'Kolaborasi tim produk', 'Portfolio design'] },
-                    { category: 'Sales & Marketing', title: 'Sales Executive', tags: ['Full Time'], requirements: ['Negosiasi', 'Target-oriented', 'Komunikasi', 'Mobile'] },
-                    { category: 'Sales & Marketing', title: 'Digital Marketing Specialist', tags: ['Part Time', 'Remote'], requirements: ['FB Ads, Google Ads', 'SEO/SEM', 'Analisa data', 'Kreatif campaign'] },
-                    { category: 'Finance', title: 'Finance Officer', tags: ['Full Time'], requirements: ['Laporan keuangan', 'Accounting', 'Teliti', 'Perpajakan'] },
-                    { category: 'Finance', title: 'Payroll Staff', tags: ['Full Time'], requirements: ['Payroll sistem', 'Administrasi', 'Rekap absensi', 'Detail oriented'] },
+                    { category: 'Program Management', title: 'Product Manager', tags: ['Full Time', 'Senior'], requirements: ['Pengalaman 3 tahun', 'Analisa pasar', 'Leadership', 'Problem solving'] },
+                    { category: 'Marketing Management', title: 'Sales Executive', tags: ['Full Time'], requirements: ['Negosiasi', 'Target-oriented', 'Komunikasi', 'Mobile'] },
+                    { category: 'Marketing Management', title: 'Digital Marketing Specialist', tags: ['Part Time', 'Remote'], requirements: ['FB Ads, Google Ads', 'SEO/SEM', 'Analisa data', 'Kreatif campaign'] },
+                    { 
+                    category: 'Marketing Management', 
+                    title: 'Freelance Marketing', 
+                    tags: ['Freelance', 'Remote'], 
+                    requirements: ['Strategi pemasaran', 'Lead generation', 'Komunikasi & negosiasi', 'Target-oriented'] 
+                    },
+                    { 
+                    category: 'Marketing Management', 
+                    title: 'Partnership Specialist', 
+                    tags: ['Full Time'], 
+                    requirements: ['Membangun relasi bisnis', 'Business development', 'Negosiasi kerjasama', 'Analisa peluang pasar'] 
+                    },
+                    { category: 'Finance & Accounting', title: 'Finance Officer', tags: ['Full Time'], requirements: ['Laporan keuangan', 'Accounting', 'Teliti', 'Perpajakan'] },
+                    { category: 'Finance & Accounting', title: 'Payroll Staff', tags: ['Full Time'], requirements: ['Payroll sistem', 'Administrasi', 'Rekap absensi', 'Detail oriented'] },
                     { category: 'General Management', title: 'HR Officer', tags: ['Full Time'], requirements: ['Rekrutmen', 'Training', 'HRIS', 'Interpersonal'] },
                     { category: 'General Management', title: 'Office Manager', tags: ['Full Time'], requirements: ['Operasional kantor', 'Logistik', 'Koordinasi divisi', 'Organisasi'] },
-                    { category: 'Media and Socials', title: 'Copywriter', tags: ['Full Time', 'Social Media Specialist'], requirements: ['Menulis Kreatif', 'Media Sosial', 'Tren Konten Digital', 'Deadline'] },
-                    { category: 'Media and Socials', title: 'Video Editor', tags: ['Freelance'], requirements: ['Editing storytelling', 'Software editing', 'Kreatif', 'Deadline'] },
+                    { category: 'IT & Programming', title: 'UI/UX Designer', tags: ['Full Time'], requirements: ['Menguasai Figma', 'Design thinking', 'Kolaborasi tim produk', 'Portfolio design'] },
+                    { category: 'Media & Socials', title: 'Copywriter', tags: ['Full Time', 'Social Media Specialist'], requirements: ['Menulis Kreatif', 'Media Sosial', 'Tren Konten Digital', 'Deadline'] },
+                    { category: 'Media & Socials', title: 'Video Editor', tags: ['Freelance'], requirements: ['Editing storytelling', 'Software editing', 'Kreatif', 'Deadline'] },
                 ],
                 // ubah menjadi:
                 get filteredJobs() {

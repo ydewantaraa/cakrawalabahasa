@@ -26,7 +26,7 @@ $classes = [
     [
         'title'     => 'CB Academy',
         'img'       => '/img/cb-academy.png',
-        'end_date'  => '2025-07-10T14:00:00',  // contoh: 10 Juli 2025 jam 14:00
+        'end_date'  => '2026-07-10T14:00:00',  // contoh: 10 Juli 2025 jam 14:00
         'headline'  => 'Siap?! Kuasai Dunia dengan Bahasa?!',
         'desc'      => 'Gabung dan Jadilah Avatar Penguasa Bahasa!',
         'link'      => '#'
@@ -34,11 +34,19 @@ $classes = [
     [
         'title'     => 'ICL Mentorship',
         'img'       => '/img/ICL Mentorship.png',
-        'end_date'  => '2025-07-20T09:00:00',  // contoh: 20 Juli 2025 jam 09:00
+        'end_date'  => '2026-07-20T09:00:00',  // contoh: 20 Juli 2025 jam 09:00
         'headline'  => 'Mentorship Intensif untuk Kamu!',
         'desc'      => 'Dapatkan bimbingan langsung dari ahlinya.',
         'link'      => '#'
     ],
+];
+
+$specialClasses = [
+    ['id' => 'icl-mentorship', 'img' => '/img/ICL Mentorship.png', 'title' => 'ICL Mentorship'],
+    ['id' => 'cb-academy', 'img' => '/img/cb-academy.png', 'title' => 'CB Academy'],
+    ['id' => 'camp-bahasa', 'img' => '/img/camp-bahasa.png', 'title' => 'Camp Bahasa'],
+    ['id' => 'cakrawala-skills', 'img' => '/img/cakrawala-skills.png', 'title' => 'Cakrawala Skills'],
+    ['id' => 'best-muslim', 'img' => '/img/best-muslim.png', 'title' => 'Best Muslim']
 ];
 ?>
 
@@ -46,7 +54,22 @@ $classes = [
 <html lang="id">
 <head>
     <x-head/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/incoming-class.css" />
+    <style>
+        /* Penyesuaian Gaya Swiper Supaya Sama dengan Index */
+        .swiper {
+            width: 100%;
+            padding: 10px 0 20px 0; /* Ruang untuk shadow */
+        }
+        .swiper-slide {
+            width: auto; /* Lebar otomatis sesuai konten */
+            height: auto;
+        }
+        .swiper-slide > div {
+            height: 100%;
+        }
+    </style>
 </head>
 <body
     class="mx-auto font-sans bg-[#f0f5ff]"
@@ -101,10 +124,10 @@ $classes = [
             </h2>
 
             <div
-            x-data="carousel(section.cards)"
-            x-init="init()"
-            x-ref="wrapper"
-            class="relative overflow-hidden pb-4"
+                x-data="carousel(section.cards, section.autoplay)"
+                x-init="init()"
+                x-ref="wrapper"
+                class="relative overflow-hidden pb-4"
             >
             <div
                 x-ref="inner"
@@ -135,6 +158,32 @@ $classes = [
             </div>
         </section>
         </template>
+
+        <section class="py-4">
+            <h2 class="text-sm sm:text-xl md:text-2xl font-bold mb-6 flex items-center px-4 lg:px-20 xl:px-0">
+                <span class="text-yellow-400 text-base mr-3">★</span>
+                <span class="text-base">Special Class</span>
+            </h2>
+            
+            <!-- Swiper Container -->
+            <div class="swiper specialClassSwiper px-2 md:px-4">
+                <div class="swiper-wrapper">
+                    <?php foreach($specialClasses as $card): ?>
+                        <div class="swiper-slide">
+                            <div class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] m-2 md:m-4 overflow-hidden min-w-[200px] sm:min-w-[210px] md:min-w-[180px] xl:min-w-[240px] h-full">
+                                <img src="<?= $card['img'] ?>" alt="<?= $card['title'] ?>" class="w-full object-cover h-[200px] sm:h-[220px] md:h-[190px] lg:h-[250px]" />
+                                <div class="p-4 pb-0 text-center">
+                                    <h3 class="font-bold text-sm sm:text-sm md:text-sm lg:text-base xl:text-lg text-[#151d52] mb-5 md:mb-8"><?= $card['title'] ?></h3>
+                                    <a href="/layanan/<?= $card['id'] ?>" class="hover:-translate-y-2 bg-gradient-to-r from-[#f6422e] to-orange-400 hover:bg-gradient-to-l from-[#f6422e] to-orange-400 text-white px-3 sm:px-5 md:px-4 py-3 sm:py-3 md:py-3 lg:px-6 lg:py-4 rounded-full font-semibold shadow-lg transition hover:scale-105 hover:shadow-xl text-xs sm:text-sm md:text-sm xl:text-base">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Incoming Class Section -->
@@ -257,85 +306,105 @@ $classes = [
 
     <script>
         function carouselSection() {
-        return {
-            sections: [
-            {
-                title: 'CB For Kids',
-                cards: [
-                { id: 'super-kid', img: '/img/Super Kid.png', title: 'Super Kids' },
-                { id: 'language-stars', img: '/img/Fun Language.png', title: 'Language Stars' },
-                { id: 'child-artist', img: '/img/Child Artist.png', title: 'Child Artist' },
-                { id: 'best-parenting', img: '/img/best parenting.png', title: 'Best Parenting' }
-                ]
-            },
-            {
-                title: 'CB For You',
-                cards: [
-                { id: 'jago-budaya', img: '/img/Jago Budaya.png', title: 'Jagoan Budaya' },
-                { id: 'jago-bahasa', img: '/img/Jago Bahasa.png', title: 'Jagoan Bahasa' },
-                { id: 'preparation-test', img: '/img/Preparation Test.png', title: 'Jagoan Test' },
-                { id: 'jago-nyekill', img: '/img/Jagoan Nyekill.png', title: 'Jagoan Nyekill' }
-                ]
-            },
-            {
-                title: 'CB For Extras',
-                cards: [
-                { id: 'study-buddy', img: '/img/Ur Study Buddy.png', title: 'Ur Study Buddy' },
-                { id: 'language-support', img: '/img/language support.png', title: 'Language Support' },
-                { id: 'language-test', img: '/img/Language Test.png', title: 'Language Test' },
-                { id: 'super-agency', img: '/img/Super Agency.png', title: 'Super Agency' }
-                ]
-            },
-            {
-                title: 'Special Class',
-                cards: [
-                { id: 'icl-mentorship', img: '/img/ICL Mentorship.png', title: 'ICL Mentorship' },
-                { id: 'cb-academy', img: '/img/cb-academy.png', title: 'CB Academy' },
-                { id: 'camp-bahasa', img: '/img/camp-bahasa.png', title: 'Camp Bahasa' },
-                { id: 'cakrawala-skills', img: '/img/cakrawala-skills.png', title: 'Cakrawala Skills' },
-                { id: 'best-muslim', img: '/img/best-muslim.png', title: 'Best Muslim' }
+            return {
+                sections: [
+                    {
+                        title: 'CB For Kids',
+                        cards: [
+                            { id: 'super-kid', img: '/img/Super Kid.png', title: 'Super Kids' },
+                            { id: 'language-stars', img: '/img/Fun Language.png', title: 'Language Stars' },
+                            { id: 'child-artist', img: '/img/Child Artist.png', title: 'Child Artist' },
+                            { id: 'best-parenting', img: '/img/best parenting.png', title: 'Best Parenting' }
+                        ]
+                    },
+                    {
+                        title: 'CB For You',
+                        cards: [
+                            { id: 'jago-budaya', img: '/img/Jago Budaya.png', title: 'Jagoan Budaya' },
+                            { id: 'jago-bahasa', img: '/img/Jago Bahasa.png', title: 'Jagoan Bahasa' },
+                            { id: 'preparation-test', img: '/img/Preparation Test.png', title: 'Jagoan Test' },
+                            { id: 'jago-nyekill', img: '/img/Jagoan Nyekill.png', title: 'Jagoan Nyekill' }
+                        ]
+                    },
+                    {
+                        title: 'CB For Extras',
+                        cards: [
+                            { id: 'study-buddy', img: '/img/Ur Study Buddy.png', title: 'Ur Study Buddy' },
+                            { id: 'language-support', img: '/img/language support.png', title: 'Language Support' },
+                            { id: 'language-test', img: '/img/Language Test.png', title: 'Language Test' },
+                            { id: 'super-agency', img: '/img/Super Agency.png', title: 'Super Agency' }
+                        ]
+                    },
                 ]
             }
-            ]
-        }
         }
 
-        function carousel(cards) {
-        return {
-            cards,
-            position: 0,
-            dragging: false,
+        function carousel(cards, autoplay = false) {
+            return {
+                cards,
+                autoplay,
+                position: 0,
+                dragging: false,
+                autoplayInterval: null,
 
-            init() {
-            // nothing to duplicate
-            },
+                init() {
+                    // Jika autoplay aktif, mulai auto-scroll
+                    if (this.autoplay) {
+                        this.startAutoplay();
+                    }
+                    // Hentikan interval saat elemen dihancurkan untuk mencegah memory leak
+                    this.$el.addEventListener('destroy', () => {
+                        this.stopAutoplay();
+                    });
+                },
 
-            startDrag(e) {
-            this.dragging = true;
-            this.dragStartX   = e.touches?.[0]?.clientX || e.clientX;
-            this.dragStartPos = this.position;
-            },
+                startDrag(e) {
+                    this.dragging = true;
+                    this.dragStartX = e.touches?.[0]?.clientX || e.clientX;
+                    this.dragStartPos = this.position;
+                },
 
-            drag(e) {
-            if (!this.dragging) return;
-            const clientX = e.touches?.[0]?.clientX || e.clientX;
-            let newPos = this.dragStartPos - (clientX - this.dragStartX);
+                drag(e) {
+                    if (!this.dragging) return;
+                    const clientX = e.touches?.[0]?.clientX || e.clientX;
+                    let newPos = this.dragStartPos - (clientX - this.dragStartX);
 
-            // batas minimum 0, maksimum isi - lebar tampilan
-            const wrap  = this.$refs.wrapper;
-            const inner = this.$refs.inner;
-            const maxPos = inner.scrollWidth - wrap.clientWidth;
-            if (newPos < 0) newPos = 0;
-            if (newPos > maxPos) newPos = maxPos;
+                    const wrap = this.$refs.wrapper;
+                    const inner = this.$refs.inner;
+                    const maxPos = inner.scrollWidth - wrap.clientWidth;
+                    if (newPos < 0) newPos = 0;
+                    if (newPos > maxPos) newPos = maxPos;
 
-            this.position = newPos;
-            },
+                    this.position = newPos;
+                },
 
-            endDrag() {
-            this.dragging = false;
+                endDrag() {
+                    this.dragging = false;
+                }
             }
         }
-        }
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Inisialisasi Swiper untuk Special Class -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiperSpecial = new Swiper(".specialClassSwiper", {
+                slidesPerView: 'auto',
+                spaceBetween: 0, // Margin diatur oleh class m-2 di div dalam
+                loop: true, // Loop infinite
+                autoplay: {
+                    delay: 0, // Tanpa jeda (continuous)
+                    disableOnInteraction: false, // Tetap jalan setelah di-drag
+                },
+                speed: 3000, // Kecepatan transisi
+                freeMode: true, // Efek bebas saat drag
+                grabCursor: true,
+                allowTouchMove: true,
+            });
+        });
     </script>
 
     <script src="/js/animationsection.js"></script>

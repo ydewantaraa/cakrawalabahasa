@@ -19,8 +19,11 @@
                 subLayanan: "", 
                 infoLayanan: "{{ $layanan["fitur_pilihan"]["layanan"][array_key_first($layanan["fitur_pilihan"]["layanan"] ?? [])]["info"] ?? "" }}",
                 gambarLayanan: "{{ $layanan["fitur_pilihan"]["layanan"][array_key_first($layanan["fitur_pilihan"]["layanan"] ?? [])]["img"] ?? $layanan["img"] ?? asset("images/default.jpg") }}",
+                durasiLayanan: "{{ $layanan["fitur_pilihan"]["layanan"][array_key_first($layanan["fitur_pilihan"]["layanan"] ?? [])]["durasi"] ?? $layanan["durasi"] ?? "" }}",
+                fasilitasLayanan: "{{ $layanan["fitur_pilihan"]["layanan"][array_key_first($layanan["fitur_pilihan"]["layanan"] ?? [])]["fasilitas"] ?? $layanan["fasilitas"] ?? "" }}",
                 pengajar: "", 
                 referral: "", 
+                kuantitas: 1,
                 hargaMap: {!! json_encode($layanan["harga_variasi"] ?? []) !!}, 
                 subMap: {!! json_encode($layanan["fitur_pilihan"]["sub_layanan"] ?? []) !!},
                 subHargaMap: {!! json_encode($layanan['sub_layanan_harga'] ?? [])!!}, // harga per sub layanan
@@ -30,6 +33,8 @@
                     this.layanan = nama;
                     this.infoLayanan = this.layananMap[nama]["info"];
                     this.gambarLayanan = this.layananMap[nama]["img"] || "{{ $layanan['img'] ?? asset('images/default.jpg') }}";
+                    this.durasiLayanan = this.layananMap[nama]["durasi"] || "{{ $layanan['durasi'] ?? '' }}";
+                    this.fasilitasLayanan = this.layananMap[nama]["fasilitas"] || "{{ $layanan['fasilitas'] ?? '' }}";
                 },
                 
                 handleSubmit(event) {
@@ -136,9 +141,11 @@
                         <p><b>Harga:</b> {{ $layanan['hargainfo'] }}</p>
                         <p><b>Durasi:</b> {{ $layanan['durasi'] }}</p>
                     @elseif($layanan['id'] === 'language-support')
-                        <p><b>Kuota:</b> {{ $layanan['kuota'] }}</p>
                         <p><b>Harga:</b> {{ $layanan['hargainfo'] }}</p>
-                        <p><b>Durasi:</b> {{ $layanan['durasi'] }}</p>
+                        <p>
+                            <b>Durasi:</b> 
+                            <span x-text="durasiLayanan"></span>
+                        </p>
                     @elseif($layanan['id'] === 'language-test' || $layanan['id'] === 'super-agency')
                         <p><b>Harga:</b> {{ $layanan['hargainfo'] }}</p>
                     @elseif($layanan['id'] === 'icl-mentorship')
@@ -148,7 +155,13 @@
                         <p><b>Durasi:</b> {{ $layanan['durasi'] }}</p>
                     @endif
 
-                    <p><b>Fasilitas:</b> {{ $layanan['fasilitas'] }}</p>
+                    <p>
+                        <b>Fasilitas:</b> 
+                        <span x-text="fasilitasLayanan"></span>
+                    </p>
+                    @if($layanan['id'] === 'study-buddy')
+                        <p><b>Keterangan:</b> {{ $layanan['keterangan'] }}</p>
+                    @endif
                 </div>
 
                 <!-- Harga Dinamis -->
@@ -193,7 +206,7 @@
                         <div class="flex gap-2 flex-wrap">
                             @foreach ($layanan['fitur_pilihan']['layanan'] as $nama => $detail)
                                 <button 
-                                    @click="layanan = '{{ $nama }}'; infoLayanan = '{{ $detail['info'] }}'; gambarLayanan = '{{ $detail['img'] }}'"
+                                    @click="pilihLayanan('{{ $nama }}')"
                                     :class="layanan === '{{ $nama }}' 
                                         ? 'border-[#f78a28] shadow-lg shadow-orange-300' 
                                         : 'bg-white text-black border-grey'"
@@ -252,6 +265,33 @@
                     </div>
                     @endif
 
+                    <!-- Kuantitas -->
+                    @if(!empty($layanan['fitur_pilihan']['kuantitas']))
+                    <div>
+                        <p class="font-semibold text-[#151d52] mb-2 text-base md:text-lg">Kuantitas</p>
+                        <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden w-fit">
+                            <!-- Tombol Kurang -->
+                            <button type="button" 
+                                @click="kuantitas > 1 ? kuantitas-- : 1" 
+                                class="px-4 py-2 text-gray-700 hover:bg-gray-100 text-lg font-bold border-r border-gray-300">
+                                −
+                            </button>
+                            
+                            <!-- Tampilan Angka -->
+                            <span class="px-4 py-2 text-sm md:text-base font-semibold min-w-[50px] text-center bg-white" 
+                                x-text="kuantitas + ' Orang'">
+                            </span>
+                            
+                            <!-- Tombol Tambah -->
+                            <button type="button" 
+                                @click="kuantitas < {{ count($layanan['fitur_pilihan']['kuantitas']) }} ? kuantitas++ : {{ count($layanan['fitur_pilihan']['kuantitas']) }}" 
+                                class="px-4 py-2 text-gray-700 hover:bg-gray-100 text-lg font-bold border-l border-gray-300">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    @endif
+
                     <!-- Referral -->
                     @if(!empty($layanan['referral']))
                     <div>
@@ -275,6 +315,7 @@
                             <input type="hidden" name="media" :value="media">
                             <input type="hidden" name="layanan" :value="layanan">
                             <input type="hidden" name="sub_layanan" :value="subLayanan">
+                            <input type="hidden" name="kuantitas" :value="kuantitas">
                             <input type="hidden" name="harga" :value="media && hargaMap[media] ? hargaMap[media] : (subLayanan && subHargaMap[layanan] && subHargaMap[layanan][subLayanan] ? subHargaMap[layanan][subLayanan] : '{{ $layanan['harga'] }}')">
                             <input type="hidden" name="img" value="{{ $layanan['img'] }}">
 

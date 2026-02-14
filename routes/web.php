@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\SocialiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
@@ -8,9 +7,60 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\Web\Auth\AuthController;
+use App\Http\Controllers\Web\Auth\GoogleAuthController;
+use App\Http\Controllers\Web\Auth\PasswordController;
+use App\Http\Controllers\Web\Auth\StudentProfileController;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+    Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
+    Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+    // Forgot password
+    Route::get('/forgot-password', [PasswordController::class, 'forgotPassword'])->name('password.request');
+    Route::post('/forgot-password', [PasswordController::class, 'sendResetLink'])->name('password.email');
+
+    // Reset password
+    Route::get('/reset-password/{token}', [PasswordController::class, 'resetPasswordForm'])->name('password.reset');
+    Route::post('/reset-password', [PasswordController::class, 'resetPassword'])->name('password.update');
+
+    //Google Authentication
+    Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect'])
+        ->name('google.redirect');
+
+    Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])
+        ->name('google.callback');
+});
+
+// Email verification
+Route::middleware('auth')->group(function () {
+    Route::get('/email/verify', [AuthController::class, 'verifyNotice'])->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])
+        ->middleware('signed')->name('verification.verify');
+    Route::post('/email/verification-notification', [AuthController::class, 'resendVerification'])
+        ->middleware('throttle:6,1')->name('verification.send');
+    // Logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+Route::middleware(['auth', 'verified', 'can:student'])->group(function () {
+    Route::get('/student-profile', [StudentProfileController::class, 'show'])->name('student-profile.show');
+    Route::patch('/student-profile', [StudentProfileController::class, 'update'])->name('student-profile.update');
+    // change password
+    Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('password.change');
+    Route::get('/change-password', [PasswordController::class, 'changePasswordForm'])->name('password.change.form');
+});
+
+Route::middleware(['auth', 'verified', 'can:all-users'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
 
 Route::post('/payment', function (Request $request) {
     \Midtrans\Config::$serverKey    = config('midtrans.server_key');
@@ -59,8 +109,6 @@ Route::get('/', function () {
     return view('landing.index');
 });
 
-Route::get('/auth/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
-Route::get('/auth/google/callback', [SocialiteController::class, 'callback'])->name('google.callback');
 
 Route::get('/cb for you', function () {
     return view('landing.cb for you');
@@ -132,10 +180,16 @@ Route::get('/privacy_policy', function () {
     return view('privacy_policy');
 });
 
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'student'])->name('dashboard.student');
+//     Route::get('/dashboard', [DashboardController::class, 'teacher'])->name('dashboard.teacher');
+//     Route::get('/dashboard', [DashboardController::class, 'admin'])->name('dashboard.admin');
+// });
+
 Route::middleware(['auth'])->group(function () {
 
     // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Course management (bisa untuk listing kursus, detail, dll)
     Route::resource('/courses', CourseController::class);
@@ -146,11 +200,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Checkout Midtrans
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
-
-    // Profile management (default dari breeze)
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';

@@ -18,9 +18,10 @@
             <!-- Teks Kiri -->
             <div class="md:w-1/2 text-left pl-10 md:pl-8 lg:pl-16 mb-10 md:mb-0 md:-mt-28 xl:-mt-32 2xl:-mt-36">
                 <p class="text-[#151d52] font-semibold text-xl md:text-3xl mb-3">CB For Kids</p>
-                <h1 class="text-3xl text-white sm:text-4xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mb-6">
-                    Asah<br>Kemampuan<br>Bahasa Asing<br>Sejak Dini
+                <h1 class="text-2xl text-white sm:text-3xl md:text-3xl xl:text-4xl 2xl:text-5xl font-bold leading-tight mb-6">
+                    Bikin Anak<br>Percaya Diri!
                 </h1>
+                <h2 class="text-xl text-white sm:text-2xl md:text-2xl xl:text-2xl 2xl:text-3xl font-bold leading-tight mb-6">Fondasi Bahasa & Softskill <br>Bangun Karakter Sejak Dini</h2>
                 <a href="#" class="inline-block shadow-[7px_7px_17px_0px_#000000] text-white px-8 py-3 rounded-full text-sm md:text-base font-semibold hover:bg-gradient-to-l from-blue-950 via-blue-700 to-blue-500 bg-gradient-to-r from-blue-950 via-blue-700 to-blue-500 hover:shadow-[0_6px_12px_rgba(0,0,0,0.40)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
                     Cek Sekarang
                 </a>
@@ -96,7 +97,7 @@
                     Apa itu CB For Kids?
                 </h2>
                 <p class="text-[#151d52] text-xs md:text-base 2xl:text-lg leading-relaxed text-justify">
-                    CB for Kids adalah program pembelajaran bahasa asing yang dirancang khusus untuk anak-anak. Program ini bertujuan mendukung perkembangan anak di luar jam sekolah, dengan fokus pada bahasa, seni, dan keterampilan lainnya dengan menggabungkan pendekatan interaktif, kreatif, dan menyenangkan untuk memudahkan anak-anak dalam memahami dan menguasai berbagai kemampuan baru.
+                    CB for Kids adalah program pembelajaran yang dirancang khusus untuk anak-anak dengan berbasis pada aspek bahasa, komunikasi, kognitif dan motorik. Program ini bertujuan mendukung perkembangan anak di luar jam sekolah, dengan fokus pada bahasa, seni, dan keterampilan lainnya dengan menggabungkan pendekatan interaktif, kreatif, dan menyenangkan untuk memudahkan anak-anak dalam memahami dan menguasai berbagai kemampuan baru.
                 </p>
             </div>
 
@@ -161,48 +162,40 @@
                 <div>
                     <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Bermain sambil belajar</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Anak-anak belajar melalui permainan, lagu, aktivitas seni, dan cerita yang menarik 
-                        sehingga mereka merasa nyaman & antusias saat belajar.
+                        Anak-anak belajar melalui permainan dan berbagai aktivitas seru melalui mainan, musik, seni, dan cerita yang menarik sehingga mereka nyaman & antusias belajar.
                     </p>
                 </div>
             </div>
-
             <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/kelas.png" alt="Kelas Kecil" class="w-16 h-16 md:w-24 md:h-24">
                 <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Kelas Kecil & Interaktif</h3>
+                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Pilihan Kelas Fleksibel</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Setiap kelas terdiri dari jumlah siswa yang terbatas untuk memastikan interaksi 
-                        maksimal antara siswa dan tutor.
+                        Tersedia kelas privat, tutor visit maupun kelas kelompok yang dapat disesuaikan dengan kebutuhan, usia, dan tujuan belajar anak maupun pendampingan orang tua dalam proses mendidik  anak di rumah.
                     </p>
                 </div>
             </div>
-
             <!-- Card 3 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/multibahasa.png" alt="Multibahasa" class="w-16 h-16 md:w-24 md:h-24">
                 <div>
                     <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Kurikulum Multibahasa</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Anak-anak dapat memilih untuk belajar dari 25 pilihan bahasa, termasuk bahasa 
-                        Inggris, Mandarin, Jepang, Prancis, dan lainnya.
+                        Anak-anak dapat memilih pembelajaran bahasa maupun pengembangan soft skills dengan menggunakan berbagai bahasa asing sebagai bahasa pengantar, di antaranya Inggris, Arab, Mandarin, dan Jepang.
                     </p>
                 </div>
             </div>
-
             <!-- Card 4 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/blended.png" alt="Blended Learning" class="w-16 h-16 md:w-24 md:h-24">
                 <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Metode Belajar Terintegrasi</h3>
+                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Belajar Terintegrasi Digital dan Terpantau</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Menggunakan metode blended learning yang mengombinasikan pembelajaran offline 
-                        dengan teknologi digital untuk pengalaman belajar yang optimal.
+                        Mendukung metode blended learning yang mengkombinasikan pembelajaran offline maupun online dengan proses dan progres pembelajaran yang terpantau secara digital disertai dukungan AI dalam pembelajaran untuk pengalaman belajar yang optimal.
                     </p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -290,30 +283,10 @@
         function carouselKeunggulan() {
             return {
                 cards: [
-                    {
-                        icon: '/img/icon-tutor.png',
-                        image: '/img/anak-sentris.png',
-                        title: 'Anak Sentris & Tutor Berkualitas',
-                        desc: 'Layanan khusus anak yang dipandu oleh tutor profesional ramah anak dan berpengalaman.'
-                    },
-                    {
-                        icon: '/img/icon-mentor.png',
-                        image: '/img/kak-seto.png',
-                        title: 'Dimentori Kak Seto Mulyadi',
-                        desc: 'Dimentori langsung oleh Kak Seto untuk kenyamanan anak-anak belajar.'
-                    },
-                    {
-                        icon: '/img/icon-growth.png',
-                        image: '/img/tumbuh-kembang.png',
-                        title: 'Tumbuh Kembang Maksimal',
-                        desc: 'Mengembangkan keterampilan anak dan dipantau orangtua.'
-                    },
-                    {
-                        icon: '/img/icon-class.png',
-                        image: '/img/kelas-interaktif.png',
-                        title: 'Kelas Kecil dan Interaktif',
-                        desc: 'Jumlah siswa terbatas memastikan interaksi optimal dengan tutor.'
-                    }
+                    { icon: '/img/icon-mentor.png', image: '/img/kak-seto.png', title: 'Dimentori Kak Seto Mulyadi', desc: 'Dimentori langsung oleh Kak Seto untuk pembelajaran yang ramah anak.' },
+                    { icon: '/img/icon-tutor.png', image: '/img/anak-sentris.png', title: 'Anak Sentris & Tutor Berkualitas', desc: 'Menyenangkan, dan berpusat pada anak, didampingi oleh tutor berkualitas dan berpengalaman.' },
+                    { icon: '/img/icon-growth.png', image: '/img/tumbuh-kembang.png', title: 'Tumbuh Kembang Maksimal', desc: 'Optimalisasi kemampuan anak dengan proses dan progres belajar ananda yang dapat dipantau disertai pendampingan peran orang tua dalam mendidik anak.' },
+                    { icon: '/img/icon-class.png', image: '/img/kelas-interaktif.png', title: 'Kelas Inovatif & Interaktif', desc: 'Pembelajaran di dalam kelas dirancang secara inovatif sehingga pembelajaran berlangsung aktif, kreatif, dan interaksi intensif antara siswa dan tutor.' }
                 ],
                 loopedCards: [],
                 position: 0,
