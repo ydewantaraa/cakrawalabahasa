@@ -20,8 +20,8 @@
                 <h1 class="text-3xl sm:text-4xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mb-6">
                     Raih Cita-citamu <br> bersama kami
                 </h1>
-                <p class="text-white text-sm sm:text-base xl:text-lg 2xl:text-xl leading-relaxed mb-8 xl:max-w-lg 2xl:max-w-xl">
-                    Gantungkan cita-citamu setinggi langit dan wujudkan bersama Cakrawala Bahasa
+                <p class="text-white text-sm sm:text-base xl:text-lg 2xl:text-xl leading-relaxed mb-8 xl:max-w-lg 2xl:max-w-xl text-justify">
+                    Gantungkan cita-citamu setinggi langit <br>dan wujudkan bersama Cakrawala Bahasa
                 </p>
 
                 <a href="#" class="inline-block shadow-[7px_7px_17px_0px_#000000] text-white px-8 py-3 rounded-full text-sm md:text-base font-semibold hover:bg-gradient-to-l from-blue-950 via-blue-700 to-blue-500 bg-gradient-to-r from-blue-950 via-blue-700 to-blue-500 hover:shadow-[0_6px_12px_rgba(0,0,0,0.40)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
@@ -58,10 +58,15 @@
                 </div>
 
                 <!-- Isi Card -->
-                <div class="text-left text-sm text-[#151d52] p-6 space-y-2">
+                <div class="text-justify text-sm text-[#151d52] p-6 space-y-2">
                     <p><b>Sasaran:</b> Siswa  dari kalangan duafa di yayasan atau panti asuhan.</p>
                     <p><b>Benefit:</b> Kursus gratis 100% pembelajaran bahasa asing atau softskill untuk siswa di panti/yayasan terpilih dalam satu kelas selama 3 bulan.</p>
-                    <p><b>Seleksi:</b> Pengumpulan transkrip nilai rapor dan esai motivasi, sesi wawancara.</p>
+                    <p><b>Seleksi:</b></p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1">
+                        <li>Pengumpulan transkrip nilai rapor</li>
+                        <li>Esai motivasi</li>
+                        <li>Sesi wawancara</li>
+                    </ol>
                     <p><b>Tujuan:</b> Membantu anak-anak dhuafa memperoleh akses pendidikan unggul dengan berbagai kompetensi global.</p>
                     <div class="mt-4 text-center">
                         <button class="bg-gradient-to-t from-[#c2410c] via-[#f97316] to-[#fdba74] text-white font-bold px-8 py-2 rounded-full shadow-md hover:scale-105 transition">Pilih ini</button>
@@ -77,10 +82,19 @@
                         <img src="/img/beasiswa2.png" alt="Beasiswa Global" class="w-44 md:w-40 lg:w-46 xl:w-[11rem] 2xl:w-48">
                     </div>
                 </div>
-                <div class="text-left text-sm text-[#151d52] p-6 space-y-2">
+                <div class="text-justify text-sm text-[#151d52] p-6 space-y-2">
                     <p><b>Sasaran:</b> Semua kalangan yang pernah menggunakan layanan cakrawala bahasa  dan bermaksud melanjutkan studi atau karir ke luar negeri.</p>
-                    <p><b>Benefit:</b> Potongan 30% untuk biaya kursus persiapan studi dan karir.</p>
-                    <p><b>Seleksi:</b> CV, surat motivasi, dan tujuan pengembangan karir.</p>
+                    <p><b>Benefit:</b> Potongan 60% untuk biaya layanan persiapan studi dan karir termasuk :</p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1">
+                        <li>Kursus Jagoan test 30%</li>
+                        <li>Layanan Ur study Buddy 30%</li>
+                    </ol>
+                    <p><b>Seleksi:</b></p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1">
+                        <li>CV</li>
+                        <li>Motivation Letter</li>
+                        <li>Sesi wawancara</li>
+                    </ol>
                     <p><b>Tujuan:</b> Meningkatkan daya saing SDM Indonesia di pasar global.</p>
                     <div class="mt-4 text-center">
                         <button class="bg-gradient-to-t from-[#c2410c] via-[#f97316] to-[#fdba74] text-white font-bold px-8 py-2 rounded-full shadow-md hover:scale-105 transition">Pilih ini</button>
@@ -96,10 +110,14 @@
                         <img src="/img/beasiswa3.png" alt="Beasiswa Kader" class="w-44 md:w-40 lg:w-46 xl:w-[11rem] 2xl:w-48">
                     </div>
                 </div>
-                <div class="text-left text-sm text-[#151d52] p-6 space-y-2">
+                <div class="text-justify text-sm text-[#151d52] p-6 space-y-2">
                     <p><b>Sasaran:</b> Individu dari semua kalangan dan usia di daerah 3T yang minim akses pendidikan.</p>
                     <p><b>Benefit:</b> Kursus gratis 100% untuk 1 kelas bahasa asing atau softskill dengan fasilitas pembelajaran online.</p>
-                    <p><b>Seleksi:</b> Wawancara singkat + surat keterangan institusi lokal.</p>
+                    <p><b>Seleksi:</b></p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1">
+                        <li>SKTM atau surat keterangan setempat</li>
+                        <li>Wawancara Singkat</li>
+                    </ol>
                     <p><b>Tujuan:</b> Pemerataan kesempatan belajar bahasa di seluruh Indonesia.</p>
                     <div class="mt-4 text-center">
                         <button class="bg-gradient-to-t from-[#c2410c] via-[#f97316] to-[#fdba74] text-white font-bold px-8 py-2 rounded-full shadow-md hover:scale-105 transition">Pilih ini</button>
@@ -127,7 +145,7 @@
                         <div class="bg-orange-500 w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center shadow-lg">
                             <img src="/img/icon-portal.png" alt="Portal" class="w-12 md:w-16">
                         </div>
-                        <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#151d52] text-white rounded-full flex items-center justify-center font-bold text-sm md:text-lg">2</div>
+                        <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#151d52] text-white rounded-full flex items-center justify-center font-bold text-sm md:text-lg">1</div>
                     </div>
                     <p class="font-bold text-xs md:text-sm xl:text-lg text-[#151d52] mt-5 leading-snug">Daftar Melalui Portal Resmi</p>
                 </div>
@@ -138,7 +156,7 @@
                         <div class="bg-orange-500 w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center shadow-lg">
                             <img src="/img/icon-berkas.png" alt="Berkas" class="w-12 md:w-16">
                         </div>
-                        <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#151d52] text-white rounded-full flex items-center justify-center font-bold text-sm md:text-lg">1</div>
+                        <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#151d52] text-white rounded-full flex items-center justify-center font-bold text-sm md:text-lg">2</div>
                     </div>
                     <p class="font-bold text-xs md:text-sm xl:text-lg text-[#151d52] mt-5 leading-snug">Melengkapi Berkas Persyaratan</p>
                 </div>
@@ -327,7 +345,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
             <!-- Card 1 -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <div class=" hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-gray-700 mb-6 text-sm xl:text-base">
                     Terima kasih atas program beasiswa yang diberikan. Bantuan ini sangat membantu anak-anak dalam memenuhi kebutuhan belajar mereka.
@@ -341,7 +359,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-gray-700 mb-6 text-sm xl:text-base">
                     Beasiswa ini  menjadi motivasi bagi anak-anak untuk terus berkembang dan belajar lebih giat.
@@ -355,7 +373,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-gray-700 mb-6 text-sm xl:text-base">
                     Program beasiswa pembelajaran bahasa bersama native speaker ini sangat baik dan memberikan dampak positif bagi anak-anak.
@@ -369,7 +387,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-gray-700 mb-6 text-sm xl:text-base">
                     Program beasiswa ini sangat membantu dalam mendukung proses belajar. Penerima beasiswa dapat terus belajar tanpa terbebani biaya, dengan tutor native speaker yang membuat pembelajaran lebih menarik dan berkualitas
@@ -383,7 +401,7 @@
             </div>
 
             <!-- Card 5 -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-gray-700 mb-6 text-sm xl:text-base">
                     Akses belajar gratis yang diberikan membantu saya dalam belajar bahasa Turki.
@@ -397,7 +415,7 @@
             </div>
 
             <!-- Card 6 -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
                 <p class="text-gray-700 mb-6 text-sm xl:text-base">
                     Saya merasa sangat terbantu karena dapat mengakses materi pembelajaran berkualitas tanpa harus mengeluarkan biaya yang besar.

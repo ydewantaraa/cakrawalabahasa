@@ -18,7 +18,7 @@
             <!-- Teks Kiri -->
             <div class="md:w-1/2 text-left pl-10 md:pl-8 lg:pl-16 mb-10 md:mb-0 md:-mt-28 xl:-mt-32 2xl:-mt-36">
                 <p class="text-[#151d52] font-semibold text-xl md:text-3xl mb-3">CB For Kids</p>
-                <h1 class="text-2xl text-white sm:text-3xl md:text-3xl xl:text-4xl 2xl:text-5xl font-bold leading-tight mb-6">
+                <h1 class="text-2xl text-[#151d52] sm:text-3xl md:text-3xl xl:text-4xl 2xl:text-5xl font-bold leading-tight mb-6">
                     Bikin Anak<br>Percaya Diri!
                 </h1>
                 <h2 class="text-xl text-white sm:text-2xl md:text-2xl xl:text-2xl 2xl:text-3xl font-bold leading-tight mb-6">Fondasi Bahasa & Softskill <br>Bangun Karakter Sejak Dini</h2>
@@ -190,7 +190,7 @@
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/blended.png" alt="Blended Learning" class="w-16 h-16 md:w-24 md:h-24">
                 <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Belajar Terintegrasi Digital dan Terpantau</h3>
+                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Terintegrasi Digital</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
                         Mendukung metode blended learning yang mengkombinasikan pembelajaran offline maupun online dengan proses dan progres pembelajaran yang terpantau secara digital disertai dukungan AI dalam pembelajaran untuk pengalaman belajar yang optimal.
                     </p>

@@ -96,7 +96,7 @@
                     Apa itu CB Extras?
                 </h2>
                 <p class="text-[#151d52] text-xs md:text-base 2xl:text-lg leading-relaxed text-justify">
-                    CB Extras adalah layanan pendampingan ekstra dari Cakrawala Bahasa sebagai *partner strategis* yang dipersonalisasi agar fleksibel dan setia menemani perjalanan studi dan karirmu mulai dari mentoring eksklusif untuk persiapan studi maupun karir, tes hingga layanan professional berbagai kebutuhan bahasa. Semua didukung oleh tim profesional dengan standar internasional.
+                    CB Extras adalah layanan pendampingan ekstra dari Cakrawala Bahasa yang dipersonalisasi agar fleksibel dan setia menemani perjalanan studi dan karirmu mulai dari mentoring eksklusif untuk persiapan studi maupun karir, tes hingga layanan professional berbagai kebutuhan bahasa. Semua didukung oleh tim profesional dengan standar internasional.
                 </p>
             </div>
 
@@ -294,7 +294,7 @@
                     {
                         icon: '/img/icon-mentor.png',
                         image: '/img/icon-mentor.png',
-                        title: 'Cepat, Responsif, dan Hasil Terjamin',
+                        title: 'Hasil Terjamin',
                         desc: 'Layanan pendukung kebutuhanmu ditangani sepenuhnya oleh tim berpengalaman dan profesional sehingga proses lebih cepat dengan hasil yang terjamin.'
                     },
                     {

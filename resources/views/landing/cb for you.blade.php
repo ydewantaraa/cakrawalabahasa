@@ -85,7 +85,7 @@
                     Apa itu CB For You?
                 </h2>
                 <p class="text-[#151d52] text-xs md:text-base 2xl:text-lg leading-relaxed text-justify">
-                    CB For You adalah program belajar yang dirancang khusus buat kamu yang ingin berkembang dalam bahasa dan softskill dengan kreativitas tanpa batas. Di sini kamu belajar dengan pendekatan modern yang menyenangkan, dukungan tutor ahli, serta pengalaman belajar yang interaktif.
+                    CB For You adalah program belajar yang dirancang khusus buat kamu yang ingin berkembang dalam bahasa dan softskill dengan kreativitas tanpa batas. Di sini kamu belajar dengan pendekatan modern yang menyenangkan, dukungan tutor ahli, serta pengalaman belajar yang tak terlupakan.
                 </p>
             </div>
 
@@ -208,9 +208,9 @@
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/blended.png" alt="Blended Learning" class="w-12 h-12 md:w-24 md:h-24">
                 <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-2 md:mb-3">Belajar Terintegrasi Digital</h3>
+                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-2 md:mb-3">Terintegrasi Digital</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Mendukung metode blended learning offline maupun online dengan progres terpantau digital.
+                        Mendukung metode blended learning offline maupun online dengan progres terpantau digital dan terintegrasi AI.
                     </p>
                 </div>
             </div>

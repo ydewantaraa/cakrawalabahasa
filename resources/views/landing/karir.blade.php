@@ -267,8 +267,8 @@
                     <img src="/img/icon-flexibel.png" alt="icon" class="w-6 h-6 sm:w-8 sm:h-8">
                 </div>
                 <div>
-                    <h3 class="font-bold text-base md:text-lg xl:text-2xl text-[#151d52] mb-2 sm:mb-3">Lingkungan Kerja yang Fleksibel dan Adaptif</h3>
-                    <p class="text-[#555] leading-relaxed text-xs md:text-sm lg:text-base">
+                    <h3 class="font-bold text-base md:text-lg xl:text-2xl text-[#151d52] mb-2 sm:mb-3">Lingkungan Kerja<br>Fleksibel dan Adaptif</h3>
+                    <p class="text-[#555] leading-relaxed text-xs md:text-sm lg:text-base text-justify">
                         Sebagai platform online, Cakrawala Bahasa menawarkan fleksibilitas kerja jarak jauh (remote),
                         waktu kerja yang adaptif, dan budaya kerja yang menghargai kemandirian serta keseimbangan hidup.
                     </p>
@@ -281,8 +281,8 @@
                     <img src="/img/icon-pengembangan.png" alt="icon" class="w-6 h-6 sm:w-8 sm:h-8">
                 </div>
                 <div>
-                    <h3 class="font-bold text-base md:text-lg xl:text-2xl text-[#151d52] mb-2 sm:mb-3">Peluang Pengembangan Diri dan Karier</h3>
-                    <p class="text-[#555] leading-relaxed text-xs md:text-sm lg:text-base">
+                    <h3 class="font-bold text-base md:text-lg xl:text-2xl text-[#151d52] mb-2 sm:mb-3">Peluang Pengembangan</h3>
+                    <p class="text-[#555] leading-relaxed text-xs md:text-sm lg:text-base text-justify">
                         Di Cakrawala Bahasa, setiap anggota tim didorong untuk terus belajar dan berkembang—baik dalam keterampilan mengajar, teknologi edukasi, maupun pengembangan soft skills.
                     </p>
                 </div>
@@ -294,8 +294,8 @@
                     <img src="/img/icon-team.png" alt="icon" class="w-6 h-6 sm:w-8 sm:h-8">
                 </div>
                 <div>
-                    <h3 class="font-bold text-base md:text-lg xl:text-2xl text-[#151d52] mb-2 sm:mb-3">Tim yang Kolaboratif dan Inklusif</h3>
-                    <p class="text-[#555] leading-relaxed text-xs md:text-sm lg:text-base">
+                    <h3 class="font-bold text-base md:text-lg xl:text-2xl text-[#151d52] mb-2 sm:mb-3">Diri dan Karier</h3>
+                    <p class="text-[#555] leading-relaxed text-xs md:text-sm lg:text-base text-justify">
                         Kamu akan bergabung dalam tim yang suportif, terbuka, dan saling mendorong untuk berkembang. Perbedaan dihargai, ide-ide baru didengarkan, dan semua anggota tim dianggap berperan penting.
                     </p>
                 </div>
@@ -307,9 +307,9 @@
                     <img src="/img/icon-inovasi.png" alt="icon" class="w-6 h-6 sm:w-8 sm:h-8">
                 </div>
                 <div>
-                    <h3 class="font-bold text-base md:text-lg xl:text-2xl text-[#151d52] mb-2 sm:mb-3">Inovasi dalam Dunia Edukasi Digital</h3>
-                    <p class="text-[#555] leading-relaxed text-xs md:text-sm lg:text-base">
-                        Cakrawala Bahasa berfokus pada pemanfaatan teknologi untuk meningkatkan kualitas pembelajaran. Bekerja di sini berarti berada di garis depan inovasi edukasi.
+                    <h3 class="font-bold text-base md:text-lg xl:text-2xl text-[#151d52] mb-2 sm:mb-3">Koneksi Luas,<br>Peluang Tanpa Batas</h3>
+                    <p class="text-[#555] leading-relaxed text-xs md:text-sm lg:text-base text-justify">
+                        Kami memiliki jaringan relasi yang kuat baik di tingkat nasional maupun internasional. Bergabung bersama kami berarti menjadi bagian dari komunitas yang terhubung dengan berbagai tim dan institusi di dalam dan luar negeri untuk membuka berbagai peluang.
                     </p>
                 </div>
             </div>
@@ -330,8 +330,8 @@
             <!-- Card 1 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
-                    Sebagai mahasiswa yang tidak mempunyai background dunia HR, aku diberikan kesempatan yang luar biasa dan diamanahkan sebagai Vice Manager of HR. Dari Cakrawala Bahasa aku belajar bahwa setiap karakter itu unik dan setiap manusia itu setara. Aku juga belajar bagaimana cara berkomunikasi yang baik, pendekatan karakter individu, dan membentuk team building yang kuat.
+                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5 text-justify">
+                    Selama di Cakrawala Bahasa, aku belajar bahwa setiap karakter itu unik dan setiap manusia itu setara. Aku juga belajar bagaimana cara berkomunikasi yang baik, pendekatan karakter individu, dan membentuk team building yang kuat.
                 </p>
                 <div class="flex items-center gap-3">
                     <div>
@@ -344,8 +344,8 @@
             <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
-                    Banyak hal baru yang aku temukan di Cakrawala Bahasa salah satunya relasi, semua anggota cakrawala Bahasa family friendly banget dan juga ga hanya di Indonesia bahkan aku dapat teman baru dari berbagai negara karena ini bahasa Inggris aku makin lancar dan banyak belajar bahasa-bahasa baru di Cakrawala Bahasa.
+                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5 text-justify">
+                    Banyak hal baru yang aku temukan di Cakrawala Bahasa salah satunya relasi, semua anggota cakrawala Bahasa family friendly banget bahkan ga hanya di Indonesia, aku dapat teman baru dari berbagai negara dan aku banyak belajar di Cakrawala Bahasa.
                 </p>
                 <div class="flex items-center gap-3">
                     <div>
@@ -358,7 +358,7 @@
             <!-- Card 3 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
+                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5 text-justify">
                     Saya merasa dihargai sebagai bagian dari tim. Setiap ide didengarkan dan ada banyak kesempatan untuk belajar hal baru.
                 </p>
                 <div class="flex items-center gap-3">
@@ -381,7 +381,7 @@
             <!-- Card 1 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
+                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5 text-justify">
                     Aku menikmati banget tugas-tugas yang diberikan selama magang di CB dan emang suka banget sama bidang HR yang aku jalani disini. Lingkungan kerjanya asik banget bukan cuma mengedepankan profesionalitas tapi kekeluargaannya juga kuat. Dari sesama anak magang maupun atasan juga baik semua dan saling suportif. Sejauh ini aku ngerasa cocok banget sama culture company dan visi CB.
                 </p>
                 <div class="flex items-center gap-3">
@@ -395,7 +395,7 @@
             <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
+                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5 text-justify">
                     Magang di CB seru banget, senior-seniornya ramah dan mau membimbing anak magangnya. Sesama anak magang juga berasa deket banget walaupun belom pernah ketemu secara langsung. kerasa feel kekeluargaannya namun tetap menjaga profesionalitas. Selama jadi graphic designer di CB, aku juga bisa mengembangkan skill ku dalam mendesain dan mengeksplor berbagai gaya desain yang baru. Pokoknya seneng banget deh magang di CB!
                 </p>
                 <div class="flex items-center gap-3">
@@ -409,7 +409,7 @@
             <!-- Card 3 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white p-6 sm:p-8 rounded-3xl shadow-md text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5">
+                <p class="text-xs md:text-sm lg:text-base 2xl:text-lg text-[#333] leading-relaxed mb-5 text-justify">
                     Sebagai fresh graduate, tentunya aku memerlukan pengalaman yang mumpuni sebelum benar benar terjun ke dunia pekerjaan. Pengalaman ini aku dapatkan selama menjadi Magangers di Cakrawala Bahasa sebagai Social Media Specialist. Aku mendapatkan banyak ilmu di bidang sosial media, tidak hanya mengelola akun tetapi juga mendapatkan kemampuan untuk menganalisis audiens di tiap sosial media tersebut dan content management.
                 </p>
                 <div class="flex items-center gap-3">

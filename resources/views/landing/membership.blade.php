@@ -234,18 +234,18 @@
                         <img src="/img/medal-gold.png" alt="Gold Medal" class="w-28 md:w-24 xl:w-28 2xl:w-32 h-auto">
                     </div>
                 </div>
-                <div class="pt-10 px-8 pb-10 text-left">
+                <div class="pt-10 px-8 pb-10 text-justify">
                     <h4 class="font-bold mb-3 text-[#151d52]">Keuntungan :</h4>
-                    <ul class="list-decimal text-xs xl:text-sm 2xl:text-base list-inside text-gray-600 leading-relaxed italic">
-                        <li>Akses ke komunitas eksklusif dan grup WhatsApp membership</li>
-                        <li>Unlock semua fitur premium Cakrawala Bahasa</li>
-                        <li>Sesi bincang dengan Native Speaker, 1x per bulan</li>
-                        <li>Belajar bahasa dan soft skill secara gratis, 1x per bulan</li>
-                        <li>Sharing session tips & trik karir serta studi ke luar negeri, 1x per bulan</li>
-                        <li>Pendampingan mentoring eksklusif studi dan karir dalam grup kecil</li>
-                        <li>Informasi lengkap tentang kelas, program, peluang karir, dan beasiswa studi</li>
-                        <li>Kaos CB KIT & ID Card Member CB (e-money)</li>
-                        <li>Program referral dengan komisi 20%</li>
+                    <ul class="list-decimal list-outside pl-5 text-xs xl:text-sm 2xl:text-base text-gray-600 leading-relaxed italic space-y-1">
+                        <li>Akses komunitas eksklusif & grup WhatsApp</li>
+                        <li>Unlock semua fitur premium CB</li>
+                        <li>1x/bulan: Native Speaker Talk</li>
+                        <li>1x/bulan: Kelas Bahasa & Soft Skill gratis</li>
+                        <li>1x/bulan: Sharing karir & studi luar negeri</li>
+                        <li>Mentoring eksklusif (grup kecil)</li>
+                        <li>Info lengkap kelas, karir & beasiswa</li>
+                        <li>CB Kit (Kaos + ID Card e-money)</li>
+                        <li>Referral komisi 20%</li>
                     </ul>
                 </div>
             </div>
@@ -259,19 +259,18 @@
                         <img src="/img/medal-silver.png" alt="Silver Medal" class="w-28 md:w-24 xl:w-28 2xl:w-32 h-auto">
                     </div>
                 </div>
-                <div class="pt-10 px-8 pb-10 text-left">
+                <div class="pt-10 px-8 pb-10 text-justify">
                     <h4 class="font-bold mb-3 text-[#151d52]">Keuntungan :</h4>
-                    <ul class="list-decimal text-xs xl:text-sm 2xl:text-base list-inside text-gray-600 leading-relaxed italic">
-                        <li>Akses ke grup WhatsApp membership</li>
-                        <li>Unlock fitur komunitas, permainan, ujian, dan alih bahasa</li>
-                        <li>Sesi bincang dengan Native Speaker, 1x per bulan</li>
-                        <li>Belajar bahasa dan soft skill secara gratis, 1x per bulan</li>
-                        <li>Sharing session tips & trik karir serta studi ke luar negeri, 1x per bulan</li>
-                        <li>Pendampingan mentoring eksklusif studi dan karir dalam grup kecil</li>
-                        <li>Informasi kelas, program, peluang karir, dan beasiswa studi</li>
-                        <li>Kesempatan upgrade ke Gold Member</li>
-                        <li>Kaos CB KIT & ID Card Member CB</li>
-                        <li>Program referral dengan komisi 15%</li>
+                    <ul class="list-decimal list-outside pl-5 text-xs xl:text-sm 2xl:text-base text-gray-600 leading-relaxed italic space-y-1">
+                        <li>Akses grup WhatsApp membership</li>
+                        <li>Unlock fitur komunitas, game & ujian</li>
+                        <li>1x/bulan: Native Speaker Talk</li>
+                        <li>1x/bulan: Kelas Bahasa & Soft Skill gratis</li>
+                        <li>1x/bulan: Sharing karir & studi luar negeri</li>
+                        <li>Info kelas, karir & beasiswa</li>
+                        <li>CB Kit (Kaos + ID Card)</li>
+                        <li>Referral komisi 15%</li>
+                        <li>Kesempatan upgrade ke Gold</li>
                     </ul>
                 </div>
             </div>
@@ -285,17 +284,18 @@
                         <img src="/img/medal-bronze.png" alt="Bronze Medal" class="w-28 md:w-24 xl:w-28 2xl:w-32 h-auto">
                     </div>
                 </div>
-                <div class="pt-10 px-8 pb-10 text-left">
+                <div class="pt-10 px-8 pb-10 text-justify">
                     <p class="text-xs xl:text-sm 2xl:text-base list-inside text-gray-600 leading-relaxed italic">(Akses Dasar & Komunitas)</p>
                     <h4 class="font-bold mb-3 text-[#151d52]">Keuntungan :</h4>
-                    <ul class="list-decimal text-xs xl:text-sm 2xl:text-base list-inside text-gray-600 leading-relaxed italic">
-                        <li>Akses ke grup WhatsApp membership</li>
-                        <li>Unlock fitur komunitas dan permainan</li>
-                        <li>Sesi bincang dengan Native Speaker, 1x per bulan</li>
-                        <li>Belajar bahasa gratis, 1x per bulan</li>
-                        <li>Informasi kelas, program, peluang karir, dan beasiswa studi</li>
-                        <li>Kesempatan upgrade ke Silver atau Gold Member</li>
-                        <li>Program referral dengan komisi 10%</li>
+                    <ul class="list-decimal list-outside pl-5 text-xs xl:text-sm 2xl:text-base text-gray-600 leading-relaxed italic space-y-1">
+                        <li>Akses grup WhatsApp membership</li>
+                        <li>Unlock fitur komunitas & game</li>
+                        <li>1x/bulan: Native Speaker Talk</li>
+                        <li>1x/bulan: Kelas Bahasa gratis</li>
+                        <li>Info kelas, karir & beasiswa</li>
+                        <li>Upgrade ke Silver/Gold</li>
+                        <li>Referral komisi 10%</li>
+                        <li>Kesempatan upgrade ke Gold</li>
                     </ul>
                 </div>
             </div>
@@ -315,7 +315,7 @@
             <!-- Card 1 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Melalui komunitas member yang disediakan, saya dapat membangun banyak koneksi serta memperoleh berbagai kesempatan baru.
                 </p>
                 <div class="flex items-center">
@@ -329,7 +329,7 @@
             <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Materi belajarnya mudah dipahami. Dengan membership, saya bisa belajar lebih fokus dan hemat biaya.
                 </p>
                 <div class="flex items-center">
@@ -340,24 +340,10 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
-                <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    Saya bisa mengulang pelajaran sesering mungkin. Sangat membantu saat persiapan ujian.
-                </p>
-                <div class="flex items-center">
-                    <div>
-                        <p class="font-bold text-[#151d52]">Muhammad Rizky Faisal</p>
-                        <p class="text-gray-400 text-sm">Siswa, SDN Pela Mampang 13 pagi </p>
-                    </div>
-                </div>
-            </div>
-
             <!-- Card 4 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Materi dan info tambahan yang disediakan  sangat menunjang pemahaman saya.
                 </p>
                 <div class="flex items-center">
@@ -371,7 +357,7 @@
             <!-- Card 5 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Saya dapat menambah relasi dan saling membantu mengupgrade kemampuan berbahasa asing.
                 </p>
                 <div class="flex items-center">
@@ -385,7 +371,7 @@
             <!-- Card 6 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Dengan menjadi member saya mendapat info lebih banyak tentang bahasa dan budaya Turki.
                 </p>
                 <div class="flex items-center">
@@ -399,7 +385,7 @@
             <!-- Card 7 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Saya mendapatkan banyak informasi beasiswa yang sangat bermanfaat untuk persiapan studi saya ke depannya.
                 </p>
                 <div class="flex items-center">

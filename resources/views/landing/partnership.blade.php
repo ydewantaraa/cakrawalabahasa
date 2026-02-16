@@ -245,9 +245,9 @@
                 <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 h-24 md:w-32 md:h-32 rounded-full bg-[#f78a28] shadow-lg flex items-center justify-center mb-8">
                     <img src="/img/icon-akses.png" alt="Akses" class="w-[90px] p-2 md:w-auto">
                 </div>
-                <h3 class="font-bold text-sm md:text-lg lg:text-xl xl:text-2xl text-[#151d52] mb-5 leading-snug">Akses Sumber <br> Daya Pendidikan</h3>
+                <h3 class="font-bold text-sm md:text-lg lg:text-xl xl:text-2xl text-[#151d52] mb-5 leading-snug">Dukungan <br> Strategis</h3>
                 <p class="text-gray-500 text-xs md:text-sm xl:text-lg leading-relaxed max-w-sm">
-                    Anda akan mendapatkan akses sumber pendidikan yang terlengkap, dan mudah untuk diakses kapanpun jika dibutuhkan
+                    Mitra mendapatkan akses ke materi promosi, dukungan pembelajaran  dan dukungan operasional hingga koneksi untuk memaksimalkan potensi dan performa mitra
                 </p>
             </div>
 
@@ -289,7 +289,7 @@
             <!-- Card 1 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Kolaborasi ini mendukung penyelenggaraan berbagai kelas bahasa yang didampingi oleh pengajar kompeten dari Cakrawala Bahasa.
                 </p>
                 <div class="flex items-center">
@@ -303,7 +303,7 @@
             <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Kerja sama telah berjalan lancar secara berkelanjutan dengan sangat baik dan kooperatif, diharapkan dapat semakin baik dan berkelanjutan.
                 </p>
                 <div class="flex items-center">
@@ -317,7 +317,7 @@
             <!-- Card 3 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Kerja sama ini membantu berbagai kebutuhan  program kami. Tim sangat kooperatif dan solutif.
                 </p>
                 <div class="flex items-center">
@@ -331,7 +331,7 @@
             <!-- Card 4 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Melalui kerja sama sebagai media partner. Kolaborasi ini berjalan efektif dan mendukung kebutuhan program secara optimal.
                 </p>
                 <div class="flex items-center">
@@ -345,7 +345,7 @@
             <!-- Card 5 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Kerja sama ini berjalan sangat baik, dengan tim Cakrawala Bahasa yang responsif dan terbuka dalam menyampaikan informasi rekrutmen.
                 </p>
                 <div class="flex items-center">
@@ -359,7 +359,7 @@
             <!-- Card 6 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
                     Kemitraan berjalan sangat baik, dengan dukungan tim Cakrawala Bahasa yang komunikatif.
                 </p>
                 <div class="flex items-center">
