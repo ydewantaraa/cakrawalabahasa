@@ -36,6 +36,7 @@ class UpdateRequest extends FormRequest
             'advantages.*.title' => 'required|string|max:255',
             'advantages.*.description' => 'required|string',
             'advantages.*.thumbnail' => 'nullable|image',
+            'advantages.*.icon' => 'nullable|image',
         ];
     }
 }

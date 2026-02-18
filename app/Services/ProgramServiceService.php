@@ -60,13 +60,18 @@ class ProgramServiceService
             // Advantage
             foreach ($advantages as $advantage) {
                 $thumbnailPath = null;
+                $iconPath = null;
                 if (!empty($advantage['thumbnail']) && $advantage['thumbnail'] instanceof UploadedFile) {
                     $thumbnailPath = $advantage['thumbnail']->store('advantage-programs', 'public');
+                }
+                if (!empty($advantage['icon']) && $advantage['icon'] instanceof UploadedFile) {
+                    $iconPath = $advantage['icon']->store('advantage-programs', 'public');
                 }
                 $programService->advantage_program_services()->create([
                     'title' => $advantage['title'],
                     'description' => $advantage['description'],
                     'thumbnail' => $thumbnailPath,
+                    'icon' => $iconPath,
                 ]);
             }
 
@@ -120,6 +125,10 @@ class ProgramServiceService
                 ->map(fn($a) => $a->getRawOriginal('thumbnail'))
                 ->toArray();
 
+            $oldAdvantageIcons = $programService->advantage_program_services
+                ->map(fn($a) => $a->getRawOriginal('icon'))
+                ->toArray();
+
             // Hapus record lama
             $programService->feature_program_services()->delete();
             $programService->advantage_program_services()->delete();
@@ -154,8 +163,10 @@ class ProgramServiceService
 
             // Tentukan thumbnail yang akan dipakai (advantages)
             $usedAdvantageThumbnails = [];
+            $usedAdvantageIcons = [];
             foreach ($advantages as $i => $advantage) {
                 $thumbnailPath = $oldAdvantageThumbnails[$i] ?? null;
+                $iconPath = $oldAdvantageIcons[$i] ?? null;
 
                 if (!empty($advantage['thumbnail']) && $advantage['thumbnail'] instanceof UploadedFile) {
                     if ($thumbnailPath && Storage::disk('public')->exists($thumbnailPath)) {
@@ -164,13 +175,22 @@ class ProgramServiceService
                     $thumbnailPath = $advantage['thumbnail']->store('advantage-programs', 'public');
                 }
 
+                if (!empty($advantage['icon']) && $advantage['icon'] instanceof UploadedFile) {
+                    if ($iconPath && Storage::disk('public')->exists($iconPath)) {
+                        Storage::disk('public')->delete($iconPath);
+                    }
+                    $iconPath = $advantage['icon']->store('advantage-programs', 'public');
+                }
+
                 $programService->advantage_program_services()->create([
                     'title'       => $advantage['title'],
                     'description' => $advantage['description'],
                     'thumbnail'   => $thumbnailPath,
+                    'icon'   => $iconPath,
                 ]);
 
                 if ($thumbnailPath) $usedAdvantageThumbnails[] = $thumbnailPath;
+                if ($iconPath) $usedAdvantageIcons[] = $iconPath;
             }
 
             // Hapus file advantage yang sudah tidak dipakai lagi
@@ -181,7 +201,9 @@ class ProgramServiceService
             }
 
             // Load relasi feature & advantage
-            return $programService->load('feature_program_services', 'advantage_program_services');
+            return $programService
+                ->refresh()
+                ->load('feature_program_services', 'advantage_program_services');
         });
     }
 
@@ -214,6 +236,14 @@ class ProgramServiceService
                 $rawThumbnail = $advantage->getRawOriginal('thumbnail');
                 if ($rawThumbnail && Storage::disk('public')->exists($rawThumbnail)) {
                     Storage::disk('public')->delete($rawThumbnail);
+                }
+            }
+
+            // Hapus file icon lama untuk advantages
+            foreach ($programService->advantage_program_services as $advantage) {
+                $rawIcon = $advantage->getRawOriginal('icon');
+                if ($rawIcon && Storage::disk('public')->exists($rawIcon)) {
+                    Storage::disk('public')->delete($rawIcon);
                 }
             }
 

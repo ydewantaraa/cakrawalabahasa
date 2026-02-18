@@ -21,7 +21,9 @@
                     'title' => $a->title,
                     'description' => $a->description,
                     'thumbnailPreview' => $a->thumbnail ? $a->thumbnail : null,
+                    'iconPreview' => $a->icon ? $a->icon : null,
                     'thumbnailFile' => null,
+                    'iconFile' => null,
                 ],
             )
             ->toArray(),
@@ -45,7 +47,7 @@
         this.form.features.splice(index, 1);
     },
     addAdvantage() {
-        this.form.advantages.push({ title: '', description: '', thumbnailPreview: null, thumbnailFile: null });
+        this.form.advantages.push({ title: '', description: '', thumbnailPreview: null, thumbnailFile: null, iconPreview: null, iconFile: null });
     },
     removeAdvantage(index) {
         this.form.advantages.splice(index, 1);
@@ -172,6 +174,23 @@
                         <label class="block mb-1">Deskripsi Keunggulan</label>
                         <textarea :name="`advantages[${index}][description]`" rows="2" x-model="advantage.description"
                             class="w-full border rounded px-3 py-2"></textarea>
+                    </div>
+                    <div>
+                        <label class="block mb-1">Icon (opsional)</label>
+                        <template x-if="advantage.iconPreview">
+                            <img :src="advantage.iconPreview" class="w-32 h-32 object-cover mb-1 rounded border">
+                        </template>
+                        <input type="file" :name="`advantages[${index}][icon]`"
+                            @change="
+                                const file = $event.target.files[0];
+                                if(file){
+                                    advantage.iconFile = file;
+                                    const reader = new FileReader();
+                                    reader.onload = e => advantage.iconPreview = e.target.result;
+                                    reader.readAsDataURL(file);
+                                }
+                            "
+                            class="w-full">
                     </div>
                     <div>
                         <label class="block mb-1">Thumbnail (opsional)</label>
