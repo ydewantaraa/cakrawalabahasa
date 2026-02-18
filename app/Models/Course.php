@@ -15,16 +15,10 @@ class Course extends Model
         'category',
         'quota',
         'duration',
-<<<<<<< HEAD
-=======
-        'price',
-        'learning_type',
->>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
         'thumbnail',
         'program_service_id'
     ];
 
-<<<<<<< HEAD
     // agar properti virtual muncul di JSON
     protected function thumbnail(): Attribute
     {
@@ -33,8 +27,6 @@ class Course extends Model
         );
     }
 
-=======
->>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
     public function program_service()
     {
         return $this->belongsTo(ProgramService::class);
@@ -66,12 +58,9 @@ class Course extends Model
             'student_id'
         )->withTimestamps();
     }
-<<<<<<< HEAD
 
     public function learning_types()
     {
         return $this->hasMany(CourseLearningType::class);
     }
-=======
->>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
 }

@@ -30,21 +30,19 @@
             </header>
         @endisset
 
-        <<<<<<< HEAD {{-- CONTENT --}} <main class="flex-1 p-6 mt-5">
+        {{-- CONTENT --}} <main class="flex-1 p-6 mt-5">
             @yield('content')
-            </main>
+        </main>
 
-            {{-- GLOBAL MODAL --}}
-            @include('components.modal')
+        {{-- GLOBAL MODAL --}}
+        @include('components.modal')
     </div>
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
-    =======
     <!-- Page Content -->
     <main>
         @yield('content')
     </main>
     </div>
-    >>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
 </body>
 
 </html>

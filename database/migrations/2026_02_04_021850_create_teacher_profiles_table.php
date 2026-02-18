@@ -14,12 +14,8 @@ return new class extends Migration
         Schema::create('teacher_profiles', function (Blueprint $table) {
             $table->id();
             $table->string('whatsapp', 20);
-<<<<<<< HEAD
             $table->string('position');
             $table->string('initial_password')->nullable();
-=======
-            $table->date('position');
->>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
             $table->foreignId('teacher_id')
                 ->unique()
                 ->constrained('users')
