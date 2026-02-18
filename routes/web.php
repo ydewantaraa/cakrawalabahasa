@@ -213,6 +213,12 @@ Route::get('/privacy_policy', function () {
     return view('privacy_policy');
 });
 
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'student'])->name('dashboard.student');
+//     Route::get('/dashboard', [DashboardController::class, 'teacher'])->name('dashboard.teacher');
+//     Route::get('/dashboard', [DashboardController::class, 'admin'])->name('dashboard.admin');
+// });
+
 Route::middleware(['auth'])->group(function () {
 
     // Cart management
@@ -223,5 +229,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 });
 
+
+require __DIR__ . '/auth.php';
 
 require __DIR__ . '/auth.php';

@@ -7,6 +7,15 @@
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
+
+        /* Menyembunyikan scrollbar tapi tetap bisa discroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
         .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -673,10 +682,10 @@
                                 <div class="card swiper-slide">
                                     <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
                                         <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
-                                            <img src="/img/avatar.png" alt="Sara Mit" class="w-20 sm:w-32 rounded-lg" />
+                                            <img src="/img/jagoan-milingual/Bara.png" alt="Bara" class="w-20 sm:w-32 rounded-lg" />
                                         </div>
                                         <div class="p-3 sm:p-4 text-center mt-auto">
-                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Sara Mit</p>
+                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Bara</p>
                                             <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
                                             <div class="flex justify-center">
                                                 <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
@@ -691,10 +700,10 @@
                                 <div class="card swiper-slide">
                                     <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
                                         <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
-                                            <img src="/img/avatar.png" alt="Jenny Wert" class="w-20 sm:w-32 rounded-lg" />
+                                            <img src="/img/jagoan-milingual/Talula.png" alt="Talula" class="w-20 sm:w-32 rounded-lg" />
                                         </div>
                                         <div class="p-3 sm:p-4 text-center mt-auto">
-                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Jenny Wert</p>
+                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Talula</p>
                                             <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
                                             <div class="flex justify-center">
                                                 <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
@@ -708,10 +717,10 @@
                                 <div class="card swiper-slide">
                                     <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
                                         <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
-                                            <img src="/img/avatar.png" alt="Sara Mit" class="w-20 sm:w-32 rounded-lg" />
+                                            <img src="/img/jagoan-milingual/Husein.png" alt="Husein" class="w-20 sm:w-32 rounded-lg" />
                                         </div>
                                         <div class="p-3 sm:p-4 text-center mt-auto">
-                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Sara Mit</p>
+                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Husein</p>
                                             <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
                                             <div class="flex justify-center">
                                                 <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
@@ -726,46 +735,10 @@
                                 <div class="card swiper-slide">
                                     <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
                                         <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
-                                            <img src="/img/avatar.png" alt="Jenny Wert" class="w-20 sm:w-32 rounded-lg" />
+                                            <img src="/img/jagoan-milingual/Adiba.png" alt="Adiba" class="w-20 sm:w-32 rounded-lg" />
                                         </div>
                                         <div class="p-3 sm:p-4 text-center mt-auto">
-                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Jenny Wert</p>
-                                            <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
-                                            <div class="flex justify-center">
-                                                <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
-                                                    Lihat Detail
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 1 -->
-                                <div class="card swiper-slide">
-                                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
-                                        <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
-                                            <img src="/img/avatar.png" alt="Sara Mit" class="w-20 sm:w-32 rounded-lg" />
-                                        </div>
-                                        <div class="p-3 sm:p-4 text-center mt-auto">
-                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Sara Mit</p>
-                                            <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
-                                            <div class="flex justify-center">
-                                                <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
-                                                    Lihat Detail
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 2 (Contoh) -->
-                                <div class="card swiper-slide">
-                                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
-                                        <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
-                                            <img src="/img/avatar.png" alt="Jenny Wert" class="w-20 sm:w-32 rounded-lg" />
-                                        </div>
-                                        <div class="p-3 sm:p-4 text-center mt-auto">
-                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Jenny Wert</p>
+                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Adiba</p>
                                             <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
                                             <div class="flex justify-center">
                                                 <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
@@ -780,10 +753,10 @@
                                 <div class="card swiper-slide">
                                     <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
                                         <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
-                                            <img src="/img/avatar.png" alt="Sara Mit" class="w-20 sm:w-32 rounded-lg" />
+                                            <img src="/img/jagoan-milingual/Skye.png" alt="Skye" class="w-20 sm:w-32 rounded-lg" />
                                         </div>
                                         <div class="p-3 sm:p-4 text-center mt-auto">
-                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Sara Mit</p>
+                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Skye</p>
                                             <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
                                             <div class="flex justify-center">
                                                 <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
@@ -798,10 +771,46 @@
                                 <div class="card swiper-slide">
                                     <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
                                         <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
-                                            <img src="/img/avatar.png" alt="Jenny Wert" class="w-20 sm:w-32 rounded-lg" />
+                                            <img src="/img/jagoan-milingual/Sakha.png" alt="Sakha" class="w-20 sm:w-32 rounded-lg" />
                                         </div>
                                         <div class="p-3 sm:p-4 text-center mt-auto">
-                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Jenny Wert</p>
+                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Sakha</p>
+                                            <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
+                                            <div class="flex justify-center">
+                                                <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
+                                                    Lihat Detail
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 1 -->
+                                <div class="card swiper-slide">
+                                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
+                                        <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
+                                            <img src="/img/jagoan-milingual/Noura.png" alt="Noura" class="w-20 sm:w-32 rounded-lg" />
+                                        </div>
+                                        <div class="p-3 sm:p-4 text-center mt-auto">
+                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Noura</p>
+                                            <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
+                                            <div class="flex justify-center">
+                                                <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
+                                                    Lihat Detail
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 1 -->
+                                <div class="card swiper-slide">
+                                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex-shrink-0 min-w-[100px] md:min-w-[120px] xl:min-w-[160px] flex flex-col">
+                                        <div class="pt-3 flex justify-center rounded-t-xl" style="background: radial-gradient(circle at center, #ffb778 0%, #ffb778 30%, #e75506 100%);">
+                                            <img src="/img/jagoan-milingual/Zayn.png" alt="Zayn" class="w-20 sm:w-32 rounded-lg" />
+                                        </div>
+                                        <div class="p-3 sm:p-4 text-center mt-auto">
+                                            <p class="font-bold text-sm sm:text-lg lg:text-xl">Zayn</p>
                                             <p class="text-gray-500 text-[10px] sm:text-sm mb-2">Pengalaman Jagoan</p>
                                             <div class="flex justify-center">
                                                 <a href="#" class="block w-20 md:w-28 bg-[#232c5f] text-white py-1 sm:py-2 rounded-full font-semibold text-[10px] sm:text-sm hover:bg-blue-800 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
@@ -839,7 +848,7 @@
 
             <!-- Card 1 -->
             <div class="flex flex-col items-center flex-shrink-0 w-[220px] xl:w-[260px] pl-2">
-                <img src="/img/master-teacher/kak ria enes.png" alt="Kak Ria Enes" class="w-[130px] md:w-[170px] z-10">
+                <img src="/img/master-teacher/kak_ria_enes.png" alt="Kak Ria Enes" class="w-[130px] md:w-[170px] z-10">
                 <div class="bg-[#232c5f] text-white rounded-3xl pt-5 pb-6 px-6 text-center shadow-lg w-full">
                     <img src="/img/favicon.png" alt="Logo" class="w-8 h-8 mx-auto mb-3">
                     <h3 class="font-bold text-sm xl:text-base 2xl:text-lg mb-1">Kak Ria Enes</h3>
@@ -847,11 +856,20 @@
                     <hr class="border-white mb-2 w-1/2 mx-auto">
                     <p class="text-xs mb-4">Pengalaman & Prestasi</p>
 
+                    <!-- PERBAIKAN DIMULAI DI SINI (Card 1) -->
                     <div x-show="openCard === 1" class="text-left text-sm space-y-2">
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Pembawa Acara TV</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Penyiar Radio Profesional</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Penyanyi Profesional</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Content Educator Anak</p>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Figur Edukator Anak</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Musisi Musik Anak</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Broadcaster</span>
+                        </div>
                     </div>
 
                     <div class="mt-4">
@@ -866,7 +884,7 @@
 
             <!-- Card 2 -->
             <div class="flex flex-col items-center flex-shrink-0 w-[220px] xl:w-[260px]">
-                <img src="/img/master-teacher/kak yudha dewantara.png" alt="Kak Yudha Dewantara" class="w-[130px] md:w-[170px] z-10">
+                <img src="/img/master-teacher/kak_yudha_dewantara.png" alt="Kak Yudha Dewantara" class="w-[130px] md:w-[170px] z-10">
                 <div class="bg-[#232c5f] text-white rounded-3xl pt-5 pb-6 px-6 text-center shadow-lg w-full">
                     <img src="/img/favicon.png" alt="Logo" class="w-8 h-8 mx-auto mb-3">
                     <h3 class="font-bold text-sm xl:text-base 2xl:text-lg mb-1">Kak Yudha Dewantara</h3>
@@ -874,10 +892,20 @@
                     <hr class="border-white mb-2 w-1/2 mx-auto">
                     <p class="text-xs mb-4">Pengalaman & Prestasi</p>
 
+                    <!-- PERBAIKAN (Card 2) -->
                     <div x-show="openCard === 2" class="text-left text-sm space-y-2">
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Sertifikasi IoT di BBPVP</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Sertifikasi Web Developer</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Sertifikasi UI/UX</p>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Sertifikasi IoT di BBPVP</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Sertifikasi Web Developer</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Sertifikasi UI/UX</span>
+                        </div>
                     </div>
 
                     <div class="mt-4">
@@ -892,24 +920,33 @@
 
             <!-- Card 3 -->
             <div class="flex flex-col items-center flex-shrink-0 w-[220px] xl:w-[260px]">
-                <img src="/img/master-teacher/kak syamsri firdaus.png" alt="Kak Syamsri Firdaus" class="w-[130px] md:w-[170px] z-10">
+                <img src="/img/master-teacher/kak_syamsri_firdaus.png" alt="Kak Syamsri Firdaus" class="w-[130px] md:w-[170px] z-10">
                 <div class="bg-[#232c5f] text-white rounded-3xl pt-5 pb-6 px-6 text-center shadow-lg w-full">
                     <img src="/img/favicon.png" alt="Logo" class="w-8 h-8 mx-auto mb-3">
-                    <h3 class="font-bold text-sm xl:text-base 2xl:text-lg mb-1">Kak Syamsri Firdaus</h3>
+                    <h3 class="font-bold text-sm xl:text-base 2xl:text-lg mb-1">Kak Syamsuri Firdaus</h3>
                     <p class="text-[11px] xl:text-xs 2xl:text-sm mb-3">Master Tutor Keislaman</p>
                     <hr class="border-white mb-2 w-1/2 mx-auto">
                     <p class="text-xs mb-4">Pengalaman & Prestasi</p>
 
+                    <!-- PERBAIKAN (Card 3) -->
                     <div x-show="openCard === 3" class="text-left text-sm space-y-2">
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Juara 1 MTQ Int. di Turki</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Juara 1 MTQ Int. di Afrika</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Juara 1 MTQ Int. di Afrika</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Youtuber</p>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Juara 1 MTQ Int. di Turki</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Juara 1 MTQ Int. di Afrika</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Juara 1 MTQ Int. di Afrika</span>
+                        </div>
                     </div>
 
                     <div class="mt-4">
                         <button @click="openCard === 3 ? openCard = null : openCard = 3"
-                            class="inline-block bg-gradient-to-r hover:shadow-[5px_5px_15px_0px_#000000] from-orange-800 to-orange-400 text-white shadow-[2px_2px_12px_0px_#000000] rounded-full transform hover:-translate-y-1 hover:scale-105 transition-all duration-20 px-6 py-2 font-semibold text-xs md:text-sm hover:bg-orange-600">
+                            class="inline-block bg-gradient-to-r hover:shadow-[5px_5px_15px_0px_#000000] from-orange-800 to-orange-400 text-white shadow-[2px_2xl_12px_0px_#000000] rounded-full transform hover:-translate-y-1 hover:scale-105 transition-all duration-20 px-6 py-2 font-semibold text-xs md:text-sm hover:bg-orange-600">
                             <span x-show="openCard !== 3">Read More</span>
                             <span x-show="openCard === 3">Read Less</span>
                         </button>
@@ -919,7 +956,7 @@
 
             <!-- Card 4 -->
             <div class="flex flex-col items-center flex-shrink-0 w-[220px] xl:w-[260px] pr-2">
-                <img src="/img/master-teacher/kak banon gautama.png" alt="Kak Banon Gautama" class="w-[130px] md:w-[170px] z-10">
+                <img src="/img/master-teacher/kak_banon_gautama.png" alt="Kak Banon Gautama" class="w-[130px] md:w-[170px] z-10">
                 <div class="bg-[#232c5f] text-white rounded-3xl pt-5 pb-6 px-6 text-center shadow-lg w-full">
                     <img src="/img/favicon.png" alt="Logo" class="w-8 h-8 mx-auto mb-3">
                     <h3 class="font-bold text-sm xl:text-base 2xl:text-lg mb-1">Kak Banon Gautama</h3>
@@ -927,11 +964,20 @@
                     <hr class="border-white mb-2 w-1/2 mx-auto">
                     <p class="text-xs mb-4">Pengalaman & Prestasi</p>
 
+                    <!-- PERBAIKAN (Card 4) -->
                     <div x-show="openCard === 4" class="text-left text-sm space-y-2">
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Juri Lomba Pantomim Nasional</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Pemain Iklan Paramex, dll</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Pemain Film WR Supratman</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Pemain Serial Netflix</p>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Juri Lomba Seni</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Performing Artist</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                            <span>Bintang Film dan Iklan</span>
+                        </div>
                     </div>
 
                     <div class="mt-4">
@@ -947,93 +993,272 @@
         </div>
     </section>
 
-    <!-- Kenalan dengan Para Native Speakers Section -->
-    <section class="opacity-0 translate-y-5 transition-all duration-700 ease-out fade-el py-6" x-data="{ openCard: null }">
-        <h2 class="text-sm sm:text-xl md:text-2xl font-bold text-start flex items-center justify-start mb-8 px-4 md:px-20">
-            <span class="text-yellow-500 text-sm sm:text-xl md:text-2xl mr-2">★</span> Kenalan dengan Para Native Speakers
+    <!-- Section Native Speaker -->
+    <section class="py-10 md:py-14 bg-gradient-to-b from-blue-50 to-white">
+        <h2 class="text-sm sm:text-xl md:text-2xl px-4 md:px-20 font-bold text-start flex items-center justify-start mb-8">
+            <span class="text-yellow-500 text-sm sm:text-xl md:text-2xl mr-2">★</span> Kenalan dengan Master Teacher
         </h2>
+        <div class="container mx-auto px-2 md:px-24">
 
-        <div class="flex space-x-4 overflow-x-auto scrollbar-hide pb-4 justify-start md:justify-center">
-
-            <!-- Card 1 -->
-            <div class="flex flex-col items-center flex-shrink-0 w-[220px] xl:w-[240px] pl-2">
-                <img src="/img/native1.png" alt="Kak Ria Enes" class="w-[130px] md:w-[170px] z-10">
-                <div class="bg-[#232c5f] text-white rounded-3xl pt-5 pb-6 px-6 text-center shadow-lg w-full">
-                    <img src="/img/favicon.png" alt="Logo" class="w-8 h-8 mx-auto mb-3">
-                    <h3 class="font-bold text-base xl:text-lg mb-1">Dr. Saf Buxy</h3>
-                    <p class="text-xs xl:text-sm mb-3">Master Bahasa Inggris</p>
-                    <hr class="border-white mb-2 w-1/2 mx-auto">
-                    <p class="text-xs mb-4">Pengalaman & Prestasi</p>
-
-                    <div x-show="openCard === 1" class="text-left text-sm space-y-2">
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Global Humanitarian Award</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Co-Founder of Healing from Nation</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Dr Sarvepalli Radhakrishnan Award (Award of Honor) "Gold Men's Award for leadership, excellence and achievement</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Tutor and Native Speaker English of Cakrawala Bahasa</p>
-                    </div>
-
-                    <div class="mt-4">
-                        <button @click="openCard === 1 ? openCard = null : openCard = 1"
-                            class="inline-block bg-gradient-to-r hover:shadow-[5px_5px_15px_0px_#000000] from-orange-800 to-orange-400 text-white shadow-[2px_2px_12px_0px_#000000] rounded-full transform hover:-translate-y-1 hover:scale-105 transition-all duration-20 px-6 py-2 font-semibold text-xs md:text-sm hover:bg-orange-600">
-                            <span x-show="openCard !== 1">Read More</span>
-                            <span x-show="openCard === 1">Read Less</span>
-                        </button>
-                    </div>
+            <!-- Swiper Container -->
+            <div class="native-speaker-swiper swiper relative">
+                <div class="swiper-wrapper" id="teacher-wrapper">
+                    <!-- Card akan di-generate oleh JavaScript di sini -->
                 </div>
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-prev"> <img src="/img/arrow-kiri.png" alt=""></div>
+                <div class="swiper-button-next"> <img src="/img/arrow-kanan.png" alt=""></div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="flex flex-col items-center flex-shrink-0 w-[220px] xl:w-[240px]">
-                <img src="/img/native2.png" alt="Kak Yudha Dewantara" class="w-[130px] md:w-[170px] z-10">
-                <div class="bg-[#232c5f] text-white rounded-3xl pt-5 pb-6 px-6 text-center shadow-lg w-full">
-                    <img src="/img/favicon.png" alt="Logo" class="w-8 h-8 mx-auto mb-3">
-                    <h3 class="font-bold text-base xl:text-lg mb-1">Diana Vilametova</h3>
-                    <p class="text-xs xl:text-sm mb-3">Master Bahasa Rusia</p>
-                    <hr class="border-white mb-2 w-1/2 mx-auto">
-                    <p class="text-xs mb-4">Pengalaman & Prestasi</p>
-
-                    <div x-show="openCard === 2" class="text-left text-sm space-y-2">
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Tutor and Native Speaker Russian of Cakrawala Bahasa</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Content Creator & Fashion Enthusiast</p>
-                    </div>
-
-                    <div class="mt-4">
-                        <button @click="openCard === 2 ? openCard = null : openCard = 2"
-                            class="inline-block bg-gradient-to-r hover:shadow-[5px_5px_15px_0px_#000000] from-orange-800 to-orange-400 text-white shadow-[2px_2px_12px_0px_#000000] rounded-full transform hover:-translate-y-1 hover:scale-105 transition-all duration-20 px-6 py-2 font-semibold text-xs md:text-sm hover:bg-orange-600">
-                            <span x-show="openCard !== 2">Read More</span>
-                            <span x-show="openCard === 2">Read Less</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="flex flex-col items-center flex-shrink-0 w-[220px] xl:w-[240px] pr-2">
-                <img src="/img/native3.png" alt="Kak Syamsri Firdaus" class="w-[130px] md:w-[170px] z-10">
-                <div class="bg-[#232c5f] text-white rounded-3xl pt-5 pb-6 px-6 text-center shadow-lg w-full">
-                    <img src="/img/favicon.png" alt="Logo" class="w-8 h-8 mx-auto mb-3">
-                    <h3 class="font-bold text-base xl:text-lg mb-1">Rumeysa Yaman</h3>
-                    <p class="text-xs xl:text-sm mb-3">Master Bahasa Turki</p>
-                    <hr class="border-white mb-2 w-1/2 mx-auto">
-                    <p class="text-xs mb-4">Pengalaman & Prestasi</p>
-
-                    <div x-show="openCard === 3" class="text-left text-sm space-y-2">
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Youtuber and Indonesian Enthusiast</p>
-                        <p><i class="fas fa-check-circle text-blue-400 mr-2"></i> Tutor and Native Speaker Turkish of Cakrawala Bahasa</p>
-                    </div>
-
-                    <div class="mt-4">
-                        <button @click="openCard === 3 ? openCard = null : openCard = 3"
-                            class="inline-block bg-gradient-to-r hover:shadow-[5px_5px_15px_0px_#000000] from-orange-800 to-orange-400 text-white shadow-[2px_2px_12px_0px_#000000] rounded-full transform hover:-translate-y-1 hover:scale-105 transition-all duration-20 px-6 py-2 font-semibold text-xs md:text-sm hover:bg-orange-600">
-                            <span x-show="openCard !== 3">Read More</span>
-                            <span x-show="openCard === 3">Read Less</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="justify-center flex mt-4">
+            <a href="marketplace pengajar"
+            class="bg-gradient-to-r hover:shadow-[5px_5px_15px_0px_#000000] 
+            from-orange-800 to-orange-400 text-white 
+            shadow-[2px_2px_12px_0px_#000000] rounded-full 
+            transform hover:-translate-y-1 hover:scale-105 
+            transition-all duration-200 px-6 py-2 
+            font-semibold text-xs md:text-sm">
+            Lihat Semua
+            </a>
         </div>
     </section>
 
+    <!-- Script untuk Generate Card dan Inisialisasi Swiper -->
+    <script>
+        // 1. DATA CARD
+        // Tambahkan data baru di sini untuk menambah card
+        const teachersData = [
+            {
+                name: "Mr. Karim ElMahdy",
+                image: "/img/native-speaker/Mr. Karim ElMahdy.png",
+                title: "Arabic Native Speaker",
+                subtitle: "", // Kosongkan jika tidak ada subtitle
+                achievements: [
+                    "Arabic Tutor of Cakrawala Bahasa",
+                    "Indonesian Enthusiast",
+                    "Artist & Influencer",
+                ]
+            },
+            {
+                name: "Ms. Malaka Khalil",
+                image: "/img/native-speaker/Ms. Malaka Khalil.png",
+                title: "Arabic Native Speaker",
+                subtitle: "",
+                achievements: [
+                    "Arabic Tutor of Cakrawala Bahasa",
+                    "Licensed Egyptologist",
+                    "International Tour Guide Experience",
+                ]
+            },
+            {
+                name: "Mr. Islam Kara",
+                image: "/img/native-speaker/Mr. Islam Kara.png",
+                title: "Turkish Native Speaker",
+                subtitle: "",
+                achievements: [
+                    "Turkish Tutor of Cakrawala Bahasa",
+                    "Lived and studied in Indonesia",
+                    "Fashion Enthusiast",
+                ] // Kosongkan array jika tidak ada list
+            },
+            {
+                name: "Ms. Rumeysa Yaman",
+                image: "/img/native-speaker/Ms. Rumeysa Yaman.png",
+                title: "Turkish Native Speaker",
+                subtitle: "",
+                achievements: [
+                    "Turkish Tutor of Cakrawala Bahasa",
+                    "1st Winner of the Indonesian Speech",
+                    "Competition in Turkey",
+                    "Content Creator & Influencer",
+                ]
+            },
+            {
+                name: "Mr. Michael",
+                image: "/img/native-speaker/Mr. Michael.png",
+                title: "English (U.S) Native Speaker",
+                subtitle: "",
+                achievements: [
+                    "English Tutor of Cakrawala Bahasa",
+                    "Certified TESOL Instructor",
+                    "International Tour Guide Experience",
+                ]
+            },
+            {
+                name: "Dr. Mrs. Diana Velimetova",
+                image: "/img/native-speaker/Dr. Mrs. Diana Velimetova.png",
+                title: "Russian Native Speaker",
+                subtitle: "",
+                achievements: [
+                    "Russian Tutor of Cakrawala Bahasa",
+                    "Lecturer and Researcher in Russia",
+                    "Content Creator & Fashion Enthusiast",
+                ]
+            },
+            {
+                name: "Dr. Mr. Saf Buxy",
+                image: "/img/native-speaker/Dr. Mr. Saf Buxy.png",
+                title: "British Native Speaker",
+                subtitle: "",
+                achievements: [
+                    "English Tutor of Cakrawala Bahasa",
+                    "TEDx Speaker & Author",
+                    "UN Peace Ambassador",
+                ]
+            },
+            {
+                name: "Mrs. Safira",
+                image: "/img/native-speaker/Mrs. Safira.png",
+                title: "Russiar Native Soeaker",
+                subtitle: "",
+                achievements: []
+            },
+            {
+                name: "Mr. Bertrand",
+                image: "/img/native-speaker/Mr. Bertrand.png",
+                title: "French Native Soeaker",
+                subtitle: "",
+                achievements: []
+            },
+            {
+                name: "Mrs. Melek",
+                image: "/img/native-speaker/Mrs. Melek.png",
+                title: "Native Speaker Belanda",
+                subtitle: "Dutch Literature, UI",
+                achievements: []
+            },
+            {
+                name: "Ms. Daria",
+                image: "/img/native-speaker/Ms. Daria.png",
+                title: "Native Speaker Perancis",
+                subtitle: "Russian Literature, UI",
+                achievements: []
+            },
+            {
+                name: "Mr. Stefano",
+                image: "/img/native-speaker/Mr. Stefano.png",
+                title: "Italian Native Speaker",
+                subtitle: "Korean Literature, UI",
+                achievements: []
+            },
+            {
+                name: "Mrs. Diana",
+                image: "/img/native-speaker/Mrs. Diana.png",
+                title: "Spanish Native Speaker",
+                subtitle: "Japanese Literature, UI",
+                achievements: []
+            },
+            {
+                name: "Mrs. Haruka",
+                image: "/img/native-speaker/Mrs. Haruka.png",
+                title: "Native Speaker Japan",
+                subtitle: "French Literature, UI",
+                achievements: []
+            },
+            {
+                name: "Ms. Eun Ji",
+                image: "/img/native-speaker/Ms. Eun Ji.png",
+                title: "Native Speaker Korean",
+                subtitle: "Univ. Compultense, Madrid",
+                achievements: []
+            },
+        ];
+
+        // 2. TEMPLATE & LOGIC
+        document.addEventListener('DOMContentLoaded', function () {
+            const wrapper = document.getElementById('teacher-wrapper');
+
+            // Fungsi untuk membuat HTML list achievements
+            const createAchievementsHTML = (achievements) => {
+                if (!achievements || achievements.length === 0) return '';
+                return `
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i>
+                        <span>${achievements.join('</span></div><div class="flex items-start"><i class="fas fa-check-circle text-blue-400 mt-1 mr-2 flex-shrink-0"></i><span>')}</span>
+                    </div>
+                `;
+            };
+
+            // Generate semua slide
+            teachersData.forEach(teacher => {
+                const subtitleHTML = teacher.subtitle 
+                    ? `<p class="text-[11px] xl:text-xs 2xl:text-sm mb-3 text-gray-400">${teacher.subtitle}</p>` 
+                    : '';
+
+                const achievementsHTML = createAchievementsHTML(teacher.achievements);
+                
+                // Tentukan apakah akan menampilkan div content atau tidak
+                const contentDivHTML = achievementsHTML 
+                    ? `<div x-show="openCard" x-transition class="text-left text-sm space-y-2">${achievementsHTML}</div>` 
+                    : '';
+
+                const slideHTML = `
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center">
+                            <img src="${teacher.image}" alt="${teacher.name}" class="w-[130px] md:w-[170px] z-10">
+                            <div class="bg-[#232c5f] text-white rounded-3xl pt-5 pb-6 px-6 text-center shadow-lg w-full">
+                                <img src="/img/favicon.png" alt="Logo" class="w-8 h-8 mx-auto mb-3">
+                                <h3 class="font-bold text-sm xl:text-base 2xl:text-lg mb-1">${teacher.name}</h3>
+                                <p class="text-[11px] xl:text-xs 2xl:text-sm mb-3">${teacher.title}</p>
+                                ${subtitleHTML}
+                                <hr class="border-white mb-2 w-1/2 mx-auto">
+                                <p class="text-xs mb-4">Pengalaman & Prestasi</p>
+                                <div x-data="{ openCard: false }">
+                                    ${contentDivHTML}
+                                    <div class="mt-4">
+                                        <button @click="openCard = !openCard"
+                                            class="inline-block bg-gradient-to-r hover:shadow-[5px_5px_15px_0px_#000000] from-orange-800 to-orange-400 text-white shadow-[2px_2px_12px_0px_#000000] rounded-full transform hover:-translate-y-1 hover:scale-105 transition-all duration-20 px-6 py-2 font-semibold text-xs md:text-sm hover:bg-orange-600">
+                                            <span x-show="!openCard">Read More</span>
+                                            <span x-show="openCard">Read Less</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                wrapper.insertAdjacentHTML('beforeend', slideHTML);
+            });
+
+            // 3. INISIALISASI SWIPER (Setelah card di-generate)
+            const nativeSpeakerSwiper = new Swiper('.native-speaker-swiper', {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+                loop: false,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1280: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                },
+                on: {
+                    init: function () {
+                        const style = document.createElement('style');
+                        style.innerHTML = `
+                            .swiper-button-next img, .swiper-button-prev img {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        `;
+                        document.head.appendChild(style);
+                    }
+                }
+            });
+        });
+    </script>
+    
     <!-- Section Chat Konsultan -->
     <section class="opacity-0 translate-y-5 transition-all duration-700 ease-out fade-el py-6 px-4 md:px-20"> 
         <h2 class="text-sm sm:text-xl md:text-2xl font-bold text-start flex items-center justify-start mb-8">

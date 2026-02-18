@@ -21,6 +21,7 @@ class LayananData
                 'kuota' => '1 peserta',
                 'durasi' => '90 Menit/Sesi',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, LMS, AI, etc',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp1.750.000 Paket 10 Sesi',
                     'Offline' => 'Rp2.750.000 Paket 10 Sesi',
@@ -49,7 +50,7 @@ class LayananData
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'language-stars',
@@ -64,6 +65,7 @@ class LayananData
                 'kuota' => '1 peserta',
                 'durasi' => '90 Menit/Sesi',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp1.750.000 Paket 10 Sesi',
                     'Offline' => 'Rp2.750.000 Paket 10 Sesi',
@@ -82,7 +84,7 @@ class LayananData
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'child-artist',
@@ -97,6 +99,7 @@ class LayananData
                 'kuota' => '1 peserta',
                 'durasi' => '90 Menit/Sesi',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp1.750.000 Paket 10 Sesi',
                     'Offline' => 'Rp2.750.000 Paket 10 Sesi',
@@ -120,7 +123,7 @@ class LayananData
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'best-parenting',
@@ -135,6 +138,7 @@ class LayananData
                 'kuota' => '1-3 peserta',
                 'durasi' => '2 Jam/Sesi',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp2.250.000 Paket 10 Sesi',
                     'Offline' => 'Rp3.500.000 Paket 10 Sesi',
@@ -153,7 +157,7 @@ class LayananData
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             // CB For You
             [
@@ -169,6 +173,7 @@ class LayananData
                 'kuota' => '1 peserta',
                 'durasi' => '90 Menit/Sesi',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp2.250.000 Paket 10 Sesi',
                     'Offline' => 'Rp3.500.000 Paket 10 Sesi',
@@ -212,7 +217,7 @@ class LayananData
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'jago-bahasa',
@@ -227,6 +232,7 @@ class LayananData
                 'kuota' => '1 peserta',
                 'durasi' => '90 Menit/Sesi',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp1.750.000 Paket 10 Sesi',
                     'Offline' => 'Rp2.750.000 Paket 10 Sesi',
@@ -283,7 +289,7 @@ class LayananData
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'preparation-test',
@@ -298,6 +304,7 @@ class LayananData
                 'kuota' => '1-2 peserta',
                 'durasi' => '2 Jam/Sesi (Online), 1 Jam/Sesi (Offline)',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp1.999.000 Paket 10 Sesi',
                     'Offline' => 'Rp2.999.000 Paket 10 Sesi',
@@ -332,7 +339,7 @@ class LayananData
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'jago-nyekill',
@@ -347,6 +354,7 @@ class LayananData
                 'kuota' => '1 peserta',
                 'durasi' => '90 Menit/Sesi',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp1.750.000 Paket 10 Sesi',
                     'Offline' => 'Rp2.750.000 Paket 10 Sesi',
@@ -380,7 +388,7 @@ class LayananData
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             // CB For Extras
             [
@@ -388,13 +396,14 @@ class LayananData
                 'title' => 'Ur Study Buddy',
                 'shopee_link' => 'https://id.shp.ee/cfbNuwr',
                 'img' => '/img/Ur Study Buddy.png',
-                'deskripsi' => 'Ur Study Buddy adalah program sesi pendampingan untuk membantu peserta didik mencapai tujuan belajar sekaligus memantau kemajuan mereka secara berkala dan mempersiapkan kebutuhan studi ke jenjang berikutnya. Program ini disertai sesi konsultasi akademik dan kesehatan mental peserta didik.',
-                'harga' => 'Start From Rp999.000/bulan (4 Sesi 2 Jam/Sesi)',
+                'deskripsi' => 'Ur Study Buddy adalah program sesi pendampingan untuk membantu peserta didik mencapai tujuan belajar sekaligus memantau kemajuan mereka secara berkala dan mempersiapkan kebutuhan karir atau studi ke jenjang berikutnya. Program ini disertai sesi konsultasi akademik dan kesehatan mental peserta didik.',
+                'harga' => 'Rp1.500.000/bulan (4 Sesi 1 Jam/Sesi)',
                 'kategori' => 'Remaja Sampai Dewasa',
                 'hargainfo' => 'Biaya berlaku untuk online maupun offline',
                 'kuota' => '',
                 'durasi' => '1 Jam/Sesi',
                 'fasilitas' => 'CB Kit, Personalized Study Plan, Mental Health Check-ins, Reward System, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => 'Program pendampingan persiapan studi dan karir excl. materi persiapan masuk perguruan tinggi.', // Sudah ada
                 'fitur_pilihan' => [
                     'layanan' => [
                         'Ur Study Buddy' => [
@@ -409,12 +418,12 @@ class LayananData
                 ],
                 'sub_layanan_harga' => [
                     'Ur Study Buddy' => [
-                        'SMP' => 'Rp999.000 Paket 16 Sesi',
-                        'SMA' => 'Rp999.000 Paket 16 Sesi',
-                        'Universitas' => 'Rp999.000 Paket 16 Sesi',
+                        'SMP' => 'Rp1.500.000/bulan (4 Sesi 1 Jam/Sesi)',
+                        'SMA' => 'Rp1.500.000/bulan (4 Sesi 1 Jam/Sesi)',
+                        'Universitas' => 'Rp1.500.000/bulan (4 Sesi 1 Jam/Sesi)',
                     ],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'language-support',
@@ -426,9 +435,10 @@ class LayananData
                 'harga' => 'Start From Rp100.000',
                 'hargainfo' => 'Biaya berlaku untuk online maupun offline',
                 'kategori' => 'Semua Umur',
-                'kuota' => '1-2 peserta',
-                'durasi' => '2 Jam/Sesi',
-                'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'kuota' => '',
+                'durasi' => 'Tergantung Layanan',
+                'fasilitas' => 'Alat Pendukung, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp1.750.000 Paket 10 Sesi',
                     'Offline' => 'Rp2.750.000 Paket 10 Sesi',
@@ -439,65 +449,78 @@ class LayananData
                     'layanan' => [
                         'Interpreter' => [
                             'img' => '/img/language support.png',
-                            'info' => 'Layanan penerjemah lisan untuk membantu komunikasi langsung dan pendampingan bahasa secara real-time., baik dalam pertemuan, konferensi, maupun acara lainnya.'
-                        ],
+                            'info' => 'Layanan penerjemah lisan untuk membantu komunikasi langsung dan pendampingan bahasa secara real-time., baik dalam pertemuan, konferensi, maupun acara lainnya.',
+                            'durasi' => '1 Hari (8 Jam Kerja)',
+                            'fasilitas' => 'Interpreter Berpengalaman, Alat Pendukung, Interpreter Kit, Unlock All Features (LMS, AI, etc)'
+                            ],
                         'Proofread' => [
                             'img' => '/img/language support.png',
-                            'info' => 'Layanan penerjemahan tertulis dari satu bahasa ke bahasa lain dengan akurasi tinggi. Ditujukan untuk berbagai jenis dokumen, seperti artikel, laporan, dsb.'
-                        ],
+                            'info' => 'Layanan penerjemahan tertulis dari satu bahasa ke bahasa lain dengan akurasi tinggi. Ditujukan untuk berbagai jenis dokumen, seperti artikel, laporan, dsb.',
+                            'durasi' => 'Maksimal 1-3 Hari',
+                            'fasilitas' => 'Proofreader Berpengalaman, Alat Pendukung, Interpreter Kit, Unlock All Features (LMS, AI, etc)'
+                            ],
                         'Sworn' => [
                             'img' => '/img/language support.png',
-                            'info' => 'Layanan penerjemahan tertulis dari satu bahasa ke bahasa lain dengan akurasi tinggi. Ditujukan untuk berbagai jenis dokumen, seperti artikel, laporan, dan materi pemasaran, dengan mempertahankan konteks dan nuansa asli.'
+                            'info' => 'Layanan penerjemahan tertulis dari satu bahasa ke bahasa lain dengan akurasi tinggi. Ditujukan untuk berbagai jenis dokumen, seperti artikel, laporan, dan materi pemasaran, dengan mempertahankan konteks dan nuansa asli.',
+                            'durasi' => 'Maksimal 1-3 Hari',
+                            'fasilitas' => 'Cap Penerjemah Tersumpah, Soft file, Hard file, Gratis Ongkir Jabodetabek, Unlock All Features (LMS, AI, etc)'
                         ],
                         'Translation' => [
                             'img' => '/img/language support.png',
-                            'info' => 'Layanan penerjemahan tertulis dari satu bahasa ke bahasa lain dengan akurasi tinggi. Ditujukan untuk berbagai jenis dokumen, seperti artikel, laporan, dan materi pemasaran, dengan mempertahankan konteks dan nuansa asli.'
+                            'info' => 'Layanan penerjemahan tertulis dari satu bahasa ke bahasa lain dengan akurasi tinggi. Ditujukan untuk berbagai jenis dokumen, seperti artikel, laporan, dan materi pemasaran, dengan mempertahankan konteks dan nuansa asli.',
+                            'durasi' => 'Maksimal 1-3 Hari',
+                            'fasilitas' => 'Soft file, Hard file, Gratis Ongkir Jabodetabek, Unlock All Features (LMS, AI, etc)'
+                        ],
+                        'Native' => [
+                            'img' => '/img/language support.png',
+                            'info' => 'Layanan penyediaan pengajar bahasa baik local maupun native speaker Berpengalaman, ditujukan untuk berbagai jenis keperluan akademik maupun non akademik khususnya di berbagai sekolah, baik dengan kurikulum nasional, swasta, maupun internasional.',
+                            'durasi' => '1 Bulan (4 kali/bulan)',
+                            'fasilitas' => 'Tutor bahasa berpengalaman baik local maupun native, Unlock All Features (LMS, AI, etc)'
                         ],
                     ],
                     'sub_layanan' => [
-                        'Interpreter' => ['Inggris Akademik', 'Indonesia Akademik', 'BIPA (Foreigner)', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
-                        'Proofread' => ['Inggris Akademik', 'Indonesia Akademik', 'BIPA (Foreigner)', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
-                        'Sworn' => ['Inggris Akademik', 'Indonesia Akademik', 'BIPA (Foreigner)', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
-                        'Translation' => ['Inggris Akademik', 'Indonesia Akademik', 'BIPA (Foreigner)', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
+                        'Interpreter' => ['Inggris', 'Indonesia', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
+                        'Proofread' => ['Inggris Akademik', 'Indonesia Akademik', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
+                        'Sworn' => ['Inggris Akademik', 'Indonesia Akademik', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
+                        'Translation' => ['Inggris Akademik', 'Indonesia Akademik', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
+                        'Native' => ['Inggris Akademik', 'Indonesia Akademik', 'Arab', 'Belanda', 'Cina', 'Ibrani', 'India', 'Italia', 'Jepang', 'Jerman', 'Korea', 'Perancis', 'Persia', 'Rusia', 'Romania', 'Spanyol', 'Tagalog', 'Thai', 'Turki', 'Yunani', 'Jawa', 'Sunda', 'Minang', 'Hiroglif', 'Isyarat', 'Mandarin'],
                     ],
-                    'pengajar' => ['Auto-select', 'Pick Your Own'],
+                    'kuantitas' => ['1 Orang', '2 Orang', '3 Orang', '4 Orang', '5 Orang'],
                 ],
                 'sub_layanan_harga' => [
                     'Interpreter' => [
-                        'Inggris Percakapan/Bisnis' => 'Rp5.000.000 per hari (8 jam kerja)',
-                        'Inggris Akademik' => 'Rp5.000.000 per hari (8 jam kerja)',
-                        'Indonesia Akademik' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'BIPA (Foreigner)' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Arab' => 'Rp5.000.000 per hari (8 jam kerja)',
-                        'Belanda' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Cina' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Ibrani' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'India' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Italia' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Jepang' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Jerman' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Korea' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Perancis' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Persia' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Rusia' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Romania' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Spanyol' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Tagalog' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Thai' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Turki' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Yunani' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Jawa' => 'Rp3.000.000 per hari (8 jam kerja)',
-                        'Sunda' => 'Rp3.000.000 per hari (8 jam kerja)',
-                        'Minang' => 'Rp3.000.000 per hari (8 jam kerja)',
-                        'Hiroglif' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Isyarat' => 'Rp7.000.000 per hari (8 jam kerja)',
-                        'Mandarin' => 'Rp7.000.000 per hari (8 jam kerja)',
+                        'Inggris Percakapan/Bisnis' => 'Rp5.000.000 per orang',
+                        'Inggris' => 'Rp5.000.000 per orang',
+                        'Indonesia' => 'Rp7.000.000 per orang',
+                        'Arab' => 'Rp5.000.000 per orang',
+                        'Belanda' => 'Rp7.000.000 per orang',
+                        'Cina' => 'Rp7.000.000 per orang',
+                        'Ibrani' => 'Rp7.000.000 per orang',
+                        'India' => 'Rp7.000.000 per orang',
+                        'Italia' => 'Rp7.000.000 per orang',
+                        'Jepang' => 'Rp7.000.000 per orang',
+                        'Jerman' => 'Rp7.000.000 per orang',
+                        'Korea' => 'Rp7.000.000 per orang',
+                        'Perancis' => 'Rp7.000.000 per orang',
+                        'Persia' => 'Rp7.000.000 per orang',
+                        'Rusia' => 'Rp7.000.000 per orang',
+                        'Romania' => 'Rp7.000.000 per orang',
+                        'Spanyol' => 'Rp7.000.000 per orang',
+                        'Tagalog' => 'Rp7.000.000 per orang',
+                        'Thai' => 'Rp7.000.000 per orang',
+                        'Turki' => 'Rp7.000.000 per orang',
+                        'Yunani' => 'Rp7.000.000 per orang',
+                        'Jawa' => 'Rp3.000.000 per orang',
+                        'Sunda' => 'Rp3.000.000 per orang',
+                        'Minang' => 'Rp3.000.000 per orang',
+                        'Hiroglif' => 'Rp7.000.000 per orang',
+                        'Isyarat' => 'Rp7.000.000 per orang',
+                        'Mandarin' => 'Rp7.000.000 per orang',
                     ],
                     'Proofread' => [
                         'Inggris Percakapan/Bisnis' => 'Rp100.000 per halaman',
-                        'Inggris Akademik' => 'Rp100.000 per halaman',
+                        'Inggris Akademik' => 'Rp300.000 per halaman',
                         'Indonesia Akademik' => 'Rp300.000 per halaman',
-                        'BIPA (Foreigner)' => 'Rp300.000 per halaman',
                         'Arab' => 'Rp150.000 per halaman',
                         'Belanda' => 'Rp300.000 per halaman',
                         'Cina' => 'Rp300.000 per halaman',
@@ -525,9 +548,8 @@ class LayananData
                     ],
                     'Sworn' => [
                         'Inggris Percakapan/Bisnis' => 'Rp350.000 per halaman',
-                        'Inggris Akademik' => 'Rp350.000 per halaman',
+                        'Inggris Akademik' => 'Rp500.000 per halaman',
                         'Indonesia Akademik' => 'Rp750.000 per halaman',
-                        'BIPA (Foreigner)' => 'Rp750.000 per halaman',
                         'Arab' => 'Rp500.000 per halaman',
                         'Belanda' => 'Rp750.000 per halaman',
                         'Cina' => 'Rp750.000 per halaman',
@@ -557,7 +579,35 @@ class LayananData
                         'Inggris Percakapan/Bisnis' => 'Rp100.000 per halaman',
                         'Inggris Akademik' => 'Rp100.000 per halaman',
                         'Indonesia Akademik' => 'Rp300.000 per halaman',
-                        'BIPA (Foreigner)' => 'Rp300.000 per halaman',
+                        'Arab' => 'Rp300.000 per halaman',
+                        'Belanda' => 'Rp300.000 per halaman',
+                        'Cina' => 'Rp300.000 per halaman',
+                        'Ibrani' => 'Rp300.000 per halaman',
+                        'India' => 'Rp300.000 per halaman',
+                        'Italia' => 'Rp300.000 per halaman',
+                        'Jepang' => 'Rp300.000 per halaman',
+                        'Jerman' => 'Rp300.000 per halaman',
+                        'Korea' => 'Rp300.000 per halaman',
+                        'Perancis' => 'Rp300.000 per halaman',
+                        'Persia' => 'Rp300.000 per halaman',
+                        'Rusia' => 'Rp300.000 per halaman',
+                        'Romania' => 'Rp300.000 per halaman',
+                        'Spanyol' => 'Rp300.000 per halaman',
+                        'Tagalog' => 'Rp300.000 per halaman',
+                        'Thai' => 'Rp300.000 per halaman',
+                        'Turki' => 'Rp300.000 per halaman',
+                        'Yunani' => 'Rp300.000 per halaman',
+                        'Jawa' => 'Rp300.000 per halaman',
+                        'Sunda' => 'Rp300.000 per halaman',
+                        'Minang' => 'Rp300.000 per halaman',
+                        'Hiroglif' => 'Rp300.000 per halaman',
+                        'Isyarat' => 'Rp300.000 per halaman',
+                        'Mandarin' => 'Rp300.000 per halaman',
+                    ],
+                    'Native' => [
+                        'Inggris Percakapan/Bisnis' => 'Rp100.000 per halaman',
+                        'Inggris Akademik' => 'Rp100.000 per halaman',
+                        'Indonesia Akademik' => 'Rp300.000 per halaman',
                         'Arab' => 'Rp300.000 per halaman',
                         'Belanda' => 'Rp300.000 per halaman',
                         'Cina' => 'Rp300.000 per halaman',
@@ -584,7 +634,7 @@ class LayananData
                         'Mandarin' => 'Rp300.000 per halaman',
                     ],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'language-test',
@@ -597,7 +647,8 @@ class LayananData
                 'hargainfo' => 'Biaya berlaku untuk online maupun offline',
                 'kuota' => '',
                 'durasi' => '1 Jam/Sesi',
-                'fasilitas' => 'CB Kit, Personalized Study Plan, Mental Health Check-ins, Reward System, Unlock All Features (LMS, AI, etc)',
+                'fasilitas' => 'Bahan Ajar, Sesi Persiapan, Sertifikat, Unlock Features (Alih Bahasa & Grammar)',
+                'keterangan' => '', // Ditambahkan
                 'fitur_pilihan' => [
                     'layanan' => [
                         'Language Proficient Test + Sesi Pra Test' => [
@@ -606,7 +657,7 @@ class LayananData
                         ],
                     ],
                     'sub_layanan' => [
-                        'Language Proficient Test + Sesi Pra Test' => ['CB&apos;s EPT', 'TOEFL ITP', 'TOEIC', 'IELTS', 'JLPT', 'HSK', 'TOAFL', 'TOMER'],
+                        'Language Proficient Test + Sesi Pra Test' => ['CB&apos;s EPT', 'TOEFL ITP', 'TOEIC', 'IELTS', 'JLPT', 'TOAFL', 'TOMER'],
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
@@ -616,25 +667,24 @@ class LayananData
                         'TOEFL ITP' => 'Rp699.000',
                         'TOEIC' => 'Rp999.000',
                         'IELTS' => 'Rp3.499.000',
-                        'JLPT' => 'Start From Rp250.000 s.d. Rp350.000',
-                        'HSK' => 'Start From Rp550.000 s.d. Rp999.000',
                         'TOAFL' => 'Rp499.000',
                         'TOMER' => 'Rp2.999.000',
                     ]
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'super-agency',
                 'title' => 'Super Agency',
                 'img' => '/img/Super Agency.png',
-                'deskripsi' => 'Program Super Agency di Cakrawala Bahasa adalah layanan terpadu yang dirancang untuk mendampingi peserta mulai dari persiapan hingga keberangkatan dalam mencapai tujuan studi atau karier internasional.',
-                'harga' => 'Start From Rp250.000',
+                'deskripsi' => 'Jagoan Test adalah program persiapan komprehensif untuk mempersiapkan peserta menghadapi berbagai tes uji Kemahiran bahasa. Program ini meningkatkan kemampuan berbahasa melalui latihan intensif, strategi soal, dan simulasi tes, sehingga peserta siap dan mendapatkan hasil ujian terbaik.',
+                'harga' => 'Start From Rp30.000.000 / Orang',
                 'kategori' => 'Semua Umur',
                 'hargainfo' => 'Biaya berlaku untuk online maupun offline',
                 'kuota' => '',
                 'durasi' => '1 Jam/Sesi',
-                'fasilitas' => 'CB Kit, Personalized Study Plan, Mental Health Check-ins, Reward System, Unlock All Features (LMS, AI, etc)',
+                'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'fitur_pilihan' => [
                     'layanan' => [
                         'Study Agency' => [
@@ -648,7 +698,7 @@ class LayananData
                     ],
                     'sub_layanan' => [
                         'Study Agency' => ['Amerika', 'Australia', 'Inggris', 'Jerman', 'Cina', 'Jepang', 'Korea', 'Singapura', 'ASEAN', 'Turki', 'Saudi', 'UAE', 'Mesir'],
-                        'Career Agency' => ['Australia', 'Jepang', 'Jerman'],
+                        'Career Agency' => ['Jepang', 'Jerman', 'Turki'],
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
@@ -672,9 +722,10 @@ class LayananData
                         'Australia' => 'Start From Rp80.000.000',
                         'Jepang' => 'Start From Rp30.000.000',
                         'Jerman' => 'Start From Rp50.000.000',
+                        'Turkey' => 'Start From Rp50.000.000',
                     ]
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             // Special Class
             [
@@ -689,10 +740,11 @@ class LayananData
                 'kuota' => '15-20+ peserta per kelas',
                 'durasi' => '',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
                     'Online' => 'Rp250.000 Paket Seminar dan Kelas',
-                    'Offline' => 'Rp250.000 Paket Seminar dan Kelas',
-                    'Hybrid' => 'Rp250.000 Paket Seminar dan Kelas',
+                    'Offline' => 'Rp499.000 Paket Seminar dan Kelas',
+                    'Hybrid' => 'Rp499.000 Paket Seminar dan Kelas',
                 ],
                 'fitur_pilihan' => [
                     'media' => ['Online', 'Offline', 'Hybrid'],
@@ -705,31 +757,31 @@ class LayananData
                     'sub_layanan' => [
                         'ICL Mentorship' => ['ICL Mentorship'],
                     ],
-                    'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
                 'sub_layanan_harga' => [
                     'ICL Mentorship' => [
                         'ICL Mentorship' => 'Rp250.000 Paket Seminar dan Kelas',
                     ]
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'cb-academy',
                 'title' => 'CB Academy',
                 'shopee_link' => 'https://id.shp.ee/6zaxSXT',
                 'img' => '/img/cb-academy.png',
-                'deskripsi' => 'CB Academy adalah kelas pembelajaran berbagai Bahasa secara interaktif. Kelas ini tidak hanya menawarkan pembelajaran bahasa dari tutor lokal yang kompeten dan native speaker, juga dilengkapi eksposur budaya dan karir serta pemahaman bahasa yang mendalam bagi peserta.',
-                'harga' => 'Start From Rp1.650.000 Paket 20 Sesi',
+                'deskripsi' => 'CB Academy adalah kelas pembelajaran berbagai Bahasa secara interaktif. Kelas ini tidak hanya menawarkan pembelajaran bahasa dari tutor lokal yang kompeten dan native speaker, juga dilengkapi eksposur budaya dan karir serta pemahaman bahasa yang mendalam bagi peserta. Selain itu kamu juga akan berkesempatan bisa bekerja di luar negeri secara gratis dengan mengikuti kursus ini.',
+                'harga' => 'Start From Rp1.900.000 Paket 20 Sesi',
                 'kategori' => 'Semua Umur',
                 'hargainfo' => 'Biaya berlaku untuk online maupun offline',
                 'kuota' => '15-20+ peserta per kelas',
                 'durasi' => 'Per Semester',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'harga_variasi' => [
-                    'Online' => 'Start From Rp1.650.000 Paket 20 Sesi',
-                    'Offline' => 'Start From Rp1.650.000 Paket 20 Sesi',
-                    'Hybrid' => 'Start From Rp1.650.000 Paket 20 Sesi',
+                    'Online' => 'Start From Rp1.900.000 Paket 20 Sesi',
+                    'Offline' => 'Start From Rp2.950.000 Paket 20 Sesi',
+                    'Hybrid' => 'Start From Rp2.950.000 Paket 20 Sesi',
                 ],
                 'fitur_pilihan' => [
                     'media' => ['Online', 'Offline', 'Hybrid'],
@@ -746,10 +798,10 @@ class LayananData
                 ],
                 'sub_layanan_harga' => [
                     'CB Academy' => [
-                        'Inggris Percakapan/Bisnis' => 'Start From Rp1.650.000 Paket 20 Sesi',
+                        'Inggris Percakapan/Bisnis' => 'Start From Rp1.900.000 Paket 20 Sesi',
                     ]
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'camp-bahasa',
@@ -762,8 +814,9 @@ class LayananData
                 'kuota' => '15-20+ peserta per kelas',
                 'durasi' => 'Paket 10 s.d 15 Hari',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
                 'fitur_pilihan' => [
-                    'media' => ['Online', 'Offline', 'Hybrid'],
+                    'media' => ['Online', 'Offline'],
                     'layanan' => [
                         'Local' => [
                             'img' => '/img/camp-bahasa.png',
@@ -776,7 +829,7 @@ class LayananData
                     ],
                     'sub_layanan' => [
                         'Local' => ['Kampus UI', 'Kampung CB Pare', 'Bali', 'Bandung'],
-                        'International' => ['Singapore', 'Australia', 'Saudi Arabia', 'Turkiye'],
+                        'International' => ['ASEAN', 'Australia', 'Saudi Arabia', 'Turkiye', 'Jepang', 'China'],
                     ],
                     'pengajar' => ['Auto-select', 'Pick Your Own'],
                 ],
@@ -788,7 +841,7 @@ class LayananData
                         'Bandung' => 'Rp3.500.000',
                     ],
                     'International' => [
-                        'Singapore' => 'Rp30.000.000',
+                        'ASEAN' => 'Rp30.000.000',
                         'Australia' => 'Rp30.000.000',
                         'Saudi Arabia' => 'Rp30.000.000',
                         'Turkiye' => 'Rp30.000.000',
@@ -796,7 +849,7 @@ class LayananData
                         'German' => 'Rp30.000.000',
                     ],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'cakrawala-skills',
@@ -804,12 +857,18 @@ class LayananData
                 'shopee_link' => 'https://id.shp.ee/mNLUWJg',
                 'img' => '/img/cakrawala-skills.png',
                 'deskripsi' => 'Cakrawala Skills adalah program kelas untuk mengembangkan berbagai soft skills esensial di era modern. Peserta akan belajar dan berlatih keterampilan komunikasi, kreativitas, kewirausahaan, serta teknologi dalam suasana yang interaktif dan mendukung disertai mentor praktisi yang berpengalaman.',
-                'harga' => 'Start From Rp1.650.000 Paket 20 Sesi',
+                'harga' => 'Start From Rp1.900.000 Paket 20 Sesi',
                 'kategori' => 'Semua Umur',
                 'hargainfo' => 'Biaya untuk pembelajaran dan akomodasi selama camp',
                 'kuota' => '15-20+ peserta per kelas',
                 'durasi' => 'Per Semester',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
+                'harga_variasi' => [
+                    'Online' => 'Start From Rp1.900.000 Paket 20 Sesi',
+                    'Offline' => 'Start From Rp2.950.000 Paket 20 Sesi',
+                    'Hybrid' => 'Start From Rp2.950.000 Paket 20 Sesi',
+                ],
                 'fitur_pilihan' => [
                     'media' => ['Online', 'Offline', 'Hybrid'],
                     'layanan' => [
@@ -825,13 +884,13 @@ class LayananData
                 ],
                 'sub_layanan_harga' => [
                     'Cakrawala Skills' => [
-                        'Kewirausahaan' => 'Rp1.650.000 Paket 20 Sesi',
-                        'Komunikasi' => 'Rp1.650.000 Paket 20 Sesi',
-                        'Kreativitas' => 'Rp1.650.000 Paket 20 Sesi',
-                        'Teknologi' => 'Rp1.650.000 Paket 20 Sesi',
+                        'Kewirausahaan' => 'Rp1.900.000 Paket 20 Sesi',
+                        'Komunikasi' => 'Rp1.900.000 Paket 20 Sesi',
+                        'Kreativitas' => 'Rp1.900.000 Paket 20 Sesi',
+                        'Teknologi' => 'Rp1.900.000 Paket 20 Sesi',
                     ],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
             [
                 'id' => 'best-muslim',
@@ -839,18 +898,24 @@ class LayananData
                 'shopee_link' => 'https://id.shp.ee/mNLUWJg',
                 'img' => '/img/best-muslim.png',
                 'deskripsi' => 'Best Muslim adalah program pembinaan karakter Islami yang dirancang untuk membentuk generasi muda yang cerdas, santun, dan berakhlak Qurani. Program ini menggabungkan pembelajaran Bahasa Arab, Al-Qur’an, Fiqih Dasar, serta nilai-nilai keislaman lainnya, dikemas secara interaktif dan menyenangkan.',
-                'info' => 'Peserta tidak hanya akan memahami dasar-dasar ilmu agama, tetapi juga belajar materi unggulan seperti Bahasa Arab Praktis, Tahfidz dan Tahsin Al-Qur’an, Fiqih Anak Sehari-hari, Adab & Akhlak Mulia, serta Proyek Kreatif Islami, yang semuanya dipandu oleh mentor berpengalaman di bidang pendidikan Islam dan pengembangan diri, guna mencetak Best Muslim yang cakap adaptif dengan ilmu dunia sekaligus teguh dalam iman dan amal.',
+                'info' => 'Peserta tidak hanya akan memahami dasar-dasar ilmu agama, tetapi juga belajar materi unggulan seperti Bahasa Arab Praktis, Tahfidz dan Tahsin Al-Qur’an, Fiqih Anak Sehari-hari, Adab & Akhlak Mulia, serta Proyek Kreatif Islami, yang semuanya dipandu oleh mentor berpengalakan di bidang pendidikan Islam dan pengembangan diri, guna mencetak Best Muslim yang cakap adaptif dengan ilmu dunia sekaligus teguh dalam iman dan amal.',
                 'harga' => 'Start From Rp1.650.000 Paket 20 Sesi',
                 'kategori' => 'Semua Umur',
                 'kuota' => '15-20+ peserta per kelas',
                 'durasi' => 'Per Semester',
                 'fasilitas' => 'CB Kit, Bahan Ajar, Sertifikat, Unlock All Features (LMS, AI, etc)',
+                'keterangan' => '', // Ditambahkan
+                'harga_variasi' => [
+                    'Online' => 'Start From Rp999.000 Paket 20 Sesi',
+                    'Offline' => 'Start From Rp1.500.000 Paket 20 Sesi',
+                    'Hybrid' => 'Start From Rp1.500.000 Paket 20 Sesi',
+                ],
                 'fitur_pilihan' => [
                     'media' => ['Online', 'Offline', 'Hybrid'],
                     'layanan' => [
                         'Best Muslim' => [
                             'img' => '/img/best-muslim.png',
-                            'info' => 'Peserta tidak hanya akan memahami dasar-dasar ilmu agama, tetapi juga belajar materi unggulan seperti Bahasa Arab Praktis, Tahfidz dan Tahsin Al-Qur’an, Fiqih Anak Sehari-hari, Adab & Akhlak Mulia, serta Proyek Kreatif Islami, yang semuanya dipandu oleh mentor berpengalaman di bidang pendidikan Islam dan pengembangan diri, guna mencetak Best Muslim yang cakap adaptif dengan ilmu dunia sekaligus teguh dalam iman dan amal.',
+                            'info' => 'Peserta tidak hanya akan memahami dasar-dasar ilmu agama, tetapi juga belajar materi unggulan seperti Bahasa Arab Praktis, Tahfidz dan Tahsin Al-Qur’an, Fiqih Anak Sehari-hari, Adab & Akhlak Mulia, serta Proyek Kreatif Islami, yang semuanya dipandu oleh mentor berpengaluan di bidang pendidikan Islam dan pengembangan diri, guna mencetak Best Muslim yang cakap adaptif dengan ilmu dunia sekaligus teguh dalam iman dan amal.',
                         ],
                     ],
                     'sub_layanan' => [
@@ -860,12 +925,12 @@ class LayananData
                 ],
                 'sub_layanan_harga' => [
                     'Best Muslim' => [
-                        'Bahasa Arab Praktis' => 'Rp1.650.000 Paket 20 Sesi',
-                        'Tahfidz' => 'Rp1.650.000 Paket 20 Sesi',
-                        'Tahsin Al-Quran' => 'Rp1.650.000 Paket 20 Sesi',
+                        'Bahasa Arab Praktis' => 'Rp999.000 Paket 20 Sesi',
+                        'Tahfidz' => 'Rp999.000 Paket 20 Sesi',
+                        'Tahsin Al-Quran' => 'Rp999.000 Paket 20 Sesi',
                     ],
                 ],
-                'referral' => true // tampilkan input referral atau tidak
+                'referral' => true
             ],
         ];
     }

@@ -245,9 +245,9 @@
                 <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 h-24 md:w-32 md:h-32 rounded-full bg-[#f78a28] shadow-lg flex items-center justify-center mb-8">
                     <img src="/img/icon-akses.png" alt="Akses" class="w-[90px] p-2 md:w-auto">
                 </div>
-                <h3 class="font-bold text-sm md:text-lg lg:text-xl xl:text-2xl text-[#151d52] mb-5 leading-snug">Akses Sumber <br> Daya Pendidikan</h3>
+                <h3 class="font-bold text-sm md:text-lg lg:text-xl xl:text-2xl text-[#151d52] mb-5 leading-snug">Dukungan <br> Strategis</h3>
                 <p class="text-gray-500 text-xs md:text-sm xl:text-lg leading-relaxed max-w-sm">
-                    Anda akan mendapatkan akses sumber pendidikan yang terlengkap, dan mudah untuk diakses kapanpun jika dibutuhkan
+                    Mitra mendapatkan akses ke materi promosi, dukungan pembelajaran  dan dukungan operasional hingga koneksi untuk memaksimalkan potensi dan performa mitra
                 </p>
             </div>
 
@@ -277,96 +277,95 @@
 
     </section>
 
-    <!-- Section Testimoni Mitra -->
+    <!-- Section Testimoni Partnership -->
     <section class="opacity-0 translate-y-5 transition-all duration-700 bg-[#ededed] ease-out fade-el px-4 py-20 md:px-20 text-center">
+        
         <h2 class="text-2xl md:text-4xl font-bold text-[#151d52] mb-16">
-            Testimoni <span class="text-[#f78a28]">Mitra</span>
+            Testimoni <span class="text-[#f78a28]">Partnership</span>
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Card Testimoni -->
+
+            <!-- Card 1 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Kolaborasi ini mendukung penyelenggaraan berbagai kelas bahasa yang didampingi oleh pengajar kompeten dari Cakrawala Bahasa.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Arsyah Nanda</p>
+                        <p class="text-gray-400 text-sm">Founder - Diaspora Mengajar</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Ulangi card -->
+            <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Kerja sama telah berjalan lancar secara berkelanjutan dengan sangat baik dan kooperatif, diharapkan dapat semakin baik dan berkelanjutan.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Yuanita Susana</p>
+                        <p class="text-gray-400 text-sm">Head Master-Sekolah Kak Seto</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Kerja sama ini membantu berbagai kebutuhan  program kami. Tim sangat kooperatif dan solutif.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Anissa Sammy</p>
+                        <p class="text-gray-400 text-sm">Project Team - Cakap</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tambah 3 lagi -->
+            <!-- Card 4 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Melalui kerja sama sebagai media partner. Kolaborasi ini berjalan efektif dan mendukung kebutuhan program secara optimal.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Victoria</p>
+                        <p class="text-gray-400 text-sm">Partnership Team - Sejuta Cita</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 5 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Kerja sama ini berjalan sangat baik, dengan tim Cakrawala Bahasa yang responsif dan terbuka dalam menyampaikan informasi rekrutmen.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Hikmah</p>
+                        <p class="text-gray-400 text-sm">Partnership Team - Glints.id</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 6 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Kemitraan berjalan sangat baik, dengan dukungan tim Cakrawala Bahasa yang komunikatif.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Devi</p>
+                        <p class="text-gray-400 text-sm">Partnership Team - Aiesec Univ. Indonesia</p>
                     </div>
                 </div>
             </div>

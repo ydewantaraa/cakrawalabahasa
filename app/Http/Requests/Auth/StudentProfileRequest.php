@@ -11,7 +11,11 @@ class StudentProfileRequest extends FormRequest
      */
     public function authorize(): bool
     {
+<<<<<<< HEAD
         return auth()->check() && auth()->user()->role === 'student';
+=======
+        return true;
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
     }
 
     /**

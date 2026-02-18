@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Casts\Attribute;
+=======
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -57,6 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+<<<<<<< HEAD
     protected function avatar(): Attribute
     {
         return Attribute::make(
@@ -74,6 +78,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function student_profile()
+=======
+    public function teacher_profiles()
+    {
+        return $this->hasOne(TeacherProfile::class);
+    }
+
+    public function student_profiles()
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
     {
         return $this->hasOne(StudentProfile::class, 'student_id', 'id');
     }

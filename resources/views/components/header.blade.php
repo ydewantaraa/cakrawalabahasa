@@ -53,7 +53,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
+<<<<<<< HEAD
                     {{-- <div x-show="openLayanan" @click.away="clickLayanan = false; openLayanan = false" x-cloak
+=======
+                    <div x-show="openLayanan" @click.away="clickLayanan = false; openLayanan = false" x-cloak
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
                         @mouseenter="openLayanan = true" @mouseleave="if (!clickLayanan) openLayanan = false"
                         x-transition:enter="transition ease-out duration-700"
                         x-transition:enter-start="opacity-0 transform translate-y-5"
@@ -71,6 +75,7 @@
                         <a href="/cb extras"
                             class="hover:shadow-2xl transform hover:text-[#f78a28] hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base block px-4 py-2 hover:bg-[#171c26]">CB
                             Extras</a>
+<<<<<<< HEAD
                     </div> --}}
                     <div x-show="openLayanan" @click.away="clickLayanan = false; openLayanan = false" x-cloak
                         @mouseenter="openLayanan = true" @mouseleave="if (!clickLayanan) openLayanan = false"
@@ -83,10 +88,13 @@
                             </a>
                         @endforeach
 
+=======
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
                     </div>
 
                 </div>
 
+<<<<<<< HEAD
                 @if (auth()->guest() || auth()->user()->role === 'student')
                     <a href="{{ route('cart.index') }}"
                         class="hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold">
@@ -94,6 +102,10 @@
                     </a>
                 @endif
 
+=======
+                <a href="{{ route('cart.index') }}"
+                    class="hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold">Keranjang</a>
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
             </nav>
             @guest
                 <a href="{{ route('login') }}"
@@ -104,7 +116,11 @@
             @auth
                 <div class="ml-4 relative" x-data="{ dropdown: false }">
                     <button @click="dropdown = !dropdown" class="flex items-center focus:outline-none">
+<<<<<<< HEAD
                         <a href="/dashboard"><img src="{{ Auth::user()->avatar }}" alt="Profile"
+=======
+                        <a href="/dashboard"><img src="/img/default-avatar.png" alt="Profile"
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
                                 class="h-10 w-10 rounded-full"></a>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -113,6 +129,7 @@
                     </button>
                     <div x-show="dropdown" @click.away="dropdown = false" x-cloak
                         class="bg-[#232c5f] absolute right-0 mt-2 w-48 border rounded-md shadow-lg z-50">
+<<<<<<< HEAD
 
                         {{-- Profile link --}}
                         @if (auth()->user()->role === 'student')
@@ -124,6 +141,10 @@
                         @endif
 
                         {{-- Logout --}}
+=======
+                        <a href="{{ route('student-profile.show') }}"
+                            class="block px-4 py-2 text-white hover:text-orange-500">Profile</a>
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="w-full text-left px-4 py-2 text-white hover:text-orange-500">
@@ -215,7 +236,12 @@
             @endguest
             @auth
                 <a href="{{ route('student-profile.show') }}" class="block">
+<<<<<<< HEAD
                     <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}"
+=======
+                    <img src="{{ Auth::user()->profile_photo_url ?? '/img/default-avatar.png' }}"
+                        alt="{{ Auth::user()->name }}"
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
                         class="ml-4 h-10 w-10 rounded-full border-2 border-white shadow-lg hover:scale-105 transition" />
                 </a>
             @endauth

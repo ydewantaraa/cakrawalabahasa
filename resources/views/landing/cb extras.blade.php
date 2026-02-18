@@ -96,12 +96,7 @@
                     Apa itu CB Extras?
                 </h2>
                 <p class="text-[#151d52] text-xs md:text-base 2xl:text-lg leading-relaxed text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Mauris accumsan dolor sit amet felis fringilla laoreet. 
-                    Integer massa eros, ullamcorper id felis id, tempor congue ipsum. 
-                    Nunc nibh mi, elementum id urna at, cursus fermentum eros. 
-                    Aenean aliquam elit neque, quis egestas magna varius ut. 
-                    Cras non venenatis mauris, quis dictum nisl.
+                    CB Extras adalah layanan pendampingan ekstra dari Cakrawala Bahasa yang dipersonalisasi agar fleksibel dan setia menemani perjalanan studi dan karirmu mulai dari mentoring eksklusif untuk persiapan studi maupun karir, tes hingga layanan professional berbagai kebutuhan bahasa. Semua didukung oleh tim profesional dengan standar internasional.
                 </p>
             </div>
 
@@ -164,10 +159,9 @@
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/bermain.png" alt="Bermain" class="w-16 h-16 md:w-24 md:h-24">
                 <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Bermain sambil belajar</h3>
+                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Personal & Tailor-Made</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Anak-anak belajar melalui permainan, lagu, aktivitas seni, dan cerita yang menarik 
-                        sehingga mereka merasa nyaman & antusias saat belajar.
+                        Setiap sesi mentoring hingga keberangkatan dipersonalisasi secara eksklusif sesuai kebutuhan dan tujuanmu.
                     </p>
                 </div>
             </div>
@@ -176,10 +170,9 @@
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/kelas.png" alt="Kelas Kecil" class="w-16 h-16 md:w-24 md:h-24">
                 <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Kelas Kecil & Interaktif</h3>
+                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Tim ahli dan profesional</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Setiap kelas terdiri dari jumlah siswa yang terbatas untuk memastikan interaksi 
-                        maksimal antara siswa dan tutor.
+                        Kebutuhan bahasa dan layanan pendukung studimu ditangani oleh tim berpengalaman dan bersertifikasi untuk hasil maksimal.
                     </p>
                 </div>
             </div>
@@ -188,10 +181,9 @@
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/multibahasa.png" alt="Multibahasa" class="w-16 h-16 md:w-24 md:h-24">
                 <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Kurikulum Multibahasa</h3>
+                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Solusi Lengkap Tes Bahasa</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Anak-anak dapat memilih untuk belajar dari 25 pilihan bahasa, termasuk bahasa 
-                        Inggris, Mandarin, Jepang, Prancis, dan lainnya.
+                        Beragam pilihan tes bahasa untuk memudahkan pemenuhan persyaratan stud maupun kariri.
                     </p>
                 </div>
             </div>
@@ -200,14 +192,12 @@
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-3xl shadow-lg p-4 md:p-8 flex items-start gap-4 md:gap-6">
                 <img src="/img/blended.png" alt="Blended Learning" class="w-16 h-16 md:w-24 md:h-24">
                 <div>
-                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Metode Belajar Terintegrasi</h3>
+                    <h3 class="font-bold text-[#151d52] text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-3">Penempatan Global</h3>
                     <p class="text-[#151d52] text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-justify leading-relaxed">
-                        Menggunakan metode blended learning yang mengombinasikan pembelajaran offline 
-                        dengan teknologi digital untuk pengalaman belajar yang optimal.
+                        Fasilitasi penyaluran ke universitas, program internasional, dan peluang karier global melalui sistem pendampingan terintegrasi online–offline, didukung teknologi AI. Proses fleksibel, terarah, dan disesuaikan dengan tujuan peserta.
                     </p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -297,27 +287,27 @@
                 cards: [
                     {
                         icon: '/img/icon-tutor.png',
-                        image: '/img/anak-sentris.png',
-                        title: 'Anak Sentris & Tutor Berkualitas',
-                        desc: 'Layanan khusus anak yang dipandu oleh tutor profesional ramah anak dan berpengalaman.'
+                        image: '/img/icon-tutor.png',
+                        title: 'Praktis dan Terintegrasi',
+                        desc: 'Semua kebutuhan pembelajaran dan layanan tambahan terintegrasi. Lebih praktis, hemat waktu, dan efisien.'
                     },
                     {
                         icon: '/img/icon-mentor.png',
-                        image: '/img/kak-seto.png',
-                        title: 'Dimentori Kak Seto Mulyadi',
-                        desc: 'Dimentori langsung oleh Kak Seto untuk kenyamanan anak-anak belajar.'
+                        image: '/img/icon-mentor.png',
+                        title: 'Hasil Terjamin',
+                        desc: 'Layanan pendukung kebutuhanmu ditangani sepenuhnya oleh tim berpengalaman dan profesional sehingga proses lebih cepat dengan hasil yang terjamin.'
                     },
                     {
                         icon: '/img/icon-growth.png',
-                        image: '/img/tumbuh-kembang.png',
-                        title: 'Tumbuh Kembang Maksimal',
-                        desc: 'Mengembangkan keterampilan anak dan dipantau orangtua.'
+                        image: '/img/icon-growth.png',
+                        title: 'Privasi & Kerahasiaan Terjaga',
+                        desc: 'Setiap dokumenditangani dengan penuh tangggungjawab atas privasi. Aman untuk mahasiswa, profesional, maupun korporat.'
                     },
                     {
                         icon: '/img/icon-class.png',
-                        image: '/img/kelas-interaktif.png',
-                        title: 'Kelas Kecil dan Interaktif',
-                        desc: 'Jumlah siswa terbatas memastikan interaksi optimal dengan tutor.'
+                        image: '/img/icon-class.png',
+                        title: 'Jalan Wujudkan Tujuan',
+                        desc: 'Akses ke berbagai universitas, perusahaan, dan komunitas internasional untuk memperbesar peluang studi dan karir di luar negeri.'
                     }
                 ],
                 loopedCards: [],

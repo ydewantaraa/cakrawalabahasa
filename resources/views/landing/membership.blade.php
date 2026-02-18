@@ -179,10 +179,10 @@
                     <img src="/img/icon-diskon.png" alt="Diskon Spesial" class="w-12 md:w-16">
                 </div>
                 <h3 class="font-bold text-base md:text-xl lg:text-2xl text-[#151d52] mb-2 md:mb-5 leading-snug">
-                    Dapatkan <br> Diskon Spesial
+                    Dapatkan <br> Komisi
                 </h3>
                 <p class="text-gray-500 text-xs md:text-base lg:text-lg leading-relaxed max-w-sm">
-                    Cuma dengan gabung membership, kamu akan mendapatkan diskon
+                    Cukup dengan gabung dan ajak teman  kamu, kamu bisa dapat komisi.
                 </p>
             </div>
 
@@ -234,14 +234,18 @@
                         <img src="/img/medal-gold.png" alt="Gold Medal" class="w-28 md:w-24 xl:w-28 2xl:w-32 h-auto">
                     </div>
                 </div>
-                <div class="pt-10 px-8 pb-10 text-left">
+                <div class="pt-10 px-8 pb-10 text-justify">
                     <h4 class="font-bold mb-3 text-[#151d52]">Keuntungan :</h4>
-                    <ul class="list-decimal text-xs xl:text-sm 2xl:text-base list-inside text-gray-600 leading-relaxed italic">
-                        <li>Komisi tertinggi hingga 30% per pendaftaran.</li>
-                        <li>Akses penuh ke materi promosi premium (template, video, konten iklan).</li>
-                        <li>Dukungan tim khusus (one-on-one support & pelatihan marketing).</li>
-                        <li>Co-branding dan kolaborasi event/webinar bersama Cakrawala Bahasa.</li>
-                        <li>Peluang eksklusif referral B2B & proyek perusahaan.</li>
+                    <ul class="list-decimal list-outside pl-5 text-xs xl:text-sm 2xl:text-base text-gray-600 leading-relaxed italic space-y-1">
+                        <li>Akses komunitas eksklusif & grup WhatsApp</li>
+                        <li>Unlock semua fitur premium CB</li>
+                        <li>1x/bulan: Native Speaker Talk</li>
+                        <li>1x/bulan: Kelas Bahasa & Soft Skill gratis</li>
+                        <li>1x/bulan: Sharing karir & studi luar negeri</li>
+                        <li>Mentoring eksklusif (grup kecil)</li>
+                        <li>Info lengkap kelas, karir & beasiswa</li>
+                        <li>CB Kit (Kaos + ID Card e-money)</li>
+                        <li>Referral komisi 20%</li>
                     </ul>
                 </div>
             </div>
@@ -255,14 +259,18 @@
                         <img src="/img/medal-silver.png" alt="Silver Medal" class="w-28 md:w-24 xl:w-28 2xl:w-32 h-auto">
                     </div>
                 </div>
-                <div class="pt-10 px-8 pb-10 text-left">
+                <div class="pt-10 px-8 pb-10 text-justify">
                     <h4 class="font-bold mb-3 text-[#151d52]">Keuntungan :</h4>
-                    <ul class="list-decimal text-xs xl:text-sm 2xl:text-base list-inside text-gray-600 leading-relaxed italic">
-                        <li>Komisi kompetitif hingga 20% per pendaftaran.</li>
-                        <li>Akses ke materi promosi standar (poster digital, caption, dll).</li>
-                        <li>Support mingguan via grup mitra.</li>
-                        <li>Kesempatan ikut campaign nasional Cakrawala Bahasa.</li>
-                        <li>Diskon khusus untuk produk lain (sertifikasi, les privat).</li>
+                    <ul class="list-decimal list-outside pl-5 text-xs xl:text-sm 2xl:text-base text-gray-600 leading-relaxed italic space-y-1">
+                        <li>Akses grup WhatsApp membership</li>
+                        <li>Unlock fitur komunitas, game & ujian</li>
+                        <li>1x/bulan: Native Speaker Talk</li>
+                        <li>1x/bulan: Kelas Bahasa & Soft Skill gratis</li>
+                        <li>1x/bulan: Sharing karir & studi luar negeri</li>
+                        <li>Info kelas, karir & beasiswa</li>
+                        <li>CB Kit (Kaos + ID Card)</li>
+                        <li>Referral komisi 15%</li>
+                        <li>Kesempatan upgrade ke Gold</li>
                     </ul>
                 </div>
             </div>
@@ -276,14 +284,18 @@
                         <img src="/img/medal-bronze.png" alt="Bronze Medal" class="w-28 md:w-24 xl:w-28 2xl:w-32 h-auto">
                     </div>
                 </div>
-                <div class="pt-10 px-8 pb-10 text-left">
+                <div class="pt-10 px-8 pb-10 text-justify">
+                    <p class="text-xs xl:text-sm 2xl:text-base list-inside text-gray-600 leading-relaxed italic">(Akses Dasar & Komunitas)</p>
                     <h4 class="font-bold mb-3 text-[#151d52]">Keuntungan :</h4>
-                    <ul class="list-decimal text-xs xl:text-sm 2xl:text-base list-inside text-gray-600 leading-relaxed italic">
-                        <li>Komisi dasar hingga 10% per pendaftaran.</li>
-                        <li>Materi promosi siap pakai.</li>
-                        <li>Akses ke komunitas mitra.</li>
-                        <li>Info update program terbaru.</li>
-                        <li>Berpeluang naik ke level Silver/Gold.</li>
+                    <ul class="list-decimal list-outside pl-5 text-xs xl:text-sm 2xl:text-base text-gray-600 leading-relaxed italic space-y-1">
+                        <li>Akses grup WhatsApp membership</li>
+                        <li>Unlock fitur komunitas & game</li>
+                        <li>1x/bulan: Native Speaker Talk</li>
+                        <li>1x/bulan: Kelas Bahasa gratis</li>
+                        <li>Info kelas, karir & beasiswa</li>
+                        <li>Upgrade ke Silver/Gold</li>
+                        <li>Referral komisi 10%</li>
+                        <li>Kesempatan upgrade ke Gold</li>
                     </ul>
                 </div>
             </div>
@@ -291,96 +303,95 @@
         </div>
     </section>
 
-    <!-- Section Testimoni Mitra -->
-    <section class="opacity-0 translate-y-5 transition-all duration-700 ease-out bg-[#f5f6fa] fade-el px-4 py-16 md:px-20 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#151d52] mb-16">
-            Testimoni <span class="text-[#f78a28]">Mitra</span>
+    <!-- Section Testimoni Membership -->
+    <section class="opacity-0 translate-y-5 transition-all duration-700 ease-out bg-[#f5f6fa] fade-el px-4 py-20 md:px-20 text-center">
+        
+        <h2 class="text-2xl md:text-4xl font-bold text-[#151d52] mb-16">
+            Testimoni <span class="text-[#f78a28]">Membership</span>
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Card Testimoni -->
+
+            <!-- Card 1 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Melalui komunitas member yang disediakan, saya dapat membangun banyak koneksi serta memperoleh berbagai kesempatan baru.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Azelia Nasywa</p>
+                        <p class="text-gray-400 text-sm">Siswa, SMA Muhammadiyah 1 Jombang</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Ulangi card -->
+            <!-- Card 2 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Materi belajarnya mudah dipahami. Dengan membership, saya bisa belajar lebih fokus dan hemat biaya.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Khalisha</p>
+                        <p class="text-gray-400 text-sm">Siswa, Homeschooling Primagama</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 4 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Materi dan info tambahan yang disediakan  sangat menunjang pemahaman saya.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Devanda Zaskia</p>
+                        <p class="text-gray-400 text-sm">Siswa, SMP Sultan Agung 4</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tambah 3 lagi -->
+            <!-- Card 5 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Saya dapat menambah relasi dan saling membantu mengupgrade kemampuan berbahasa asing.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Reza Dysta</p>
+                        <p class="text-gray-400 text-sm">Mahasiswa, Kırklareli Üniversitesi</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 6 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Dengan menjadi member saya mendapat info lebih banyak tentang bahasa dan budaya Turki.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Salmah</p>
+                        <p class="text-gray-400 text-sm">Dosen, Univ. Pakuan</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Card 7 -->
             <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-gray-700 mb-6 text-sm xl:text-base">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base text-justify">
+                    Saya mendapatkan banyak informasi beasiswa yang sangat bermanfaat untuk persiapan studi saya ke depannya.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Siti Komariah</p>
+                        <p class="text-gray-400 text-sm">Mahasiswa, UNISBA</p>
                     </div>
                 </div>
             </div>

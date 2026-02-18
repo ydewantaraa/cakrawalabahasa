@@ -32,6 +32,7 @@
 
             {{-- Tab Contents --}}
             <div id="content-info">
+<<<<<<< HEAD
                 @if (Auth::user()->role == 'student')
                     @include('profile.partials.show-student')
                     @include('profile.partials.edit-student')
@@ -39,6 +40,13 @@
                     @include('profile.partials.show-teacher')
                     @include('profile.partials.edit-teacher')
                 @endif
+=======
+                {{-- Info Profile (hidden awalnya) --}}
+                @include('profile.partials.info-view')
+
+                {{-- Edit Form (hidden awalnya) --}}
+                @include('profile.partials.info-edit')
+>>>>>>> 6d7dd8f8aefc7d42a2061548f00c21b62dff71ef
             </div>
 
             {{-- Security Tab --}}

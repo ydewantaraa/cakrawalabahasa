@@ -20,8 +20,8 @@
                 <h1 class="text-3xl sm:text-4xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mb-6">
                     Raih Cita-citamu <br> bersama kami
                 </h1>
-                <p class="text-white text-sm sm:text-base xl:text-lg 2xl:text-xl leading-relaxed mb-8 xl:max-w-lg 2xl:max-w-xl">
-                    Gantungkan cita-citamu setinggi langit dan wujudkan bersama Cakrawala Bahasa
+                <p class="text-white text-sm sm:text-base xl:text-lg 2xl:text-xl leading-relaxed mb-8 xl:max-w-lg 2xl:max-w-xl text-justify">
+                    Gantungkan cita-citamu setinggi langit <br>dan wujudkan bersama Cakrawala Bahasa
                 </p>
 
                 <a href="#" class="inline-block shadow-[7px_7px_17px_0px_#000000] text-white px-8 py-3 rounded-full text-sm md:text-base font-semibold hover:bg-gradient-to-l from-blue-950 via-blue-700 to-blue-500 bg-gradient-to-r from-blue-950 via-blue-700 to-blue-500 hover:shadow-[0_6px_12px_rgba(0,0,0,0.40)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
@@ -58,11 +58,16 @@
                 </div>
 
                 <!-- Isi Card -->
-                <div class="text-left text-sm text-[#151d52] p-6 space-y-2">
-                    <p><b>Sasaran:</b> Pelajar/mahasiswa dengan nilai akademik tinggi atau prestasi lomba bahasa.</p>
-                    <p><b>Benefit:</b> Kursus gratis 100% untuk 1 bahasa asing selama 3 bulan.</p>
-                    <p><b>Seleksi:</b> Pengumpulan transkrip nilai + esai motivasi.</p>
-                    <p><b>Tujuan:</b> Mendorong generasi muda unggul dalam kompetensi global.</p>
+                <div class="text-justify text-sm text-[#151d52] p-6 space-y-2">
+                    <p><b>Sasaran:</b> Siswa  dari kalangan duafa di yayasan atau panti asuhan.</p>
+                    <p><b>Benefit:</b> Kursus gratis 100% pembelajaran bahasa asing atau softskill untuk siswa di panti/yayasan terpilih dalam satu kelas selama 3 bulan.</p>
+                    <p><b>Seleksi:</b></p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1">
+                        <li>Pengumpulan transkrip nilai rapor</li>
+                        <li>Esai motivasi</li>
+                        <li>Sesi wawancara</li>
+                    </ol>
+                    <p><b>Tujuan:</b> Membantu anak-anak dhuafa memperoleh akses pendidikan unggul dengan berbagai kompetensi global.</p>
                     <div class="mt-4 text-center">
                         <button class="bg-gradient-to-t from-[#c2410c] via-[#f97316] to-[#fdba74] text-white font-bold px-8 py-2 rounded-full shadow-md hover:scale-105 transition">Pilih ini</button>
                     </div>
@@ -77,11 +82,20 @@
                         <img src="/img/beasiswa2.png" alt="Beasiswa Global" class="w-44 md:w-40 lg:w-46 xl:w-[11rem] 2xl:w-48">
                     </div>
                 </div>
-                <div class="text-left text-sm text-[#151d52] p-6 space-y-2">
-                    <p><b>Sasaran:</b> Individu daerah 3T yang minim akses pendidikan bahasa.</p>
-                    <p><b>Benefit:</b> Potongan biaya hingga 80%, fasilitas pembelajaran online.</p>
-                    <p><b>Seleksi:</b> Wawancara singkat + surat keterangan institusi lokal.</p>
-                    <p><b>Tujuan:</b> Meningkatkan daya saing profesional muda di pasar global.</p>
+                <div class="text-justify text-sm text-[#151d52] p-6 space-y-2">
+                    <p><b>Sasaran:</b> Semua kalangan yang pernah menggunakan layanan cakrawala bahasa  dan bermaksud melanjutkan studi atau karir ke luar negeri.</p>
+                    <p><b>Benefit:</b> Potongan 60% untuk biaya layanan persiapan studi dan karir termasuk :</p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1">
+                        <li>Kursus Jagoan test 30%</li>
+                        <li>Layanan Ur study Buddy 30%</li>
+                    </ol>
+                    <p><b>Seleksi:</b></p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1">
+                        <li>CV</li>
+                        <li>Motivation Letter</li>
+                        <li>Sesi wawancara</li>
+                    </ol>
+                    <p><b>Tujuan:</b> Meningkatkan daya saing SDM Indonesia di pasar global.</p>
                     <div class="mt-4 text-center">
                         <button class="bg-gradient-to-t from-[#c2410c] via-[#f97316] to-[#fdba74] text-white font-bold px-8 py-2 rounded-full shadow-md hover:scale-105 transition">Pilih ini</button>
                     </div>
@@ -96,10 +110,14 @@
                         <img src="/img/beasiswa3.png" alt="Beasiswa Kader" class="w-44 md:w-40 lg:w-46 xl:w-[11rem] 2xl:w-48">
                     </div>
                 </div>
-                <div class="text-left text-sm text-[#151d52] p-6 space-y-2">
-                    <p><b>Sasaran:</b> Fresh graduate atau karyawan muda untuk peningkatan karir.</p>
-                    <p><b>Benefit:</b> Kursus intensif + sertifikasi internasional (TOEFL, JLPT dll).</p>
-                    <p><b>Seleksi:</b> CV, surat motivasi, dan tujuan pengembangan karir.</p>
+                <div class="text-justify text-sm text-[#151d52] p-6 space-y-2">
+                    <p><b>Sasaran:</b> Individu dari semua kalangan dan usia di daerah 3T yang minim akses pendidikan.</p>
+                    <p><b>Benefit:</b> Kursus gratis 100% untuk 1 kelas bahasa asing atau softskill dengan fasilitas pembelajaran online.</p>
+                    <p><b>Seleksi:</b></p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1">
+                        <li>SKTM atau surat keterangan setempat</li>
+                        <li>Wawancara Singkat</li>
+                    </ol>
                     <p><b>Tujuan:</b> Pemerataan kesempatan belajar bahasa di seluruh Indonesia.</p>
                     <div class="mt-4 text-center">
                         <button class="bg-gradient-to-t from-[#c2410c] via-[#f97316] to-[#fdba74] text-white font-bold px-8 py-2 rounded-full shadow-md hover:scale-105 transition">Pilih ini</button>
@@ -125,22 +143,22 @@
                 <div class="flex flex-col items-center">
                     <div class="relative">
                         <div class="bg-orange-500 w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center shadow-lg">
-                            <img src="/img/icon-berkas.png" alt="Berkas" class="w-12 md:w-16">
+                            <img src="/img/icon-portal.png" alt="Portal" class="w-12 md:w-16">
                         </div>
                         <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#151d52] text-white rounded-full flex items-center justify-center font-bold text-sm md:text-lg">1</div>
                     </div>
-                    <p class="font-bold text-xs md:text-sm xl:text-lg text-[#151d52] mt-5 leading-snug">Melengkapi Berkas Persyaratan</p>
+                    <p class="font-bold text-xs md:text-sm xl:text-lg text-[#151d52] mt-5 leading-snug">Daftar Melalui Portal Resmi</p>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="flex flex-col items-center">
                     <div class="relative">
                         <div class="bg-orange-500 w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center shadow-lg">
-                            <img src="/img/icon-portal.png" alt="Portal" class="w-12 md:w-16">
+                            <img src="/img/icon-berkas.png" alt="Berkas" class="w-12 md:w-16">
                         </div>
                         <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#151d52] text-white rounded-full flex items-center justify-center font-bold text-sm md:text-lg">2</div>
                     </div>
-                    <p class="font-bold text-xs md:text-sm xl:text-lg text-[#151d52] mt-5 leading-snug">Daftar Melalui Portal Resmi</p>
+                    <p class="font-bold text-xs md:text-sm xl:text-lg text-[#151d52] mt-5 leading-snug">Melengkapi Berkas Persyaratan</p>
                 </div>
 
                 <!-- Step 3 -->
@@ -317,96 +335,95 @@
         </div>
     </section>
 
-    <!-- Section Testimoni Penerima Beasiswa -->
-    <section class="opacity-0 bg-[#eaeaea] translate-y-5 transition-all duration-700 ease-out fade-el px-4 py-16 md:px-20 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#151d52] mb-16">
-            Testimoni <span class="text-[#f78a28]"><br>Penerima Beasiswa</span>
+    <!-- Section Testimoni Beasiswa -->
+    <section class="opacity-0 translate-y-5 transition-all duration-700 ease-out bg-[#ededed] fade-el px-4 py-20 md:px-20 text-center">
+        
+        <h2 class="text-2xl md:text-4xl font-bold text-[#151d52] mb-16">
+            Testimoni <span class="text-[#f78a28]">Penerima Beasiswa</span>
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Card Testimoni -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+
+            <!-- Card 1 -->
+            <div class=" hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm xl:text-base text-gray-700 mb-6">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                    Terima kasih atas program beasiswa yang diberikan. Bantuan ini sangat membantu anak-anak dalam memenuhi kebutuhan belajar mereka.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Hj. Hasnah Djamaluddin</p>
+                        <p class="text-gray-400 text-sm">Pengelola-Panti Asuhan Rahmatullah, Makasar</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Ulangi card -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <!-- Card 2 -->
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm xl:text-base text-gray-700 mb-6">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                    Beasiswa ini  menjadi motivasi bagi anak-anak untuk terus berkembang dan belajar lebih giat.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Iim Salimah</p>
+                        <p class="text-gray-400 text-sm">Pengelola-Home Children Center, Jakarta</p>
                     </div>
                 </div>
             </div>
 
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <!-- Card 3 -->
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm xl:text-base text-gray-700 mb-6">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                    Program beasiswa pembelajaran bahasa bersama native speaker ini sangat baik dan memberikan dampak positif bagi anak-anak.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Hilal Achmad</p>
+                        <p class="text-gray-400 text-sm">Direktur Utama-Askar Kauni </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tambah 3 lagi -->
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <!-- Card 4 -->
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm xl:text-base text-gray-700 mb-6">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                    Program beasiswa ini sangat membantu dalam mendukung proses belajar. Penerima beasiswa dapat terus belajar tanpa terbebani biaya, dengan tutor native speaker yang membuat pembelajaran lebih menarik dan berkualitas
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Lukman</p>
+                        <p class="text-gray-400 text-sm">Pengelola-Panti Asuhan Muhammadiyah, Sawangan</p>
                     </div>
                 </div>
             </div>
 
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <!-- Card 5 -->
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm xl:text-base text-gray-700 mb-6">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                    Akses belajar gratis yang diberikan membantu saya dalam belajar bahasa Turki.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Windasari</p>
+                        <p class="text-gray-400 text-sm">Mahasiswa-UNIMUDA Sorong, Papua</p>
                     </div>
                 </div>
             </div>
 
-            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-left">
+            <!-- Card 6 -->
+            <div class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 bg-white rounded-2xl shadow-lg p-8 text-justify">
                 <i class="fas fa-quote-left text-2xl text-[#151d52] mb-2 block"></i>
-                <p class="text-xs md:text-sm xl:text-base text-gray-700 mb-6">
-                    saya merasa terbantu sekali dengan adanya fitur ini, karena saya bisa mengulang kembali pelajaran yang telah dipelajari sebelumnya
+                <p class="text-gray-700 mb-6 text-sm xl:text-base">
+                    Saya merasa sangat terbantu karena dapat mengakses materi pembelajaran berkualitas tanpa harus mengeluarkan biaya yang besar.
                 </p>
                 <div class="flex items-center">
-                    <img src="/img/Mask group3.png" alt="Andita Putri" class="w-12 h-12 rounded-full mr-4">
                     <div>
-                        <p class="font-bold text-[#151d52]">Andita Putri</p>
-                        <p class="text-gray-400 text-sm">@andita_putri68</p>
+                        <p class="font-bold text-[#151d52]">Rui Porug Jabat</p>
+                        <p class="text-gray-400 text-sm">Pekerja-Program Ausbildung, Jerman</p>
                     </div>
                 </div>
             </div>

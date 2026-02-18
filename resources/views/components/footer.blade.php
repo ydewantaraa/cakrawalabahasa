@@ -1,9 +1,9 @@
-<footer class="translate-y-5 transition-all duration-700 ease-out fade-el bg-cover bg-right-top text-white py-4 md:py-10 px-4 md:px-20" style="background-image: url('/img/hiasan.png'), linear-gradient(to top right, #0b1a53, #1e3a8a, #3358be);
+<footer class="translate-y-5 transition-all duration-700 ease-out fade-el bg-cover bg-right-top text-white py-4 md:py-10 px-4" style="background-image: url('/img/hiasan.png'), linear-gradient(to top right, #0b1a53, #1e3a8a, #3358be);
     background-size: 24rem, cover;
     background-position: right top, left top;
     background-repeat: no-repeat, no-repeat;">
     
-    <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-10">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-[200px_0.8fr_1fr_1.2fr] gap-1">
 
         <!-- Logo -->
         <div class="flex items-start justify-center">

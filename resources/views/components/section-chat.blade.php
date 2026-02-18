@@ -20,8 +20,7 @@
                 </div>
 
                 <div>
-                    <a href="#"
-                    class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-20 inline-flex items-center border-2 border-white rounded-full px-6 py-2 text-base lg:px-8 lg:py-3 lg:text-lg font-semibold hover:bg-white hover:text-blue-900">
+                    <a href="https://wa.me/628561481109?text=Halo%20Admin%20CB,%0ASaya%20ingin%20bertanya%20lebih%20lanjut%20tentang%20program%20yang%20tersedia.%0ATerima%20kasih." target="_blank" class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-20 inline-flex items-center border-2 border-white rounded-full px-6 py-2 text-base lg:px-8 lg:py-3 lg:text-lg font-semibold hover:bg-white hover:text-blue-900">
                     Chat Kami
                     <i class="fas fa-comment-dots ml-2"></i>
                     </a>
