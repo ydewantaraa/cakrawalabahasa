@@ -11,6 +11,7 @@ class AdvantageProgramService extends Model
         'title',
         'description',
         'thumbnail',
+        'icon',
         'program_service_id',
     ];
 
@@ -20,6 +21,15 @@ class AdvantageProgramService extends Model
             get: fn($value) => $value
                 ? asset('storage/' . $value)
                 : asset('img/default-thumbnail-feature.png')
+        );
+    }
+
+    protected function icon(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $value
+                ? asset('storage/' . $value)
+                : asset('img/default-icon-advantage.png')
         );
     }
 

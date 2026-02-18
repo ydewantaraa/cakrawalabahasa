@@ -13,6 +13,10 @@ class AdminDashboardController extends Controller
     {
         $data = compact('tab');
 
+        if ($tab === 'overview') {
+            $data += $this->overviewTab($request);
+        }
+
         if ($tab === 'program-services') {
             $data += $this->programServiceTab($request);
         }
@@ -33,11 +37,25 @@ class AdminDashboardController extends Controller
         //     $data += $this->teacherTab($request);
         // }
 
-        // if ($tab === 'payment-history') {
-        //     $data += $this->teacherTab($request);
-        // }
+        if ($tab === 'transaction-history') {
+            $data += $this->transactionTab($request);
+        }
 
         return view('admin.dashboard', $data);
+    }
+
+    protected function overviewTab(Request $request): array
+    {
+        return [
+            'totalStudents' => User::where('role', 'student')->count(),
+            'totalTeachers' => User::where('role', 'teacher')->count(),
+            'totalClasses' => Course::count(),
+            'totalProgramServices' => ProgramService::count(),
+            'activePrograms' => ProgramService::where('show_in_dropdown', true)->count(),
+            // 'totalEnrollments' => Enrollment::count(),
+            // 'totalTransactions' => Transaction::count(),
+            // 'totalRevenue' => Transaction::where('status', 'paid')->sum('amount'),
+        ];
     }
 
     protected function programServiceTab(Request $request): array
@@ -58,6 +76,7 @@ class AdminDashboardController extends Controller
             'search' => $search,
         ];
     }
+
 
     protected function courseTab(Request $request): array
     {
@@ -133,6 +152,24 @@ class AdminDashboardController extends Controller
         return [
             'students' => $students,
             'studentCount' => User::where('role', 'student')->count(),
+            'search' => $search,
+        ];
+    }
+    protected function transactionTab(Request $request): array
+    {
+        $search = $request->query('search');
+
+        $programServices = ProgramService::when($search, function ($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%");
+        })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return [
+            'programServices' => $programServices,
+            'programServiceCount' => ProgramService::count(),
             'search' => $search,
         ];
     }

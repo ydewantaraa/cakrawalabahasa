@@ -20,6 +20,8 @@
                     'title' => $a['title'] ?? $a->title,
                     'description' => $a['description'] ?? $a->description,
                     'thumbnailPreview' => null,
+                    'iconPreview' => null,
+                    'iconPreview' => null,
                 ];
             })
             ->toArray(),
@@ -71,6 +73,18 @@
         } else {
             advantage.thumbnailFile = null;
             advantage.thumbnailPreview = null;
+        }
+    },
+    handleAdvantageIconChange(event, advantage) {
+        const file = event.target.files[0];
+        if (file) {
+            advantage.iconFile = file;
+            const reader = new FileReader();
+            reader.onload = e => advantage.iconPreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            advantage.iconFile = null;
+            advantage.iconPreview = null;
         }
     },
     heroImagePreview: null,
@@ -219,6 +233,12 @@
                         <label class="block mb-1">Deskripsi Keunggulan</label>
                         <textarea :name="`advantages[${index}][description]`" rows="2" x-model="advantage.description"
                             class="w-full border rounded px-3 py-2"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1">Icon (opsional)</label>
+                        <input type="file" :name="`advantages[${index}][icon]`" class="w-full"
+                            @change="handleAdvantageIconChange($event, advantage)">
                     </div>
 
                     <div>

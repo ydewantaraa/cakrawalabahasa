@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('thumbnail')->nullable();
+            $table->string('icon')->nullable();
             $table->foreignId('program_service_id')
                 ->constrained('program_services')
                 ->cascadeOnDelete();

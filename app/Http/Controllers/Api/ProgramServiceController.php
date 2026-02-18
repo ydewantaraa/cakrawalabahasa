@@ -69,7 +69,7 @@ class ProgramServiceController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Program service berhasil diperbarui',
-            'data' => $programService->fresh(),
+            'data' => $programService,
         ]);
     }
 

@@ -217,7 +217,20 @@
             Keunggulan <span class="text-[#f78a28]">CB For Kids</span>
         </h2>
 
-        <div x-data="carouselKeunggulan()" x-init="init()" class="relative">
+        <div x-data="carouselKeunggulan()" x-init="cards = @js(
+    $programService->advantage_program_services
+        ->map(
+            fn($advantage) => [
+                'uniqueId' => $advantage->id,
+                'title' => $advantage->title,
+                'desc' => $advantage->description,
+                'icon' => $advantage->icon,
+                'image' => $advantage->thumbnail,
+            ],
+        )
+        ->values(),
+);
+        init();" class="relative">
 
             <div class="flex cursor-grab select-none" @mousedown="startDrag($event)" @touchstart="startDrag($event)"
                 @mouseup="endDrag()" @mouseleave="endDrag()" @touchend="endDrag()" @mousemove="drag($event)"
