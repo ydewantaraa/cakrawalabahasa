@@ -29,9 +29,7 @@
 
             <!-- Gambar Orang -->
             <div class="md:w-1/2 flex justify-end items-end pb-10 md:pb-16 mt-4 md:mt-8">
-                <img src="{{ $programService->hero_image && Storage::disk('public')->exists($programService->hero_image)
-                    ? asset('storage/' . $programService->hero_image)
-                    : asset('img/default-hero-image.png') }}"
+                <img src="{{ $programService->hero_image }}"
                     class="w-[350px] sm:w-[280px] md:w-[450px] lg:w-[550px] 2xl:w-[750px] object-contain">
             </div>
 

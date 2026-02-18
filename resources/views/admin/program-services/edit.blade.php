@@ -33,7 +33,7 @@
         name: @js(old('name', $programService->name)),
         description: @js(old('description', $programService->description)),
         hero_text: @js(old('hero_text', $programService->hero_text)),
-        heroImagePreview: @js($programService->hero_image ? asset('storage/' . $programService->hero_image) : null),
+        heroImagePreview: @js($programService->hero_image),
         show_in_dropdown: Boolean(@js(old('show_in_dropdown', $programService->show_in_dropdown))),
         features: @js($featuresOld),
         advantages: @js($advantagesOld)
@@ -57,7 +57,7 @@
             reader.onload = e => this.form.heroImagePreview = e.target.result;
             reader.readAsDataURL(file);
         } else {
-            this.form.heroImagePreview = @js($programService->hero_image ? asset('storage/' . $programService->hero_image) : null);
+            this.form.heroImagePreview = @js($programService->hero_image);
         }
     }
 }" class="bg-white rounded shadow-lg w-full max-w-3xl z-50 p-6">
