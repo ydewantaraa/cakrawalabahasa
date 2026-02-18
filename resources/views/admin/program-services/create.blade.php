@@ -73,6 +73,18 @@
             advantage.thumbnailPreview = null;
         }
     },
+    handleAdvantageIconChange(event, advantage) {
+        const file = event.target.files[0];
+        if (file) {
+            advantage.iconFile = file;
+            const reader = new FileReader();
+            reader.onload = e => advantage.iconPreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            advantage.iconFile = null;
+            advantage.iconPreview = null;
+        }
+    },
     heroImagePreview: null,
     handleHeroChange(event) {
         const file = event.target.files[0];
@@ -99,7 +111,6 @@
 
     <form action="{{ route('program-services.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
         @csrf
-
         {{-- Nama --}}
         <div>
             <label class="block mb-1 font-medium">Nama Program</label>
@@ -219,6 +230,16 @@
                         <label class="block mb-1">Deskripsi Keunggulan</label>
                         <textarea :name="`advantages[${index}][description]`" rows="2" x-model="advantage.description"
                             class="w-full border rounded px-3 py-2"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1">Icon (opsional)</label>
+                        <input type="file" :name="`advantages[${index}][con]`" class="w-full"
+                            @change="handleAdvantageIconChange($event, advantage)">
+                    </div>
+
+                    <div x-show="advantage.iconPreview" class="mt-2">
+                        <img :src="advantage.iconPreview" class="w-32 h-32 object-cover border rounded">
                     </div>
 
                     <div>

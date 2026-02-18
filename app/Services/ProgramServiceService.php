@@ -125,6 +125,10 @@ class ProgramServiceService
                 ->map(fn($a) => $a->getRawOriginal('thumbnail'))
                 ->toArray();
 
+            $oldAdvantageIcons = $programService->advantage_program_services
+                ->map(fn($a) => $a->getRawOriginal('icon'))
+                ->toArray();
+
             // Hapus record lama
             $programService->feature_program_services()->delete();
             $programService->advantage_program_services()->delete();
@@ -197,7 +201,9 @@ class ProgramServiceService
             }
 
             // Load relasi feature & advantage
-            return $programService->load('feature_program_services', 'advantage_program_services');
+            return $programService
+                ->refresh()
+                ->load('feature_program_services', 'advantage_program_services');
         });
     }
 
