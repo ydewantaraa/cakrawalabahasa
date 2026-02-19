@@ -39,6 +39,7 @@ class GoogleAuthController extends Controller
                 'email_verified_at' => now()
             ]
         );
+        $user = $user->fresh();
 
         Auth::login($user);
         return redirect('/dashboard')->with('success', 'Logged in with Google successfully.');
