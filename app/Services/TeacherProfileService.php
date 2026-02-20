@@ -2,8 +2,10 @@
 
 namespace App\services;
 
+use App\Mail\VerifyEmailMail;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class TeacherProfileService
@@ -61,6 +63,12 @@ class TeacherProfileService
             }
 
             $user->update($userData);
+
+            if ($emailChanged) {
+                $url = url("/api/auth/email/verify/{$user->id}/" . sha1($user->email));
+
+                Mail::to($user->email)->send(new VerifyEmailMail($url));
+            }
 
             // ======================
             // UPDATE TEACHER PROFILE

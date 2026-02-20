@@ -41,17 +41,22 @@ class StudentProfileController extends Controller
     public function update(StudentProfileRequest $request)
     {
         try {
+            $user = auth()->user();
+
             $result = $this->service->update(
-                auth()->user(),
-                $request->validated(),
-                $request
+                $user,
+                $request->validated()
             );
+
+            // refresh data dari database
+            $user->refresh()->load('student_profile');
 
             return response()->json([
                 'success' => true,
                 'message' => $result['email_changed']
                     ? 'Email diperbarui. Silakan verifikasi email Anda.'
                     : 'Profile berhasil diperbarui',
+                'data' => $user,
             ]);
         } catch (\Throwable $e) {
             return response()->json([

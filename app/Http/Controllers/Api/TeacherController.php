@@ -54,4 +54,13 @@ class TeacherController extends Controller
             'data'    => $teachers,
         ], 201);
     }
+
+    public function show(User $teacher)
+    {
+        $teacher->load('teacher_profile');
+        return response()->json([
+            'message' => 'Berhasil mengambil detail teacher',
+            'data'    => $teacher,
+        ], 200);
+    }
 }
