@@ -8,11 +8,24 @@ use App\Http\Controllers\Api\ProgramServiceController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TeacherController;
+use App\Http\Controllers\Api\TeacherProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/me', function (Request $request) {
-    return $request->user();
+    $user = $request->user();
+
+    if ($user->role === 'teacher') {
+        $user->load('teacher_profile');
+    }
+
+    if ($user->role === 'student') {
+        $user->load('student_profile');
+    }
+
+    return response()->json([
+        'data' => $user
+    ], 200);
 })->middleware('auth:sanctum');
 
 Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
@@ -24,6 +37,7 @@ Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::post('/teachers', [TeacherController::class, 'store']);
     Route::delete('/teachers/{teacher}', [TeacherController::class, 'destroy']);
     Route::put('/teachers/{teacher}', [TeacherController::class, 'update']);
+    Route::get('/teachers/{teacher}', [TeacherController::class, 'show']);
     Route::get('/teachers', [TeacherController::class, 'getAllTeachers']);
     Route::get('/students', [StudentController::class, 'getAllStudents']);
     Route::delete('/students/{student}', [StudentController::class, 'destroy']);
@@ -41,6 +55,11 @@ Route::prefix('auth')->group(function () {
     Route::middleware(['auth:sanctum', 'can:student', 'verified'])->group(function () {
         Route::get('/student-profile', [StudentProfileController::class, 'show']);
         Route::patch('/student-profile', [StudentProfileController::class, 'update']);
+    });
+
+    Route::middleware(['auth:sanctum', 'can:teacher', 'verified'])->group(function () {
+        Route::get('/teacher-profile', [TeacherProfileController::class, 'show']);
+        Route::patch('/teacher-profile', [TeacherProfileController::class, 'update']);
     });
 
     Route::post('/register', [AuthController::class, 'register']);
