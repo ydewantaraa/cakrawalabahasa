@@ -4,7 +4,8 @@
 @section('header', 'Profil Saya')
 
 @section('content')
-    <section class="w-full min-h-screen bg-gray-100 p-6">
+    {{-- <section class="w-full min-h-screen bg-gray-100 p-6"> --}}
+    <section class="w-full min-h-screen bg-gray-100 p-3 sm:p-4 md:p-6">
         <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
 
             <div class="flex justify-center mb-6">
