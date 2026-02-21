@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\ChangePasswordRequest;
 use App\Http\Requests\Auth\ForgotPasswordRequest;
 use App\Http\Requests\Auth\ResetPasswordRequest;
+use App\Models\User;
+use App\Notifications\ApiResetPasswordNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -14,21 +16,25 @@ class PasswordController extends Controller
 {
     public function sendResetLink(ForgotPasswordRequest $request)
     {
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+        $user = User::where('email', $request->email)->first();
 
-        if ($status === Password::RESET_LINK_SENT) {
+        if (!$user) {
             return response()->json([
-                'success' => true,
-                'message' => __($status),
-            ], 200);
+                'success' => false,
+                'message' => 'Email tidak ditemukan'
+            ], 422);
         }
 
+        // Buat token manual
+        $token = Password::createToken($user);
+
+        // Kirim notification khusus API
+        $user->notify(new ApiResetPasswordNotification($token));
+
         return response()->json([
-            'success' => false,
-            'message' => __($status),
-        ], 422);
+            'success' => true,
+            'message' => 'Reset link sent'
+        ], 200);
     }
 
     public function resetPassword(ResetPasswordRequest $request)

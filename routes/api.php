@@ -66,6 +66,12 @@ Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/forgot-password', [PasswordController::class, 'sendResetLink']);
     Route::post('/reset-password', [PasswordController::class, 'resetPassword']);
+    Route::get('/reset-password', function (Request $request) {
+        return response()->json([
+            'token' => $request->token,
+            'email' => $request->email,
+        ]);
+    });
     Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])
         ->name('verification.verify');
 
