@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('status', 'Login berhasil.');
     }
 
     public function showRegisterForm()
@@ -40,13 +40,13 @@ class AuthController extends Controller
         $user = $auth->register($request->full_name, $request->email, $request->password);
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('status', 'Registrasi berhasil.');
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login.form');
+        return redirect()->route('login.form')->with('status', 'Berhasil logout.');
     }
 
     public function verifyNotice()
@@ -57,7 +57,7 @@ class AuthController extends Controller
     public function verifyEmail(EmailVerificationRequest $request)
     {
         $request->fulfill();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('status', 'Email berhasil diverifikasi.');
     }
 
     public function resendVerification(Request $request)

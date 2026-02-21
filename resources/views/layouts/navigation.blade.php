@@ -6,15 +6,6 @@
             <a href="/">
                 <img src="/img/logo.png" alt="Logo" class="h-12 hover:scale-105 transition">
             </a>
-            @can('student')
-                <a href="{{ route('dashboard') }}" class="font-semibold hover:text-orange-500 transition">
-                    Dashboard
-                </a>
-
-                <a href="{{ route('cart.index') }}" class="font-semibold hover:text-orange-500 transition">
-                    Keranjang
-                </a>
-            @endcan
         </div>
 
         <!-- Hamburger (mobile) -->
@@ -47,13 +38,23 @@
             </div>
 
             @auth
-                <div class="text-right">
-                    <p class="font-semibold hover:text-orange-500">
-                        {{ Auth::user()->full_name }}
-                    </p>
-                    <span class="text-sm text-gray-300">{{ ucfirst(Auth::user()->role) }}</span>
-                </div>
+                @can('student')
+                    <a href="{{ route('dashboard') }}"
+                        class="px-4 py-3 rounded-lg text-sm font-semibold transition border
+        {{ request()->routeIs('dashboard*')
+            ? 'border-orange-500 text-orange-500 bg-transparent'
+            : 'border-transparent text-white hover:border-white/30 hover:bg-white/10' }}">
+                        Dashboard
+                    </a>
 
+                    <a href="{{ route('cart.index') }}"
+                        class="px-4 py-3 rounded-lg text-sm font-semibold transition border
+        {{ request()->routeIs('cart.*')
+            ? 'border-orange-500 text-orange-500 bg-transparent'
+            : 'border-transparent text-white hover:border-white/30 hover:bg-white/10' }}">
+                        Keranjang
+                    </a>
+                @endcan
                 <div class="relative " x-data="{ dropdown: false }">
                     <button @click="dropdown = !dropdown" class="flex items-center space-x-1">
                         <img src="{{ Auth::user()->avatar }}" class="h-10 w-10 rounded-full" alt="Avatar">
@@ -65,6 +66,13 @@
 
                     <div x-show="dropdown" @click.away="dropdown = false"
                         class="absolute right-0 mt-2 w-48 bg-[#232c5f] rounded shadow-lg z-50 border border-white">
+                        <div class="block px-4 py-2">
+                            <p class="font-semibold">
+                                {{ Auth::user()->full_name }}
+                            </p>
+                            <span class="text-sm text-gray-300">{{ ucfirst(Auth::user()->role) }}</span>
+                        </div>
+                        <hr>
                         @if (Auth::user()->role === 'student')
                             <a href="{{ route('student-profile.show') }}" class="block px-4 py-2 hover:text-orange-500">
                                 Profile
@@ -89,50 +97,63 @@
     </div>
 
     <!-- Mobile menu -->
-    <div x-show="open" class="md:hidden px-6 pb-4 space-y-2 bg-[#232c5f] text-white">
-
-        @auth
-            <a href="{{ route('dashboard') }}" class="font-semibold hover:text-orange-500 transition">
-                Dashboard
-            </a>
-
-            <a href="{{ route('cart.index') }}" class="font-semibold hover:text-orange-500 transition">
-                Keranjang
-            </a>
-        @endauth
+    <div x-show="open" class="md:hidden px-6 pb-4 space-y-3 bg-[#232c5f] text-white">
 
         {{-- GUEST --}}
         @guest
-            <a href="{{ route('login') }}" class="block py-2 hover:text-orange-500">
+            <a href="{{ route('login') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
                 Login
             </a>
-            <a href="{{ route('register') }}" class="block py-2 hover:text-orange-500">
+
+            <a href="{{ route('register') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
                 Register
             </a>
         @endguest
 
+
         {{-- AUTH --}}
         @auth
-            <div class="border-t border-gray-600 pt-2">
-                <p class="font-semibold">{{ Auth::user()->name }}</p>
-                <p class="text-sm text-gray-300 mb-2">{{ ucfirst(Auth::user()->role) }}</p>
+            <div class="border-t border-white/20 pt-4 space-y-2">
+
+                <div class="flex justify-between">
+                    <p class="font-semibold">{{ Auth::user()->full_name }}</p>
+                    <p class="text-sm text-white/70">
+                        {{ ucfirst(Auth::user()->role) }}
+                    </p>
+                </div>
+                <hr>
+                {{-- Profile --}}
                 @if (Auth::user()->role === 'student')
-                    <a href="{{ route('student-profile.show') }}" class="block px-4 py-2 hover:text-orange-500">
+                    {{-- Dashboard & Cart --}}
+                    <a href="{{ route('dashboard') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
+                        Dashboard
+                    </a>
+
+                    <a href="{{ route('cart.index') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
+                        Keranjang
+                    </a>
+                    <a href="{{ route('student-profile.show') }}" class="block py-2 hover:text-orange-400 transition">
                         Profile
                     </a>
                 @elseif (Auth::user()->role === 'teacher')
-                    <a href="{{ route('teacher-profile.show') }}" class="block px-4 py-2 hover:text-orange-500">
+                    <a href="{{ route('dashboard') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
+                        Dashboard
+                    </a>
+                    <a href="{{ route('teacher-profile.show') }}" class="block py-2 hover:text-orange-400 transition">
                         Profile
                     </a>
                 @endif
 
+                {{-- Logout --}}
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="block w-full text-left py-2 hover:text-orange-500">
+                    <button type="submit" class="block w-full text-left py-2 hover:text-orange-400 transition">
                         Logout
                     </button>
                 </form>
+
             </div>
         @endauth
+
     </div>
 </nav>
