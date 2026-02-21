@@ -1,39 +1,51 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Shopping Cart') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 bg-white p-6 rounded shadow">
-            @if($carts->count())
-                <table class="w-full mb-4">
-                    <thead>
-                        <tr>
-                            <th class="text-left">Course</th>
-                            <th class="text-left">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($carts as $cart)
-                            <tr>
-                                <td>{{ $cart->course->title }}</td>
-                                <td>Rp {{ number_format($cart->course->price, 0, ',', '.') }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+@section('title', 'Dashboard Siswa')
 
-                <form action="{{ route('checkout.process') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">
-                        Proceed to Checkout
-                    </button>
-                </form>
-            @else
-                <p>Your cart is empty.</p>
-            @endif
+@section('content')
+    <div x-data="{ open: true }" class="relative md:flex -mx-6 pt-16">
+
+        {{-- Sidebar --}}
+        @include('partials.sidebar.main-sidebar')
+
+        {{-- Main content --}}
+        <div class="flex-1 min-h-screen transition-all duration-300"
+            :class="open ? 'md:ml-64 md:pl-0 pl-4 sm:pl-6' : 'md:ml-16 sm:ml-30 md:pl-0 pl-16'">
+            <div class="max-w-full sm:max-w-5xl lg:max-w-7xl mx-auto p-4 sm:p-6 md:p-8">
+                @if ($errors->any())
+                    <div class="mb-4 rounded-lg bg-red-50 border border-red-200 p-4">
+                        <p class="font-semibold text-red-700 mb-2">Terjadi kesalahan:</p>
+                        <ul class="list-disc list-inside text-red-600 text-sm space-y-1">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if (session('success'))
+                    <div class="mb-4 rounded-lg bg-green-50 border border-green-200 p-4 text-green-700">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('warning'))
+                    <div class="mb-4 rounded-lg bg-yellow-50 border border-yellow-200 p-4 text-yellow-700">
+                        {{ session('warning') }}
+                    </div>
+                @endif
+
+                @if (session('info'))
+                    <div class="mb-4 rounded-lg bg-blue-50 border border-blue-200 p-4 text-blue-700">
+                        {{ session('info') }}
+                    </div>
+                @endif
+                <div class="md:pl-6">
+                    <h1 class="text-2xl font-semibold text-gray-800 mb-6">
+                        Keranjang Saya
+                    </h1>
+                </div>
+            </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

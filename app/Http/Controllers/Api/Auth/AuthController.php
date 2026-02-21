@@ -71,7 +71,13 @@ class AuthController extends Controller
 
         $user->markEmailAsVerified();
 
-        return response()->json(['message' => 'Email verified successfully']);
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'message' => 'Email verified successfully',
+            'token' => $token,
+            'token_type' => 'Bearer',
+        ]);
     }
 
     public function resendVerification(Request $request)

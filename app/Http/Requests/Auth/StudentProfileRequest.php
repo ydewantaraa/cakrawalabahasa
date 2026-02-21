@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StudentProfileRequest extends FormRequest
 {
@@ -23,7 +24,14 @@ class StudentProfileRequest extends FormRequest
     {
         return [
             'full_name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore(auth()->id()),
+            ],
+
             'whatsapp' => 'required|string|max:20',
             'birthday' => 'required|date',
             'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
