@@ -31,7 +31,6 @@
                 <tr>
                     <th class="p-3 text-left normal-case">Nama</th>
                     <th class="p-3 text-left">Kategori</th>
-                    <th class="p-3 text-left">Tipe Pembelajaran</th>
                     <th class="p-3 text-left normal-case">Layanan Program</th>
                     <th class="p-3 text-center">Aksi</th>
                 </tr>
@@ -43,21 +42,6 @@
 
                         <td class="p-3 break-words">
                             {{ $course->category }}
-                        </td>
-
-                        {{-- MEDIA --}}
-                        <td class="p-3 break-words">
-                            @if ($course->learning_types->count())
-                                <div class="flex flex-wrap gap-1">
-                                    @foreach ($course->learning_types as $lt)
-                                        <span class="px-2 py-1 text-xs rounded bg-gray-200 capitalize">
-                                            {{ $lt->type }}
-                                        </span>
-                                    @endforeach
-                                </div>
-                            @else
-                                -
-                            @endif
                         </td>
 
                         {{-- PROGRAM SERVICE --}}

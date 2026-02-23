@@ -52,22 +52,6 @@
             <textarea name="description" rows="3" x-model="form.description" class="w-full border rounded px-3 py-2"></textarea>
         </div>
 
-        {{-- Sub Deskripsi --}}
-        <h3 class="text-lg font-semibold mb-2">Sub Deskripsi (Opsional)</h3>
-        <div class="border rounded p-4 space-y-4">
-            <div>
-                <label class="block mb-1 text-sm font-medium">Judul Sub Deskripsi</label>
-                <input type="text" name="sub_description_title" x-model="form.sub_description_title"
-                    placeholder="Masukan judul deskripsi" class="w-full border rounded px-3 py-2">
-            </div>
-
-            <div>
-                <label class="block mb-1 text-sm font-medium">Isi Sub Deskripsi</label>
-                <textarea name="sub_description" x-model="form.sub_description" rows="4" placeholder="Contoh: Pengenalan Python"
-                    class="w-full border rounded px-3 py-2"></textarea>
-            </div>
-        </div>
-
         {{-- Kategori --}}
         <div>
             <label class="block mb-1 font-medium">Kategori</label>
@@ -89,58 +73,6 @@
                     class="w-full border rounded px-3 py-2">
             </div>
         </div>
-
-        {{-- Media Pembelajaran --}}
-        <div x-data="{
-            types: {
-                offline: {{ $course->learning_types->where('type', 'offline')->first() ? 'true' : 'false' }},
-                online: {{ $course->learning_types->where('type', 'online')->first() ? 'true' : 'false' }},
-                hybrid: {{ $course->learning_types->where('type', 'hybrid')->first() ? 'true' : 'false' }},
-            }
-        }" class="space-y-4">
-
-            <label class="block font-medium">Media Pembelajaran</label>
-
-            {{-- OFFLINE --}}
-            <div class="border rounded p-3 space-y-2">
-                <label class="flex items-center gap-2">
-                    <input type="checkbox" x-model="types.offline">
-                    Offline
-                </label>
-                <div x-show="types.offline">
-                    <input type="number" name="learning_types[offline][price]"
-                        value="{{ old('learning_types.offline.price', optional($course->learning_types->where('type', 'offline')->first())->price) }}"
-                        placeholder="Harga Offline" class="w-full border rounded px-3 py-2">
-                </div>
-            </div>
-
-            {{-- ONLINE --}}
-            <div class="border rounded p-3 space-y-2">
-                <label class="flex items-center gap-2">
-                    <input type="checkbox" x-model="types.online">
-                    Online
-                </label>
-                <div x-show="types.online">
-                    <input type="number" name="learning_types[online][price]"
-                        value="{{ old('learning_types.online.price', optional($course->learning_types->where('type', 'online')->first())->price) }}"
-                        placeholder="Harga Online" class="w-full border rounded px-3 py-2">
-                </div>
-            </div>
-
-            {{-- HYBRID --}}
-            <div class="border rounded p-3 space-y-2">
-                <label class="flex items-center gap-2">
-                    <input type="checkbox" x-model="types.hybrid">
-                    Hybrid
-                </label>
-                <div x-show="types.hybrid">
-                    <input type="number" name="learning_types[hybrid][price]"
-                        value="{{ old('learning_types.hybrid.price', optional($course->learning_types->where('type', 'hybrid')->first())->price) }}"
-                        placeholder="Harga Hybrid" class="w-full border rounded px-3 py-2">
-                </div>
-            </div>
-        </div>
-
         {{-- Thumbnail --}}
         <div>
             <label class="block mb-1 font-medium">Thumbnail (opsional)</label>
