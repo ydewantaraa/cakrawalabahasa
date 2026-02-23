@@ -16,6 +16,7 @@ return new class extends Migration
             $table->decimal('price', 15, 2);
             $table->integer('quantity')->default(1);
             $table->integer('package_size');
+            $table->enum('learning_type', ['online', 'offline', 'hybrid'])->nullable();
             $table->enum('unit_type', [
                 'fixed',
                 'per_item'
@@ -34,12 +35,6 @@ return new class extends Migration
             $table->foreignId('sub_course_service_id')
                 ->nullable()
                 ->constrained('sub_course_services')
-                ->nullOnDelete();
-
-            // OPTIONAL - jika harga spesifik media
-            $table->foreignId('media_id')
-                ->nullable()
-                ->constrained('medias')
                 ->nullOnDelete();
 
             $table->timestamps();

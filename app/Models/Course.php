@@ -47,6 +47,12 @@ class Course extends Model
             ->withTimestamps();
     }
 
+    public function prices()
+    {
+        return $this->hasMany(Price::class);
+    }
+
+
     public function teachers()
     {
         return $this->belongsToMany(
@@ -55,10 +61,5 @@ class Course extends Model
             'course_id',
             'student_id'
         )->withTimestamps();
-    }
-
-    public function learning_types()
-    {
-        return $this->hasMany(CourseLearningType::class);
     }
 }

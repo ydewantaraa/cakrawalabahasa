@@ -8,11 +8,18 @@ class SubCourseService extends Model
 {
     protected $fillable = [
         'name',
-        'course_service_id'
+        'thumbnail',
+        'description',
+        'course_service_id',
     ];
 
     public function course_service()
     {
-        return $this->belongsTo(CourseService::class);
+        return $this->belongsTo(CourseService::class, 'course_service_id');
+    }
+
+    public function prices()
+    {
+        return $this->hasMany(Price::class);
     }
 }
