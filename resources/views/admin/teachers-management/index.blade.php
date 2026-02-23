@@ -8,7 +8,7 @@
         <div class="flex gap-2 flex-wrap">
             <!-- Search Form -->
             <form method="GET" action="{{ route('dashboard') }}" class="flex gap-2">
-                <input type="hidden" name="tab" value="classes-management"> <!-- tetap di tab courses -->
+                <input type="hidden" name="tab" value="{{ $tab }}">
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search..."
                     class="border rounded px-2 py-1 text-sm">
                 <button type="submit" class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-500">
