@@ -7,7 +7,7 @@
 
         <div class="flex gap-2 flex-wrap">
             <form method="GET" action="{{ route('dashboard') }}" class="flex gap-2">
-                <input type="hidden" name="tab" value="program-services"> {{-- <--- ini penting --}}
+                <input type="hidden" name="tab" value="{{ $tab }}">
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search..."
                     class="border rounded px-2 py-1 text-sm">
                 <button type="submit"

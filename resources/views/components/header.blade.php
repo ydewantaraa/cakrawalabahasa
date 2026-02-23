@@ -205,8 +205,14 @@
                         Extras</a>
                 </div>
             </div>
-            <a href="/keranjang"
-                class="block hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold">Keranjang</a>
+            @if (auth()->guest() || auth()->user()->role === 'student')
+                <a href="{{ route('cart.index') }}"
+                    class="hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold">
+                    Keranjang
+                </a>
+            @endif
+            {{-- <a href="/keranjang"
+                class="block hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold">Keranjang</a> --}}
             @guest
                 <a href="{{ route('login') }}"
                     class="inline-block bg-gradient-to-r from-[#fd5243] to-[#f1877e] hover:bg-gradient-to-r hover:from-[#1f3585] hover:to-[#7e9df1] border-4 hover:border-[#f78a28] border-[#364078] hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 w-24 text-white font-bold text-xs md:text-sm xl:text-base px-4 py-2 rounded-full text-center">

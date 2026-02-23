@@ -29,6 +29,10 @@ class AdminDashboardController extends Controller
             $data += $this->studentTab($request);
         }
 
+        if ($tab === 'overview') {
+            $data += $this->overviewTab();
+        }
+
         // if ($tab === 'enrollments-management') {
         //     $data += $this->teacherTab($request);
         // }
@@ -38,6 +42,16 @@ class AdminDashboardController extends Controller
         // }
 
         return view('admin.dashboard', $data);
+    }
+
+    protected function overviewTab(): array
+    {
+        return [
+            'totalTeachers' => User::where('role', 'teacher')->count(),
+            'totalStudents' => User::where('role', 'student')->count(),
+            'totalCourses' => Course::count(),
+            'totalPrograms' => ProgramService::count(),
+        ];
     }
 
     protected function programServiceTab(Request $request): array
