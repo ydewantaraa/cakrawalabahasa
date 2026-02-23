@@ -20,4 +20,9 @@ class CourseService extends Model
     {
         return $this->hasMany(SubCourseService::class);
     }
+
+    public function prices()
+    {
+        return $this->hasMany(Price::class);
+    }
 }
