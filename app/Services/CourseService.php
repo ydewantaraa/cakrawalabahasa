@@ -30,82 +30,48 @@ class CourseService
 
     public function create(array $data): Course
     {
-        return DB::transaction(function () use ($data) {
+        if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
+            $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
+        }
 
-            // Upload thumbnail jika ada
-            if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
-                $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
-            }
-
-            // Filter learning types yang punya price
-            $learningTypes = collect($data['learning_types'] ?? [])
-                ->filter(fn($lt) => !empty($lt['price']));
-
-            if ($learningTypes->count() < 1) {
-                throw ValidationException::withMessages([
-                    'learning_types' => 'Minimal pilih 1 tipe pembelajaran dan isi harganya.'
-                ]);
-            }
-
-            unset($data['learning_types']);
-
-            $course = Course::create($data);
-
-            foreach ($learningTypes as $type => $lt) {
-                $course->learning_types()->create([
-                    'type' => $type,
-                    'price' => $lt['price'],
-                ]);
-            }
-
-            return $course;
-        });
+        return Course::create([
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'category' => $data['category'],
+            'quota' => $data['quota'],
+            'duration' => $data['duration'],
+            'thumbnail' => $data['thumbnail'] ?? null,
+            'program_service_id' => $data['program_service_id'] ?? null,
+        ]);
     }
 
     public function update(Course $course, array $data): Course
     {
-        return DB::transaction(function () use ($course, $data) {
+        // Jika upload thumbnail baru
+        if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
 
-            // Upload thumbnail jika ada
-            if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
+            $oldThumbnail = $course->getRawOriginal('thumbnail');
 
-                $oldThumbnail = $course->getRawOriginal('thumbnail');
-
-                if ($oldThumbnail && Storage::disk('public')->exists($oldThumbnail)) {
-                    Storage::disk('public')->delete($oldThumbnail);
-                }
-
-                $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
+            if ($oldThumbnail && Storage::disk('public')->exists($oldThumbnail)) {
+                Storage::disk('public')->delete($oldThumbnail);
             }
 
-            // Filter learning types yang punya price
-            $learningTypes = collect($data['learning_types'] ?? [])
-                ->filter(fn($lt) => !empty($lt['price']));
+            $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
+        }
 
-            if ($learningTypes->count() < 1) {
-                throw ValidationException::withMessages([
-                    'learning_types' => 'Minimal pilih 1 tipe pembelajaran dan isi harganya.'
-                ]);
-            }
+        $course->update([
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'category' => $data['category'],
+            'quota' => $data['quota'],
+            'duration' => $data['duration'],
+            'thumbnail' => $data['thumbnail'] ?? $course->thumbnail,
+            'program_service_id' => $data['program_service_id'] ?? null,
+        ]);
 
-            unset($data['learning_types']);
-
-            $course->update($data);
-
-            // Hapus lama
-            $course->learning_types()->delete();
-
-            // Simpan ulang
-            foreach ($learningTypes as $type => $lt) {
-                $course->learning_types()->create([
-                    'type' => $type,
-                    'price' => $lt['price'],
-                ]);
-            }
-
-            return $course;
-        });
+        return $course;
     }
+
     public function delete(Course $course): bool
     {
         // Hapus thumbnail lama jika ada

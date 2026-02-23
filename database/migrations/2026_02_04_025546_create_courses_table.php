@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('sub_description_title')->nullable();
-            $table->string('sub_description')->nullable();
             $table->string('category');
             $table->integer('quota');
             $table->integer('duration');
