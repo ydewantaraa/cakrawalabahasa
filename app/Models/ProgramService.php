@@ -54,4 +54,14 @@ class ProgramService extends Model
     {
         return 'slug';
     }
+
+    public function relatedPrograms()
+    {
+        return $this->belongsToMany(
+            self::class,
+            'program_service_relations',
+            'program_service_id',
+            'related_program_service_id'
+        );
+    }
 }

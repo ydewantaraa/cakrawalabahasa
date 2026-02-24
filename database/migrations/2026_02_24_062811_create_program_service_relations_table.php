@@ -11,19 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('program_service_relations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->text('description');
-            $table->string('category');
-            $table->integer('quota');
-            $table->string('duration')->nullable();
-            $table->string('thumbnail')->nullable();
+
             $table->foreignId('program_service_id')
-                ->nullable()
+                ->constrained('program_services') // otomatis ke kolom id
+                ->cascadeOnDelete();
+
+            $table->foreignId('related_program_service_id')
                 ->constrained('program_services')
-                ->nullOnDelete();
+                ->cascadeOnDelete();
+
+            $table->unique(
+                ['program_service_id', 'related_program_service_id'],
+                'program_relation_unique'
+            );
+
             $table->timestamps();
         });
     }
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('program_service_relations');
     }
 };
