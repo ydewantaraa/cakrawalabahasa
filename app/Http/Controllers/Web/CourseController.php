@@ -48,7 +48,11 @@ class CourseController extends Controller
 
     public function show($slug)
     {
-        $course = Course::where('slug', $slug)->firstOrFail();
+        $course = Course::with([
+            'course_facilities',
+            'course_services.sub_course_services.prices',
+            'course_services.prices',
+        ])->where('slug', $slug)->firstOrFail();
 
         return view('landing.courses.show', compact('course'));
     }
