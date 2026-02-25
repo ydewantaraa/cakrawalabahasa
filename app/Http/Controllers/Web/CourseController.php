@@ -46,14 +46,10 @@ class CourseController extends Controller
             ->with('success', 'Kelas/ Kursus berhasil dihapus');
     }
 
-    public function show($slug, Course $course)
+    public function show($slug)
     {
-        $programService = $course->program_service;
+        $course = Course::where('slug', $slug)->firstOrFail();
 
-        if ($programService->slug !== $slug) {
-            abort(404);
-        }
-
-        return view('landing.courses.show', compact('course', 'programService'));
+        return view('landing.courses.show', compact('course'));
     }
 }

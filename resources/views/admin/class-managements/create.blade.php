@@ -24,6 +24,13 @@
             @enderror
         </div>
 
+        {{-- Kelas Launched? --}}
+        <input type="hidden" name="isActive" value="0">
+        <div class="flex items-center gap-2">
+            <input type="checkbox" name="isActive" value="1" x-model="form.isActive">
+            <label>Kelas Sudah Launching</label>
+        </div>
+
         {{-- Program Service --}}
         <div>
             <label class="block mb-1 font-medium">Program Service</label>
@@ -46,6 +53,16 @@
             <label class="block mb-1 font-medium">Deskripsi</label>
             <textarea name="description" rows="3" placeholder="Contoh: Deskripsi singkat kelas"
                 class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">{{ old('description') }}</textarea>
+        </div>
+
+        {{-- Fasilitas (pisahkan dengan koma) --}}
+        <div>
+            <label class="block mb-1 font-medium">Fasilitas</label>
+            <input type="text" name="facilities" value="{{ old('facilities') }}"
+                placeholder="Contoh: Modul, Sertifikat, Snack, Rekaman Kelas" class="w-full border rounded px-3 py-2">
+            <p class="text-sm text-gray-500 mt-1">
+                Pisahkan setiap fasilitas dengan tanda koma (,)
+            </p>
         </div>
 
         {{-- Kategori --}}

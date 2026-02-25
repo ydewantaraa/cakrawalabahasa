@@ -29,58 +29,130 @@ class CourseService
         return Course::findOrFail($id);
     }
 
+    // public function create(array $data): Course
+    // {
+    //     if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
+    //         $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
+    //     }
+
+    //     return Course::create([
+    //         'name' => $data['name'],
+    //         'description' => $data['description'],
+    //         'slug' => Str::slug($data['name']),
+    //         'category' => $data['category'],
+    //         'quota' => $data['quota'],
+    //         'duration' => $data['duration'],
+    //         'thumbnail' => $data['thumbnail'] ?? null,
+    //         'program_service_id' => $data['program_service_id'] ?? null,
+    //     ]);
+    // }
+
     public function create(array $data): Course
     {
-        if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
-            $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
-        }
+        DB::beginTransaction();
 
-        return Course::create([
-            'name' => $data['name'],
-            'description' => $data['description'],
-            'slug' => Str::slug($data['name']),
-            'category' => $data['category'],
-            'quota' => $data['quota'],
-            'duration' => $data['duration'],
-            'thumbnail' => $data['thumbnail'] ?? null,
-            'program_service_id' => $data['program_service_id'] ?? null,
-        ]);
-    }
-
-    public function update(Course $course, array $data): Course
-    {
-        // Update slug jika name berubah
-        if (array_key_exists('name', $data)) {
+        try {
+            if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
+                $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
+            }
             $baseSlug = Str::slug($data['name']);
             $slug = $baseSlug;
             $counter = 1;
 
-            while (
-                Course::where('slug', $slug)
-                ->where('id', '!=', $course->id)
-                ->exists()
-            ) {
+            while (Course::where('slug', $slug)->exists()) {
                 $slug = $baseSlug . '-' . $counter++;
             }
+            $course = Course::create([
+                'name' => $data['name'],
+                'description' => $data['description'],
+                'slug' => $slug,
+                'category' => $data['category'],
+                'quota' => $data['quota'],
+                'duration' => $data['duration'],
+                'thumbnail' => $data['thumbnail'] ?? null,
+                'program_service_id' => $data['program_service_id'] ?? null,
+            ]);
 
-            $data['slug'] = $slug;
-        }
+            // SIMPAN FACILITIES
+            if (!empty($data['facilities'])) {
 
-        // Jika upload thumbnail baru
-        if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
+                $facilities = explode(',', $data['facilities']);
 
-            $oldThumbnail = $course->getRawOriginal('thumbnail');
+                $facilities = array_map(fn($item) => trim($item), $facilities);
+                $facilities = array_filter($facilities);
 
-            if ($oldThumbnail && Storage::disk('public')->exists($oldThumbnail)) {
-                Storage::disk('public')->delete($oldThumbnail);
+                foreach ($facilities as $facility) {
+                    $course->course_facilities()->create([
+                        'name' => $facility
+                    ]);
+                }
             }
 
-            $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
+            DB::commit();
+            return $course;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
         }
+    }
 
-        $course->update($data);
+    public function update(Course $course, array $data): Course
+    {
+        DB::beginTransaction();
 
-        return $course;
+        try {
+            if (array_key_exists('name', $data)) {
+                $baseSlug = Str::slug($data['name']);
+                $slug = $baseSlug;
+                $counter = 1;
+
+                while (
+                    Course::where('slug', $slug)
+                    ->where('id', '!=', $course->id)
+                    ->exists()
+                ) {
+                    $slug = $baseSlug . '-' . $counter++;
+                }
+
+                $data['slug'] = $slug;
+            }
+
+            if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
+
+                $oldThumbnail = $course->getRawOriginal('thumbnail');
+
+                if ($oldThumbnail && Storage::disk('public')->exists($oldThumbnail)) {
+                    Storage::disk('public')->delete($oldThumbnail);
+                }
+
+                $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
+            }
+
+            // Update course dulu
+            $course->update($data);
+
+            // Update facilities
+            if (isset($data['facilities'])) {
+
+                $course->course_facilities()->delete();
+
+                $facilities = explode(',', $data['facilities']);
+                $facilities = array_map(fn($item) => trim($item), $facilities);
+                $facilities = array_filter($facilities);
+
+                foreach ($facilities as $facility) {
+                    $course->course_facilities()->create([
+                        'name' => $facility
+                    ]);
+                }
+            }
+
+            DB::commit();
+            return $course;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
     }
 
     public function delete(Course $course): bool

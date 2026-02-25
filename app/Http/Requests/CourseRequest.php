@@ -26,6 +26,7 @@ class CourseRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'isActive' => 'sometimes|boolean',
             'category' => 'required|string|max:255',
             'quota' => 'required|integer|min:1',
             'duration' => 'required|string|max:20',
@@ -33,6 +34,7 @@ class CourseRequest extends FormRequest
                 ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // wajib saat create
                 : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // optional saat update
             'program_service_id' => 'nullable|exists:program_services,id',
+            'facilities' => 'nullable|string'
         ];
     }
 }
