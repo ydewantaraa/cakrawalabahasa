@@ -6,6 +6,7 @@ use App\Models\Course;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class CourseService
@@ -37,6 +38,7 @@ class CourseService
         return Course::create([
             'name' => $data['name'],
             'description' => $data['description'],
+            'slug' => Str::slug($data['name']),
             'category' => $data['category'],
             'quota' => $data['quota'],
             'duration' => $data['duration'],
@@ -47,6 +49,23 @@ class CourseService
 
     public function update(Course $course, array $data): Course
     {
+        // Update slug jika name berubah
+        if (array_key_exists('name', $data)) {
+            $baseSlug = Str::slug($data['name']);
+            $slug = $baseSlug;
+            $counter = 1;
+
+            while (
+                Course::where('slug', $slug)
+                ->where('id', '!=', $course->id)
+                ->exists()
+            ) {
+                $slug = $baseSlug . '-' . $counter++;
+            }
+
+            $data['slug'] = $slug;
+        }
+
         // Jika upload thumbnail baru
         if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
 
@@ -59,15 +78,7 @@ class CourseService
             $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
         }
 
-        $course->update([
-            'name' => $data['name'],
-            'description' => $data['description'],
-            'category' => $data['category'],
-            'quota' => $data['quota'],
-            'duration' => $data['duration'],
-            'thumbnail' => $data['thumbnail'] ?? $course->thumbnail,
-            'program_service_id' => $data['program_service_id'] ?? null,
-        ]);
+        $course->update($data);
 
         return $course;
     }

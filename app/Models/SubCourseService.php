@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class SubCourseService extends Model
 {
     protected $fillable = [
         'name',
-        'thumbnail',
-        'description',
         'course_service_id',
     ];
 

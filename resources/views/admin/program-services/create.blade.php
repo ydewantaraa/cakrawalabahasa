@@ -121,6 +121,13 @@
             @enderror
         </div>
 
+        {{-- Dropdown --}}
+        <input type="hidden" name="show_in_dropdown" value="0">
+        <div class="flex items-center gap-2">
+            <input type="checkbox" name="show_in_dropdown" value="1" x-model="form.show_in_dropdown">
+            <label>Tampilkan di dropdown</label>
+        </div>
+
         {{-- Image Service --}}
         <div>
             <label class="block mb-1 font-medium">Image Service</label>
@@ -161,13 +168,6 @@
             <div x-show="heroImagePreview" class="mt-2">
                 <img :src="heroImagePreview" class="w-32 h-32 object-cover border rounded">
             </div>
-        </div>
-
-        {{-- Dropdown --}}
-        <input type="hidden" name="show_in_dropdown" value="0">
-        <div class="flex items-center gap-2">
-            <input type="checkbox" name="show_in_dropdown" value="1" x-model="form.show_in_dropdown">
-            <label>Tampilkan di dropdown</label>
         </div>
 
         {{-- Fitur Program --}}
