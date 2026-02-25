@@ -31,6 +31,13 @@
             <label>Kelas Sudah Launching</label>
         </div>
 
+        {{-- Tampilkan Pilihan Guru? --}}
+        <input type="hidden" name="hasTeacher" value="0">
+        <div class="flex items-center gap-2">
+            <input type="checkbox" name="hasTeacher" value="1" x-model="form.hasTeacher">
+            <label>Tampilkan Pilihan Guru</label>
+        </div>
+
         {{-- Program Service --}}
         <div>
             <label class="block mb-1 font-medium">Program Service</label>
@@ -70,6 +77,13 @@
             <label class="block mb-1 font-medium">Kategori Usia</label>
             <input type="text" name="category" value="{{ old('category') }}" placeholder="Contoh: 5-9 tahun"
                 class="w-full border rounded px-3 py-2">
+        </div>
+
+        {{-- keterangan --}}
+        <div>
+            <label class="block mb-1 font-medium">Keterangan (Opsional)</label>
+            <textarea name="explanation" rows="3" placeholder="Keterangan terkait layanan"
+                class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">{{ old('explanation') }}</textarea>
         </div>
 
         {{-- Kuota & Durasi --}}

@@ -109,7 +109,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
 });
 
 Route::get('/program/{programService}', [ProgramServiceController::class, 'show'])->name('program-services.show');
-Route::get('/program/layanan/{slug}', [CourseController::class, 'show'])->name('courses.detail');
+Route::get('/layanan/{slug}', [CourseController::class, 'show'])->name('courses.detail');
 
 
 

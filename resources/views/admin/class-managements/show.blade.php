@@ -37,6 +37,17 @@
             </div>
 
             <div>
+                <p class="text-gray-500">Status</p>
+                <p class="font-medium">
+                    @if ($course->isActive == 1)
+                        Aktif
+                    @else
+                        Belum Aktif
+                    @endif
+                </p>
+            </div>
+
+            <div>
                 <p class="text-gray-500">Kategori</p>
                 <p class="font-medium">{{ $course->category }}</p>
             </div>
@@ -56,6 +67,14 @@
 
                 <p class="font-medium">
                     {{ $course->course_facilities->pluck('name')->implode(', ') ?: '-' }}
+                </p>
+            </div>
+
+            <div>
+                <p class="text-gray-500">Keterangan</p>
+
+                <p class="font-medium">
+                <p class="font-medium">{{ $course->explanation }}</p>
                 </p>
             </div>
         </div>

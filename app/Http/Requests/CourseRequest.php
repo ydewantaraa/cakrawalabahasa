@@ -27,9 +27,11 @@ class CourseRequest extends FormRequest
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'isActive' => 'sometimes|boolean',
+            'hasTeacher' => 'sometimes|boolean',
             'category' => 'required|string|max:255',
             'quota' => 'required|integer|min:1',
             'duration' => 'required|string|max:20',
+            'explanation' => 'nullable|string',
             'thumbnail' => $isCreate
                 ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // wajib saat create
                 : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // optional saat update

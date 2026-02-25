@@ -69,7 +69,10 @@ class CourseService
                 'category' => $data['category'],
                 'quota' => $data['quota'],
                 'duration' => $data['duration'],
+                'explanation' => $data['explanation'] ?? null,
                 'thumbnail' => $data['thumbnail'] ?? null,
+                'isActive' => $data['isActive'] ?? 0,
+                'hasTeacher' => $data['hasTeacher'] ?? 0,
                 'program_service_id' => $data['program_service_id'] ?? null,
             ]);
 

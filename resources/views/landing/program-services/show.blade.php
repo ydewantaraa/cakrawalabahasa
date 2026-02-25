@@ -162,7 +162,7 @@
                                     <div class="p-4 sm:p-6 lg:p-8 flex-1 flex flex-col justify-between text-center">
                                         <h3 class="font-bold text-sm lg:text-base text-[#151d52] truncate"
                                             x-text="card.title"></h3>
-                                        <a :href="`/program/layanan/${card.slug}`"
+                                        <a :href="`/layanan/${card.slug}`"
                                             class="hover:-translate-y-1 mt-4 bg-gradient-to-r from-orange-800 to-orange-400 hover:bg-gradient-to-l from-orange-800 to-orange-400 text-white px-3 lg:px-4 py-2 sm:py-3 rounded-full font-semibold shadow-lg transition hover:scale-105 hover:shadow-xl text-xs sm:text-sm lg:text-base">
                                             Lihat Detail
                                         </a>
