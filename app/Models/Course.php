@@ -15,6 +15,7 @@ class Course extends Model
         'quota',
         'duration',
         'thumbnail',
+        'isActive',
         'program_service_id'
     ];
 

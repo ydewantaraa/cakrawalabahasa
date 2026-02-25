@@ -78,6 +78,13 @@
                 class="w-full border rounded px-3 py-2">
         </div>
 
+        {{-- Dropdown --}}
+        <input type="hidden" name="show_in_dropdown" value="0">
+        <div class="flex items-center gap-2">
+            <input type="checkbox" name="show_in_dropdown" value="1" x-model="form.show_in_dropdown">
+            <label>Tampilkan di dropdown</label>
+        </div>
+
         {{-- Deskripsi --}}
         <div>
             <label class="block mb-1 font-medium">Deskripsi</label>
@@ -102,13 +109,6 @@
             <div x-show="form.heroImagePreview" class="mt-2">
                 <img :src="form.heroImagePreview" class="w-32 h-32 object-cover border rounded">
             </div>
-        </div>
-
-        {{-- Dropdown --}}
-        <input type="hidden" name="show_in_dropdown" value="0">
-        <div class="flex items-center gap-2">
-            <input type="checkbox" name="show_in_dropdown" value="1" x-model="form.show_in_dropdown">
-            <label>Tampilkan di dropdown</label>
         </div>
 
         {{-- Fitur Program --}}
