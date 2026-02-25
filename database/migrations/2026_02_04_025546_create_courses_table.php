@@ -18,8 +18,9 @@ return new class extends Migration
             $table->text('description');
             $table->string('category');
             $table->integer('quota');
-            $table->integer('duration');
+            $table->string('duration')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->boolean('isActive')->default(true);
             $table->foreignId('program_service_id')
                 ->nullable()
                 ->constrained('program_services')

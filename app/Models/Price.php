@@ -15,7 +15,7 @@ class Price extends Model
         'learning_type',
         'label_type',
         'unit_type',
-        'quantity',
+        'hasQuantity',
     ];
 
     public function course()

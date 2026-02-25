@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
             $table->decimal('price', 15, 2);
-            $table->integer('quantity')->default(1);
-            $table->integer('package_size');
+            $table->boolean('hasQuantity')->default(false); // true ketika unit type = per item
+            $table->string('package_size')->nullable(); // harus diisi ketika unit type = fixed
             $table->enum('learning_type', ['online', 'offline', 'hybrid'])->nullable();
             $table->enum('unit_type', [
                 'fixed',
                 'per_item'
             ])->default('fixed');
-            $table->string('label_type');
+            $table->string('label_type')->nullable(); // harus diisi ketika unit type = per item
             // WAJIB - semua harga tetap terikat ke course
             $table->foreignId('course_id')
                 ->constrained('courses')

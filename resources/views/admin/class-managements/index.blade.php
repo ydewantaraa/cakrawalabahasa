@@ -1,4 +1,4 @@
-<div x-data="{ detailId: null }"
+<div x-data="{ detailId: null, serviceManagement: null, priceManagement: null }"
     class="bg-white p-4 sm:p-6 md:p-8 rounded shadow w-full max-w-full sm:max-w-5xl lg:max-w-7xl mx-auto">
 
     <!-- Header -->
@@ -18,20 +18,23 @@
 
             <!-- Tambah Button -->
             <button @click="$store.modal.show('Tambah Kelas', $refs.createForm.innerHTML)"
-                class="bg-navy_1 text-white px-4 py-2 rounded whitespace-nowrap text-sm sm:text-base">
+                class="bg-navy_1 hover:bg-navy_2 text-white px-4 py-2 rounded whitespace-nowrap text-sm sm:text-base">
                 Tambah Kelas
             </button>
         </div>
     </div>
+    <hr>
 
     <!-- Table Container -->
-    <div x-show="!detailId" class="overflow-x-auto" x-cloak>
+    <div x-show="!detailId && !serviceManagement && !priceManagement" class="overflow-x-auto" x-cloak>
         <table class="w-full border min-w-[500px] table-auto">
             <thead class="bg-gray-100 normal-case">
                 <tr>
                     <th class="p-3 text-left normal-case">Nama</th>
                     <th class="p-3 text-left">Kategori</th>
                     <th class="p-3 text-left normal-case">Layanan Program</th>
+                    <th class="p-3 text-left normal-case">Manajemen Layanan</th>
+                    <th class="p-3 text-left normal-case">Manajemen Harga</th>
                     <th class="p-3 text-center">Aksi</th>
                 </tr>
             </thead>
@@ -47,6 +50,22 @@
                         {{-- PROGRAM SERVICE --}}
                         <td class="p-3 break-words">
                             {{ $course->program_service?->name ?? '-' }}
+                        </td>
+
+                        {{-- TOMBOL LIHAT COURSE SERVICE --}}
+                        <td class="p-3 break-words">
+                            <button @click="serviceManagement = {{ $course->id }}"
+                                class="bg-navy_1 hover:bg-navy_2 text-white px-3 py-1 rounded text-xs sm:text-sm">
+                                Detail Layanan
+                            </button>
+                        </td>
+
+                        {{-- TOMBOL LIHAT COURSE HARGA --}}
+                        <td class="p-3 break-words">
+                            <button @click="priceManagement = {{ $course->id }}"
+                                class="bg-navy_1 hover:bg-navy_2 text-white px-3 py-1 rounded text-xs sm:text-sm">
+                                Detail Harga
+                            </button>
                         </td>
 
                         {{-- AKSI --}}
@@ -97,6 +116,38 @@
                 @include('admin.class-managements.show', ['course' => $course])
 
                 <button @click="detailId = null" class="bg-gray-500 hover:bg-gray-400 text-white px-4 py-2 rounded">
+                    Kembali
+                </button>
+            </div>
+        @endforeach
+    </div>
+
+    <!-- Detail Layanan Section -->
+    <div x-cloak>
+        @foreach ($courses as $course)
+            <div x-show="serviceManagement === {{ $course->id }}" class="space-y-4">
+                @include('admin.class-managements.class-services.partials.course-service-management', [
+                    'course' => $course,
+                ])
+
+                <button @click="serviceManagement = null"
+                    class="bg-gray-500 hover:bg-gray-400 text-white px-4 py-2 rounded">
+                    Kembali
+                </button>
+            </div>
+        @endforeach
+    </div>
+
+    <!-- Detail Harga Section -->
+    <div x-cloak>
+        @foreach ($courses as $course)
+            <div x-show="priceManagement === {{ $course->id }}" class="space-y-4">
+                @include('admin.class-managements.class-services.partials.price-management', [
+                    'course' => $course,
+                ])
+
+                <button @click="priceManagement = null"
+                    class="bg-gray-500 hover:bg-gray-400 text-white px-4 py-2 rounded">
                     Kembali
                 </button>
             </div>

@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('sub_course_services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->string('thumbnail');
             $table->foreignId('course_service_id')
                 ->constrained('course_services')
                 ->cascadeOnDelete();

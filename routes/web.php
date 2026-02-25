@@ -10,10 +10,13 @@ use App\Http\Controllers\Web\Auth\GoogleAuthController;
 use App\Http\Controllers\Web\Auth\PasswordController;
 use App\Http\Controllers\Web\Auth\StudentProfileController;
 use App\Http\Controllers\Web\CourseController;
+use App\Http\Controllers\Web\CourseServiceController;
+use App\Http\Controllers\Web\PriceController;
 use App\Http\Controllers\Web\ProgramServiceController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TeacherProfileController;
+use App\Http\Controllers\Web\SubCourseServiceController;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -77,17 +80,32 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::post('/program-services', [ProgramServiceController::class, 'store'])->name('program-services.store');
     Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update'])->name('program-services.update');
     Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy'])->name('program-services.destroy');
-    // course
-    Route::get('/courses}', [CourseController::class, 'index'])->name('courses.index');
-    Route::post('/courses}', [CourseController::class, 'store'])->name('courses.store');
-    Route::put('/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
-    Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
     // register teacher
     Route::post('/teachers', [TeacherController::class, 'store'])->name('admin.teachers.store');
     Route::delete('/teachers/{teacher}', [TeacherController::class, 'destroy'])->name('admin.teachers.destroy');
     Route::put('/teachers/{teacher}', [TeacherController::class, 'update'])->name('admin.teachers.update');
     // delete teacher
     Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('admin.students.destroy');
+    // course
+    Route::get('/courses}', [CourseController::class, 'index'])->name('courses.index');
+    Route::post('/courses}', [CourseController::class, 'store'])->name('courses.store');
+    Route::put('/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
+    Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
+
+    // course service
+    Route::post('/course-services', [CourseServiceController::class, 'store'])->name('course-service.store');
+    Route::put('/course-services/{courseService}', [CourseServiceController::class, 'update'])->name('course-service.update');
+    Route::delete('/course-services/{courseService}', [CourseServiceController::class, 'destroy'])->name('course-service.destroy');
+
+    // subcourse service
+    Route::post('/sub-course-services', [SubCourseServiceController::class, 'store'])->name('sub-course-service.store');
+    Route::put('/sub-course-services/{subCourseService}', [SubCourseServiceController::class, 'update'])->name('sub-course-service.update');
+    Route::delete('/sub-course-services/{subCourseService}', [SubCourseServiceController::class, 'destroy'])->name('sub-course-service.destroy');
+
+    // subcourse service
+    Route::post('/prices', [PriceController::class, 'store'])->name('prices.store');
+    Route::put('/prices/{price}', [PriceController::class, 'update'])->name('prices.update');
+    Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('prices.destroy');
 });
 
 Route::get('/program/{programService}', [ProgramServiceController::class, 'show'])->name('program-services.show');
