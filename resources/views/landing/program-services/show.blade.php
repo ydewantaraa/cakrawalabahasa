@@ -58,7 +58,7 @@
     </section>
 
 
-    <!-- Section CB For Kids -->
+    <!-- Section Class -->
     <template x-for="card in cards" :key="card.id">
         <div class="flex justify-center">
             <div
@@ -87,7 +87,7 @@
     </template>
 
 
-    <!-- Section Apa itu CB For Kids -->
+    <!-- Section Keterangan Program Service -->
     <section class="opacity-0 translate-y-5 transition-all duration-700 ease-out fade-el py-12 lg:py-16 px-4 md:px-20">
         <div class="flex flex-col md:flex-row items-center justify-center gap-10">
 
@@ -95,7 +95,7 @@
             <div class="relative flex-shrink-0">
                 <div
                     class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden border-4 border-[#151d52]">
-                    <img src="{{ $programService->image_service }}" alt="CB For Kids"
+                    <img src="{{ $programService->image_service }}" alt="{{ $programService->name }}"
                         class="object-cover w-full h-full">
                 </div>
 
@@ -116,13 +116,15 @@
         </div>
     </section>
 
-    <div x-data="carouselSection()" x-init="sections = [{
+    <div x-init="sections = [{
         title: 'Courses',
         cards: @js(
     $courses
+        ->where('isActive', true)
         ->map(
             fn($course) => [
                 'id' => $course->id,
+                'slug' => $course->slug,
                 'title' => $course->name,
                 'img' => $course->thumbnail,
                 'program_service_slug' => $course->program_service->slug,
@@ -160,7 +162,7 @@
                                     <div class="p-4 sm:p-6 lg:p-8 flex-1 flex flex-col justify-between text-center">
                                         <h3 class="font-bold text-sm lg:text-base text-[#151d52] truncate"
                                             x-text="card.title"></h3>
-                                        <a :href="`/program/${card.program_service_slug}/service/${card.id}`"
+                                        <a :href="`/program/layanan/${card.slug}`"
                                             class="hover:-translate-y-1 mt-4 bg-gradient-to-r from-orange-800 to-orange-400 hover:bg-gradient-to-l from-orange-800 to-orange-400 text-white px-3 lg:px-4 py-2 sm:py-3 rounded-full font-semibold shadow-lg transition hover:scale-105 hover:shadow-xl text-xs sm:text-sm lg:text-base">
                                             Lihat Detail
                                         </a>
@@ -174,8 +176,6 @@
             </section>
         </template>
     </div>
-
-
 
     <!-- Section Fitur Utama Kami -->
     <section
@@ -207,15 +207,27 @@
         </div>
     </section>
 
-    <!-- Section Keunggulan CB For Kids -->
+    <!-- Section Keunggulan Program Service -->
+
     <section
         class="opacity-0 translate-y-5 transition-all duration-700 ease-out fade-el py-16 pb-24 md:pb-48 mb-10 bg-[#151d52] text-white relative overflow-hidden">
 
         <h2 class="text-3xl md:text-5xl font-bold text-center mb-16">
-            Keunggulan <span class="text-[#f78a28]">CB For Kids</span>
+            Keunggulan <span class="text-[#f78a28]">{{ $programService->name }}</span>
         </h2>
-
-        <div x-data="carouselKeunggulan()" x-init="init()" class="relative">
+        <div x-data="carouselKeunggulan()" x-init="cards = @js(
+    $programService->advantage_program_services
+        ->map(
+            fn($item) => [
+                'icon' => $item->icon,
+                'image' => $item->thumbnail,
+                'title' => $item->title,
+                'desc' => $item->description,
+            ],
+        )
+        ->values(),
+);
+        init();" class="relative">
 
             <div class="flex cursor-grab select-none" @mousedown="startDrag($event)" @touchstart="startDrag($event)"
                 @mouseup="endDrag()" @mouseleave="endDrag()" @touchend="endDrag()" @mousemove="drag($event)"
@@ -269,38 +281,13 @@
 
         </div>
     </section>
-    <!-- Script Section Keunggulan CB For Kids -->
     <script>
         function carouselKeunggulan() {
             return {
-                cards: [{
-                        icon: '/img/icon-tutor.png',
-                        image: '/img/anak-sentris.png',
-                        title: 'Anak Sentris & Tutor Berkualitas',
-                        desc: 'Layanan khusus anak yang dipandu oleh tutor profesional ramah anak dan berpengalaman.'
-                    },
-                    {
-                        icon: '/img/icon-mentor.png',
-                        image: '/img/kak-seto.png',
-                        title: 'Dimentori Kak Seto Mulyadi',
-                        desc: 'Dimentori langsung oleh Kak Seto untuk kenyamanan anak-anak belajar.'
-                    },
-                    {
-                        icon: '/img/icon-growth.png',
-                        image: '/img/tumbuh-kembang.png',
-                        title: 'Tumbuh Kembang Maksimal',
-                        desc: 'Mengembangkan keterampilan anak dan dipantau orangtua.'
-                    },
-                    {
-                        icon: '/img/icon-class.png',
-                        image: '/img/kelas-interaktif.png',
-                        title: 'Kelas Kecil dan Interaktif',
-                        desc: 'Jumlah siswa terbatas memastikan interaksi optimal dengan tutor.'
-                    }
-                ],
+                cards: [],
                 loopedCards: [],
                 position: 0,
-                cardWidth: 240 + 16, // card width + margin (khusus mobile default width kecil)
+                cardWidth: 240 + 16,
                 speed: 0.5,
                 interval: null,
                 dragging: false,
@@ -309,12 +296,18 @@
 
                 init() {
                     let uid = 0;
-                    this.loopedCards = [...this.cards, ...this.cards, ...this.cards].map(card => {
-                        return {
+
+                    if (!Array.isArray(this.cards)) {
+                        console.log("CARDS BUKAN ARRAY:", this.cards);
+                        return;
+                    }
+
+                    this.loopedCards = [...this.cards, ...this.cards, ...this.cards]
+                        .map(card => ({
                             ...card,
                             uniqueId: uid++
-                        };
-                    });
+                        }));
+
                     this.play();
                 },
 
@@ -363,35 +356,6 @@
     </script>
 
     <script>
-        function carouselSection() {
-            return {
-                sections: [{
-                    title: 'CB For Kids',
-                    cards: [{
-                            id: 'super-kid',
-                            img: '/img/Super Kid.png',
-                            title: 'Super Kids'
-                        },
-                        {
-                            id: 'language-stars',
-                            img: '/img/Fun Language.png',
-                            title: 'Language Stars'
-                        },
-                        {
-                            id: 'child-artist',
-                            img: '/img/Child Artist.png',
-                            title: 'Child Artist'
-                        },
-                        {
-                            id: 'best-parenting',
-                            img: '/img/best parenting.png',
-                            title: 'Best Parenting'
-                        }
-                    ]
-                }]
-            }
-        }
-
         function carousel(cards) {
             return {
                 cards,

@@ -2,11 +2,10 @@
     form: {
         name: @js(old('name', $course->name)),
         description: @js(old('description', $course->description)),
-        sub_description_title: @js(old('sub_description_title', $course->sub_description_title)),
-        sub_description: @js(old('sub_description', $course->sub_description)),
         category: @js(old('category', $course->category)),
         quota: @js(old('quota', $course->quota)),
         duration: @js(old('duration', $course->duration)),
+        isActive: Boolean(@js(old('isActive', $course->isActive))),
         program_service_id: @js(old('program_service_id', $course->program_service_id)),
         thumbnailPreview: @js($course->thumbnail ? $course->thumbnail : null)
     },
@@ -33,6 +32,13 @@
             <label class="block mb-1 font-medium">Nama Kelas</label>
             <input type="text" name="name" x-model="form.name" placeholder="Contoh: Kelas Python Dasar"
                 class="w-full border rounded px-3 py-2">
+        </div>
+
+        {{-- Kelas Launched? --}}
+        <input type="hidden" name="isActive" value="0">
+        <div class="flex items-center gap-2">
+            <input type="checkbox" name="isActive" value="1" x-model="form.isActive">
+            <label>Kelas Sudah Launching</label>
         </div>
 
         {{-- Program Service --}}

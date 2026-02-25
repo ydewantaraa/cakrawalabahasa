@@ -27,14 +27,8 @@
         </div>
     </div>
 
-    <hr>
-
     {{-- ================= INFORMASI COURSE ================= --}}
     <div class="mb-2">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">
-            Informasi Course
-        </h2>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
 
             <div>
@@ -57,6 +51,13 @@
                 <p class="font-medium">{{ $course->duration }} jam</p>
             </div>
 
+            <div>
+                <p class="text-gray-500">Fasilitas</p>
+
+                <p class="font-medium">
+                    {{ $course->course_facilities->pluck('name')->implode(', ') ?: '-' }}
+                </p>
+            </div>
         </div>
     </div>
 </div>
