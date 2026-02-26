@@ -32,6 +32,7 @@ class CourseRequest extends FormRequest
             'quota' => 'required|integer|min:1',
             'duration' => 'required|string|max:20',
             'explanation' => 'nullable|string',
+            'shopee_link' => ['nullable', 'url'],
             'thumbnail' => $isCreate
                 ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // wajib saat create
                 : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // optional saat update

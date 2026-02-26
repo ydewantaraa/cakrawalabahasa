@@ -70,6 +70,7 @@ class CourseService
                 'quota' => $data['quota'],
                 'duration' => $data['duration'],
                 'explanation' => $data['explanation'] ?? null,
+                'shopee_link' => $data['shopee_link'] ?? null,
                 'thumbnail' => $data['thumbnail'] ?? null,
                 'isActive' => $data['isActive'] ?? 0,
                 'hasTeacher' => $data['hasTeacher'] ?? 0,

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('explanation')->nullable();
             $table->boolean('isActive')->default(true);
             $table->boolean('hasTeacher')->default(true);
+            $table->string('shopee_link')->nullable();
             $table->foreignId('program_service_id')
                 ->nullable()
                 ->constrained('program_services')

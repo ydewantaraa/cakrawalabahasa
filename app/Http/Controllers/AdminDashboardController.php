@@ -84,7 +84,7 @@ class AdminDashboardController extends Controller
                         ->orWhere('category', 'like', "%{$search}%");
                 });
             })
-            ->latest()
+            ->orderBy('name', 'asc')
             ->paginate(10)
             ->withQueryString();
 
