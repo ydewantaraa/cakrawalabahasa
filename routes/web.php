@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\Auth\PasswordController;
 use App\Http\Controllers\Web\Auth\StudentProfileController;
 use App\Http\Controllers\Web\CourseController;
 use App\Http\Controllers\Web\CourseServiceController;
+use App\Http\Controllers\Web\PaymentController;
 use App\Http\Controllers\Web\PriceController;
 use App\Http\Controllers\Web\ProgramServiceController;
 use App\Http\Controllers\Web\StudentController;
@@ -112,73 +113,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
 Route::get('/program/{programService}', [ProgramServiceController::class, 'show'])->name('program-services.show');
 Route::get('/layanan/{slug}', [CourseController::class, 'show'])->name('courses.detail');
 
-Route::post('/payment', function (Request $request) {
-
-    \Midtrans\Config::$serverKey    = config('midtrans.server_key');
-    \Midtrans\Config::$isProduction = config('midtrans.is_production');
-    \Midtrans\Config::$isSanitized  = true;
-    \Midtrans\Config::$is3ds        = true;
-
-    // ===============================
-    // 1. Ambil harga asli dari database
-    // ===============================
-    $price = Price::with(['service', 'subService'])
-        ->findOrFail($request->price_id);
-
-    // ===============================
-    // 2. Tentukan quantity
-    // ===============================
-    $quantity = $price->unit_type === 'per_item'
-        ? (int) $request->quantity
-        : 1;
-
-    if ($quantity < 1) {
-        $quantity = 1;
-    }
-
-    // ===============================
-    // 3. Ambil harga satuan (hindari float error)
-    // ===============================
-    $unitPrice = (int) round((float) $price->price);
-
-    // ===============================
-    // 4. Hitung total
-    // ===============================
-    $total = $price->unit_type === 'per_item'
-        ? $unitPrice * $quantity
-        : $unitPrice;
-
-    // Pastikan total integer
-    $total = (int) $total;
-
-    // ===============================
-    // 4. Siapkan parameter Midtrans
-    // ===============================
-    $params = [
-        'transaction_details' => [
-            'order_id' => 'ORD-CB-' . strtoupper(uniqid()),
-            'gross_amount' => $total, // WAJIB sama dengan item_details total
-        ],
-        'customer_details' => [
-            'first_name' => $request->name,
-            'email'      => $request->email,
-            'phone'      => $request->phone,
-        ],
-        'item_details' => [[
-            'id'       => (string) $price->id,
-            'price'    => $unitPrice, // gunakan ini
-            'quantity' => $quantity,
-            'name'     => $price->service->name
-                . ($price->subService ? ' - ' . $price->subService->name : ''),
-        ]],
-    ];
-
-    $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-    return response()->json([
-        'snapToken' => $snapToken
-    ]);
-});
+Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
 
 Route::get('/', function () {
     return view('landing.index');

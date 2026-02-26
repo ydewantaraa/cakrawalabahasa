@@ -8,8 +8,8 @@
                Manajemen Layanan
            </h2>
 
-           <button @click="$store.modal.show('Tambah Layanan', $refs.createService.innerHTML)"
-               class="bg-navy_1 hover:bg-navy_2 text-white px-4 py-2 rounded text-sm w-full sm:w-auto">
+           <button class="bg-navy_1 hover:bg-navy_2 text-white px-4 py-2 rounded text-sm w-full sm:w-auto"
+               @click="$store.modal.show('Tambah Layanan {{ $course->name }}', $refs.createService{{ $course->id }}.innerHTML)">
                + Tambah Layanan
            </button>
        </div>
@@ -37,7 +37,7 @@
                                    @if ($service->sub_course_services->count())
                                        <div class="flex flex-wrap gap-2">
                                            @foreach ($service->sub_course_services as $sub)
-                                               <button type="button" {{-- penting supaya browser tidak kasih default submit --}}
+                                               <button type="button"
                                                    class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-400 text-sm transition-colors duration-200 cursor-pointer focus:outline-none"
                                                    title="Klik untuk edit {{ $sub->name }}"
                                                    @click="$store.modal.show('Edit Sub Layanan', $refs.editSubService{{ $sub->id }}.innerHTML)">
@@ -78,7 +78,7 @@
                                    <button type="button"
                                        class="px-2 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition-colors duration-200"
                                        title="Tambah Sub Layanan untuk {{ $service->name }}"
-                                       @click="$store.modal.show('Tambah Sub Layanan', $refs.createSubService{{ $service->id }}.innerHTML)">
+                                       @click="$store.modal.show('Tambah Sub Layanan {{ $service->name }}', $refs.createSubService{{ $service->id }}.innerHTML)">
                                        + Tambah Sub Layanan
                                    </button>
 
@@ -86,7 +86,7 @@
                                    <button type="button"
                                        class="px-2 py-1 bg-purple-600 text-white rounded hover:bg-purple-700 transition-colors duration-200"
                                        title="Tambah Harga untuk {{ $service->name }}"
-                                       @click="$store.modal.show('Tambah Harga', $refs.createPrice{{ $service->id }}.innerHTML)">
+                                       @click="$store.modal.show('Tambah Harga {{ $service->name }}', $refs.createPrice{{ $service->id }}.innerHTML)">
                                        + Tambah Harga
                                    </button>
                                </td>
@@ -120,6 +120,6 @@
            @include('admin.class-managements.sub-class-services.create', ['service' => $service])
        </template>
    @endforeach
-   <template x-ref="createService">
-       @include('admin.class-managements.class-services.create')
+   <template x-ref="createService{{ $course->id }}">
+       @include('admin.class-managements.class-services.create', ['course' => $course])
    </template>

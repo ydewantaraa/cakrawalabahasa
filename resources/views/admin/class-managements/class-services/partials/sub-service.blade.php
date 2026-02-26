@@ -7,7 +7,7 @@
         </h4>
 
         <button class="text-sm bg-navy_1 hover:bg-navy_2 text-white px-3 py-1 rounded w-full sm:w-auto"
-            @click="$store.modal.show('Tambah Sub Service', $refs.createSubService{{ $service->id }}.innerHTML)">
+            @click="$store.modal.show('Tambah Sub Layanan {{ $service->name }}', $refs.createSubService{{ $service->id }}.innerHTML)">
             + Tambah Sub Layanan
         </button>
     </div>
