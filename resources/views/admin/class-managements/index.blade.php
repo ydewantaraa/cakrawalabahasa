@@ -55,6 +55,7 @@
                         {{-- TOMBOL LIHAT COURSE SERVICE --}}
                         <td class="p-3 break-words">
                             <button @click="serviceManagement = {{ $course->id }}"
+                                title="Klik untuk melihat detail layanan {{ $course->name }}"
                                 class="bg-navy_1 hover:bg-navy_2 text-white px-3 py-1 rounded text-xs sm:text-sm">
                                 Detail Layanan
                             </button>
@@ -63,6 +64,7 @@
                         {{-- TOMBOL LIHAT COURSE HARGA --}}
                         <td class="p-3 break-words">
                             <button @click="priceManagement = {{ $course->id }}"
+                                title="Klik untuk melihat detail harga {{ $course->name }}"
                                 class="bg-navy_1 hover:bg-navy_2 text-white px-3 py-1 rounded text-xs sm:text-sm">
                                 Detail Harga
                             </button>
