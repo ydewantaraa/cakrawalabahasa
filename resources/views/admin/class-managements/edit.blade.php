@@ -5,6 +5,7 @@
         explanation: @js(old('explanation', $course->explanation)),
         category: @js(old('category', $course->category)),
         quota: @js(old('quota', $course->quota)),
+        shopee_link: @js(old('shopee_link', $course->shopee_link)),
         duration: @js(old('duration', $course->duration)),
         isActive: Boolean(@js(old('isActive', $course->isActive))),
         hasTeacher: Boolean(@js(old('hasTeacher', $course->hasTeacher))),
@@ -65,6 +66,17 @@
         <div>
             <label class="block mb-1 font-medium">Deskripsi</label>
             <textarea name="description" rows="3" x-model="form.description" class="w-full border rounded px-3 py-2"></textarea>
+        </div>
+
+        {{-- Link Shopee --}}
+        <div>
+            <label class="block mb-1 font-medium">Link Shopee (Opsional)</label>
+            <input type="url" name="shopee_link" x-model="form.shopee_link"
+                placeholder="Masukkan link shopee yang terkait dengan kelas ini"
+                class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">
+            @error('shopee_link')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Kategori --}}

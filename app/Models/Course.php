@@ -18,6 +18,7 @@ class Course extends Model
         'hasTeacher',
         'isActive',
         'explanation',
+        'shopee_link',
         'program_service_id'
     ];
 

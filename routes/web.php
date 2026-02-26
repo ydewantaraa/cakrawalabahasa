@@ -17,6 +17,7 @@ use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TeacherProfileController;
 use App\Http\Controllers\Web\SubCourseServiceController;
+use App\Models\Price;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -111,33 +112,52 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
 Route::get('/program/{programService}', [ProgramServiceController::class, 'show'])->name('program-services.show');
 Route::get('/layanan/{slug}', [CourseController::class, 'show'])->name('courses.detail');
 
-
-
 Route::post('/payment', function (Request $request) {
+
     \Midtrans\Config::$serverKey    = config('midtrans.server_key');
     \Midtrans\Config::$isProduction = config('midtrans.is_production');
     \Midtrans\Config::$isSanitized  = true;
     \Midtrans\Config::$is3ds        = true;
 
-    // Ambil string harga dari request (misalnya: "Rp2.750.010")
-    $rawTotal = $request->total;
+    // ===============================
+    // 1. Ambil harga asli dari database
+    // ===============================
+    $price = Price::with(['service', 'subService'])
+        ->findOrFail($request->price_id);
 
-    // Hilangkan Rp, spasi, dan koma
-    $clean = str_replace(['Rp', ' ', ','], '', $rawTotal);
-    // Hilangkan titik (pemisah ribuan)
-    $clean = str_replace('.', '', $clean);
+    // ===============================
+    // 2. Tentukan quantity
+    // ===============================
+    $quantity = $price->unit_type === 'per_item'
+        ? (int) $request->quantity
+        : 1;
 
-    // Konversi ke integer
-    $total = (int) $clean; // hasil: 2750010
+    if ($quantity < 1) {
+        $quantity = 1;
+    }
 
-    // Pastikan layanan ikut terkirim dari form checkout
-    $layananId   = $request->layanan_id ?? 'program-' . uniqid();
-    $layananName = $request->layanan ?? 'Program Belajar';
+    // ===============================
+    // 3. Ambil harga satuan (hindari float error)
+    // ===============================
+    $unitPrice = (int) round((float) $price->price);
 
+    // ===============================
+    // 4. Hitung total
+    // ===============================
+    $total = $price->unit_type === 'per_item'
+        ? $unitPrice * $quantity
+        : $unitPrice;
+
+    // Pastikan total integer
+    $total = (int) $total;
+
+    // ===============================
+    // 4. Siapkan parameter Midtrans
+    // ===============================
     $params = [
         'transaction_details' => [
-            'order_id'     => uniqid(),
-            'gross_amount' => $total,
+            'order_id' => 'ORD-CB-' . strtoupper(uniqid()),
+            'gross_amount' => $total, // WAJIB sama dengan item_details total
         ],
         'customer_details' => [
             'first_name' => $request->name,
@@ -145,15 +165,19 @@ Route::post('/payment', function (Request $request) {
             'phone'      => $request->phone,
         ],
         'item_details' => [[
-            'id'       => $layananId,     // isi sesuai ID layanan
-            'price'    => $total,         // harga sudah di-convert ke integer
-            'quantity' => 1,
-            'name'     => $layananName,   // nama layanan sesuai yang dipilih
+            'id'       => (string) $price->id,
+            'price'    => $unitPrice, // gunakan ini
+            'quantity' => $quantity,
+            'name'     => $price->service->name
+                . ($price->subService ? ' - ' . $price->subService->name : ''),
         ]],
     ];
 
     $snapToken = \Midtrans\Snap::getSnapToken($params);
-    return response()->json(['snapToken' => $snapToken]);
+
+    return response()->json([
+        'snapToken' => $snapToken
+    ]);
 });
 
 Route::get('/', function () {

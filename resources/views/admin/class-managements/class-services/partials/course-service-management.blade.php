@@ -8,7 +8,7 @@
                Manajemen Layanan
            </h2>
 
-           <button @click="$store.modal.show('Tambah Service', $refs.createService.innerHTML)"
+           <button @click="$store.modal.show('Tambah Layanan', $refs.createService.innerHTML)"
                class="bg-navy_1 hover:bg-navy_2 text-white px-4 py-2 rounded text-sm w-full sm:w-auto">
                + Tambah Layanan
            </button>
