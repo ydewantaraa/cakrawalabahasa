@@ -23,6 +23,32 @@ class ProgramServiceController extends Controller
         ]);
     }
 
+    public function showAdmin(ProgramService $programServiceById)
+    {
+        $programServiceById->load([
+            'courses.course_services.prices',
+            'courses.course_services.sub_course_services.prices'
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'data' => $programServiceById,
+        ]);
+    }
+
+    public function show(ProgramService $programService)
+    {
+        $programService->load([
+            'courses.course_services.prices',
+            'courses.course_services.sub_course_services.prices'
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'data' => $programService,
+        ]);
+    }
+
     public function store(
         StoreRequest $request,
         ProgramServiceService $service

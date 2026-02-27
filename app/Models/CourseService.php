@@ -17,21 +17,22 @@ class CourseService extends Model
     protected function thumbnail(): Attribute
     {
         return Attribute::make(
-            get: function ($value) {
+            get: function ($value, $attributes) {
 
-                // Kalau punya thumbnail sendiri
                 if ($value) {
                     return url('/storage/' . $value);
                 }
 
-                // kalau tidak, ambil dari course
-                $courseThumbnail = $this->course?->getRawOriginal('thumbnail');
+                if (!empty($attributes['course_id'])) {
 
-                if ($courseThumbnail) {
-                    return url('/storage/' . $courseThumbnail);
+                    $course = Course::select('id', 'thumbnail')
+                        ->find($attributes['course_id']);
+
+                    if ($course && $course->thumbnail) {
+                        return $course->thumbnail;
+                    }
                 }
 
-                // Fallback terakhir (default image)
                 return asset('img/default-course.png');
             }
         );
@@ -44,11 +45,11 @@ class CourseService extends Model
 
     public function sub_course_services()
     {
-        return $this->hasMany(SubCourseService::class);
+        return $this->hasMany(SubCourseService::class, 'course_service_id');
     }
 
     public function prices()
     {
-        return $this->hasMany(Price::class);
+        return $this->hasMany(Price::class, 'course_service_id');
     }
 }

@@ -6,7 +6,10 @@ use App\Http\Controllers\Api\Auth\PasswordController;
 use App\Http\Controllers\Api\Auth\StudentProfileController;
 use App\Http\Controllers\Api\ProgramServiceController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\CourseServiceController;
+use App\Http\Controllers\Api\PriceController;
 use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\SubCourseServiceController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\Api\TeacherProfileController;
 use Illuminate\Http\Request;
@@ -29,23 +32,45 @@ Route::get('/me', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/courses/{slug}', [CourseController::class, 'show']);
+Route::get('/program-services/{programService:slug}', [ProgramServiceController::class, 'show']);
+Route::get('/teachers/{teacher}', [TeacherController::class, 'show']);
+Route::get('/students/{student}', [StudentController::class, 'show']);
 
-Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
+Route::middleware(['auth:sanctum', 'can:admin'])->prefix('admin')->group(function () {
     Route::post('/program-services', [ProgramServiceController::class, 'store']);
-    // Route::show('/program-services', [ProgramServiceController::class, 'show']);
     Route::put('/program-services/{programServiceById}', [ProgramServiceController::class, 'update']);
     Route::delete('/program-services/{programServiceById}', [ProgramServiceController::class, 'destroy']);
+    // show program service by admin
+    Route::get('/program-services/{programServiceById}', [ProgramServiceController::class, 'showAdmin']);
     Route::get('/courses', [CourseController::class, 'index']);
+    Route::get('/courses/{course}', [CourseController::class, 'showAdmin']);
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
     Route::put('/courses/{course}', [CourseController::class, 'update']);
     Route::post('/courses', [CourseController::class, 'store']);
     Route::post('/teachers', [TeacherController::class, 'store']);
     Route::delete('/teachers/{teacher}', [TeacherController::class, 'destroy']);
     Route::put('/teachers/{teacher}', [TeacherController::class, 'update']);
-    Route::get('/teachers/{teacher}', [TeacherController::class, 'show']);
     Route::get('/teachers', [TeacherController::class, 'getAllTeachers']);
     Route::get('/students', [StudentController::class, 'getAllStudents']);
     Route::delete('/students/{student}', [StudentController::class, 'destroy']);
+    // Course service endpoint
+    Route::get('/courses/{course}/course-services', [CourseServiceController::class, 'index']);
+    Route::post('/courses/{course}/course-services', [CourseServiceController::class, 'store']);
+    Route::put('/course-services/{courseService}', [CourseServiceController::class, 'update']);
+    Route::delete('/course-services/{courseService}', [CourseServiceController::class, 'destroy']);
+    Route::get('/course-services/{courseService}', [CourseServiceController::class, 'show']);
+    // Sub Course service endpoint
+    Route::get('/course-services/{courseService}/sub-course-services', [SubCourseServiceController::class, 'index']);
+    Route::post('/course-services/{courseService}/sub-course-services', [SubCourseServiceController::class, 'store']);
+    Route::put('/sub-course-services/{subCourseService}', [SubCourseServiceController::class, 'update']);
+    Route::delete('/sub-course-services/{subCourseService}', [SubCourseServiceController::class, 'destroy']);
+    Route::get('/sub-course-services/{subCourseService}', [SubCourseServiceController::class, 'show']);
+    // CRUD price berdasarkan id
+    Route::get('/prices/{price}', [PriceController::class, 'show']);
+    Route::put('/prices/{price}', [PriceController::class, 'update']);
+    Route::delete('/prices/{price}', [PriceController::class, 'destroy']);
+    // POST harga untuk course service
+    Route::post('/course-services/{courseService}/prices', [PriceController::class, 'store']);
 });
 
 Route::prefix('auth')->group(function () {

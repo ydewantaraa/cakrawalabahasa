@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\SubCourseService;
 
 class PriceRequest extends FormRequest
 {
@@ -21,19 +22,39 @@ class PriceRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'course_id' => 'required|exists:courses,id',
-            'course_service_id' => 'required|exists:course_services,id',
-            'sub_course_service_id' => 'nullable|exists:sub_course_services,id',
-
+        $rules = [
+            'sub_course_service_id' => [
+                'nullable',
+                'exists:sub_course_services,id',
+                // Validasi kustom supaya sub service milik course service yang sama
+                function ($attribute, $value, $fail) {
+                    if ($value) {
+                        $courseServiceId = $this->route('courseService') ?? $this->input('course_service_id');
+                        $exists = SubCourseService::where('id', $value)
+                            ->where('course_service_id', $courseServiceId)
+                            ->exists();
+                        if (!$exists) {
+                            $fail("Sub layanan yang dipilih tidak valid untuk layanan ini.");
+                        }
+                    }
+                }
+            ],
             'price' => 'required|numeric|min:0',
             'package_size' => 'nullable|string|max:255',
-
             'learning_type' => 'nullable|array',
             'learning_type.*' => 'in:online,offline,hybrid',
-
             'label_type' => 'nullable|string|max:255',
             'unit_type' => 'required|string|max:255',
         ];
+
+        // Hanya saat STORE (POST)
+        if ($this->isMethod('post')) {
+            // course_service_id wajib kalau tidak diambil dari route
+            if (!$this->route('courseService')) {
+                $rules['course_service_id'] = 'required|exists:course_services,id';
+            }
+        }
+
+        return $rules;
     }
 }

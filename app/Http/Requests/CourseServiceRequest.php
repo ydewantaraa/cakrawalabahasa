@@ -21,11 +21,21 @@ class CourseServiceRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|string|max:255',
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'description' => 'nullable|string',
-            'course_id' => 'required|exists:courses,id',
         ];
+
+        // Hanya saat STORE (POST)
+        if ($this->isMethod('post')) {
+
+            // Jika bukan API nested
+            if (!$this->route('course')) {
+                $rules['course_id'] = 'required|exists:courses,id';
+            }
+        }
+
+        return $rules;
     }
 }

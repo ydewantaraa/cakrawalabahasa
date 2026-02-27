@@ -70,6 +70,26 @@ class CourseController extends Controller
             'data' => $course,
         ]);
     }
+    // show course by admin
+    public function showAdmin(Course $course): JsonResponse
+    {
+        $course->load([
+            'course_facilities',
+            'course_services' => function ($q) {
+                $q->with([
+                    'prices',
+                    'sub_course_services' => function ($q2) {
+                        $q2->with('prices');
+                    }
+                ]);
+            }
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'data' => $course,
+        ]);
+    }
 
     /**
      * Buat course baru (dengan file upload)

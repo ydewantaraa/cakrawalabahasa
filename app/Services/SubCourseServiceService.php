@@ -9,6 +9,17 @@ class SubCourseServiceService
 {
     /*
     |--------------------------------------------------------------------------
+    | GET BY COURSE SERVICE
+    |--------------------------------------------------------------------------
+    */
+    public function getByCourseService(int $courseServiceId)
+    {
+        return SubCourseService::with('prices')
+            ->where('course_service_id', $courseServiceId)
+            ->get();
+    }
+    /*
+    |--------------------------------------------------------------------------
     | STORE
     |--------------------------------------------------------------------------
     */

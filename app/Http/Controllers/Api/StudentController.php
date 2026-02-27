@@ -29,4 +29,13 @@ class StudentController extends Controller
             'message' => 'Student berhasil dihapus',
         ]);
     }
+
+    public function show(User $student)
+    {
+        $student->load('student_profile');
+        return response()->json([
+            'message' => 'Berhasil mengambil detail student',
+            'data'    => $student,
+        ], 200);
+    }
 }

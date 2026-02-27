@@ -21,9 +21,19 @@ class SubCourseServiceRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|string|max:255',
-            'course_service_id' => 'required|exists:course_services,id',
         ];
+
+        // Hanya saat STORE (POST)
+        if ($this->isMethod('post')) {
+
+            // Jika bukan API nested
+            if (!$this->route('courseService')) {
+                $rules['course_service_id'] = 'required|exists:course_services,id';
+            }
+        }
+
+        return $rules;
     }
 }
