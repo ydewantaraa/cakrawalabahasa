@@ -20,7 +20,7 @@ class CourseController extends Controller
 
     public function index()
     {
-        $courses = $this->service->all();
+        $courses = $this->service->allQuery();
         return view('courses.index', compact('courses'));
     }
 
@@ -40,7 +40,7 @@ class CourseController extends Controller
 
     public function destroy(Course $course)
     {
-        $this->service->delete($course);
+        $this->service->destroy($course);
         return redirect()
             ->back()
             ->with('success', 'Kelas/ Kursus berhasil dihapus');

@@ -51,7 +51,7 @@ class ProgramServiceController extends Controller
 
     public function update(
         UpdateRequest $request,
-        ProgramService $programService,
+        ProgramService $programServiceById,
         ProgramServiceService $service
     ) {
         $data = $request->validated();
@@ -64,7 +64,7 @@ class ProgramServiceController extends Controller
             $data['image_service'] = $request->file('image_service');
         }
 
-        $programService = $service->update($programService, $data);
+        $programService = $service->update($programServiceById, $data);
 
         return response()->json([
             'success' => true,
@@ -74,9 +74,9 @@ class ProgramServiceController extends Controller
     }
 
 
-    public function destroy(ProgramService $programService, ProgramServiceService $service)
+    public function destroy(ProgramService $programServiceById, ProgramServiceService $service)
     {
-        $service->destroy($programService);
+        $service->destroy($programServiceById);
 
         return response()->json([
             'success' => true,

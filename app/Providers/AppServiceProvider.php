@@ -6,6 +6,7 @@ use App\Models\ProgramService;
 use App\Models\User;
 use App\Observers\TeacherObserver;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -47,6 +48,10 @@ class AppServiceProvider extends ServiceProvider
                 ->get(['id', 'name', 'slug', 'hero_text', 'hero_image']);
 
             $view->with('dropdownProgramServices', $dropdownProgramServices);
+        });
+
+        Route::bind('programServiceById', function ($value) {
+            return ProgramService::findOrFail($value);
         });
     }
 }

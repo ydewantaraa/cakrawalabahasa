@@ -26,7 +26,19 @@ class ProgramServiceService
     {
         return DB::transaction(function () use ($data) {
 
-            $data['slug'] = Str::slug($data['name']);
+            // Buat slug unik berdasarkan nama
+            if (array_key_exists('name', $data)) {
+                $baseSlug = Str::slug($data['name']);
+                $slug = $baseSlug;
+                $counter = 1;
+
+                // Cek apakah slug sudah ada di DB, jika ada tambahkan -1, -2, dst
+                while (ProgramService::where('slug', $slug)->exists()) {
+                    $slug = $baseSlug . '-' . $counter++;
+                }
+
+                $data['slug'] = $slug;
+            }
 
             // Upload hero image jika ada
             if (isset($data['hero_image']) && $data['hero_image'] instanceof UploadedFile) {
@@ -87,8 +99,21 @@ class ProgramServiceService
         return DB::transaction(function () use ($programService, $data) {
 
             // Update slug jika nama diubah
+            // Update slug jika nama diubah, pastikan unik
             if (array_key_exists('name', $data)) {
-                $data['slug'] = Str::slug($data['name']);
+                $baseSlug = Str::slug($data['name']);
+                $slug = $baseSlug;
+                $counter = 1;
+
+                while (
+                    ProgramService::where('slug', $slug)
+                    ->where('id', '!=', $programService->id)
+                    ->exists()
+                ) {
+                    $slug = $baseSlug . '-' . $counter++;
+                }
+
+                $data['slug'] = $slug;
             }
 
             // Handle hero image: hapus lama jika ada upload baru
@@ -106,7 +131,7 @@ class ProgramServiceService
                 if ($oldImageService && Storage::disk('public')->exists($oldImageService)) {
                     Storage::disk('public')->delete($oldImageService);
                 }
-                $data['image_service'] = $data['image_service']->store('hero-service', 'public');
+                $data['image_service'] = $data['image_service']->store('image-service', 'public');
             }
 
             // Ambil features & advantages dari data
