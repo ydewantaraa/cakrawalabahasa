@@ -19,33 +19,15 @@ class CourseService
         //
     }
 
-    public function all()
+    public function allQuery()
     {
-        return Course::all();
+        return Course::query();
     }
 
     public function find(int $id): Course
     {
         return Course::findOrFail($id);
     }
-
-    // public function create(array $data): Course
-    // {
-    //     if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
-    //         $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
-    //     }
-
-    //     return Course::create([
-    //         'name' => $data['name'],
-    //         'description' => $data['description'],
-    //         'slug' => Str::slug($data['name']),
-    //         'category' => $data['category'],
-    //         'quota' => $data['quota'],
-    //         'duration' => $data['duration'],
-    //         'thumbnail' => $data['thumbnail'] ?? null,
-    //         'program_service_id' => $data['program_service_id'] ?? null,
-    //     ]);
-    // }
 
     public function create(array $data): Course
     {
@@ -121,14 +103,12 @@ class CourseService
                 $data['slug'] = $slug;
             }
 
-            if (isset($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
-
+            // Handle thumbnail: hapus lama jika ada upload baru
+            if (!empty($data['thumbnail']) && $data['thumbnail'] instanceof UploadedFile) {
                 $oldThumbnail = $course->getRawOriginal('thumbnail');
-
                 if ($oldThumbnail && Storage::disk('public')->exists($oldThumbnail)) {
                     Storage::disk('public')->delete($oldThumbnail);
                 }
-
                 $data['thumbnail'] = $data['thumbnail']->store('courses', 'public');
             }
 
@@ -159,7 +139,7 @@ class CourseService
         }
     }
 
-    public function delete(Course $course): bool
+    public function destroy(Course $course): bool
     {
         // Hapus thumbnail lama jika ada
         $thumbnail = $course->getRawOriginal('thumbnail');

@@ -22,7 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|unique:program_services,name',
+            'name' => 'required|string|max:255',
             'description' => 'required|string',
             'show_in_dropdown' => 'sometimes|boolean',
             'hero_text' => 'required|string',

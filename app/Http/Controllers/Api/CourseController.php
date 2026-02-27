@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CourseRequest;
 use App\Models\Course;
+use App\Models\ProgramService;
 use App\Services\CourseService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class CourseController extends Controller
 {
-    protected $service;
+    protected CourseService $service;
 
     public function __construct(CourseService $service)
     {
@@ -20,84 +22,104 @@ class CourseController extends Controller
     }
 
     /**
-     * Get all courses
+     * Get All courses 
      */
+
     public function index(): JsonResponse
     {
-        $courses = $this->service->all();
-        return response()->json($courses);
+        $courses = Course::with([
+            'course_facilities',
+            'course_services' => function ($q) {
+                $q->with([
+                    'prices', // harga langsung untuk service
+                    'sub_course_services' => function ($q2) {
+                        $q2->with('prices'); // harga untuk sub-service
+                    }
+                ]);
+            },
+        ])->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $courses,
+        ]);
     }
 
+
     /**
-     * Get single course
+     * Show course berdasarkan slug
      */
-    public function show(Course $course): JsonResponse
+    public function show(string $slug): JsonResponse
     {
-        $course = $this->service->find($course->id);
-        return response()->json($course);
+        $course = Course::where('slug', $slug)
+            ->with([
+                'course_facilities',
+                'course_services' => function ($q) {
+                    $q->with([
+                        'prices', // harga untuk service langsung
+                        'sub_course_services' => function ($q2) {
+                            $q2->with('prices'); // harga untuk sub-service
+                        }
+                    ]);
+                }
+            ])
+            ->firstOrFail();
+
+        return response()->json([
+            'success' => true,
+            'data' => $course,
+        ]);
     }
 
     /**
-     * Store new course
+     * Buat course baru (dengan file upload)
      */
     public function store(CourseRequest $request): JsonResponse
     {
-        try {
-            $data = $request->validated();
+        $data = $request->validated();
 
-            if ($request->hasFile('thumbnail')) {
-                $data['thumbnail'] = $request->file('thumbnail');
-            }
-
-            $course = $this->service->create($data);
-
-            return response()->json([
-                'message' => 'Course created successfully',
-                'data' => $course
-            ], 201);
-        } catch (ValidationException $e) {
-
-            return response()->json([
-                'message' => 'Validation error',
-                'errors' => $e->errors()
-            ], 422);
+        // Ambil file thumbnail jika ada
+        if ($request->hasFile('thumbnail')) {
+            $data['thumbnail'] = $request->file('thumbnail');
         }
+
+        $course = $this->service->create($data);
+        $course->load('course_facilities');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Course berhasil dibuat',
+            'data' => $course,
+        ], 201);
     }
 
-    /**
-     * Update course
-     */
     public function update(CourseRequest $request, Course $course): JsonResponse
     {
-        try {
-            $data = $request->validated();
+        $data = $request->validated();
 
-            if ($request->hasFile('thumbnail')) {
-                $data['thumbnail'] = $request->file('thumbnail');
-            }
-
-            $course = $this->service->update($course, $data);
-
-            return response()->json([
-                'message' => 'Course updated successfully',
-                'data' => $course
-            ]);
-        } catch (ValidationException $e) {
-
-            return response()->json([
-                'message' => 'Validation error',
-                'errors' => $e->errors()
-            ], 422);
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $data['thumbnail'] = $file;
         }
+
+        $updatedCourse = $this->service->update($course, $data);
+        $updatedCourse->load('course_facilities');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Course berhasil diupdate',
+            'data' => $updatedCourse,
+        ], 200);
     }
 
-
-    /**
-     * Delete a course
-     */
     public function destroy(Course $course): JsonResponse
     {
-        $this->service->delete($course);
-        return response()->json(['message' => 'Course deleted']);
+        // Hapus course lewat service
+        $this->service->destroy($course);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Course berhasil dihapus',
+        ]);
     }
 }

@@ -45,43 +45,38 @@
                     class="hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold">Berita</a>
                 <div class="relative" @mouseenter="openLayanan = true"
                     @mouseleave="if (!clickLayanan) openLayanan = false">
-                    <button @click="clickLayanan = !clickLayanan; openLayanan = clickLayanan"
-                        class="group hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base font-bold flex items-center gap-1">
-                        Layanan
-                        <svg class="w-4 h-4 transform transition-transform duration-700 ease-in-out group-hover:rotate-180"
-                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    {{-- <div x-show="openLayanan" @click.away="clickLayanan = false; openLayanan = false" x-cloak
-                        @mouseenter="openLayanan = true" @mouseleave="if (!clickLayanan) openLayanan = false"
-                        x-transition:enter="transition ease-out duration-700"
-                        x-transition:enter-start="opacity-0 transform translate-y-5"
-                        x-transition:enter-end="opacity-100 transform translate-y-0"
-                        x-transition:leave="transition ease-in duration-400"
-                        x-transition:leave-start="opacity-100 transform translate-y-0"
-                        x-transition:leave-end="opacity-0 transform translate-y-2"
-                        class="absolute bg-[#101851] text-white rounded shadow mt-2 w-40 py-2 z-50">
-                        <a href="/cb for kids"
-                            class="hover:shadow-2xl transform hover:text-[#f78a28] hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base block px-4 py-2 hover:bg-[#171c26]">CB
-                            for Kids</a>
-                        <a href="/cb for you"
-                            class="hover:shadow-2xl transform hover:text-[#f78a28] hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base block px-4 py-2 hover:bg-[#171c26]">CB
-                            for You</a>
-                        <a href="/cb extras"
-                            class="hover:shadow-2xl transform hover:text-[#f78a28] hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base block px-4 py-2 hover:bg-[#171c26]">CB
-                            Extras</a>
-                    </div> --}}
-                    <div x-show="openLayanan" @click.away="clickLayanan = false; openLayanan = false" x-cloak
-                        @mouseenter="openLayanan = true" @mouseleave="if (!clickLayanan) openLayanan = false"
-                        class="absolute bg-[#101851] text-white rounded shadow mt-2 w-40 py-2 z-50">
+                    <div x-data="{ clickLayanan: false, hoverLayanan: false }" class="relative">
 
-                        @foreach ($dropdownProgramServices as $service)
-                            <a href="{{ route('program-services.show', $service) }}"
-                                class="hover:shadow-2xl transform hover:text-[#f78a28] hover:-translate-y-1 hover:scale-100 transition-all duration-200 text-xs md:text-sm xl:text-base block px-4 py-2 hover:bg-[#171c26]">
-                                {{ $service->name }}
-                            </a>
-                        @endforeach
+                        <!-- Tombol Layanan -->
+                        <button @click="clickLayanan = !clickLayanan" @mouseenter="hoverLayanan = true"
+                            class="group text-xs md:text-sm xl:text-base font-bold flex items-center gap-1 hover:text-orange-500 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100  transition-all duration-200">
+                            Layanan
+                            <svg class="w-4 h-4 transform transition-transform duration-700 ease-in-out group-hover:rotate-180"
+                                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown -->
+                        <div x-show="clickLayanan || hoverLayanan" @mouseleave="hoverLayanan = false"
+                            @mouseenter="hoverLayanan = true" x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 transform translate-y-2"
+                            x-transition:enter-end="opacity-100 transform translate-y-0"
+                            x-transition:leave="transition ease-in duration-200"
+                            x-transition:leave-start="opacity-100 transform translate-y-0"
+                            x-transition:leave-end="opacity-0 transform translate-y-2" x-cloak
+                            class="absolute bg-[#101851] text-white rounded shadow mt-2 w-40 py-2 z-50">
+
+                            @foreach ($dropdownProgramServices as $service)
+                                <a href="{{ route('program-services.show', $service) }}"
+                                    class="block px-4 py-2 text-xs md:text-sm xl:text-base
+                      hover:bg-[#171c26] hover:text-[#f78a28] 
+                      hover:shadow-2xl transform hover:-translate-y-1 hover:scale-100 transition-all duration-200">
+                                    {{ $service->name }}
+                                </a>
+                            @endforeach
+
+                        </div>
 
                     </div>
 

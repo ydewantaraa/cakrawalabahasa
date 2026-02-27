@@ -28,12 +28,17 @@ Route::get('/me', function (Request $request) {
     ], 200);
 })->middleware('auth:sanctum');
 
+Route::get('/courses/{slug}', [CourseController::class, 'show']);
+
 Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::post('/program-services', [ProgramServiceController::class, 'store']);
     // Route::show('/program-services', [ProgramServiceController::class, 'show']);
-    Route::put('/program-services/{programService}', [ProgramServiceController::class, 'update']);
-    Route::delete('/program-services/{programService}', [ProgramServiceController::class, 'destroy']);
-    Route::apiResource('/courses', CourseController::class);
+    Route::put('/program-services/{programServiceById}', [ProgramServiceController::class, 'update']);
+    Route::delete('/program-services/{programServiceById}', [ProgramServiceController::class, 'destroy']);
+    Route::get('/courses', [CourseController::class, 'index']);
+    Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
+    Route::put('/courses/{course}', [CourseController::class, 'update']);
+    Route::post('/courses', [CourseController::class, 'store']);
     Route::post('/teachers', [TeacherController::class, 'store']);
     Route::delete('/teachers/{teacher}', [TeacherController::class, 'destroy']);
     Route::put('/teachers/{teacher}', [TeacherController::class, 'update']);

@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|required|string|max:255|unique:program_services,name,' . $this->programService->id,
+            'name' => 'sometimes|required|string|max:255',
             'description' => 'sometimes|required|string',
             'show_in_dropdown' => 'sometimes|boolean',
             'hero_text' => 'required|string',
