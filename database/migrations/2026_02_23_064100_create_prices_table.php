@@ -38,6 +38,16 @@ return new class extends Migration
                 ->nullOnDelete();
 
             $table->timestamps();
+
+            // UNIQUE CONSTRAINT: pastikan tidak ada duplikat harga
+            $table->unique([
+                'course_service_id',
+                'sub_course_service_id',
+                'learning_type',
+                'unit_type',
+                'package_size',
+                'label_type',
+            ], 'unique_price_per_service');
         });
     }
 

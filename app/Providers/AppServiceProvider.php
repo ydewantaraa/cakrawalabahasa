@@ -42,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
             return in_array($user->role, ['admin', 'teacher', 'student']);
         });
 
+        // get program service by slug
         View::composer('*', function ($view) {
             $dropdownProgramServices = ProgramService::where('show_in_dropdown', true)
                 ->orderBy('name')
@@ -50,8 +51,23 @@ class AppServiceProvider extends ServiceProvider
             $view->with('dropdownProgramServices', $dropdownProgramServices);
         });
 
+        // get program service by id
         Route::bind('programServiceById', function ($value) {
             return ProgramService::findOrFail($value);
+        });
+
+        // get teacher
+        Route::bind('teacher', function ($value) {
+            return User::where('id', $value)
+                ->where('role', 'teacher')
+                ->firstOrFail();
+        });
+
+        // get student
+        Route::bind('student', function ($value) {
+            return User::where('id', $value)
+                ->where('role', 'student')
+                ->firstOrFail();
         });
     }
 }

@@ -110,7 +110,7 @@
                 </div>
 
                 {{-- MEDIA --}}
-                <div class="mb-4" x-show="activeService">
+                <div class="mb-4" x-show="activeService && getAvailableMedia().length > 0">
                     <p class="font-semibold mb-2">Media</p>
                     <div class="flex gap-2 flex-wrap">
                         <template x-for="media in getAvailableMedia()" :key="media">
@@ -431,7 +431,9 @@
                             return;
                         }
 
-                        if (!this.activeMedia) {
+                        // Cek media hanya jika service punya media
+                        const hasMedia = service.prices.some(p => p.learning_type);
+                        if (hasMedia && !this.activeMedia) {
                             Swal.fire({
                                 icon: 'warning',
                                 title: 'Lengkapi Dulu',
