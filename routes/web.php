@@ -104,7 +104,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::put('/sub-course-services/{subCourseService}', [SubCourseServiceController::class, 'update'])->name('sub-course-service.update');
     Route::delete('/sub-course-services/{subCourseService}', [SubCourseServiceController::class, 'destroy'])->name('sub-course-service.destroy');
 
-    // subcourse service
+    // price
     Route::post('/prices', [PriceController::class, 'store'])->name('prices.store');
     Route::put('/prices/{price}', [PriceController::class, 'update'])->name('prices.update');
     Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('prices.destroy');

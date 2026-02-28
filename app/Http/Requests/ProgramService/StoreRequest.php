@@ -37,6 +37,8 @@ class StoreRequest extends FormRequest
             'advantages.*.description' => 'required|string',
             'advantages.*.thumbnail' => 'nullable|image',
             'advantages.*.icon' => 'nullable|image',
+            'related_program_id' => 'nullable|exists:program_services,id',
+            'show_related_program' => 'nullable|boolean',
         ];
     }
 }

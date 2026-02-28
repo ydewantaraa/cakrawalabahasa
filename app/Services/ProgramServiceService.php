@@ -19,6 +19,7 @@ class ProgramServiceService
     {
         return ProgramService::orderBy('created_at', 'desc')
             ->with('feature_program_services')
+            ->with('advantage_program_services')
             ->get();
     }
 
@@ -52,9 +53,22 @@ class ProgramServiceService
 
             $features = $data['features'] ?? [];
             $advantages = $data['advantages'] ?? [];
-            unset($data['features'], $data['advantages']);
+
+            // ambil related id dulu
+            $relatedId = $data['related_program_id'] ?? null;
+
+            unset(
+                $data['features'],
+                $data['advantages'],
+                $data['related_program_id'],
+                $data['show_related_program']
+            );
 
             $programService = ProgramService::create($data);
+
+            if ($relatedId) {
+                $programService->relatedPrograms()->sync([$relatedId]);
+            }
 
             // Fitur
             foreach ($features as $feature) {
@@ -79,6 +93,7 @@ class ProgramServiceService
                 if (!empty($advantage['icon']) && $advantage['icon'] instanceof UploadedFile) {
                     $iconPath = $advantage['icon']->store('advantage-programs', 'public');
                 }
+
                 $programService->advantage_program_services()->create([
                     'title' => $advantage['title'],
                     'description' => $advantage['description'],
@@ -86,6 +101,7 @@ class ProgramServiceService
                     'icon' => $iconPath,
                 ]);
             }
+
 
             return $programService
                 ->refresh()
@@ -134,13 +150,18 @@ class ProgramServiceService
                 $data['image_service'] = $data['image_service']->store('image-service', 'public');
             }
 
+            $relatedId = $data['related_program_id'] ?? null;
+
+            unset($data['related_program_id'], $data['show_related_program']);
+
+            $programService->relatedPrograms()->sync(
+                $relatedId ? [$relatedId] : []
+            );
+
             // Ambil features & advantages dari data
             $features = $data['features'] ?? [];
             $advantages = $data['advantages'] ?? [];
             unset($data['features'], $data['advantages']);
-
-            // Update data utama ProgramService
-            $programService->update($data);
 
             $oldFeatureThumbnails = $programService->feature_program_services
                 ->map(fn($f) => $f->getRawOriginal('thumbnail'))

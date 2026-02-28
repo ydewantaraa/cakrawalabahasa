@@ -3,6 +3,7 @@
 namespace App\Http\Requests\ProgramService;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -37,6 +38,11 @@ class UpdateRequest extends FormRequest
             'advantages.*.description' => 'required|string',
             'advantages.*.thumbnail' => 'nullable|image',
             'advantages.*.icon' => 'nullable|image',
+            'related_program_id' => [
+                'nullable',
+                'exists:program_services,id',
+                Rule::notIn([$this->route('programServiceById')?->id]),
+            ],
         ];
     }
 }

@@ -66,10 +66,19 @@ class AdminDashboardController extends Controller
             ->paginate(10)
             ->withQueryString();
 
+        // return [
+        //     'programServices' => $programServices,
+        //     'programServiceCount' => ProgramService::count(),
+        //     'search' => $search,
+        // ];
+
+        $allProgramServices = ProgramService::orderBy('name')->get();
+
         return [
             'programServices' => $programServices,
             'programServiceCount' => ProgramService::count(),
             'search' => $search,
+            'allProgramServices' => $allProgramServices,
         ];
     }
 

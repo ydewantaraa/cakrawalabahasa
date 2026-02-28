@@ -27,14 +27,14 @@
         {{-- Kelas Launched? --}}
         <input type="hidden" name="isActive" value="0">
         <div class="flex items-center gap-2">
-            <input type="checkbox" name="isActive" value="1" x-model="form.isActive">
+            <input type="checkbox" name="isActive" value="1">
             <label>Kelas Sudah Launching</label>
         </div>
 
         {{-- Tampilkan Pilihan Guru? --}}
         <input type="hidden" name="hasTeacher" value="0">
         <div class="flex items-center gap-2">
-            <input type="checkbox" name="hasTeacher" value="1" x-model="form.hasTeacher">
+            <input type="checkbox" name="hasTeacher" value="1">
             <label>Tampilkan Pilihan Guru</label>
         </div>
 

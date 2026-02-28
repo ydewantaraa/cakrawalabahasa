@@ -35,14 +35,15 @@ Route::get('/courses/{slug}', [CourseController::class, 'show']);
 Route::get('/program-services/{programService:slug}', [ProgramServiceController::class, 'show']);
 Route::get('/teachers/{teacher}', [TeacherController::class, 'show']);
 Route::get('/students/{student}', [StudentController::class, 'show']);
+Route::get('/courses', [CourseController::class, 'index']);
 
 Route::middleware(['auth:sanctum', 'can:admin'])->prefix('admin')->group(function () {
     Route::post('/program-services', [ProgramServiceController::class, 'store']);
+    Route::get('/program-services', [ProgramServiceController::class, 'index']);
     Route::put('/program-services/{programServiceById}', [ProgramServiceController::class, 'update']);
     Route::delete('/program-services/{programServiceById}', [ProgramServiceController::class, 'destroy']);
     // show program service by admin
     Route::get('/program-services/{programServiceById}', [ProgramServiceController::class, 'showAdmin']);
-    Route::get('/courses', [CourseController::class, 'index']);
     Route::get('/courses/{course}', [CourseController::class, 'showAdmin']);
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
     Route::put('/courses/{course}', [CourseController::class, 'update']);

@@ -34,6 +34,8 @@
         hero_image: @js(old('hero_image', '')),
         image_service: @js(old('image_service', '')),
         show_in_dropdown: Boolean(@js(old('show_in_dropdown', true))),
+        show_related_program: Boolean(@js(old('show_related_program', false))),
+        related_program_id: @js(old('related_program_id', '')),
         features: @js($featuresOld),
         advantages: @js($advantagesOld)
     },
@@ -167,6 +169,43 @@
             {{-- Preview --}}
             <div x-show="heroImagePreview" class="mt-2">
                 <img :src="heroImagePreview" class="w-32 h-32 object-cover border rounded">
+            </div>
+        </div>
+
+        {{-- Related Program --}}
+        <div class="mt-4 space-y-2">
+            <label class="block font-medium">
+                Apakah akan menampilkan program service lain?
+            </label>
+
+            <div class="flex items-center gap-4">
+                <label class="flex items-center gap-2">
+                    <input type="radio" value="1" x-model="form.show_related_program">
+                    Ya
+                </label>
+
+                <label class="flex items-center gap-2">
+                    <input type="radio" value="0" x-model="form.show_related_program">
+                    Tidak
+                </label>
+            </div>
+
+            {{-- Dropdown muncul jika Ya --}}
+            <div x-show="form.show_related_program == 1" x-transition>
+                <label class="block mt-2 mb-1">Pilih Program Service Lain</label>
+
+                <select name="related_program_id" x-model="form.related_program_ids"
+                    class="w-full border rounded px-3 py-2">
+
+                    @foreach ($allProgramServices as $ps)
+                        @if (!isset($programService) || $ps->id !== $programService->id)
+                            <option value="{{ $ps->id }}">
+                                {{ $ps->name }}
+                            </option>
+                        @endif
+                    @endforeach
+
+                </select>
             </div>
         </div>
 
