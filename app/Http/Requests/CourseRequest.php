@@ -26,8 +26,8 @@ class CourseRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'isActive' => 'sometimes|boolean',
-            'hasTeacher' => 'sometimes|boolean',
+            'isActive' => 'required|in:0,1',
+            'hasTeacher' => 'required|in:0,1',
             'category' => 'required|string|max:255',
             'quota' => 'required|integer|min:1',
             'duration' => 'required|string|max:20',

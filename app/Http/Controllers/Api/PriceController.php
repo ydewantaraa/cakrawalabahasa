@@ -50,16 +50,28 @@ class PriceController extends Controller
     /**
      * PUT /api/prices/{price}
      */
+    // public function update(PriceRequest $request, Price $price)
+    // {
+    //     $this->service->update($price, $request->validated());
+
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'Price berhasil diperbarui.'
+    //     ]);
+    // }
+
     public function update(PriceRequest $request, Price $price)
     {
-        $this->service->update($price, $request->validated());
+        $data = $request->validated();
+
+        $this->service->update($price, $data);
 
         return response()->json([
             'success' => true,
-            'message' => 'Price berhasil diperbarui.'
+            'message' => 'Price berhasil diupdate.',
+            'data' => $price->fresh()
         ]);
     }
-
     /**
      * DELETE /api/prices/{price}
      */

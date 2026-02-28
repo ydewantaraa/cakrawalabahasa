@@ -37,6 +37,8 @@
         hero_text: @js(old('hero_text', $programService->hero_text)),
         heroImagePreview: @js($programService->hero_image),
         show_in_dropdown: Boolean(@js(old('show_in_dropdown', $programService->show_in_dropdown))),
+        show_related_program: @js(old('show_related_program', $programService->relatedPrograms->isNotEmpty() ? 1 : 0)),
+        related_program_id: @js(old('related_program_id', optional($programService->relatedPrograms->first())->id)),
         features: @js($featuresOld),
         advantages: @js($advantagesOld)
     },
@@ -108,6 +110,47 @@
             {{-- Preview --}}
             <div x-show="form.heroImagePreview" class="mt-2">
                 <img :src="form.heroImagePreview" class="w-32 h-32 object-cover border rounded">
+            </div>
+        </div>
+
+        {{-- Related Program --}}
+        <div class="mt-4 space-y-2">
+            <label class="block font-medium">
+                Apakah akan menampilkan program service lain?
+            </label>
+
+            <div class="flex items-center gap-4">
+                <label class="flex items-center gap-2">
+                    <input type="radio" name="show_related_program" value="1"
+                        x-model="form.show_related_program">
+                    Ya
+                </label>
+
+                <label class="flex items-center gap-2">
+                    <input type="radio" name="show_related_program" value="0" x-model="form.show_related_program"
+                        @change="form.related_program_id = ''">
+                    Tidak
+                </label>
+            </div>
+
+            {{-- Dropdown hanya muncul kalau pilih Ya --}}
+            <div class="mt-2" x-show="form.show_related_program == 1" x-transition>
+                <label class="block mb-1">Pilih Program Service Lain</label>
+
+                <select name="related_program_id" x-model="form.related_program_id"
+                    class="w-full border rounded px-3 py-2">
+
+                    <option value="">-- Pilih Program --</option>
+
+                    @foreach ($allProgramServices as $ps)
+                        @if ($ps->id !== $programService->id)
+                            <option value="{{ $ps->id }}">
+                                {{ $ps->name }}
+                            </option>
+                        @endif
+                    @endforeach
+
+                </select>
             </div>
         </div>
 

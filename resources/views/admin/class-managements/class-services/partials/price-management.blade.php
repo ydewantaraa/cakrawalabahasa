@@ -31,7 +31,7 @@
 
                                    {{-- Sub Service --}}
                                    <td class="border px-3 py-2">
-                                       {{ $price->subService ? $price->subService->name : '(Semua Sub Layanan)' }}
+                                       {{ $price->subService ? $price->subService->name : '-' }}
                                    </td>
 
                                    {{-- Media / Learning Type --}}

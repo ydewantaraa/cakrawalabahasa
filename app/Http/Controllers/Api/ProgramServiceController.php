@@ -94,7 +94,7 @@ class ProgramServiceController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Program service berhasil dibuat',
+            'message' => 'Program service berhasil diubah',
             'data' => $programService,
         ], 201);
     }

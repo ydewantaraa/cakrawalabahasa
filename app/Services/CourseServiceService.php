@@ -13,8 +13,7 @@ class CourseServiceService
      */
     public function getByCourse(int $courseId)
     {
-        return CourseService::with(['sub_course_services', 'prices'])
-            ->where('course_id', $courseId)
+        return CourseService::where('course_id', $courseId)
             ->latest()
             ->get();
     }
