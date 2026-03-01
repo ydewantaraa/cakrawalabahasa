@@ -1,16 +1,4 @@
-<div class="space-y-4" x-data="{
-    thumbnailPreview: null,
-    handleThumbnailChange(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = e => this.thumbnailPreview = e.target.result;
-            reader.readAsDataURL(file);
-        } else {
-            this.thumbnailPreview = null;
-        }
-    }
-}">
+<div class="space-y-4">
     <form action="{{ route('sub-course-service.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
 
         @csrf

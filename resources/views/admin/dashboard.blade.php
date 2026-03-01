@@ -57,6 +57,10 @@
                         @include('admin.tabs.teachers-management')
                     @break
 
+                    @case('popular-classes')
+                        @include('admin.tabs.popular-classes')
+                    @break
+
                     @case('transaction-history')
                         @include('admin.tabs.transaction-history')
                     @break

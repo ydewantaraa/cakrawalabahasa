@@ -36,6 +36,7 @@
         description: @js(old('description', $programService->description)),
         hero_text: @js(old('hero_text', $programService->hero_text)),
         heroImagePreview: @js($programService->hero_image),
+        serviceImagePreview: @js($programService->image_service),
         show_in_dropdown: Boolean(@js(old('show_in_dropdown', $programService->show_in_dropdown))),
         show_related_program: @js(old('show_related_program', $programService->relatedPrograms->isNotEmpty() ? 1 : 0)),
         related_program_id: @js(old('related_program_id', optional($programService->relatedPrograms->first())->id)),
@@ -63,7 +64,17 @@
         } else {
             this.form.heroImagePreview = @js($programService->hero_image);
         }
-    }
+    },
+    handleServiceImageChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => this.form.serviceImagePreview = e.target.result;
+            reader.readAsDataURL(file);
+        } else {
+            this.form.serviceImagePreview = @js($programService->service_image);
+        }
+    },
 }" class="bg-white rounded shadow-lg w-full max-w-3xl z-50 p-6">
 
     <h2 class="text-xl font-semibold mb-4">Edit Program Service</h2>
@@ -85,6 +96,19 @@
         <div class="flex items-center gap-2">
             <input type="checkbox" name="show_in_dropdown" value="1" x-model="form.show_in_dropdown">
             <label>Tampilkan di dropdown</label>
+        </div>
+
+        <div class="mb-6">
+            <label class="block font-semibold mb-2">Service Image</label>
+
+            <!-- Preview -->
+            <template x-if="form.serviceImagePreview">
+                <img :src="form.serviceImagePreview" class="w-40 h-40 object-cover rounded-lg mb-3 border">
+            </template>
+
+            <!-- Input -->
+            <input type="file" name="image_service" accept="image/*" @change="handleServiceImageChange"
+                class="block w-full border border-gray-300 rounded-lg p-2">
         </div>
 
         {{-- Deskripsi --}}
