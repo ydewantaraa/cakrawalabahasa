@@ -246,6 +246,8 @@ class ProgramServiceService
                 }
             }
 
+            $programService->update($data);
+
             // Load relasi feature & advantage
             return $programService
                 ->refresh()
