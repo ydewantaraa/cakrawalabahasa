@@ -12,12 +12,14 @@ use App\Http\Controllers\Web\Auth\StudentProfileController;
 use App\Http\Controllers\Web\CourseController;
 use App\Http\Controllers\Web\CourseServiceController;
 use App\Http\Controllers\Web\PaymentController;
+use App\Http\Controllers\Web\PopularClassController;
 use App\Http\Controllers\Web\PriceController;
 use App\Http\Controllers\Web\ProgramServiceController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TeacherProfileController;
 use App\Http\Controllers\Web\SubCourseServiceController;
+use App\Models\PopularClass;
 use App\Models\Price;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
@@ -108,6 +110,11 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::post('/prices', [PriceController::class, 'store'])->name('prices.store');
     Route::put('/prices/{price}', [PriceController::class, 'update'])->name('prices.update');
     Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('prices.destroy');
+
+    // popular class
+    Route::post('/popular-classes', [PopularClassController::class, 'store'])->name('popular-classes.store');
+    Route::put('/popular-classes/{popularClass}', [PopularClassController::class, 'update'])->name('popular-classes.update');
+    Route::delete('/popular-classes/{popularClass}', [PopularClassController::class, 'destroy'])->name('popular-classes.destroy');
 });
 
 Route::get('/program/{programService}', [ProgramServiceController::class, 'show'])->name('program-services.show');
@@ -116,7 +123,10 @@ Route::get('/layanan/{slug}', [CourseController::class, 'show'])->name('courses.
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
 
 Route::get('/', function () {
-    return view('landing.index');
+    $popularClasses = PopularClass::with(['course', 'descriptions'])
+        ->latest()
+        ->get();
+    return view('landing.index', compact('popularClasses'));
 });
 
 

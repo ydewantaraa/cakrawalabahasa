@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\PopularClass;
 use App\Models\ProgramService;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,6 +32,14 @@ class AdminDashboardController extends Controller
 
         if ($tab === 'overview') {
             $data += $this->overviewTab();
+        }
+
+        if ($tab === 'incoming-classes') {
+            $data += $this->overviewTab();
+        }
+
+        if ($tab === 'popular-classes') {
+            $data += $this->popularClassTab($request);
         }
 
         // if ($tab === 'enrollments-management') {
@@ -65,12 +74,6 @@ class AdminDashboardController extends Controller
             ->latest()
             ->paginate(10)
             ->withQueryString();
-
-        // return [
-        //     'programServices' => $programServices,
-        //     'programServiceCount' => ProgramService::count(),
-        //     'search' => $search,
-        // ];
 
         $allProgramServices = ProgramService::orderBy('name')->get();
 
@@ -153,6 +156,29 @@ class AdminDashboardController extends Controller
             'students' => $students,
             'studentCount' => User::where('role', 'student')->count(),
             'search' => $search,
+        ];
+    }
+
+    protected function popularClassTab(Request $request): array
+    {
+        $search = $request->query('search');
+
+        $popularClasses = PopularClass::with(['course', 'descriptions'])
+            ->when($search, function ($q) use ($search) {
+                $q->whereHas('course', function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%")
+                        ->orWhere('category', 'like', "%{$search}%");
+                });
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return [
+            'popularClasses' => $popularClasses,
+            'popularClassCount' => PopularClass::count(),
+            'search' => $search,
+            'courses' => Course::orderBy('name')->get(['id', 'name']),
         ];
     }
 }

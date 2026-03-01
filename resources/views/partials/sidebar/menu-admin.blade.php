@@ -22,6 +22,37 @@
     <span x-show="open">Manajemen Kelas</span>
 </a>
 
+<a href="{{ route('dashboard', ['tab' => 'popular-classes']) }}"
+    class="flex items-center gap-3 px-3 py-2 rounded transition {{ $activeTab === 'popular-classes' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-device-desktop-star">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M10 16h-6a1 1 0 0 1 -1 -1v-10a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v6.5" />
+        <path d="M7 20h3.5" />
+        <path d="M9 16v4" />
+        <path
+            d="M17.8 20.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138" />
+    </svg>
+
+    <span x-show="open">Kelas Populer</span>
+</a>
+
+<a href="{{ route('dashboard', ['tab' => 'incoming-classes']) }}"
+    class="flex items-center gap-3 px-3 py-2 rounded transition {{ $activeTab === 'incoming-classes' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-hourglass">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M6.5 7h11" />
+        <path d="M6.5 17h11" />
+        <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1" />
+        <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1" />
+    </svg>
+
+    <span x-show="open">Kelas Segera Launching</span>
+</a>
+
 <a href="{{ route('dashboard', ['tab' => 'program-services']) }}"
     class="flex items-center gap-3 px-3 py-2 rounded transition {{ $activeTab === 'program-services' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"

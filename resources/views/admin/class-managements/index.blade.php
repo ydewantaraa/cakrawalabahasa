@@ -31,7 +31,6 @@
             <thead class="bg-gray-100 normal-case">
                 <tr>
                     <th class="p-3 text-left normal-case">Nama</th>
-                    <th class="p-3 text-left">Kategori</th>
                     <th class="p-3 text-left normal-case">Layanan Program</th>
                     <th class="p-3 text-left normal-case">Manajemen Layanan</th>
                     <th class="p-3 text-left normal-case">Manajemen Harga</th>
@@ -42,10 +41,6 @@
                 @foreach ($courses as $course)
                     <tr class="border-t">
                         <td class="p-3 break-words">{{ $course->name }}</td>
-
-                        <td class="p-3 break-words">
-                            {{ $course->category }}
-                        </td>
 
                         {{-- PROGRAM SERVICE --}}
                         <td class="p-3 break-words">
