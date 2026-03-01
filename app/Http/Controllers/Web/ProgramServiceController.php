@@ -14,7 +14,9 @@ class ProgramServiceController extends Controller
 {
     public function show($slug)
     {
-        $programService = ProgramService::where('slug', $slug)->firstOrFail();
+        $programService = ProgramService::with([
+            'relatedPrograms.courses' => fn($q) => $q->where('isActive', true) // hanya yang aktif
+        ])->where('slug', $slug)->firstOrFail();
 
         $courses = Course::where('program_service_id', $programService->id)
             ->latest()
