@@ -255,10 +255,34 @@
                             :value="getSelectedPrice()?.unit_type === 'per_item' ? quantity : 1">
 
                         <!-- Tombol -->
-                        <button type="submit"
+                        {{-- <button type="submit"
                             class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200 bg-[#f78a28] hover:bg-orange-600 px-4 py-2 text-white font-bold text-base md:text-lg rounded-xl w-auto">
                             Beli Sekarang
-                        </button>
+                        </button> --}}
+                        @auth
+                            @if (auth()->user()->role === 'student')
+                                <!-- FORM CHECKOUT -->
+                                <form method="GET" action="{{ route('checkout') }}" class="w-full sm:w-auto">
+                                    <!-- hidden input tetap di sini -->
+                                    <button type="submit"
+                                        class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200 bg-[#f78a28] hover:bg-orange-600 px-4 py-2 text-white font-bold text-base md:text-lg rounded-xl w-auto">
+                                        Beli Sekarang
+                                    </button>
+                                </form>
+                            @else
+                                <!-- Sudah login tapi bukan student -->
+                                <div class="bg-gray-100 text-gray-600 px-4 py-2 rounded-xl font-semibold">
+                                    Akun Anda tidak memiliki akses untuk melakukan pembelian.
+                                </div>
+                            @endif
+                        @else
+                            <!-- Belum login -->
+                            <a href="{{ route('login') }}"
+                                class="bg-[#f78a28] px-4 py-2 text-white font-bold rounded-xl">
+                                Login untuk Membeli
+                            </a>
+
+                        @endauth
                     </form>
                 </div>
 

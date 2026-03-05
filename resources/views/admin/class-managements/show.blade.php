@@ -32,7 +32,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
 
             <div>
-                <p class="text-gray-500">Program Service</p>
+                <p class="text-gray-500">Layanan Program</p>
                 <p class="font-medium">{{ $course->program_service?->name ?? '-' }}</p>
             </div>
 

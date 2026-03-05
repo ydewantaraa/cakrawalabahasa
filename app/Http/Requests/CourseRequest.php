@@ -29,13 +29,13 @@ class CourseRequest extends FormRequest
             'isActive' => 'required|in:0,1',
             'hasTeacher' => 'required|in:0,1',
             'category' => 'required|string|max:255',
-            'quota' => 'required|integer|min:1',
+            'quota' => 'required|string|max:255',
             'duration' => 'required|string|max:20',
             'explanation' => 'nullable|string',
             'shopee_link' => ['nullable', 'url'],
             'thumbnail' => $isCreate
-                ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // wajib saat create
-                : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // optional saat update
+                ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+                : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'program_service_id' => 'nullable|exists:program_services,id',
             'facilities' => 'nullable|string'
         ];

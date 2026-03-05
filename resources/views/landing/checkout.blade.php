@@ -52,20 +52,31 @@
             Harga: Rp {{ number_format($total, 0, ',', '.') }}
         </p>
         <!-- Form Konfirmasi -->
-        <div x-data="konfirmasiForm()" class="text-left space-y-4">
+        @php
+            $user = auth()->user();
+        @endphp
+
+        <div x-data="konfirmasiForm(
+            '{{ $user->full_name }}',
+            '{{ $user->email }}'
+        )" class="text-left space-y-4">
+
             <div>
                 <label class="block text-sm mb-1">Nama:</label>
-                <input type="text" x-model="nama"
-                    class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-[#f78a28] focus:ring-2">
+                <input type="text" name="nama" value="{{ auth()->user()->full_name }}" readonly
+                    class="w-full bg-gray-100 border border-gray-300 rounded px-3 py-2 cursor-not-allowed">
             </div>
+
             <div>
                 <label class="block text-sm mb-1">Email:</label>
-                <input type="email" x-model="email"
-                    class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-[#f78a28] focus:ring-2">
+                <input type="email" name="email" value="{{ auth()->user()->email }}" readonly
+                    class="w-full bg-gray-100 border border-gray-300 rounded px-3 py-2 cursor-not-allowed">
             </div>
+
+            <!-- WhatsApp (Manual Input) -->
             <div>
                 <label class="block text-sm mb-1">Nomor Kontak / WhatsApp:</label>
-                <input type="text" x-model="wa"
+                <input type="text" x-model="wa" placeholder="Masukkan nomor WhatsApp aktif"
                     class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-[#f78a28] focus:ring-2">
             </div>
 
@@ -73,15 +84,13 @@
                 class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-md shadow transition-all duration-200">
                 Konfirmasi
             </button>
-            <!-- Tombol Bayar dengan Midtrans -->
+
             <button type="button" id="pay-button"
                 class="w-full flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow mt-2 transition-all duration-200">
-
                 <span>Bayar melalui</span>
-
-                <img src="/img/new-midtrans.webp" alt="Midtrans"
-                    class="w-24 ml-2 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
+                <img src="/img/new-midtrans.webp" alt="Midtrans" class="w-24 ml-2 transition-all duration-200">
             </button>
+
         </div>
 
         {{-- <script src="https://app.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script> --}}
@@ -90,8 +99,8 @@
 
         <script>
             document.getElementById('pay-button').addEventListener('click', function() {
-                const nama = document.querySelector('[x-model=nama]').value.trim();
-                const email = document.querySelector('[x-model=email]').value.trim();
+                const nama = "{{ auth()->user()->full_name }}";
+                const email = "{{ auth()->user()->email }}";
                 const wa = document.querySelector('[x-model=wa]').value.trim();
 
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -205,8 +214,8 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('konfirmasiForm', () => ({
-                nama: '',
-                email: '',
+                nama: '{{ auth()->user()->full_name }}',
+                email: '{{ auth()->user()->email }}',
                 wa: '',
                 bukti: null,
                 preview: null,
@@ -239,26 +248,6 @@
                 konfirmasi() {
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     const waRegex = /^[0-9]{9,15}$/;
-
-                    if (!this.nama.trim()) {
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'Nama diperlukan',
-                            text: 'Silakan isi nama Anda.',
-                            confirmButtonColor: '#f78a28'
-                        });
-                        return;
-                    }
-
-                    if (!emailRegex.test(this.email)) {
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'Email tidak valid',
-                            text: 'Masukkan format email yang benar.',
-                            confirmButtonColor: '#f78a28'
-                        });
-                        return;
-                    }
 
                     if (!waRegex.test(this.wa)) {
                         Swal.fire({

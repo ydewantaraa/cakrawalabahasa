@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\IncomingCourse;
 use App\Models\PopularClass;
 use App\Models\ProgramService;
 use App\Models\User;
@@ -34,8 +35,8 @@ class AdminDashboardController extends Controller
             $data += $this->overviewTab();
         }
 
-        if ($tab === 'incoming-classes') {
-            $data += $this->overviewTab();
+        if ($tab === 'incoming-courses') {
+            $data += $this->incomingCourseTab($request);
         }
 
         if ($tab === 'popular-classes') {
@@ -179,6 +180,31 @@ class AdminDashboardController extends Controller
             'popularClassCount' => PopularClass::count(),
             'search' => $search,
             'courses' => Course::orderBy('name')->get(['id', 'name']),
+        ];
+    }
+
+    protected function incomingCourseTab(Request $request): array
+    {
+        $search = $request->query('search');
+
+        $incomingCourses = IncomingCourse::with(['course'])
+            ->when($search, function ($q) use ($search) {
+                $q->whereHas('course', function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%")
+                        ->orWhere('category', 'like', "%{$search}%");
+                });
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return [
+            'incomingCourses' => $incomingCourses,
+            'incomingCourseCount' => IncomingCourse::count(),
+            'search' => $search,
+            'courses' => Course::where('isActive', 0)
+                ->orderBy('name')
+                ->get(['id', 'name', 'isActive']),
         ];
     }
 }

@@ -7,11 +7,14 @@ use App\Http\Controllers\Api\Auth\StudentProfileController;
 use App\Http\Controllers\Api\ProgramServiceController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\CourseServiceController;
+use App\Http\Controllers\Api\IncomingCourseController;
+use App\Http\Controllers\Api\PopularClassController;
 use App\Http\Controllers\Api\PriceController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\SubCourseServiceController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\Api\TeacherProfileController;
+use App\Models\PopularClass;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +75,13 @@ Route::middleware(['auth:sanctum', 'can:admin'])->prefix('admin')->group(functio
     Route::delete('/prices/{price}', [PriceController::class, 'destroy']);
     // POST harga untuk course service
     Route::post('/course-services/{courseService}/prices', [PriceController::class, 'store']);
+    // CRUD popular classes
+    Route::get('/popular-classes', [PopularClassController::class, 'index']);
+    Route::post('/popular-classes', [PopularClassController::class, 'store']);
+    Route::put('/popular-classes/{popularClass}', [PopularClassController::class, 'update']);
+    Route::delete('/popular-classes/{popularClass}', [PopularClassController::class, 'destroy']);
+    // CRUD incoming course
+    Route::apiResource('incoming-courses', IncomingCourseController::class);
 });
 
 Route::prefix('auth')->group(function () {

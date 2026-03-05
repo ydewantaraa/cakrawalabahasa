@@ -33,7 +33,7 @@ class ProgramServiceController extends Controller
 
         return redirect()
             ->back()
-            ->with('success', 'Program service berhasil ditambahkan');
+            ->with('success', 'Layanan program berhasil ditambahkan');
     }
 
     public function update(
@@ -45,7 +45,7 @@ class ProgramServiceController extends Controller
 
         return redirect()
             ->back()
-            ->with('success', 'Program service berhasil diperbarui');
+            ->with('success', 'Layanan program berhasil diperbarui');
     }
 
     public function destroy(ProgramService $programService, ProgramServiceService $service)
@@ -54,6 +54,6 @@ class ProgramServiceController extends Controller
 
         return redirect()
             ->back()
-            ->with('success', 'Program service berhasil dihapus beserta semua fitur dan keunggulannya');
+            ->with('success', 'Layanan program berhasil dihapus beserta semua fitur dan keunggulannya');
     }
 }

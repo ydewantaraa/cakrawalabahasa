@@ -38,8 +38,8 @@
     <span x-show="open">Kelas Populer</span>
 </a>
 
-<a href="{{ route('dashboard', ['tab' => 'incoming-classes']) }}"
-    class="flex items-center gap-3 px-3 py-2 rounded transition {{ $activeTab === 'incoming-classes' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
+<a href="{{ route('dashboard', ['tab' => 'incoming-courses']) }}"
+    class="flex items-center gap-3 px-3 py-2 rounded transition {{ $activeTab === 'incoming-courses' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         class="icon icon-tabler icons-tabler-outline icon-tabler-hourglass">

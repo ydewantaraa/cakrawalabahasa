@@ -3,6 +3,7 @@
 
 <head>
     <x-head />
+    <link rel="stylesheet" href="/css/auto-swipe.css">
     <style>
         /* Sembunyikan scrollbar di semua browser */
         .scrollbar-hide::-webkit-scrollbar {
@@ -210,7 +211,8 @@
             </h1>
             <p class="mb-2 md:mb-3 text-xs md:text-base xl:text-lg 2xl:text-xl">Blended learning terintegrasi dan
                 terkoneksi global</p>
-            <p class="italic text-xs md:text-base xl:text-base 2xl:text-lg mb-4 sm:mb-6">#bridgingtheworldthroughlanguage
+            <p class="italic text-xs md:text-base xl:text-base 2xl:text-lg mb-4 sm:mb-6">
+                #bridgingtheworldthroughlanguage
             </p>
 
             <div class="flex flex-row space-x-3 mb-6 sm:mb-8">
@@ -305,7 +307,7 @@
                     Komunitas & Permainan</p>
             </a>
 
-            <a href="/semua produk"
+            <a href="/semua-produk"
                 class="min-w-[70px] h-auto px-2 py-2 sm:px-3 lg:px-10 xl:px-2 sm:py-2 border-[2px] border-orange-500 rounded-xl transition transform duration-300 hover:-translate-y-2 flex flex-col items-center justify-center space-y-4 md:min-w-[120px] xl:min-w-[180px] xl:h-[70px] md:flex-row md:space-y-0 md:space-x-3 hover:shadow-[0_6px_12px_rgba(0,0,0,0.50)]">
                 <img src="/img/icon menu bar.png" class="h-4 md:h-6 lg:h-7 xl:h-8">
                 <p
@@ -317,16 +319,19 @@
 
     <!-- Paket Populer Section -->
     <section class="opacity-0 translate-y-5 transition-all duration-700 ease-out fade-el text-black py-10 px-0">
+
         <h2
             class="text-sm sm:text-xl md:text-2xl font-bold mb-8 text-start flex items-start justify-start px-4 md:px-20">
-            <span class="text-yellow-500 text-sm sm:text-xl md:text-2xl mr-2">★</span> Paket Populer
+            <span class="text-yellow-500 text-sm sm:text-xl md:text-2xl mr-2">★</span>
+            Paket Populer
         </h2>
-        <div class="swiper mySwiper" onmouseenter="swiperPaket.autoplay.stop()"
-            onmouseleave="swiperPaket.autoplay.start()">
-            <div class="swiper-wrapper px-2 sm:px-4 md:px-8 py-2">
+
+        <div class="carousel relative w-full overflow-hidden">
+
+            <div class="carousel-track flex gap-4 px-4 md:px-8 w-max py-2">
+
                 @foreach ($popularClasses as $popular)
-                    <div
-                        class="swiper-slide w-[200px] h-auto sm:min-w-[200px] md:min-w-[240px] lg:min-w-[260px] xl:min-w-[280px] max-w-[280px]">
+                    <div class="w-[200px] sm:w-[200px] md:w-[240px] lg:w-[260px] xl:w-[280px] flex-shrink-0">
 
                         <div
                             class="bg-white transform transition-all duration-200 hover:-translate-y-2 hover:shadow-[0_12px_16px_rgba(0,0,0,0.50)] rounded-2xl shadow-lg overflow-hidden border flex flex-col h-full">
@@ -337,48 +342,69 @@
                                 {{ $popular->course->name }}
                             </div>
 
-                            {{-- Thumbnail dari Course --}}
-                            <img src="{{ $popular->course->thumbnail }}" alt="{{ $popular->course->name }}"
+                            {{-- Thumbnail --}}
+                            <img src="{{ $popular->course->thumbnail }}"
                                 class="w-full h-50 -mt-10 md:h-60 object-cover rounded-b-2xl">
 
                             <div class="p-5 flex flex-col flex-grow">
 
                                 {{-- Descriptions --}}
                                 <ul class="space-y-2 mb-5 text-[9px] md:text-[12px] lg:text-sm flex-grow">
+
                                     @foreach ($popular->descriptions as $desc)
                                         <li class="flex items-start">
+
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 viewBox="0 0 24 24" class="w-5 h-5 text-blue-500 mt-1 shrink-0">
-                                                <path fill-rule="evenodd"
-                                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                                    clip-rule="evenodd" />
+
+                                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365
+                                                9.75 9.75-4.365 9.75-9.75
+                                                9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75
+                                                0 1 0-1.22-.872l-3.236
+                                                4.53L9.53 12.22a.75.75
+                                                0 0 0-1.06 1.06l2.25
+                                                2.25a.75.75 0 0 0
+                                                1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+
                                             </svg>
-                                            <span class="ml-2">{{ $desc->description }}</span>
+
+                                            <span class="ml-2">
+                                                {{ $desc->description }}
+                                            </span>
+
                                         </li>
                                     @endforeach
+
                                 </ul>
 
-                                {{-- Harga & Durasi --}}
+                                {{-- Harga --}}
                                 <div
                                     class="border-t border-black pt-3 mb-3 text-[11px] sm:text-xs md:text-sm text-center">
+
                                     <p>
-                                        <strong>
-                                            {{ $popular->price }}
-                                        </strong>
+                                        <strong>{{ $popular->price }}</strong>
                                     </p>
+
                                     <p>{{ $popular->duration }}</p>
+
                                 </div>
 
-                                {{-- Detail Link --}}
-                                <div class="flex justify-center items-center">
-                                    <a href="{{ route('courses.detail', $popular->course->slug) }}"
+                                {{-- Button --}}
+                                <div class="flex justify-center">
+
+                                    <a href="{{ route('courses.show', $popular->course->slug) }}"
                                         class="inline-block bg-[#232c5f] text-white text-center py-2 px-3 md:px-5 text-[11px] sm:text-xs lg:text-sm rounded-full font-semibold hover:bg-blue-700 hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
+
                                         Lihat Detail
+
                                     </a>
+
                                 </div>
 
                             </div>
+
                         </div>
+
                     </div>
                 @endforeach
             </div>
@@ -845,6 +871,7 @@
 
     <!-- Floating WA -->
     <x-floating-wa />
+    <script src="/js/auto-swipe.js"></script>
 
     <script>
         const swiperPaket = new Swiper(".mySwiper", {

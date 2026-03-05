@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\Auth\PasswordController;
 use App\Http\Controllers\Web\Auth\StudentProfileController;
 use App\Http\Controllers\Web\CourseController;
 use App\Http\Controllers\Web\CourseServiceController;
+use App\Http\Controllers\Web\IncomingCourseController;
 use App\Http\Controllers\Web\PaymentController;
 use App\Http\Controllers\Web\PopularClassController;
 use App\Http\Controllers\Web\PriceController;
@@ -19,8 +20,10 @@ use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TeacherProfileController;
 use App\Http\Controllers\Web\SubCourseServiceController;
+use App\Models\IncomingCourse;
 use App\Models\PopularClass;
 use App\Models\Price;
+use App\Models\ProgramService;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -62,6 +65,17 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified', 'can:student'])->group(function () {
     Route::get('/student-profile', [StudentProfileController::class, 'show'])->name('student-profile.show');
     Route::patch('/student-profile', [StudentProfileController::class, 'update'])->name('student-profile.update');
+    // checkout preview
+    Route::get('/checkout', function () {
+        return view('landing.checkout');
+    })->name('checkout');
+
+    // Cart management
+    Route::post('/cart/add/{course}', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+    // Checkout Midtrans
+    Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 });
 
 Route::middleware(['auth', 'verified', 'can:teacher'])->group(function () {
@@ -115,10 +129,15 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::post('/popular-classes', [PopularClassController::class, 'store'])->name('popular-classes.store');
     Route::put('/popular-classes/{popularClass}', [PopularClassController::class, 'update'])->name('popular-classes.update');
     Route::delete('/popular-classes/{popularClass}', [PopularClassController::class, 'destroy'])->name('popular-classes.destroy');
+
+    // popular class
+    Route::post('/incoming-courses', [IncomingCourseController::class, 'store'])->name('incoming-courses.store');
+    Route::put('/incoming-courses/{incomingCourse}', [IncomingCourseController::class, 'update'])->name('incoming-courses.update');
+    Route::delete('/incoming-courses/{incomingCourse}', [IncomingCourseController::class, 'destroy'])->name('incoming-courses.destroy');
 });
 
 Route::get('/program/{programService}', [ProgramServiceController::class, 'show'])->name('program-services.show');
-Route::get('/layanan/{slug}', [CourseController::class, 'show'])->name('courses.detail');
+Route::get('/layanan/{slug}', [CourseController::class, 'show'])->name('courses.show');
 
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
 
@@ -166,10 +185,6 @@ Route::get('/karir', function () {
     return view('landing.karir');
 });
 
-Route::get('/checkout', function () {
-    return view('landing.checkout');
-})->name('checkout');
-
 Route::get('/layanan/{id}', [LayananController::class, 'detail'])->name('layanan.detail');
 
 Route::get('/marketplace pengajar', function () {
@@ -192,22 +207,16 @@ Route::get('/komunitas permainan', function () {
     return view('landing.komunitas permainan');
 });
 
-Route::get('/semua produk', function () {
-    return view('landing.semua produk');
+Route::get('/semua-produk', function () {
+    $incomingCourses = IncomingCourse::with('course')
+        ->orderBy('incoming_date')
+        ->get();
+    $programServices = ProgramService::with(['courses', 'relatedPrograms.courses'])->get();
+    return view('landing.all-products.index', compact('incomingCourses', 'programServices'));
 });
 
 Route::get('/privacy_policy', function () {
     return view('privacy_policy');
-});
-
-Route::middleware(['auth'])->group(function () {
-
-    // Cart management
-    Route::post('/cart/add/{course}', [CartController::class, 'add'])->name('cart.add');
-    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-
-    // Checkout Midtrans
-    Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 });
 
 

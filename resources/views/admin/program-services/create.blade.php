@@ -31,6 +31,7 @@
         name: @js(old('name', '')),
         description: @js(old('description', '')),
         hero_text: @js(old('hero_text', '')),
+        subhero_text: @js(old('subhero_text', '')),
         hero_image: @js(old('hero_image', '')),
         image_service: @js(old('image_service', '')),
         show_in_dropdown: Boolean(@js(old('show_in_dropdown', true))),
@@ -175,7 +176,7 @@
         {{-- Related Program --}}
         <div class="mt-4 space-y-2">
             <label class="block font-medium">
-                Apakah akan menampilkan program service lain?
+                Apakah akan menampilkan layanan program lain?
             </label>
 
             <div class="flex items-center gap-4">
@@ -192,7 +193,7 @@
 
             {{-- Dropdown muncul jika Ya --}}
             <div x-show="form.show_related_program == 1" x-transition>
-                <label class="block mt-2 mb-1">Pilih Program Service Lain</label>
+                <label class="block mt-2 mb-1">Pilih Layanan Program Lain</label>
 
                 <select name="related_program_id" x-model="form.related_program_ids"
                     class="w-full border rounded px-3 py-2">
