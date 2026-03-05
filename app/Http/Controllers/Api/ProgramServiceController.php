@@ -69,7 +69,7 @@ class ProgramServiceController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Program service berhasil dibuat',
+            'message' => 'Layanan program berhasil dibuat',
             'data' => $programService,
         ], 201);
     }
@@ -94,7 +94,7 @@ class ProgramServiceController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Program service berhasil diubah',
+            'message' => 'Layanan program berhasil diubah',
             'data' => $programService,
         ], 201);
     }
@@ -106,7 +106,7 @@ class ProgramServiceController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Program service berhasil dihapus',
+            'message' => 'Layanan program berhasil dihapus',
         ]);
     }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('show_in_dropdown')->default(true);
             $table->string('slug')->unique();
             $table->string('hero_text');
+            $table->string('subhero_text')->nullable();
             $table->string('hero_image')->nullable();
             $table->timestamps();
         });

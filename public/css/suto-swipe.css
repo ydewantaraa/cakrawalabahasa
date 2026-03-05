@@ -1,0 +1,26 @@
+.infinite-scroll {
+    width: max-content;
+    animation: scrollLoop 30s linear infinite;
+}
+
+.infinite-scroll:hover {
+    animation-play-state: paused;
+}
+
+.drag-scroll {
+    cursor: grab;
+}
+
+.drag-scroll.dragging {
+    cursor: grabbing;
+}
+
+@keyframes scrollLoop {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}

@@ -35,6 +35,7 @@
         name: @js(old('name', $programService->name)),
         description: @js(old('description', $programService->description)),
         hero_text: @js(old('hero_text', $programService->hero_text)),
+        subhero_text: @js(old('subhero_text', $programService->subhero_text)),
         heroImagePreview: @js($programService->hero_image),
         serviceImagePreview: @js($programService->image_service),
         show_in_dropdown: Boolean(@js(old('show_in_dropdown', $programService->show_in_dropdown))),
@@ -77,7 +78,7 @@
     },
 }" class="bg-white rounded shadow-lg w-full max-w-3xl z-50 p-6">
 
-    <h2 class="text-xl font-semibold mb-4">Edit Program Service</h2>
+    <h2 class="text-xl font-semibold mb-4">Edit Layanan Program</h2>
 
     <form action="{{ route('program-services.update', $programService) }}" method="POST" enctype="multipart/form-data"
         class="space-y-4">
@@ -140,7 +141,7 @@
         {{-- Related Program --}}
         <div class="mt-4 space-y-2">
             <label class="block font-medium">
-                Apakah akan menampilkan program service lain?
+                Apakah akan menampilkan layanan program lain?
             </label>
 
             <div class="flex items-center gap-4">
@@ -159,7 +160,7 @@
 
             {{-- Dropdown hanya muncul kalau pilih Ya --}}
             <div class="mt-2" x-show="form.show_related_program == 1" x-transition>
-                <label class="block mb-1">Pilih Program Service Lain</label>
+                <label class="block mb-1">Pilih Layanan Program Lain</label>
 
                 <select name="related_program_id" x-model="form.related_program_id"
                     class="w-full border rounded px-3 py-2">

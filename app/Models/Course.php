@@ -67,4 +67,9 @@ class Course extends Model
             'student_id'
         )->withTimestamps();
     }
+
+    public function incomingCourses()
+    {
+        return $this->hasMany(IncomingCourse::class);
+    }
 }

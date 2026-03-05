@@ -53,7 +53,7 @@
 
         {{-- Program Service --}}
         <div>
-            <label class="block mb-1 font-medium">Program Service</label>
+            <label class="block mb-1 font-medium">Layanan Program</label>
             <select name="program_service_id" x-model="form.program_service_id" class="w-full border rounded px-3 py-2">
                 <option value="">— Pilih Program —</option>
                 @foreach ($programServices as $service)
@@ -90,7 +90,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block mb-1 font-medium">Kuota</label>
-                <input type="number" name="quota" x-model="form.quota" placeholder="Contoh: 20"
+                <input type="text" name="quota" x-model="form.quota" placeholder="Contoh: 20"
                     class="w-full border rounded px-3 py-2">
             </div>
 

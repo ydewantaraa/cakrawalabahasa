@@ -61,6 +61,10 @@
                         @include('admin.tabs.popular-classes')
                     @break
 
+                    @case('incoming-courses')
+                        @include('admin.tabs.incoming-courses')
+                    @break
+
                     @case('transaction-history')
                         @include('admin.tabs.transaction-history')
                     @break

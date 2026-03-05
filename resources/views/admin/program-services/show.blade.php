@@ -7,6 +7,7 @@
         <p><strong>Ditampilkan di dropdown:</strong> {{ $programService->show_in_dropdown ? 'Ya' : 'Tidak' }}</p>
         <p><strong>Deskripsi:</strong> {{ $programService->description ?? '-' }}</p>
         <p><strong>Hero Text:</strong> {{ $programService->hero_text ?? '-' }}</p>
+        <p><strong>Sub Hero Text:</strong> {{ $programService->subhero_text ?? '-' }}</p>
 
         {{-- Hero Image --}}
         <p><strong>Hero Image:</strong></p>

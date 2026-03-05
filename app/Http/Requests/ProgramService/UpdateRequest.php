@@ -27,6 +27,7 @@ class UpdateRequest extends FormRequest
             'description' => 'sometimes|required|string',
             'show_in_dropdown' => 'sometimes|boolean',
             'hero_text' => 'required|string',
+            'subhero_text' => 'nullable|string',
             'hero_image' => 'nullable|image',
             'image_service' => 'nullable|image',
             'features' => 'nullable|array',

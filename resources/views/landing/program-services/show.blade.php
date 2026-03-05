@@ -22,6 +22,7 @@
             height: 100%;
         }
     </style>
+    <link rel="stylesheet" href="/css/auto-swipe.css">
 </head>
 
 <body class="mx-auto font-sans bg-[#f0f5ff]" x-data="{ open: false, openProgram: false, openLayanan: false, mobileProgram: false, mobileLayanan: false }">
@@ -39,11 +40,32 @@
 
             <!-- Teks Kiri -->
             <div class="md:w-1/2 text-left pl-10 md:pl-8 lg:pl-16 mb-10 md:mb-0 md:-mt-16 xl:-mt-20 2xl:-mt-24">
-                <p class="text-[#151d52] font-semibold text-xl md:text-3xl mb-3">{{ $programService->name }}</p>
-                <h1
-                    class="text-3xl text-white sm:text-4xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mb-6">
-                    {{ $programService->hero_text }}
-                </h1>
+                <p class="text-[#151d52] font-semibold text-xl md:text-3xl mb-3">
+                    {{ $programService->name }}
+                </p>
+
+                @if ($programService->subhero_text)
+                    {{-- Jika ada subhero_text --}}
+                    <h1
+                        class="text-3xl text-[#151d52] sm:text-4xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mb-6">
+                        {{ $programService->hero_text }}
+                    </h1>
+
+                    <h1
+                        class="text-xl text-white sm:text-2xl md:text-2xl xl:text-2xl 2xl:text-3xl font-bold leading-tight mb-6">
+                        {{ $programService->subhero_text }}
+                    </h1>
+                @else
+                    {{-- Jika tidak ada subhero_text --}}
+                    <h1
+                        class="text-3xl text-white sm:text-4xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mb-6">
+                        {{ $programService->hero_text }}
+                    </h1>
+                @endif
+                <a href="#"
+                    class="inline-block shadow-[7px_7px_17px_0px_#000000] text-white px-8 py-3 rounded-full text-sm md:text-base font-semibold hover:bg-gradient-to-l from-blue-950 via-blue-700 to-blue-500 bg-gradient-to-r from-blue-950 via-blue-700 to-blue-500 hover:shadow-[0_6px_12px_rgba(0,0,0,0.40)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-200">
+                    Cek Sekarang
+                </a>
             </div>
 
             <!-- Gambar Orang -->
@@ -75,36 +97,6 @@
 
         </div>
     </section>
-
-
-    <!-- Section Class -->
-    <template x-for="card in cards" :key="card.id">
-        <div class="flex justify-center">
-            <div
-                class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] m-4 overflow-hidden
-                   min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px]
-                   max-w-[240px] flex flex-col h-[350px] sm:h-[370px] md:h-[380px] lg:h-[380px]">
-
-                <!-- Container gambar -->
-                <div class="w-full h-[55%] overflow-hidden">
-                    <img :src="card.img" :alt="card.title"
-                        class="w-full h-full object-cover object-center" />
-                </div>
-
-                <!-- Konten card -->
-                <div class="p-4 sm:p-6 lg:p-8 flex-1 flex flex-col justify-between text-center">
-                    <h3 class="font-bold text-sm lg:text-base text-[#151d52] truncate" x-text="card.title"></h3>
-
-                    <a :href="`/layanan/${card.id}`"
-                        class="hover:-translate-y-1 mt-4 bg-gradient-to-r from-orange-800 to-orange-400 hover:bg-gradient-to-l from-orange-800 to-orange-400 text-white px-3 lg:px-4 py-2 sm:py-3 rounded-full font-semibold shadow-lg transition hover:scale-105 hover:shadow-xl text-xs sm:text-sm lg:text-base">
-                        Lihat Detail
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </template>
-
 
     <!-- Section Keterangan Program Service -->
     @include('landing.program-services.program_explanation')
@@ -141,6 +133,7 @@
     @include('landing.program-services.advantage')
     <script src="/js/animationsection.js"></script>
     <script src="/js/programs.js"></script>
+    <script src="/js/auto-swipe.js"></script>
     <x-footer />
     <x-floating-wa />
 </body>

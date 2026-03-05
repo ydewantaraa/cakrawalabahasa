@@ -1,9 +1,9 @@
 // carousel.js
 
-document.addEventListener('alpine:init', () => {
+document.addEventListener("alpine:init", () => {
     // Store untuk menyimpan data courses dari Blade
-    Alpine.store('coursesData', {
-        cards: window.coursesData || [] // fallback kalau data belum di-set
+    Alpine.store("coursesData", {
+        cards: window.coursesData || [], // fallback kalau data belum di-set
     });
 });
 
@@ -13,7 +13,7 @@ function specialClassSwiper(relatedPrograms) {
         specialCards: relatedPrograms || [],
         initSwiper() {
             new Swiper(".specialClassSwiper", {
-                slidesPerView: 'auto',
+                slidesPerView: "auto",
                 spaceBetween: 0,
                 loop: true,
                 autoplay: {
@@ -25,8 +25,8 @@ function specialClassSwiper(relatedPrograms) {
                 grabCursor: true,
                 allowTouchMove: true,
             });
-        }
-    }
+        },
+    };
 }
 
 // ===== Fungsi Carousel untuk Keunggulan =====
@@ -49,8 +49,11 @@ function carouselKeunggulan() {
                 return;
             }
             // loop cards 3x supaya infinite scroll
-            this.loopedCards = [...this.cards, ...this.cards, ...this.cards]
-                .map(card => ({ ...card, uniqueId: uid++ }));
+            this.loopedCards = [
+                ...this.cards,
+                ...this.cards,
+                ...this.cards,
+            ].map((card) => ({ ...card, uniqueId: uid++ }));
             this.play();
         },
 
@@ -73,13 +76,17 @@ function carouselKeunggulan() {
         startDrag(event) {
             this.pause();
             this.dragging = true;
-            this.dragStartX = event.type.includes('touch') ? event.touches[0].clientX : event.clientX;
+            this.dragStartX = event.type.includes("touch")
+                ? event.touches[0].clientX
+                : event.clientX;
             this.dragStartPos = this.position;
         },
 
         drag(event) {
             if (!this.dragging) return;
-            const clientX = event.type.includes('touch') ? event.touches[0].clientX : event.clientX;
+            const clientX = event.type.includes("touch")
+                ? event.touches[0].clientX
+                : event.clientX;
             const deltaX = clientX - this.dragStartX;
             this.position = this.dragStartPos - deltaX;
             const totalWidth = this.loopedCards.length * this.cardWidth;
@@ -93,8 +100,8 @@ function carouselKeunggulan() {
         endDrag() {
             this.dragging = false;
             this.play();
-        }
-    }
+        },
+    };
 }
 
 // ===== Fungsi Carousel Umum =====
@@ -131,6 +138,6 @@ function carousel(cards) {
 
         endDrag() {
             this.dragging = false;
-        }
-    }
+        },
+    };
 }
