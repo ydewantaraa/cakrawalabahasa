@@ -38,35 +38,33 @@
             <span class="text-base">{{ $related->name }}</span>
         </h2>
 
-        <div class="carousel relative w-full overflow-hidden pb-4">
-            <div class="carousel-track flex gap-4 md:gap-8 px-4 w-max">
-                @foreach ($related->courses as $course)
-                    <div class="flex justify-center">
+        <div class="carousel relative w-full px-4 pb-4">
+            <div class="carousel-track flex gap-4 md:gap-8 w-max">
+                @foreach ($related->courses->concat($related->courses) as $course)
+                    <div
+                        class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] overflow-hidden w-[200px] sm:w-[220px] md:w-[240px] flex flex-col">
 
-                        <div
-                            class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] overflow-hidden w-[200px] sm:w-[220px] md:w-[240px] flex flex-col">
+                        <img src="{{ $course->thumbnail }}" alt="{{ $course->name }}"
+                            class="w-full object-cover h-[150px] sm:h-[180px] md:h-[200px] lg:h-[250px]" />
 
-                            <img src="{{ $course->thumbnail }}" alt="{{ $course->name }}"
-                                class="w-full object-cover h-[150px] sm:h-[180px] md:h-[200px] lg:h-[250px]" />
+                        <div class="p-4 md:p-6 lg:p-8 text-center flex flex-col">
 
-                            <div class="p-4 md:p-6 lg:p-8 text-center flex flex-col">
+                            <h3 class="font-bold text-xs md:text-sm lg:text-base text-[#151d52] mb-5">
+                                {{ $course->name }}
+                            </h3>
 
-                                <h3 class="font-bold text-xs md:text-sm lg:text-base text-[#151d52] mb-5">
-                                    {{ $course->name }}
-                                </h3>
-
-                                <div class="mt-auto">
-                                    <a href="/layanan/{{ $course->slug }}"
-                                        class="bg-gradient-to-r from-orange-800 to-orange-400 text-white px-3 lg:px-4 py-2 sm:py-3 lg:py-3 xl:px-6 rounded-full font-semibold shadow-lg text-[10px] sm:text-xs lg:text-base">
-                                        Lihat Detail
-                                    </a>
-                                </div>
-
+                            <div class="mt-auto">
+                                <a href="/layanan/{{ $course->slug }}"
+                                    class="bg-gradient-to-r from-orange-800 to-orange-400 text-white px-3 lg:px-4 py-2 sm:py-3 lg:py-3 xl:px-6 rounded-full font-semibold shadow-lg text-[10px] sm:text-xs lg:text-base">
+                                    Lihat Detail
+                                </a>
                             </div>
 
                         </div>
 
                     </div>
+
+                    {{-- </div> --}}
                 @endforeach
 
             </div>
@@ -74,46 +72,3 @@
 
     </section>
 @endforeach
-
-{{-- @foreach ($programService->relatedPrograms as $related)
-    <section x-data="specialClassSwiper(@js(
-    $related->courses->map(
-        fn($course) => [
-            'id' => $course->id,
-            'slug' => $course->slug,
-            'img' => $course->thumbnail,
-            'title' => $course->name,
-        ],
-    ),
-))" x-init="initSwiper()">
-        <h2 class="text-sm sm:text-xl md:text-2xl font-bold mb-4 md:mb-6 flex items-center px-4 lg:px-20 xl:px-0">
-            <span class="text-yellow-400 text-base mr-3">★</span>
-            <span class="text-base">{{ $related->name }}</span>
-        </h2>
-
-        <div class="swiper specialClassSwiper px-2 md:px-4" onmouseenter="swiperPaket.autoplay.stop()"
-            onmouseleave="swiperPaket.autoplay.start()">
-            <div class="swiper-wrapper">
-                <template x-for="card in specialCards" :key="card.id">
-                    <div class="swiper-slide">
-                        <div class="flex justify-center">
-                            <div
-                                class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] m-4 overflow-hidden w-[200px] sm:w-[220px] md:w-[240px] flex flex-col">
-                                <img :src="card.img" :alt="card.title"
-                                    class="w-full object-cover h-[150px] sm:h-[180px] md:h-[200px] lg:h-[250px]" />
-                                <div class="p-4 md:p-6 lg:p-8 text-center">
-                                    <h3 class="font-bold text-xs md:text-sm lg:text-base text-[#151d52] mb-3 md:mb-5"
-                                        x-text="card.title"></h3>
-                                    <a :href="`/layanan/${card.slug}`"
-                                        class="hover:-translate-y-2 bg-gradient-to-r from-orange-800 to-orange-400 hover:bg-gradient-to-l from-orange-800 to-orange-400 text-white px-3 lg:px-4 py-2 sm:py-3 lg:py-3 xl:px-6 lg:py-4 rounded-full font-semibold shadow-lg transition hover:scale-105 hover:shadow-xl text-[10px] sm:text-xs lg:text-base">
-                                        Lihat Detail
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </template>
-            </div>
-        </div>
-    </section>
-@endforeach --}}

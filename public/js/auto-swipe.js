@@ -1,84 +1,70 @@
-document.querySelectorAll(".carousel").forEach((carouselEl) => {
-    const trackEl = carouselEl.querySelector(".carousel-track");
+document.querySelectorAll(".carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+
+    // duplikat item
+    track.innerHTML += track.innerHTML;
 
     let isDragging = false;
     let startX = 0;
-    let scrollLeft = 0;
-    let autoScroll;
+    let startScroll = 0;
 
-    // duplicate item supaya infinite
-    trackEl.innerHTML += trackEl.innerHTML;
+    let half = 0;
 
-    function startAutoScroll() {
-        clearInterval(autoScroll);
-
-        autoScroll = setInterval(() => {
-            carouselEl.scrollLeft += 0.4;
-
-            if (carouselEl.scrollLeft >= trackEl.scrollWidth / 2) {
-                carouselEl.scrollLeft = 0;
-            }
-        }, 20);
+    function setup() {
+        half = track.scrollWidth / 2;
     }
 
-    startAutoScroll();
+    // tunggu layout selesai
+    requestAnimationFrame(setup);
 
-    // ====================
-    // DESKTOP DRAG
-    // ====================
+    function auto() {
+        if (!isDragging && half > 0) {
+            carousel.scrollLeft += 0.5;
 
-    carouselEl.addEventListener("mousedown", (e) => {
+            // infinite loop
+            if (carousel.scrollLeft >= half) {
+                carousel.scrollLeft -= half;
+            }
+        }
+
+        requestAnimationFrame(auto);
+    }
+
+    requestAnimationFrame(auto);
+
+    // DESKTOP
+    carousel.addEventListener("mousedown", (e) => {
         isDragging = true;
-        startX = e.pageX - carouselEl.offsetLeft;
-        scrollLeft = carouselEl.scrollLeft;
-
-        clearInterval(autoScroll);
+        startX = e.pageX;
+        startScroll = carousel.scrollLeft;
     });
 
-    carouselEl.addEventListener("mousemove", (e) => {
+    carousel.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
 
-        e.preventDefault();
-
-        const x = e.pageX - carouselEl.offsetLeft;
-        const walk = (x - startX) * 2;
-
-        carouselEl.scrollLeft = scrollLeft - walk;
+        const walk = (e.pageX - startX) * 2;
+        carousel.scrollLeft = startScroll - walk;
     });
 
-    carouselEl.addEventListener("mouseup", () => {
+    window.addEventListener("mouseup", () => {
         isDragging = false;
-        startAutoScroll();
     });
 
-    carouselEl.addEventListener("mouseleave", () => {
-        isDragging = false;
-        startAutoScroll();
-    });
-
-    // ====================
-    // MOBILE SWIPE
-    // ====================
-
-    carouselEl.addEventListener("touchstart", (e) => {
+    // MOBILE
+    carousel.addEventListener("touchstart", (e) => {
         isDragging = true;
-        startX = e.touches[0].pageX - carouselEl.offsetLeft;
-        scrollLeft = carouselEl.scrollLeft;
-
-        clearInterval(autoScroll);
+        startX = e.touches[0].pageX;
+        startScroll = carousel.scrollLeft;
     });
 
-    carouselEl.addEventListener("touchmove", (e) => {
+    carousel.addEventListener("touchmove", (e) => {
         if (!isDragging) return;
 
-        const x = e.touches[0].pageX - carouselEl.offsetLeft;
-        const walk = (x - startX) * 2;
-
-        carouselEl.scrollLeft = scrollLeft - walk;
+        const walk = (e.touches[0].pageX - startX) * 2;
+        carousel.scrollLeft = startScroll - walk;
     });
 
-    carouselEl.addEventListener("touchend", () => {
+    carousel.addEventListener("touchend", () => {
         isDragging = false;
-        startAutoScroll();
     });
 });

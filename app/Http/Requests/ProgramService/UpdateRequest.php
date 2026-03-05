@@ -29,7 +29,7 @@ class UpdateRequest extends FormRequest
             'hero_text' => 'required|string',
             'subhero_text' => 'nullable|string',
             'hero_image' => 'nullable|image',
-            'image_service' => 'required|image',
+            'image_service' => 'nullable|image',
             'features' => 'nullable|array',
             'features.*.title' => 'required|string|max:255',
             'features.*.description' => 'required|string',

@@ -10,8 +10,8 @@
         <span class="text-base">Special Class</span>
     </h2>
 
-    <div class="carousel relative w-full overflow-hidden">
-        <div class="carousel-track flex gap-4 px-4 w-max">
+    <div class="carousel relative w-full px-4 overflow-hidden">
+        <div class="carousel-track flex gap-4 w-max">
 
             {{-- DATA ASLI --}}
             @foreach ($specialCourses as $course)

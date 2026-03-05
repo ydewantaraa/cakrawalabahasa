@@ -126,6 +126,14 @@
                 class="w-full border rounded px-3 py-2">
         </div>
 
+        {{-- Sub Hero Text --}}
+        <div>
+            <label class="block mb-1 font-medium">Sub Hero Text</label>
+            <input type="text" name="subhero_text" x-model="form.subhero_text"
+                placeholder="Fondasi Bahasa & Softskill Bangun Karakter Sejak Dini"
+                class="w-full border rounded px-3 py-2">
+        </div>
+
         {{-- Hero Image --}}
         <div>
             <label class="block mb-1 font-medium">Hero Image</label>
