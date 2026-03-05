@@ -162,6 +162,16 @@
             @enderror
         </div>
 
+        {{-- Sub Hero Text --}}
+        <div>
+            <label class="block mb-1 font-medium">Sub Hero Text</label>
+            <input type="text" name="subhero_text" x-model="form.subhero_text" placeholder="Contoh: CB For Kids"
+                class="w-full border rounded px-3 py-2">
+            @error('sub_hero_text')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
         {{-- Hero Image --}}
         <div>
             <label class="block mb-1 font-medium">Hero Image</label>
