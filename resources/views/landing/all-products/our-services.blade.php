@@ -4,19 +4,19 @@ $cards = [
     [
         'title' => 'CB For Kids',
         'img' => 'img/Super Kid.png',
-        'url' => '/cb for kids',
+        'url' => '/cb-for-kids',
         'buttonText' => 'Lihat! Ini seru!',
     ],
     [
         'title' => 'CB For You',
         'img' => '/img/Jago Bahasa.png',
-        'url' => '/cb for you',
+        'url' => '/cb-for-you',
         'buttonText' => 'Yuk! Cari Tahu',
     ],
     [
         'title' => 'CB Extras',
         'img' => '/img/language support.png',
-        'url' => '/cb extras',
+        'url' => '/cb-extras',
         'buttonText' => 'Cek Di Sini!',
     ],
 ];
