@@ -1,4 +1,4 @@
-@foreach ($programServices as $programService)
+@foreach ($programServices->where('slug', '!=', 'special-class') as $programService)
     <section>
         <h2 class="text-sm sm:text-xl md:text-2xl font-bold mb-6 flex items-center px-4 lg:px-20 xl:px-0">
             <span class="text-yellow-400 text-base mr-3">★</span>
@@ -13,7 +13,7 @@
                 @mouseup="endDrag" @mouseleave="endDrag" @touchend="endDrag" @mousemove="drag" @touchmove="drag"
                 :style="`transform: translateX(-${position}px); transition: transform 0.1s linear;`">
 
-                @foreach ($programService->courses as $course)
+                @foreach ($programService->courses->where('isActive', true) as $course)
                     <div
                         class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] m-2 md:m-4 overflow-hidden min-w-[180px] sm:min-w-[210px] md:min-w-[180px] xl:min-w-[240px]">
 
