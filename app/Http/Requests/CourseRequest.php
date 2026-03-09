@@ -34,8 +34,8 @@ class CourseRequest extends FormRequest
             'explanation' => 'nullable|string',
             'shopee_link' => ['nullable', 'url'],
             'thumbnail' => $isCreate
-                ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-                : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                ? 'required|image|max:2048'
+                : 'nullable|image|max:2048',
             'program_service_id' => 'nullable|exists:program_services,id',
             'facilities' => 'nullable|string'
         ];
