@@ -13,6 +13,7 @@ class ProgramService extends Model
         'show_in_dropdown',
         'slug',
         'hero_text',
+        'subhero_text',
         'hero_image',
         'image_service'
     ];
