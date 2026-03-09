@@ -39,7 +39,7 @@
         <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between z-10">
 
             <!-- Teks Kiri -->
-            <div class="md:w-1/2 text-left pl-10 md:pl-8 lg:pl-16 mb-10 md:mb-0 md:-mt-16 xl:-mt-20 2xl:-mt-24">
+            <div class="md:w-1/3 text-left pl-10 md:pl-8 lg:pl-16 mb-10 md:mb-0 md:-mt-16 xl:-mt-20 2xl:-mt-24">
                 <p class="text-[#151d52] font-semibold text-xl md:text-3xl mb-3">
                     {{ $programService->name }}
                 </p>
