@@ -50,6 +50,7 @@ class CourseService
                 'slug' => $slug,
                 'category' => $data['category'],
                 'quota' => $data['quota'],
+                'price_note' => $data['price_note'],
                 'duration' => $data['duration'],
                 'explanation' => $data['explanation'] ?? null,
                 'shopee_link' => $data['shopee_link'] ?? null,

@@ -21,7 +21,7 @@
         {{-- PINTASAN KELAS --}}
         @include('landing.all-products.courses')
         {{-- SPECIAL CLASS --}}
-        {{-- @include('landing.all-products.special-class') --}}
+        @include('landing.all-products.special-class')
 
         {{-- INCOMING CLASS --}}
         @include('landing.all-products.incoming-class')

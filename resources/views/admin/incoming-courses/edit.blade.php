@@ -1,4 +1,9 @@
-<div class="bg-white rounded shadow-lg w-full max-w-2xl z-50 p-6">
+<div x-data="{
+    form: {
+        description: @js(old('description', $incomingCourse->description)),
+        sub_description: @js(old('sub_description', $incomingCourse->sub_description)),
+    }
+}" class="bg-white rounded shadow-lg w-full max-w-2xl z-50 p-6">
 
     <h2 class="text-xl font-semibold mb-4">
         Edit Incoming Course
@@ -47,7 +52,7 @@
         {{-- Deskripsi --}}
         <div>
             <label class="block mb-1 font-medium">Deskripsi</label>
-            <textarea name="description" rows="4" class="w-full border rounded px-3 py-2"></textarea>
+            <textarea name="description" rows="4" x-model="form.description" class="w-full border rounded px-3 py-2"></textarea>
             @error('description')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -56,7 +61,7 @@
         {{-- Sub Deskripsi --}}
         <div>
             <label class="block mb-1 font-medium">Sub Deskripsi</label>
-            <textarea name="sub_description" rows="4" class="w-full border rounded px-3 py-2"></textarea>
+            <textarea name="sub_description" rows="4" x-model="form.sub_description" class="w-full border rounded px-3 py-2"></textarea>
             @error('sub_description')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror

@@ -39,6 +39,7 @@ Route::get('/program-services/{programService:slug}', [ProgramServiceController:
 Route::get('/teachers/{teacher}', [TeacherController::class, 'show']);
 Route::get('/students/{student}', [StudentController::class, 'show']);
 Route::get('/courses', [CourseController::class, 'index']);
+Route::get('/special-class/courses', [ProgramServiceController::class, 'specialClassCourses']);
 
 Route::middleware(['auth:sanctum', 'can:admin'])->prefix('admin')->group(function () {
     Route::post('/program-services', [ProgramServiceController::class, 'store']);

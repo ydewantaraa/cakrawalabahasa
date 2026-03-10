@@ -90,6 +90,10 @@
                 <div class="mb-6 space-y-2 text-sm md:text-base">
                     <p><b>Kategori:</b> {{ $course->category }}</p>
 
+                    @if ($course->price_note)
+                        <p><b>Harga:</b> {{ $course->price_note }}</p>
+                    @endif
+
                     @if ($course->quota)
                         <p><b>Kuota:</b> {{ $course->quota }}</p>
                     @endif
@@ -255,10 +259,6 @@
                             :value="getSelectedPrice()?.unit_type === 'per_item' ? quantity : 1">
 
                         <!-- Tombol -->
-                        {{-- <button type="submit"
-                            class="hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-200 bg-[#f78a28] hover:bg-orange-600 px-4 py-2 text-white font-bold text-base md:text-lg rounded-xl w-auto">
-                            Beli Sekarang
-                        </button> --}}
                         @auth
                             @if (auth()->user()->role === 'student')
                                 <!-- FORM CHECKOUT -->

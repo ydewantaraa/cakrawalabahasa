@@ -25,11 +25,11 @@
 
         <!-- CAROUSEL -->
         <div class="w-full p-6 md:p-2 md:flex-1">
-            <h2 id="carouselTitle" class="font-semibold text-base md:text-xl mb-3 md:mb-4">
+            <h2 id="carouselTitle" class="font-semibold text-base md:text-xl">
             </h2>
-            <div class="carousel overflow-hidden">
+            <div class="carousel">
                 @foreach ($incomingCourses as $incoming)
-                    <div class="slide-course w-full max-w-[340px] md:max-w-none mx-auto h-auto md:h-[260px] bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row"
+                    <div class="slide-course card-incoming h-[320px] md:h-[260px]"
                         data-title="{{ $incoming->course->name }}"
                         data-end-date="{{ \Carbon\Carbon::parse($incoming->incoming_date)->format('Y-m-d\TH:i:s') }}">
 
@@ -51,7 +51,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="carousel-nav mt-3 text-center">
+            <div class="carousel-nav">
                 @foreach ($incomingCourses as $index => $course)
                     <span class="dot {{ $index == 0 ? 'active' : '' }}"></span>
                 @endforeach
