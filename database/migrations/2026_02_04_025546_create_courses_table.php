@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('category');
-            $table->string('quota');
+            $table->string('quota')->nullable();
+            $table->string('price_note')->nullable();
             $table->string('duration')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('explanation')->nullable();

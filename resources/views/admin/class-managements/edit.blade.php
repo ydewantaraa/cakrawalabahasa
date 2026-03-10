@@ -4,6 +4,7 @@
         description: @js(old('description', $course->description)),
         explanation: @js(old('explanation', $course->explanation)),
         category: @js(old('category', $course->category)),
+        price_note: @js(old('price_note', $course->price_note)),
         quota: @js(old('quota', $course->quota)),
         shopee_link: @js(old('shopee_link', $course->shopee_link)),
         duration: @js(old('duration', $course->duration)),
@@ -84,6 +85,13 @@
             <label class="block mb-1 font-medium">Kategori</label>
             <input type="text" name="category" x-model="form.category" placeholder="Contoh: Coding"
                 class="w-full border rounded px-3 py-2">
+        </div>
+
+        {{-- Catatan Harga --}}
+        <div>
+            <label class="block mb-1 font-medium">Harga</label>
+            <input type="text" name="price_note" x-model="form.price_note"
+                placeholder="Contoh: Harga berlaku untuk online maupun offline" class="w-full border rounded px-3 py-2">
         </div>
 
         {{-- Kuota & Durasi --}}

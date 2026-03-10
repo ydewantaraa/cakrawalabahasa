@@ -24,6 +24,7 @@ use App\Models\IncomingCourse;
 use App\Models\PopularClass;
 use App\Models\Price;
 use App\Models\ProgramService;
+use App\Services\ProgramServiceService;
 use Illuminate\Http\Request;
 use Midtrans\Snap;
 use Midtrans\Config;
@@ -207,12 +208,23 @@ Route::get('/komunitas permainan', function () {
     return view('landing.komunitas permainan');
 });
 
-Route::get('/semua-produk', function () {
+Route::get('/semua-produk', function (ProgramServiceService $service) {
     $incomingCourses = IncomingCourse::with('course')
         ->orderBy('incoming_date')
         ->get();
-    $programServices = ProgramService::with(['courses', 'relatedPrograms.courses'])->get();
-    return view('landing.all-products.index', compact('incomingCourses', 'programServices'));
+
+    $programServices = $service->all();
+
+    $programService = ProgramService::find(1);
+
+    $specialCourses = $service->getCoursesFromRelatedProgramsOf($programService);
+
+    return view('landing.all-products.index', compact(
+        'incomingCourses',
+        'programServices',
+        'specialCourses',
+        'programService'
+    ));
 });
 
 Route::get('/privacy_policy', function () {

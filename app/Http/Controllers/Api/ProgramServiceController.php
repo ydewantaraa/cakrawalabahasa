@@ -109,4 +109,20 @@ class ProgramServiceController extends Controller
             'message' => 'Layanan program berhasil dihapus',
         ]);
     }
+
+    public function specialClassCourses(ProgramServiceService $service)
+    {
+        // Ambil program service yang namanya "Special Class"
+        $specialClass = ProgramService::where('slug', 'special-class')
+            ->with('relatedPrograms.courses')
+            ->firstOrFail();
+
+        // Ambil semua courses dari related programs
+        $courses = $service->getCoursesFromRelatedProgramsOf($specialClass);
+
+        return response()->json([
+            'success' => true,
+            'data' => $courses,
+        ]);
+    }
 }

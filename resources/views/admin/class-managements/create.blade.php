@@ -93,6 +93,13 @@
                 class="w-full border rounded px-3 py-2">
         </div>
 
+        {{-- Catatan Harga --}}
+        <div>
+            <label class="block mb-1 font-medium">Harga</label>
+            <input type="text" name="price_note" value="{{ old('price_note') }}"
+                placeholder="Contoh: Harga berlaku untuk online maupun offline" class="w-full border rounded px-3 py-2">
+        </div>
+
 
         {{-- Kuota & Durasi --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
