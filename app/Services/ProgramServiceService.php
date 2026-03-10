@@ -303,24 +303,4 @@ class ProgramServiceService
             $programService->delete();
         });
     }
-
-    public function getRelatedPrograms()
-    {
-        return ProgramService::whereHas('relatedPrograms')
-            ->with('courses')
-            ->get()
-            ->flatMap(function ($program) {
-                return $program->relatedPrograms;
-            })
-            ->unique('id')
-            ->values();
-    }
-
-    public function getCoursesFromRelatedProgramsOf(ProgramService $programService)
-    {
-        return $programService->relatedPrograms
-            ->flatMap(fn($related) => $related->courses)
-            ->unique('id')
-            ->values();
-    }
 }
