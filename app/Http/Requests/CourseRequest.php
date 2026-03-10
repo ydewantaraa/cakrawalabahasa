@@ -31,7 +31,7 @@ class CourseRequest extends FormRequest
             'category' => 'required|string|max:255',
             'quota' => 'nullable|string|max:255',
             'price_note' => 'nullable|string|max:255',
-            'duration' => 'required|string|max:255',
+            'duration' => 'nullable|string|max:255',
             'explanation' => 'nullable|string',
             'shopee_link' => ['nullable', 'url'],
             'thumbnail' => $isCreate
