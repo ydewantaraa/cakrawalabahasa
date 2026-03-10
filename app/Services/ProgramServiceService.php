@@ -17,7 +17,7 @@ class ProgramServiceService
 
     public function all()
     {
-        return ProgramService::orderBy('created_at', 'desc')
+        return ProgramService::orderBy('created_at', 'asc')
             ->with('feature_program_services')
             ->with('advantage_program_services')
             ->get();
