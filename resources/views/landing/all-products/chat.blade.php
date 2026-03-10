@@ -1,5 +1,5 @@
 <!-- Section Chat Semua Produk -->
-<section class="opacity-0 translate-y-5 transition-all duration-1000 ease-out fade-el py-6 px-4 lg:px-20 mt-12">
+<section class="opacity-0 translate-y-5 transition-all duration-1000 ease-out fade-el py-6 px-4 lg:px-20 mt-12 mb-8">
     <h2 class="text-sm sm:text-xl md:text-2xl font-bold mb-8 flex items-center">
         <span class="text-yellow-500 mr-2">★</span> Kami Siap Melayani!
     </h2>
