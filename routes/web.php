@@ -209,21 +209,24 @@ Route::get('/komunitas permainan', function () {
 });
 
 Route::get('/semua-produk', function (ProgramServiceService $service) {
+
     $incomingCourses = IncomingCourse::with('course')
         ->orderBy('incoming_date')
         ->get();
 
     $programServices = $service->all();
 
-    $programService = ProgramService::find(1);
+    $specialClass = ProgramService::where('slug', 'special-class')
+        ->with('courses')
+        ->firstOrFail();
 
-    $specialCourses = $service->getCoursesFromRelatedProgramsOf($programService);
+    $specialCourses = $specialClass->courses;
 
     return view('landing.all-products.index', compact(
         'incomingCourses',
         'programServices',
         'specialCourses',
-        'programService'
+        'specialClass'
     ));
 });
 

@@ -110,15 +110,13 @@ class ProgramServiceController extends Controller
         ]);
     }
 
-    public function specialClassCourses(ProgramServiceService $service)
+    public function specialClassCourses()
     {
-        // Ambil program service yang namanya "Special Class"
         $specialClass = ProgramService::where('slug', 'special-class')
-            ->with('relatedPrograms.courses')
+            ->with('courses')
             ->firstOrFail();
 
-        // Ambil semua courses dari related programs
-        $courses = $service->getCoursesFromRelatedProgramsOf($specialClass);
+        $courses = $specialClass->courses;
 
         return response()->json([
             'success' => true,
