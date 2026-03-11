@@ -77,6 +77,40 @@
                     {{ $course->description }}
                 </p>
 
+                {{-- Konten tambahan khusus untuk super-agency --}}
+                @if ($course['slug'] === 'super-agency')
+                    <div class="mt-6 space-y-3 text-gray-700 text-xs md:text-base text-justify">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>
+                                <strong>Persiapan Bahasa:</strong> Meningkatkan kemampuan bahasa melalui latihan
+                                intensif, strategi soal, dan simulasi tes untuk menghadapi berbagai uji kemahiran
+                                bahasa.
+                            </li>
+                            <li>
+                                <strong>Pengurusan Dokumen:</strong> Membantu dalam pengumpulan dan pengurusan
+                                dokumen penting seperti paspor, visa, dan dokumen lainnya yang diperlukan untuk
+                                studi atau pekerjaan di luar negeri.
+                            </li>
+                            <li>
+                                <strong>Konsultasi dan Bimbingan:</strong> Memberikan konsultasi mengenai pilihan
+                                universitas, program studi, atau peluang karier yang sesuai dengan minat dan tujuan
+                                peserta.
+                            </li>
+                            <li>
+                                <strong>Orientasi Pra-Keberangkatan:</strong> Menyediakan informasi dan pelatihan
+                                mengenai budaya, adat istiadat, dan kehidupan di negara tujuan untuk memudahkan
+                                adaptasi peserta.
+                            </li>
+                            <li>
+                                <strong>Pendampingan Keberangkatan:</strong> Membantu dalam perencanaan perjalanan,
+                                termasuk pemesanan tiket dan akomodasi, serta memberikan panduan selama proses
+                                keberangkatan.
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                @endif
+
                 <!-- Info Tambahan -->
                 <div class="flex items-start gap-3 mb-6"
                     x-show="activeService && services.find(s => s.id === activeService)?.description">

@@ -23,8 +23,10 @@
         {{-- SPECIAL CLASS --}}
         @include('landing.all-products.special-class')
 
-        {{-- INCOMING CLASS --}}
-        @include('landing.all-products.incoming-class')
+        @if ($incomingCourses->isNotEmpty())
+            {{-- INCOMING CLASS --}}
+            @include('landing.all-products.incoming-class')
+        @endif
     </div>
 
     <!-- Section Chat Semua Produk -->

@@ -1,4 +1,4 @@
-<div class="bg-white rounded shadow-lg w-full max-w-2xl p-6" x-data="{ unitType: 'fixed' }">
+<div class="bg-white rounded shadow-lg w-full max-w-2xl p-6" x-data="{ unitType: '' }">
 
     <h2 class="text-xl font-semibold mb-4">Tambah Harga</h2>
 
@@ -52,7 +52,9 @@
         {{-- Unit Type --}}
         <div>
             <label class="block mb-1 font-medium">Tipe Unit Harga</label>
-            <select name="unit_type" x-model="unitType" class="w-full border rounded px-3 py-2" required>
+
+            <select name="unit_type" x-model="unitType" class="w-full border rounded px-3 py-2">
+                <option value="">-- Tidak menggunakan unit harga --</option>
                 <option value="fixed">Harga Paket (per bulan / per 10 sesi / per paket)</option>
                 <option value="per_item">Harga Per Item (per halaman / per orang / per unit)</option>
             </select>
