@@ -11,6 +11,9 @@ class CourseService extends Model
         'name',
         'thumbnail',
         'description',
+        'duration',
+        'category',
+        'facilities',
         'course_id'
     ];
 

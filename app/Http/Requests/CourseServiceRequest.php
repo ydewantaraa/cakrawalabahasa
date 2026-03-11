@@ -25,6 +25,9 @@ class CourseServiceRequest extends FormRequest
             'name' => 'required|string|max:255',
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'description' => 'nullable|string',
+            'category' => 'nullable|string|max:255',
+            'duration' => 'nullable|string|max:255',
+            'facilities' => 'nullable|string|max:255',
         ];
 
         // Hanya saat STORE (POST)

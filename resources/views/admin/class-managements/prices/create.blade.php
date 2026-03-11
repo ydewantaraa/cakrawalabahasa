@@ -58,19 +58,18 @@
             </select>
         </div>
 
-        {{-- Package Size (WAJIB jika fixed) --}}
+        {{-- Package Size --}}
         <div x-show="unitType === 'fixed'" x-cloak>
-            <label class="block mb-1 font-medium">Label Paket</label>
+            <label class="block mb-1 font-medium">Label Paket (Opsional)</label>
             <input type="text" name="package_size" class="w-full border rounded px-3 py-2"
-                :required="unitType === 'fixed'"
                 placeholder="contoh: per 10 sesi, per bulan (4 sesi 1 jam/sesi), dll">
         </div>
 
-        {{-- Label Type (WAJIB jika per_item) --}}
+        {{-- Label Type --}}
         <div x-show="unitType === 'per_item'" x-cloak>
-            <label class="block mb-1 font-medium">Label Tipe</label>
+            <label class="block mb-1 font-medium">Label Tipe (Opsional)</label>
             <input type="text" name="label_type" class="w-full border rounded px-3 py-2"
-                :required="unitType === 'per_item'" placeholder="contoh: per halaman, per orang, dll">
+                placeholder="contoh: per halaman, per orang, dll">
         </div>
 
         {{-- hasQuantity (hidden auto-set) --}}
