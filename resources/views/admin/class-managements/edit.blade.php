@@ -11,6 +11,7 @@
         isActive: Boolean(@js(old('isActive', $course->isActive))),
         hasTeacher: Boolean(@js(old('hasTeacher', $course->hasTeacher))),
         program_service_id: @js(old('program_service_id', $course->program_service_id)),
+        facilities: @js(old('facilities', $course->course_facilities->pluck('name')->implode(', '))),
         thumbnailPreview: @js($course->thumbnail ? $course->thumbnail : null)
     },
     handleThumbnailChange(event) {
@@ -76,6 +77,16 @@
                 placeholder="Masukkan link shopee yang terkait dengan kelas ini"
                 class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">
             @error('shopee_link')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        {{-- Fasilitas --}}
+        <div>
+            <label class="block mb-1 font-medium">Fasilitas</label>
+            <input type="text" name="facilities" x-model="form.facilities"
+                placeholder="Contoh: Modul, Sertifikat, Snack, Rekaman Kelas" class="w-full border rounded px-3 py-2">
+            @error('facilities')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
