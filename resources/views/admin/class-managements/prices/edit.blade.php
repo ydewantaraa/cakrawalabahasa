@@ -65,7 +65,7 @@
         <div x-show="form.unit_type === 'fixed'" x-cloak>
             <label class="block mb-1 font-medium">Label Paket</label>
             <input type="text" name="package_size" x-model="form.package_size"
-                class="w-full border rounded px-3 py-2" :required="form.unit_type === 'fixed'"
+                class="w-full border rounded px-3 py-2"
                 placeholder="contoh: per 10 sesi, per bulan (4 sesi 1 jam/sesi), dll">
         </div>
 
@@ -73,7 +73,7 @@
         <div x-show="form.unit_type === 'per_item'" x-cloak>
             <label class="block mb-1 font-medium">Label Tipe</label>
             <input type="text" name="label_type" x-model="form.label_type" class="w-full border rounded px-3 py-2"
-                :required="form.unit_type === 'per_item'" placeholder="contoh: per halaman, per orang, dll">
+                placeholder="contoh: per halaman, per orang, dll">
         </div>
 
         {{-- Hidden hasQuantity --}}
