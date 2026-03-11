@@ -22,43 +22,6 @@ class PriceRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    // public function rules(): array
-    // {
-    //     $rules = [
-    //         'sub_course_service_id' => [
-    //             'nullable',
-    //             'exists:sub_course_services,id',
-    //             // Validasi kustom supaya sub service milik course service yang sama
-    //             function ($attribute, $value, $fail) {
-    //                 if ($value) {
-    //                     $courseServiceId = $this->route('courseService') ?? $this->input('course_service_id');
-    //                     $exists = SubCourseService::where('id', $value)
-    //                         ->where('course_service_id', $courseServiceId)
-    //                         ->exists();
-    //                     if (!$exists) {
-    //                         $fail("Sub layanan yang dipilih tidak valid untuk layanan ini.");
-    //                     }
-    //                 }
-    //             }
-    //         ],
-    //         'price' => 'required|numeric|min:0',
-    //         'package_size' => 'nullable|string|max:255',
-    //         'learning_type' => 'nullable|array',
-    //         'learning_type.*' => 'in:online,offline,hybrid',
-    //         'label_type' => 'nullable|string|max:255',
-    //         'unit_type' => 'required|string|max:255',
-    //     ];
-
-    //     // Hanya saat STORE (POST)
-    //     if ($this->isMethod('post')) {
-    //         // course_service_id wajib kalau tidak diambil dari route
-    //         if (!$this->route('courseService')) {
-    //             $rules['course_service_id'] = 'required|exists:course_services,id';
-    //         }
-    //     }
-
-    //     return $rules;
-    // }
 
     public function rules(): array
     {
@@ -112,7 +75,7 @@ class PriceRequest extends FormRequest
             'learning_type' => 'nullable|array',
             'learning_type.*' => 'in:online,offline,hybrid',
             'label_type' => 'nullable|string|max:255',
-            'unit_type' => 'required|string|max:255',
+            'unit_type' => 'nullable|string|max:255',
         ];
     }
 }

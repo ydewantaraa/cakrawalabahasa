@@ -3,7 +3,7 @@
         price: @js(old('price', optional($price)->price ?? '')),
         sub_course_service_id: @js(old('sub_course_service_id', optional($price)->sub_course_service_id ?? '')),
         learning_type: @js(old('learning_type', optional($price)->learning_type ?? [])),
-        unit_type: @js(old('unit_type', optional($price)->unit_type ?? 'fixed')),
+        unit_type: @js(old('unit_type', optional($price)->unit_type ?? '')),
         package_size: @js(old('package_size', optional($price)->package_size ?? '')),
         label_type: @js(old('label_type', optional($price)->label_type ?? ''))
     }
@@ -54,8 +54,9 @@
 
         {{-- Unit Type --}}
         <div>
-            <label class="block mb-1 font-medium">Unit Type</label>
-            <select name="unit_type" x-model="form.unit_type" class="w-full border rounded px-3 py-2" required>
+            <label class="block mb-1 font-medium">Tipe Unit Harga</label>
+            <select name="unit_type" x-model="form.unit_type" class="w-full border rounded px-3 py-2">
+                <option value="">-- Tidak menggunakan unit harga --</option>
                 <option value="fixed">Fixed</option>
                 <option value="per_item">Per Item</option>
             </select>

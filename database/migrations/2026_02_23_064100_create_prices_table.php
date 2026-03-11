@@ -17,10 +17,7 @@ return new class extends Migration
             $table->boolean('hasQuantity')->default(false); // true ketika unit type = per item
             $table->string('package_size')->nullable(); // harus diisi ketika unit type = fixed
             $table->enum('learning_type', ['online', 'offline', 'hybrid'])->nullable();
-            $table->enum('unit_type', [
-                'fixed',
-                'per_item'
-            ])->default('fixed');
+            $table->enum('unit_type', ['fixed', 'per_item'])->nullable();
             $table->string('label_type')->nullable(); // harus diisi ketika unit type = per item
             // WAJIB - semua harga tetap terikat ke course
             $table->foreignId('course_id')
