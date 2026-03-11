@@ -39,6 +39,26 @@
             </thead>
             <tbody>
                 @foreach ($courses as $course)
+                    @php
+                        $prices = $course->course_services
+                            ->flatMap(function ($service) {
+                                return $service->prices->map(function ($price) use ($service) {
+                                    return [
+                                        'id' => $price->id,
+                                        'service' => ['id' => $service->id, 'name' => $service->name],
+                                        'subService' => $price->subService
+                                            ? ['id' => $price->subService->id, 'name' => $price->subService->name]
+                                            : null,
+                                        'learning_type' => $price->learning_type,
+                                        'unit_type' => $price->unit_type,
+                                        'label_type' => $price->label_type,
+                                        'price' => $price->price,
+                                        'package_size' => $price->package_size,
+                                    ];
+                                });
+                            })
+                            ->toArray();
+                    @endphp
                     <tr class="border-t">
                         <td class="p-3 break-words">{{ $course->name }}</td>
 
@@ -138,20 +158,69 @@
     <!-- Detail Harga Section -->
     <div x-cloak>
         @foreach ($courses as $course)
-            <div x-show="priceManagement === {{ $course->id }}" class="space-y-4">
-                @include('admin.class-managements.class-services.partials.price-management', [
-                    'course' => $course,
-                ])
+            @php
+                $coursePrices = $course->course_services
+                    ->flatMap(function ($service) {
+                        return $service->prices->map(function ($price) use ($service) {
+                            return [
+                                'id' => $price->id,
+                                'service' => ['id' => $service->id, 'name' => $service->name],
+                                'subService' => $price->subService
+                                    ? ['id' => $price->subService->id, 'name' => $price->subService->name]
+                                    : null,
+                                'learning_type' => $price->learning_type,
+                                'unit_type' => $price->unit_type,
+                                'label_type' => $price->label_type,
+                                'price' => $price->price,
+                                'package_size' => $price->package_size,
+                            ];
+                        });
+                    })
+                    ->toArray();
+            @endphp
 
-                <button @click="priceManagement = null"
-                    class="bg-gray-500 hover:bg-gray-400 text-white px-4 py-2 rounded">
-                    Kembali
-                </button>
+            <div x-show="priceManagement === {{ $course->id }}" x-cloak x-data="{
+                currentPage: 1,
+                perPage: 10,
+                searchQuery: '',
+                prices: @js($coursePrices),
+                get filteredPrices() {
+                    if (!this.searchQuery) return this.prices;
+                    return this.prices.filter(price =>
+                        price.service.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                        (price.subService ? price.subService.name.toLowerCase().includes(this.searchQuery.toLowerCase()) : false)
+                    );
+                },
+                get totalPages() {
+                    return Math.ceil(this.filteredPrices.length / this.perPage) || 1;
+                },
+                get paginatedPrices() {
+                    const start = (this.currentPage - 1) * this.perPage;
+                    return this.filteredPrices.slice(start, start + this.perPage);
+                },
+                goToPage(page) {
+                    if (page >= 1 && page <= this.totalPages) this.currentPage = page;
+                }
+            }">
+                @include('admin.class-managements.class-services.partials.price-management')
             </div>
         @endforeach
     </div>
+    {{-- TEMPLATE MODAL EDIT HARGA --}}
+    @foreach ($courses as $course)
+        @foreach ($course->course_services as $service)
+            @foreach ($service->prices as $price)
+                <template x-ref="editPrice{{ $price->id }}">
+                    @include('admin.class-managements.prices.edit', [
+                        'price' => $price,
+                        'service' => $service,
+                    ])
+                </template>
+            @endforeach
+        @endforeach
+    @endforeach
 
-    <!-- Create Template -->
+    <!-- Create Template di luar loop -->
     <template x-ref="createForm">
         @include('admin.class-managements.create')
     </template>
