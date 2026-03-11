@@ -2,6 +2,9 @@
     form: {
         name: @js(old('name', $service->name)),
         description: @js(old('description', $service->description)),
+        category: @js(old('category', $service->category)),
+        duration: @js(old('duration', $service->duration)),
+        facilities: @js(old('facilities', $service->facilities)),
         course_id: @js(old('course_id', $service->course_id)),
     },
     thumbnailPreview: @js($service->thumbnail ?? null),
@@ -34,6 +37,28 @@
             <label class="block mb-1 font-medium">Deskripsi (Opsional)</label>
             <textarea name="description" rows="3" x-model="form.description" class="w-full border rounded px-3 py-2"></textarea>
         </div>
+
+        {{-- Kategori --}}
+        <div>
+            <label class="block mb-1 font-medium">Kategori</label>
+            <input type="text" name="category" x-model="form.category" placeholder="Contoh: Untuk umum"
+                class="w-full border rounded px-3 py-2">
+        </div>
+
+        {{-- Durasi --}}
+        <div>
+            <label class="block mb-1 font-medium">Durasi</label>
+            <input type="text" name="duration" x-model="form.duration" placeholder="Contoh: 1 hari"
+                class="w-full border rounded px-3 py-2">
+        </div>
+
+        {{-- Fasilitas --}}
+        <div>
+            <label class="block mb-1 font-medium">Fasilitas</label>
+            <input type="text" name="facilities" x-model="form.facilities"
+                placeholder="Contoh: Interpreter, Alat Pendukung, dll" class="w-full border rounded px-3 py-2">
+        </div>
+
         {{-- thumbnail --}}
         <div>
             <label class="block mb-1 font-medium">Thumbnail (Opsional)</label>

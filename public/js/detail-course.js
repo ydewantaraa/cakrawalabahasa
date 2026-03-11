@@ -183,6 +183,26 @@ document.addEventListener("alpine:init", () => {
 
             return Array.from(mediaSet);
         },
+        getCurrentService() {
+            return (
+                this.services.find((s) => s.id === this.activeService) ?? null
+            );
+        },
+
+        getCategory() {
+            const service = this.getCurrentService();
+            return service?.category || window.courseCategory;
+        },
+
+        getDuration() {
+            const service = this.getCurrentService();
+            return service?.duration || window.courseDuration;
+        },
+
+        getFacilities() {
+            const service = this.getCurrentService();
+            return service?.facilities || window.courseFacilities;
+        },
         handleSubmit(event) {
             const service = this.services.find(
                 (s) => s.id === this.activeService,

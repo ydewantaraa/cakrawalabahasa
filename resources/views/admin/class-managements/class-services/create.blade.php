@@ -43,6 +43,39 @@
             <label class="block mb-1 font-medium">Deskripsi</label>
             <textarea name="description" rows="3" class="w-full border rounded px-3 py-2">{{ old('description') }}</textarea>
         </div>
+
+        {{-- Kategori --}}
+        <div>
+            <label class="block mb-1 font-medium">Kategori (Opsional)</label>
+            <input type="text" name="category" value="{{ old('category') }}" placeholder="Contoh: Untuk Umum"
+                class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">
+            @error('category')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        {{-- Kategori --}}
+        <div>
+            <label class="block mb-1 font-medium">Fasilitas (Opsional)</label>
+            <input type="text" name="facilities" value="{{ old('facilities') }}"
+                placeholder="Contoh: Interpreter, Alat Pendukung, dll"
+                class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">
+            @error('facilities')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        {{-- Durasi --}}
+        <div>
+            <label class="block mb-1 font-medium">Durasi (Opsional)</label>
+            <input type="text" name="duration" value="{{ old('duration') }}" placeholder="Contoh: 1 hari"
+                class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">
+            @error('duration')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        {{-- course id --}}
         <input type="hidden" name="course_id" value="{{ $course->id }}">
 
         {{-- Action --}}

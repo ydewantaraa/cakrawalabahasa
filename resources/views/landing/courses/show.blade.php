@@ -13,6 +13,9 @@
                 'id' => $s->id,
                 'name' => $s->name,
                 'description' => $s->description,
+                'category' => $s->category,
+                'duration' => $s->duration,
+                'facilities' => $s->facilities,
                 'thumbnail' => $s->thumbnail,
                 'has_teacher' => $s->has_teacher,
                 'prices' => $s->prices->map(function ($p) {
@@ -88,7 +91,10 @@
 
                 <!-- Data -->
                 <div class="mb-6 space-y-2 text-sm md:text-base">
-                    <p><b>Kategori:</b> {{ $course->category }}</p>
+                    <p>
+                        <b>Kategori:</b>
+                        <span x-text="getCategory()"></span>
+                    </p>
 
                     @if ($course->price_note)
                         <p><b>Harga:</b> {{ $course->price_note }}</p>
@@ -98,13 +104,14 @@
                         <p><b>Kuota:</b> {{ $course->quota }}</p>
                     @endif
 
-                    @if ($course->duration)
-                        <p><b>Durasi:</b> {{ $course->duration }}</p>
-                    @endif
+                    <p x-show="getDuration()">
+                        <b>Durasi:</b>
+                        <span x-text="getDuration()"></span>
+                    </p>
 
                     <p>
                         <b>Fasilitas:</b>
-                        {{ $course->course_facilities->pluck('name')->implode(', ') ?: '-' }}
+                        <span x-text="getFacilities()"></span>
                     </p>
                 </div>
 
@@ -295,6 +302,9 @@
             window.servicesData = @json($servicesJson);
             window.courseHasTeacher = {{ $course->hasTeacher ? 1 : 0 }};
             window.courseThumbnail = @json($course->thumbnail);
+            window.courseCategory = @json($course->category);
+            window.courseDuration = @json($course->duration);
+            window.courseFacilities = @json($course->course_facilities->pluck('name')->implode(', '));
         </script>
 </body>
 
