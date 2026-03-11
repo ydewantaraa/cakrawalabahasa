@@ -2,6 +2,21 @@
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-width: none;
+    cursor: grab;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.carousel:active {
+    cursor: grabbing;
+}
+
+.carousel img {
+    pointer-events: none;
+    user-drag: none;
+    -webkit-user-drag: none;
 }
 
 .carousel::-webkit-scrollbar {

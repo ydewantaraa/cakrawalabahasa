@@ -232,7 +232,7 @@
                     <p class="font-semibold mb-2">Pilih Pengajar</p>
                     <div class="flex gap-2 flex-wrap">
 
-                        <template x-for="item in ['Random Teacher','Pick Your Own']" :key="item">
+                        <template x-for="item in ['Auto-Select','Pick Your Own']" :key="item">
                             <button type="button" @click="pengajar = item"
                                 :class="pengajar === item ?
                                     'border-[#f78a28] shadow-lg shadow-orange-300' :

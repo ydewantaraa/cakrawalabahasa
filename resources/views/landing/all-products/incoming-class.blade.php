@@ -27,7 +27,7 @@
         <div class="course-carousel">
             <h2 id="carouselTitle" class="font-semibold text-base md:text-xl">
             </h2>
-            <div class="carousel">
+            <div class="carousel-incoming">
                 @foreach ($incomingCourses as $incoming)
                     <div class="slide-course card-incoming h-[500px] md:h-[340px]"
                         data-title="{{ $incoming->course->name }}"
