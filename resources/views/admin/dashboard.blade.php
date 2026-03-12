@@ -10,7 +10,7 @@
 
         {{-- Main content --}}
         <div class="flex-1 min-h-screen transition-all duration-300"
-            :class="open ? 'md:ml-64 md:pl-0 pl-4 sm:pl-6' : 'md:ml-16 sm:ml-30 md:pl-0 pl-16'">
+            :class="open ? 'md:ml-60 md:pl-0 pl-4 sm:pl-6' : 'md:ml-14 sm:ml-14 md:pl-0 pl-10'">
             <div class="max-w-full sm:max-w-5xl lg:max-w-7xl mx-auto p-4 sm:p-6 md:p-8">
                 @if ($errors->any())
                     <div class="mb-4 rounded-lg bg-red-50 border border-red-200 p-4">

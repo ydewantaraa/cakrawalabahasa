@@ -1,8 +1,9 @@
 <div x-data="{
     form: {
-        position: @js(old('name', $teacher->position))
+        position: @js(old('position', $teacher->position))
     }
 }" class="bg-white rounded shadow-lg w-full max-w-2xl z-50 p-6">
+
     <form action="{{ route('admin.teachers.update', $teacher) }}" method="POST" class="space-y-4">
         @csrf
         @method('PUT')
@@ -11,9 +12,10 @@
         <div>
             <label class="block mb-1 font-medium">Jabatan</label>
             <input type="text" name="position" x-model="form.position" placeholder="Masukkan jabatan guru"
-                class="w-full border rounded px-3 py-2">
+                class="w-full border rounded px-3 py-2" autocomplete="off" required>
         </div>
 
+        {{-- Tombol aksi --}}
         <div class="flex justify-end gap-2">
             <button type="button" @click="$store.modal.close()"
                 class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-100 transition">

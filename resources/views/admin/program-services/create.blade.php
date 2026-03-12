@@ -40,12 +40,8 @@
         features: @js($featuresOld),
         advantages: @js($advantagesOld)
     },
-    addFeature() {
-        this.form.features.push({ title: '', description: '', thumbnailFile: null, thumbnailPreview: null });
-    },
-    removeFeature(index) {
-        this.form.features.splice(index, 1);
-    },
+    addFeature() { this.form.features.push({ title: '', description: '', thumbnailFile: null, thumbnailPreview: null }); },
+    removeFeature(index) { this.form.features.splice(index, 1); },
     handleFeatureThumbnailChange(event, feature) {
         const file = event.target.files[0];
         if (file) {
@@ -58,12 +54,8 @@
             feature.thumbnailPreview = null;
         }
     },
-    addAdvantage() {
-        this.form.advantages.push({ title: '', description: '', thumbnailFile: null, thumbnailPreview: null });
-    },
-    removeAdvantage(index) {
-        this.form.advantages.splice(index, 1);
-    },
+    addAdvantage() { this.form.advantages.push({ title: '', description: '', thumbnailFile: null, thumbnailPreview: null }); },
+    removeAdvantage(index) { this.form.advantages.splice(index, 1); },
     handleAdvantageThumbnailChange(event, advantage) {
         const file = event.target.files[0];
         if (file) {
@@ -95,9 +87,7 @@
             const reader = new FileReader();
             reader.onload = e => this.heroImagePreview = e.target.result;
             reader.readAsDataURL(file);
-        } else {
-            this.heroImagePreview = null;
-        }
+        } else { this.heroImagePreview = null; }
     },
     imageServicePreview: null,
     handleImageServiceChange(event) {
@@ -106,47 +96,44 @@
             const reader = new FileReader();
             reader.onload = e => this.imageServicePreview = e.target.result;
             reader.readAsDataURL(file);
-        } else {
-            this.imageServicePreview = null;
-        }
+        } else { this.imageServicePreview = null; }
     }
-}" class="bg-white rounded shadow-lg w-full max-w-3xl z-50 p-6">
+}" class="bg-white rounded shadow-lg w-full max-w-3xl z-50 p-4 sm:p-6">
 
     <form action="{{ route('program-services.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
         @csrf
+
         {{-- Nama --}}
         <div>
             <label class="block mb-1 font-medium">Nama Program</label>
             <input type="text" name="name" x-model="form.name" placeholder="Contoh: CB For Kids"
-                class="w-full border rounded px-3 py-2">
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
             @error('name')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
 
         {{-- Dropdown --}}
-        <input type="hidden" name="show_in_dropdown" value="0">
         <div class="flex items-center gap-2">
             <input type="checkbox" name="show_in_dropdown" value="1" x-model="form.show_in_dropdown">
-            <label>Tampilkan di dropdown</label>
+            <label class="text-sm">Tampilkan di dropdown</label>
         </div>
 
         {{-- Image Service --}}
         <div>
             <label class="block mb-1 font-medium">Image Service</label>
-            <input type="file" name="image_service" class="w-full border rounded px-3 py-2"
+            <input type="file" name="image_service" class="w-full border rounded px-3 py-2 text-sm sm:text-base"
                 @change="handleImageServiceChange">
-
-            {{-- Preview --}}
             <div x-show="imageServicePreview" class="mt-2">
-                <img :src="imageServicePreview" class="w-32 h-32 object-cover border rounded">
+                <img :src="imageServicePreview" class="w-24 h-24 sm:w-32 sm:h-32 object-cover border rounded">
             </div>
         </div>
 
         {{-- Deskripsi --}}
         <div>
             <label class="block mb-1 font-medium">Deskripsi</label>
-            <textarea name="description" rows="4" x-model="form.description" class="w-full border rounded px-3 py-2"></textarea>
+            <textarea name="description" rows="4" x-model="form.description"
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base"></textarea>
             @error('description')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -156,7 +143,7 @@
         <div>
             <label class="block mb-1 font-medium">Hero Text</label>
             <input type="text" name="hero_text" x-model="form.hero_text" placeholder="Contoh: CB For Kids"
-                class="w-full border rounded px-3 py-2">
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
             @error('hero_text')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -166,7 +153,7 @@
         <div>
             <label class="block mb-1 font-medium">Sub Hero Text</label>
             <input type="text" name="subhero_text" x-model="form.subhero_text" placeholder="Contoh: CB For Kids"
-                class="w-full border rounded px-3 py-2">
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
             @error('sub_hero_text')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -175,48 +162,10 @@
         {{-- Hero Image --}}
         <div>
             <label class="block mb-1 font-medium">Hero Image</label>
-            <input type="file" name="hero_image" class="w-full border rounded px-3 py-2" @change="handleHeroChange">
-
-            {{-- Preview --}}
+            <input type="file" name="hero_image" class="w-full border rounded px-3 py-2 text-sm sm:text-base"
+                @change="handleHeroChange">
             <div x-show="heroImagePreview" class="mt-2">
-                <img :src="heroImagePreview" class="w-32 h-32 object-cover border rounded">
-            </div>
-        </div>
-
-        {{-- Related Program --}}
-        <div class="mt-4 space-y-2">
-            <label class="block font-medium">
-                Apakah akan menampilkan layanan program lain?
-            </label>
-
-            <div class="flex items-center gap-4">
-                <label class="flex items-center gap-2">
-                    <input type="radio" value="1" x-model="form.show_related_program">
-                    Ya
-                </label>
-
-                <label class="flex items-center gap-2">
-                    <input type="radio" value="0" x-model="form.show_related_program">
-                    Tidak
-                </label>
-            </div>
-
-            {{-- Dropdown muncul jika Ya --}}
-            <div x-show="form.show_related_program == 1" x-transition>
-                <label class="block mt-2 mb-1">Pilih Layanan Program Lain</label>
-
-                <select name="related_program_id" x-model="form.related_program_ids"
-                    class="w-full border rounded px-3 py-2">
-
-                    @foreach ($allProgramServices as $ps)
-                        @if (!isset($programService) || $ps->id !== $programService->id)
-                            <option value="{{ $ps->id }}">
-                                {{ $ps->name }}
-                            </option>
-                        @endif
-                    @endforeach
-
-                </select>
+                <img :src="heroImagePreview" class="w-24 h-24 sm:w-32 sm:h-32 object-cover border rounded">
             </div>
         </div>
 
@@ -226,36 +175,42 @@
             <template x-for="(feature, index) in form.features" :key="index">
                 <div class="border p-3 rounded space-y-2">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-medium">Fitur <span x-text="index + 1"></span></h4>
-                        <button type="button" @click="removeFeature(index)" class="text-red-500 text-sm">Hapus</button>
+                        <h4 class="font-medium text-sm sm:text-base">Fitur <span x-text="index + 1"></span></h4>
+                        <button type="button" @click="removeFeature(index)"
+                            class="px-2 py-1 text-red-500 text-sm rounded border border-red-500 hover:bg-red-50">
+                            Hapus
+                        </button>
                     </div>
 
                     <div>
-                        <label class="block mb-1">Nama Fitur</label>
+                        <label class="block mb-1 text-sm sm:text-base">Nama Fitur</label>
                         <input type="text" :name="`features[${index}][title]`" x-model="feature.title"
-                            class="w-full border rounded px-3 py-2">
+                            class="w-full border rounded px-3 py-2 text-sm sm:text-base">
                     </div>
 
                     <div>
-                        <label class="block mb-1">Deskripsi Fitur</label>
+                        <label class="block mb-1 text-sm sm:text-base">Deskripsi Fitur</label>
                         <textarea :name="`features[${index}][description]`" rows="2" x-model="feature.description"
-                            class="w-full border rounded px-3 py-2"></textarea>
+                            class="w-full border rounded px-3 py-2 text-sm sm:text-base"></textarea>
                     </div>
 
                     <div>
-                        <label class="block mb-1">Thumbnail (opsional)</label>
-                        <input type="file" :name="`features[${index}][thumbnail]`" class="w-full"
-                            @change="handleFeatureThumbnailChange($event, feature)">
+                        <label class="block mb-1 text-sm sm:text-base">Thumbnail (opsional)</label>
+                        <input type="file" :name="`features[${index}][thumbnail]`"
+                            class="w-full text-sm sm:text-base" @change="handleFeatureThumbnailChange($event, feature)">
                     </div>
 
                     <div x-show="feature.thumbnailPreview" class="mt-2">
-                        <img :src="feature.thumbnailPreview" class="w-32 h-32 object-cover border rounded">
+                        <img :src="feature.thumbnailPreview"
+                            class="w-24 h-24 sm:w-32 sm:h-32 object-cover border rounded">
                     </div>
                 </div>
             </template>
             <div class="mt-2">
                 <button type="button" @click="addFeature()"
-                    class="px-3 py-1 bg-green-500 text-white rounded text-sm">Tambah Fitur</button>
+                    class="px-3 py-1 bg-green-500 text-white rounded text-sm sm:text-base whitespace-nowrap">
+                    Tambah Fitur
+                </button>
             </div>
         </div>
 
@@ -265,55 +220,69 @@
             <template x-for="(advantage, index) in form.advantages" :key="index">
                 <div class="border p-3 rounded space-y-2">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-medium">Keunggulan <span x-text="index + 1"></span></h4>
+                        <h4 class="font-medium text-sm sm:text-base">Keunggulan <span x-text="index + 1"></span></h4>
                         <button type="button" @click="removeAdvantage(index)"
-                            class="text-red-500 text-sm">Hapus</button>
+                            class="px-2 py-1 text-red-500 text-sm rounded border border-red-500 hover:bg-red-50">
+                            Hapus
+                        </button>
                     </div>
 
                     <div>
-                        <label class="block mb-1">Nama Keunggulan</label>
+                        <label class="block mb-1 text-sm sm:text-base">Nama Keunggulan</label>
                         <input type="text" :name="`advantages[${index}][title]`" x-model="advantage.title"
-                            class="w-full border rounded px-3 py-2">
+                            class="w-full border rounded px-3 py-2 text-sm sm:text-base">
                     </div>
 
                     <div>
-                        <label class="block mb-1">Deskripsi Keunggulan</label>
+                        <label class="block mb-1 text-sm sm:text-base">Deskripsi Keunggulan</label>
                         <textarea :name="`advantages[${index}][description]`" rows="2" x-model="advantage.description"
-                            class="w-full border rounded px-3 py-2"></textarea>
+                            class="w-full border rounded px-3 py-2 text-sm sm:text-base"></textarea>
                     </div>
 
                     <div>
-                        <label class="block mb-1">Icon (opsional)</label>
-                        <input type="file" :name="`advantages[${index}][con]`" class="w-full"
+                        <label class="block mb-1 text-sm sm:text-base">Icon (opsional)</label>
+                        <input type="file" :name="`advantages[${index}][con]`" class="w-full text-sm sm:text-base"
                             @change="handleAdvantageIconChange($event, advantage)">
                     </div>
 
                     <div x-show="advantage.iconPreview" class="mt-2">
-                        <img :src="advantage.iconPreview" class="w-32 h-32 object-cover border rounded">
+                        <img :src="advantage.iconPreview"
+                            class="w-24 h-24 sm:w-32 sm:h-32 object-cover border rounded">
                     </div>
 
                     <div>
-                        <label class="block mb-1">Thumbnail (opsional)</label>
-                        <input type="file" :name="`advantages[${index}][thumbnail]`" class="w-full"
+                        <label class="block mb-1 text-sm sm:text-base">Thumbnail (opsional)</label>
+                        <input type="file" :name="`advantages[${index}][thumbnail]`"
+                            class="w-full text-sm sm:text-base"
                             @change="handleAdvantageThumbnailChange($event, advantage)">
                     </div>
 
                     <div x-show="advantage.thumbnailPreview" class="mt-2">
-                        <img :src="advantage.thumbnailPreview" class="w-32 h-32 object-cover border rounded">
+                        <img :src="advantage.thumbnailPreview"
+                            class="w-24 h-24 sm:w-32 sm:h-32 object-cover border rounded">
                     </div>
                 </div>
             </template>
             <div class="mt-2">
                 <button type="button" @click="addAdvantage()"
-                    class="px-3 py-1 bg-purple-500 text-white rounded text-sm">Tambah Keunggulan</button>
+                    class="px-3 py-1 bg-purple-500 text-white rounded text-sm sm:text-base whitespace-nowrap">
+                    Tambah Keunggulan
+                </button>
             </div>
         </div>
 
-        {{-- Submit --}}
-        <div class="flex justify-end gap-2 mt-4">
+        {{-- Action --}}
+        <div class="flex justify-end gap-2 pt-3 sm:pt-4">
             <button type="button" @click="$store.modal.close()"
-                class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-100 transition">Batal</button>
-            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Simpan</button>
+                class="px-3 sm:px-4 py-2 border rounded text-sm sm:text-base hover:bg-gray-100">
+                Batal
+            </button>
+
+            <button type="submit"
+                class="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded text-sm sm:text-base hover:bg-blue-700">
+                Simpan
+            </button>
+
         </div>
     </form>
 </div>
