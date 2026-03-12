@@ -24,39 +24,37 @@
             this.form.thumbnailPreview = null;
         }
     }
-}" class="bg-white rounded shadow-lg w-full max-w-2xl z-50 p-6">
+}" class="bg-white rounded shadow-lg w-full max-w-2xl z-50 p-4 sm:p-6">
 
-    <h2 class="text-xl font-semibold mb-4">Edit Kelas</h2>
+    <h2 class="text-lg sm:text-xl font-semibold mb-4">Edit Kelas</h2>
 
-    <form action="{{ route('courses.update', $course) }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+    <form action="{{ route('courses.update', $course) }}" method="POST" enctype="multipart/form-data"
+        class="space-y-3 sm:space-y-4">
         @csrf
         @method('PUT')
 
-        {{-- Nama --}}
         <div>
-            <label class="block mb-1 font-medium">Nama Kelas</label>
-            <input type="text" name="name" x-model="form.name" placeholder="Contoh: Kelas Python Dasar"
-                class="w-full border rounded px-3 py-2">
+            <label class="block mb-1 font-medium text-sm sm:text-base">Nama Kelas</label>
+            <input type="text" name="name" x-model="form.name"
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
         </div>
 
-        {{-- Kelas Launched? --}}
         <input type="hidden" name="isActive" value="0">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 text-sm sm:text-base">
             <input type="checkbox" name="isActive" value="1" x-model="form.isActive">
             <label>Kelas Sudah Launching</label>
         </div>
 
-        {{-- Tampilkan Pilihan Guru? --}}
         <input type="hidden" name="hasTeacher" value="0">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 text-sm sm:text-base">
             <input type="checkbox" name="hasTeacher" value="1" x-model="form.hasTeacher">
             <label>Tampilkan Pilihan Guru</label>
         </div>
 
-        {{-- Program Service --}}
         <div>
-            <label class="block mb-1 font-medium">Layanan Program</label>
-            <select name="program_service_id" x-model="form.program_service_id" class="w-full border rounded px-3 py-2">
+            <label class="block mb-1 font-medium text-sm sm:text-base">Layanan Program</label>
+            <select name="program_service_id" x-model="form.program_service_id"
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
                 <option value="">— Pilih Program —</option>
                 @foreach ($programServices as $service)
                     <option value="{{ $service->id }}">{{ $service->name }}</option>
@@ -64,87 +62,73 @@
             </select>
         </div>
 
-        {{-- Deskripsi --}}
         <div>
-            <label class="block mb-1 font-medium">Deskripsi</label>
-            <textarea name="description" rows="3" x-model="form.description" class="w-full border rounded px-3 py-2"></textarea>
+            <label class="block mb-1 font-medium text-sm sm:text-base">Deskripsi</label>
+            <textarea name="description" rows="3" x-model="form.description"
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base"></textarea>
         </div>
 
-        {{-- Link Shopee --}}
         <div>
-            <label class="block mb-1 font-medium">Link Shopee (Opsional)</label>
+            <label class="block mb-1 font-medium text-sm sm:text-base">Link Shopee (Opsional)</label>
             <input type="url" name="shopee_link" x-model="form.shopee_link"
-                placeholder="Masukkan link shopee yang terkait dengan kelas ini"
-                class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500">
-            @error('shopee_link')
-                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
         </div>
 
-        {{-- Fasilitas --}}
         <div>
-            <label class="block mb-1 font-medium">Fasilitas</label>
+            <label class="block mb-1 font-medium text-sm sm:text-base">Fasilitas</label>
             <input type="text" name="facilities" x-model="form.facilities"
-                placeholder="Contoh: Modul, Sertifikat, Snack, Rekaman Kelas" class="w-full border rounded px-3 py-2">
-            @error('facilities')
-                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
         </div>
 
-        {{-- Kategori --}}
         <div>
-            <label class="block mb-1 font-medium">Kategori</label>
-            <input type="text" name="category" x-model="form.category" placeholder="Contoh: Coding"
-                class="w-full border rounded px-3 py-2">
+            <label class="block mb-1 font-medium text-sm sm:text-base">Kategori</label>
+            <input type="text" name="category" x-model="form.category"
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
         </div>
 
-        {{-- Catatan Harga --}}
         <div>
-            <label class="block mb-1 font-medium">Harga</label>
+            <label class="block mb-1 font-medium text-sm sm:text-base">Harga</label>
             <input type="text" name="price_note" x-model="form.price_note"
-                placeholder="Contoh: Harga berlaku untuk online maupun offline" class="w-full border rounded px-3 py-2">
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base">
         </div>
 
-        {{-- Kuota & Durasi --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
-                <label class="block mb-1 font-medium">Kuota</label>
-                <input type="text" name="quota" x-model="form.quota" placeholder="Contoh: 20"
-                    class="w-full border rounded px-3 py-2">
+                <label class="block mb-1 font-medium text-sm sm:text-base">Kuota</label>
+                <input type="text" name="quota" x-model="form.quota"
+                    class="w-full border rounded px-3 py-2 text-sm sm:text-base">
             </div>
 
             <div>
-                <label class="block mb-1 font-medium">Durasi (jam)</label>
-                <input type="text" name="duration" x-model="form.duration" placeholder="Contoh: 90 menit/sesi"
-                    class="w-full border rounded px-3 py-2">
+                <label class="block mb-1 font-medium text-sm sm:text-base">Durasi (jam)</label>
+                <input type="text" name="duration" x-model="form.duration"
+                    class="w-full border rounded px-3 py-2 text-sm sm:text-base">
             </div>
         </div>
 
-        {{-- keterangan --}}
         <div>
-            <label class="block mb-1 font-medium">Keterangan (Opsional)</label>
-            <textarea name="explanation" rows="3" x-model="form.explanation" class="w-full border rounded px-3 py-2"></textarea>
+            <label class="block mb-1 font-medium text-sm sm:text-base">Keterangan (Opsional)</label>
+            <textarea name="explanation" rows="3" x-model="form.explanation"
+                class="w-full border rounded px-3 py-2 text-sm sm:text-base"></textarea>
         </div>
 
-        {{-- Thumbnail --}}
         <div>
-            <label class="block mb-1 font-medium">Thumbnail (opsional)</label>
-            <input type="file" name="thumbnail" class="w-full border rounded px-3 py-2"
+            <label class="block mb-1 font-medium text-sm sm:text-base">Thumbnail (opsional)</label>
+            <input type="file" name="thumbnail" class="w-full border rounded px-3 py-2 text-sm sm:text-base"
                 @change="handleThumbnailChange">
 
-            {{-- Preview --}}
             <div x-show="form.thumbnailPreview" class="mt-2">
-                <img :src="form.thumbnailPreview" class="w-32 h-32 object-cover border rounded">
+                <img :src="form.thumbnailPreview" class="w-24 h-24 sm:w-32 sm:h-32 object-cover border rounded">
             </div>
         </div>
 
-        {{-- Action --}}
-        <div class="flex justify-end gap-2 pt-4">
-            <button type="button" @click="$store.modal.close()" class="px-4 py-2 border rounded hover:bg-gray-100">
+        <div class="flex justify-end gap-2 pt-3 sm:pt-4">
+            <button type="button" @click="$store.modal.close()"
+                class="px-3 sm:px-4 py-2 border rounded text-sm sm:text-base">
                 Batal
             </button>
 
-            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            <button type="submit" class="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded text-sm sm:text-base">
                 Update
             </button>
         </div>

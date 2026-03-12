@@ -3,8 +3,9 @@
     {{-- Header --}}
     <div class="flex flex-col md:flex-row gap-6">
         {{-- Thumbnail / Foto teacher --}}
-        <div class="w-full md:w-48 flex-shrink-0">
-            <img src="{{ $teacher->avatar }}" alt="Foto Teacher" class="w-full h-32 md:h-40 object-cover rounded border">
+        <div class="w-24 sm:w-full md:w-48 flex-shrink-0 mx-auto md:mx-0">
+            <img src="{{ $teacher->avatar }}" alt="Foto teacher"
+                class="w-24 h-24 sm:w-full sm:h-32 md:h-40 object-cover rounded border mx-auto md:mx-0">
         </div>
 
         {{-- Basic Info --}}

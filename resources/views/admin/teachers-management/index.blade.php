@@ -18,59 +18,53 @@
 
             <!-- Tambah Button -->
             <button @click="$store.modal.show('Tambah Guru', $refs.createForm.innerHTML)"
-                class="bg-navy_1 text-white px-4 py-2 rounded whitespace-nowrap text-sm sm:text-base">
-                Tambah Guru
+                class="bg-navy_1 text-white px-3 sm:px-4 py-1 rounded whitespace-nowrap text-sm sm:text-base">
+                + Tambah Guru
             </button>
         </div>
     </div>
 
     <!-- Table Container -->
     <div x-show="!detailId" class="overflow-x-auto" x-cloak>
-        <table class="w-full border min-w-[500px] table-auto">
+        <table class="w-full border min-w-[500px] table-auto text-sm sm:text-base">
             <thead class="bg-gray-100 normal-case">
                 <tr>
-                    <th class="p-3 text-left normal-case">Nama</th>
-                    <th class="p-3 text-left">Email</th>
-                    <th class="p-3 text-left">Jabatan</th>
-                    <th class="p-3 text-left normal-case">No Whatsapp</th>
-                    <th class="p-3 text-center">Aksi</th>
+                    <th class="p-2 sm:p-3 text-left normal-case">Nama</th>
+                    <th class="p-2 sm:p-3 text-left">Email</th>
+                    <th class="p-2 sm:p-3 text-left">Jabatan</th>
+                    <th class="p-2 sm:p-3 text-left normal-case">No Whatsapp</th>
+                    <th class="p-2 sm:p-3 text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($teachers as $teacher)
                     <tr class="border-t">
-                        <td class="p-3 break-words">{{ $teacher->full_name }}</td>
-                        <td class="p-3 break-words">
-                            {{ $teacher->email }}
-                        </td>
-                        <td class="p-3 break-words">
-                            {{ $teacher->teacher_profile?->position ?? '-' }}
-                        </td>
-                        <td class="p-3 break-words">
-                            {{ $teacher->teacher_profile?->whatsapp ?? '-' }}
-                        </td>
-                        <td class="p-3 flex flex-wrap gap-2 justify-center">
+                        <td class="p-2 sm:p-3 break-words">{{ $teacher->full_name }}</td>
+                        <td class="p-2 sm:p-3 break-words">{{ $teacher->email }}</td>
+                        <td class="p-2 sm:p-3 break-words">{{ $teacher->teacher_profile?->position ?? '-' }}</td>
+                        <td class="p-2 sm:p-3 break-words">{{ $teacher->teacher_profile?->whatsapp ?? '-' }}</td>
+                        <td class="p-2 sm:p-3 flex flex-wrap gap-1 sm:gap-2 justify-center">
                             <!-- Edit Button -->
                             <button
                                 @click="$store.modal.show('Edit Data Guru {{ $teacher->full_name }}', $refs.edit{{ $teacher->id }}.innerHTML)"
-                                class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
+                                class="bg-blue-600 hover:bg-blue-500 text-white px-2 sm:px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
                                 Edit
                             </button>
 
                             <!-- Delete Button -->
                             <form action="{{ route('admin.teachers.destroy', $teacher) }}" method="POST"
-                                @submit.prevent="$store.alert.confirm({ title: 'Hapus Kelas?' }, ()=> $el.submit())">
+                                @submit.prevent="$store.alert.confirm({ title: 'Hapus Guru?' }, ()=> $el.submit())">
                                 @csrf
                                 @method('DELETE')
                                 <button
-                                    class="bg-red-600 hover:bg-red-500 text-white px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
+                                    class="bg-red-600 hover:bg-red-500 text-white px-2 sm:px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
                                     Hapus
                                 </button>
                             </form>
 
                             <!-- Detail Button -->
                             <button @click="detailId = {{ $teacher->id }}"
-                                class="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
+                                class="bg-gray-600 hover:bg-gray-500 text-white px-2 sm:px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
                                 Detail
                             </button>
                         </td>
@@ -96,7 +90,8 @@
             <div x-show="detailId === {{ $teacher->id }}" class="space-y-4">
                 @include('admin.teachers-management.show', ['teacher' => $teacher])
 
-                <button @click="detailId = null" class="bg-gray-500 hover:bg-gray-400 text-white px-4 py-2 rounded">
+                <button @click="detailId = null"
+                    class="bg-gray-500 hover:bg-gray-400 text-white px-3 sm:px-4 py-1 rounded">
                     Kembali
                 </button>
             </div>

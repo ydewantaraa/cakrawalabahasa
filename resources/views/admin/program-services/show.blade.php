@@ -2,7 +2,7 @@
     <h2 class="text-xl font-semibold mb-4">{{ $programService->name }}</h2>
 
     {{-- Info Umum --}}
-    <div class="space-y-2 mb-4">
+    <div class="space-y-2 mb-4 text-sm sm:text-base">
         <p><strong>Nama:</strong> {{ $programService->name }}</p>
         <p><strong>Ditampilkan di dropdown:</strong> {{ $programService->show_in_dropdown ? 'Ya' : 'Tidak' }}</p>
         <p><strong>Deskripsi:</strong> {{ $programService->description ?? '-' }}</p>
@@ -13,7 +13,7 @@
         <p><strong>Hero Image:</strong></p>
         @if ($programService->hero_image)
             <img src="{{ $programService->hero_image }}" alt="Hero Image"
-                class="w-64 h-32 object-cover rounded border mb-2">
+                class="w-40 sm:w-64 h-20 sm:h-32 object-cover rounded border mb-2">
         @else
             <span class="text-gray-500">Belum ada hero image.</span>
         @endif
@@ -22,7 +22,7 @@
         <p><strong>Image Service:</strong></p>
         @if ($programService->image_service)
             <img src="{{ $programService->image_service }}" alt="Image Service"
-                class="w-64 h-32 object-cover rounded border mb-2">
+                class="w-40 sm:w-64 h-20 sm:h-32 object-cover rounded border mb-2">
         @else
             <span class="text-gray-500">Belum ada image service.</span>
         @endif
@@ -33,11 +33,11 @@
         <h3 class="text-lg font-semibold mb-2">Fitur Program</h3>
         <div class="space-y-4">
             @foreach ($programService->feature_program_services as $feature)
-                <div class="border rounded p-3 flex flex-col sm:flex-row gap-4 items-start">
+                <div class="border rounded p-3 flex flex-col sm:flex-row gap-4 items-start text-sm sm:text-base">
                     {{-- Thumbnail --}}
                     @if ($feature->thumbnail)
                         <img src="{{ $feature->thumbnail }}" alt="{{ $feature->title }}"
-                            class="w-32 h-32 object-cover rounded border">
+                            class="w-24 sm:w-32 h-24 sm:h-32 object-cover rounded border">
                     @endif
 
                     <div class="flex-1 space-y-1">
@@ -51,16 +51,16 @@
         <p class="text-gray-500">Belum ada fitur untuk program ini.</p>
     @endif
 
-    {{-- Advantage Program --}}
+    {{-- Keunggulan Program --}}
     @if ($programService->advantage_program_services->isNotEmpty())
         <h3 class="text-lg font-semibold mt-6 mb-2">Keunggulan Program</h3>
         <div class="space-y-4">
             @foreach ($programService->advantage_program_services as $advantage)
-                <div class="border rounded p-3 flex flex-col sm:flex-row gap-4 items-start">
+                <div class="border rounded p-3 flex flex-col sm:flex-row gap-4 items-start text-sm sm:text-base">
                     {{-- Thumbnail --}}
                     @if ($advantage->thumbnail)
                         <img src="{{ $advantage->thumbnail }}" alt="{{ $advantage->title }}"
-                            class="w-32 h-32 object-cover rounded border">
+                            class="w-24 sm:w-32 h-24 sm:h-32 object-cover rounded border">
                     @endif
 
                     <div class="flex-1 space-y-1">

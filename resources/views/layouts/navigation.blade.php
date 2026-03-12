@@ -1,16 +1,16 @@
 <nav x-data="{ open: false }" class="bg-white shadow fixed top-0 left-0 right-0 z-50 border-b-4 border-white">
-    <div class="bg-[#232c5f] text-white flex justify-between items-center px-6 py-4">
+    <div class="bg-[#232c5f] text-white flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
 
         <!-- Logo & Menu kiri -->
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-3 sm:space-x-4">
             <a href="/">
-                <img src="/img/logo.png" alt="Logo" class="h-12 hover:scale-105 transition">
+                <img src="/img/logo.png" alt="Logo" class="h-10 sm:h-12 hover:scale-105 transition">
             </a>
         </div>
 
         <!-- Hamburger (mobile) -->
         <button @click="open = !open" class="md:hidden focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path :class="{ 'hidden': open, 'inline-flex': !open }" stroke-linecap="round" stroke-linejoin="round"
                     stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 <path :class="{ 'hidden': !open, 'inline-flex': open }" stroke-linecap="round" stroke-linejoin="round"
@@ -55,11 +55,12 @@
                         Keranjang
                     </a>
                 @endcan
-                <div class="relative " x-data="{ dropdown: false }">
+
+                <div class="relative" x-data="{ dropdown: false }">
                     <button @click="dropdown = !dropdown" class="flex items-center space-x-1">
-                        <img src="{{ Auth::user()->avatar }}" class="h-10 w-10 rounded-full" alt="Avatar">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
+                        <img src="{{ Auth::user()->avatar }}" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full" alt="Avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </button>
@@ -73,6 +74,7 @@
                             <span class="text-sm text-gray-300">{{ ucfirst(Auth::user()->role) }}</span>
                         </div>
                         <hr>
+
                         @if (Auth::user()->role === 'student')
                             <a href="{{ route('student-profile.show') }}" class="block px-4 py-2 hover:text-orange-500">
                                 Profile
@@ -97,9 +99,8 @@
     </div>
 
     <!-- Mobile menu -->
-    <div x-show="open" class="md:hidden px-6 pb-4 space-y-3 bg-[#232c5f] text-white">
+    <div x-show="open" class="md:hidden px-4 sm:px-6 pb-3 sm:pb-4 space-y-3 bg-[#232c5f] text-white">
 
-        {{-- GUEST --}}
         @guest
             <a href="{{ route('login') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
                 Login
@@ -110,8 +111,6 @@
             </a>
         @endguest
 
-
-        {{-- AUTH --}}
         @auth
             <div class="border-t border-white/20 pt-4 space-y-2">
 
@@ -121,10 +120,10 @@
                         {{ ucfirst(Auth::user()->role) }}
                     </p>
                 </div>
+
                 <hr>
-                {{-- Profile --}}
+
                 @if (Auth::user()->role === 'student')
-                    {{-- Dashboard & Cart --}}
                     <a href="{{ route('dashboard') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
                         Dashboard
                     </a>
@@ -132,6 +131,7 @@
                     <a href="{{ route('cart.index') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
                         Keranjang
                     </a>
+
                     <a href="{{ route('student-profile.show') }}" class="block py-2 hover:text-orange-400 transition">
                         Profile
                     </a>
@@ -139,12 +139,12 @@
                     <a href="{{ route('dashboard') }}" class="block py-2 font-semibold hover:text-orange-400 transition">
                         Dashboard
                     </a>
+
                     <a href="{{ route('teacher-profile.show') }}" class="block py-2 hover:text-orange-400 transition">
                         Profile
                     </a>
                 @endif
 
-                {{-- Logout --}}
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="block w-full text-left py-2 hover:text-orange-400 transition">
