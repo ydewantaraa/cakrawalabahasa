@@ -1,9 +1,24 @@
 @extends('layouts.app')
 
 @section('title', 'Dashboard Admin')
+<style>
+    /* Hide scrollbar tapi tetap bisa scroll */
+    nav::-webkit-scrollbar {
+        display: none;
+    }
 
+    /* Firefox */
+    nav {
+        scrollbar-width: none;
+    }
+
+    /* IE / Edge lama */
+    nav {
+        -ms-overflow-style: none;
+    }
+</style>
 @section('content')
-    <div x-data="{ open: true }" class="relative md:flex -mx-6 pt-16">
+    <div x-data="{ open: false }" class="relative md:flex -mx-6 pt-16 z-30">
 
         {{-- Sidebar --}}
         @include('partials.sidebar.main-sidebar')

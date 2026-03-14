@@ -98,11 +98,13 @@
             @endguest
             @auth
                 <div class="ml-4 relative" x-data="{ dropdown: false }">
-                    <button @click="dropdown = !dropdown" class="flex items-center focus:outline-none">
-                        <a href="/dashboard"><img src="{{ Auth::user()->avatar }}" alt="Profile"
-                                class="h-10 w-10 rounded-full"></a>
+                    <button @click="dropdown = !dropdown" class="flex items-center focus:outline-none space-x-2">
+                        <a href="/dashboard">
+                            <img src="{{ Auth::user()->avatar }}" alt="Profile"
+                                class="h-7 w-7 md:h-9 md:w-9 rounded-full border-2 border-white shadow-lg hover:scale-105 transition">
+                        </a>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6">
+                            stroke="currentColor" class="w-4 h-4 md:w-6 md:h-6 transform transition-transform duration-300">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </button>
@@ -207,11 +209,5 @@
                     Masuk!
                 </a>
             @endguest
-            @auth
-                <a href="{{ route('student-profile.show') }}" class="block">
-                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}"
-                        class="ml-4 h-10 w-10 rounded-full border-2 border-white shadow-lg hover:scale-105 transition" />
-                </a>
-            @endauth
         </div>
     </header>

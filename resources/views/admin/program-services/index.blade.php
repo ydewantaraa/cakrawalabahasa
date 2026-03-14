@@ -5,24 +5,24 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
         <h1 class="text-lg sm:text-2xl font-semibold break-words">Layanan Program</h1>
 
-        <div class="flex flex-col sm:flex-row gap-2 items-start sm:items-center">
+        <div class="flex flex-wrap items-center gap-2">
 
-            <!-- Search Form -->
-            <form method="GET" action="{{ route('dashboard') }}" class="flex gap-2">
+            <form method="GET" action="{{ route('dashboard') }}" class="flex flex-wrap items-center gap-2">
                 <input type="hidden" name="tab" value="{{ $tab }}">
+
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search..."
-                    class="border rounded px-2 py-1 text-xs sm:text-sm">
+                    class="border rounded px-2 py-1 sm:py-2 text-xs sm:text-sm">
+
                 <button type="submit"
-                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm hover:bg-gray-500">
+                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm hover:bg-gray-500">
                     Cari
                 </button>
-            </form>
 
-            <!-- Tambah Button -->
-            <button @click="$store.modal.show('Tambah Program', $refs.createForm.innerHTML)"
-                class="bg-navy_1 hover:bg-navy_2 text-white px-3 py-2 rounded text-xs sm:text-sm whitespace-nowrap">
-                + Tambah Program
-            </button>
+                <button type="button" @click="$store.modal.show('Tambah Program', $refs.createForm.innerHTML)"
+                    class="bg-navy_1 hover:bg-navy_2 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm whitespace-nowrap">
+                    + Tambah Program
+                </button>
+            </form>
 
         </div>
     </div>
@@ -42,30 +42,37 @@
                     <tr class="border-t">
                         <td class="p-2 sm:p-3 break-words">{{ $service->name }}</td>
                         <td class="p-2 sm:p-3 text-center">{{ $service->show_in_dropdown ? 'Ya' : 'Tidak' }}</td>
-                        <td class="p-2 sm:p-3 flex flex-wrap gap-1 sm:gap-2 justify-center">
+                        <td class="p-2 sm:p-3 text-center">
+                            <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
 
-                            <!-- Edit Button -->
-                            <button @click="$store.modal.show('Edit Program', $refs.edit{{ $service->id }}.innerHTML)"
-                                class="bg-blue-600 hover:bg-blue-500 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm whitespace-nowrap">
-                                Edit
-                            </button>
-
-                            <!-- Delete Button -->
-                            <form action="{{ route('program-services.destroy', $service) }}" method="POST"
-                                @submit.prevent="$store.alert.confirm({ title: 'Hapus Program?' }, ()=> $el.submit())">
-                                @csrf
-                                @method('DELETE')
+                                <!-- Edit Button -->
                                 <button
-                                    class="bg-red-600 hover:bg-red-500 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm whitespace-nowrap">
-                                    Hapus
+                                    @click="$store.modal.show('Edit Program', $refs.edit{{ $service->id }}.innerHTML)"
+                                    class="bg-blue-600 hover:bg-blue-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center leading-none">
+                                    Edit
                                 </button>
-                            </form>
 
-                            <!-- Detail Button -->
-                            <button @click="detailId = {{ $service->id }}"
-                                class="bg-gray-600 hover:bg-gray-500 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm whitespace-nowrap">
-                                Detail
-                            </button>
+                                <!-- Delete Button -->
+                                <form action="{{ route('program-services.destroy', $service) }}" method="POST"
+                                    class="flex"
+                                    @submit.prevent="$store.alert.confirm({ title: 'Hapus Program?' }, ()=> $el.submit())">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button
+                                        class="bg-red-600 hover:bg-red-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center leading-none">
+                                        Hapus
+                                    </button>
+                                </form>
+
+                                <!-- Detail Button -->
+                                <button @click="detailId = {{ $service->id }}"
+                                    class="bg-gray-600 hover:bg-gray-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center leading-none">
+                                    Detail
+                                </button>
+
+                            </div>
                         </td>
                     </tr>
 
