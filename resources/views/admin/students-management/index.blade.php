@@ -10,9 +10,9 @@
             <form method="GET" action="{{ route('dashboard') }}" class="flex gap-2">
                 <input type="hidden" name="tab" value="{{ $tab }}">
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search..."
-                    class="border rounded px-2 py-1 text-xs sm:text-sm">
+                    class="border rounded px-2 py-1 sm:py-2 text-xs sm:text-sm">
                 <button type="submit"
-                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm hover:bg-gray-500">
+                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm hover:bg-gray-500">
                     Cari
                 </button>
             </form>
@@ -53,23 +53,29 @@
                         <td class="p-2 sm:p-3 break-words">
                             {{ $student->student_profile?->whatsapp ?? '-' }}
                         </td>
-                        <td class="p-2 sm:p-3 flex flex-wrap gap-1 sm:gap-2 justify-center">
-                            <!-- Delete Button -->
-                            <form action="{{ route('admin.students.destroy', $student) }}" method="POST"
-                                @submit.prevent="$store.alert.confirm({ title: 'Hapus Kelas?' }, ()=> $el.submit())">
-                                @csrf
-                                @method('DELETE')
-                                <button
-                                    class="bg-red-600 hover:bg-red-500 text-white px-2 sm:px-3 py-1 rounded whitespace-nowrap text-[11px] sm:text-sm">
-                                    Hapus
-                                </button>
-                            </form>
+                        <td class="p-2 sm:p-3 text-center">
+                            <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
 
-                            <!-- Detail Button -->
-                            <button @click="detailId = {{ $student->id }}"
-                                class="bg-gray-600 hover:bg-gray-500 text-white px-2 sm:px-3 py-1 rounded whitespace-nowrap text-[11px] sm:text-sm">
-                                Detail
-                            </button>
+                                <!-- Delete Button -->
+                                <form action="{{ route('admin.students.destroy', $student) }}" method="POST"
+                                    class="inline-flex"
+                                    @submit.prevent="$store.alert.confirm({ title: 'Hapus Kelas?' }, ()=> $el.submit())">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button
+                                        class="bg-red-600 hover:bg-red-500 text-white px-3 h-8 rounded text-[11px] sm:text-sm flex items-center justify-center whitespace-nowrap">
+                                        Hapus
+                                    </button>
+                                </form>
+
+                                <!-- Detail Button -->
+                                <button @click="detailId = {{ $student->id }}"
+                                    class="bg-gray-600 hover:bg-gray-500 text-white px-3 h-8 rounded text-[11px] sm:text-sm flex items-center justify-center whitespace-nowrap">
+                                    Detail
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

@@ -5,22 +5,25 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
         <h1 class="text-xl sm:text-2xl font-semibold break-words">Manajemen Guru</h1>
 
-        <div class="flex gap-2 flex-wrap">
-            <!-- Search Form -->
-            <form method="GET" action="{{ route('dashboard') }}" class="flex gap-2">
+        <div class="flex flex-wrap items-center gap-2">
+
+            <form method="GET" action="{{ route('dashboard') }}" class="flex flex-wrap items-center gap-2">
                 <input type="hidden" name="tab" value="{{ $tab }}">
+
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search..."
-                    class="border rounded px-2 py-1 text-sm">
-                <button type="submit" class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-500">
+                    class="border rounded px-2 py-1 sm:py-2 text-xs sm:text-sm">
+
+                <button type="submit"
+                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm hover:bg-gray-500">
                     Cari
+                </button>
+
+                <button type="button" @click="$store.modal.show('Tambah Guru', $refs.createForm.innerHTML)"
+                    class="bg-navy_1 hover:bg-navy_2 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm whitespace-nowrap">
+                    + Tambah Guru
                 </button>
             </form>
 
-            <!-- Tambah Button -->
-            <button @click="$store.modal.show('Tambah Guru', $refs.createForm.innerHTML)"
-                class="bg-navy_1 text-white px-3 sm:px-4 py-1 rounded whitespace-nowrap text-sm sm:text-base">
-                + Tambah Guru
-            </button>
         </div>
     </div>
 
@@ -43,30 +46,37 @@
                         <td class="p-2 sm:p-3 break-words">{{ $teacher->email }}</td>
                         <td class="p-2 sm:p-3 break-words">{{ $teacher->teacher_profile?->position ?? '-' }}</td>
                         <td class="p-2 sm:p-3 break-words">{{ $teacher->teacher_profile?->whatsapp ?? '-' }}</td>
-                        <td class="p-2 sm:p-3 flex flex-wrap gap-1 sm:gap-2 justify-center">
-                            <!-- Edit Button -->
-                            <button
-                                @click="$store.modal.show('Edit Data Guru {{ $teacher->full_name }}', $refs.edit{{ $teacher->id }}.innerHTML)"
-                                class="bg-blue-600 hover:bg-blue-500 text-white px-2 sm:px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
-                                Edit
-                            </button>
+                        <td class="p-2 sm:p-3 text-center">
+                            <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
 
-                            <!-- Delete Button -->
-                            <form action="{{ route('admin.teachers.destroy', $teacher) }}" method="POST"
-                                @submit.prevent="$store.alert.confirm({ title: 'Hapus Guru?' }, ()=> $el.submit())">
-                                @csrf
-                                @method('DELETE')
+                                <!-- Edit Button -->
                                 <button
-                                    class="bg-red-600 hover:bg-red-500 text-white px-2 sm:px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
-                                    Hapus
+                                    @click="$store.modal.show('Edit Data Guru {{ $teacher->full_name }}', $refs.edit{{ $teacher->id }}.innerHTML)"
+                                    class="bg-blue-600 hover:bg-blue-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center whitespace-nowrap leading-none">
+                                    Edit
                                 </button>
-                            </form>
 
-                            <!-- Detail Button -->
-                            <button @click="detailId = {{ $teacher->id }}"
-                                class="bg-gray-600 hover:bg-gray-500 text-white px-2 sm:px-3 py-1 rounded whitespace-nowrap text-xs sm:text-sm">
-                                Detail
-                            </button>
+                                <!-- Delete Button -->
+                                <form action="{{ route('admin.teachers.destroy', $teacher) }}" method="POST"
+                                    class="flex"
+                                    @submit.prevent="$store.alert.confirm({ title: 'Hapus Guru?' }, ()=> $el.submit())">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button
+                                        class="bg-red-600 hover:bg-red-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center whitespace-nowrap leading-none">
+                                        Hapus
+                                    </button>
+                                </form>
+
+                                <!-- Detail Button -->
+                                <button @click="detailId = {{ $teacher->id }}"
+                                    class="bg-gray-600 hover:bg-gray-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center whitespace-nowrap leading-none">
+                                    Detail
+                                </button>
+
+                            </div>
                         </td>
                     </tr>
 

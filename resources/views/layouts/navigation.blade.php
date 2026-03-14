@@ -1,12 +1,10 @@
 <nav x-data="{ open: false }" class="bg-white shadow fixed top-0 left-0 right-0 z-50 border-b-4 border-white">
-    <div class="bg-[#232c5f] text-white flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
+    <div class="bg-[#232c5f] text-white flex justify-between items-center px-4 sm:px-6 py-2 sm:py-3">
 
         <!-- Logo & Menu kiri -->
-        <div class="flex items-center space-x-3 sm:space-x-4">
-            <a href="/">
-                <img src="/img/logo.png" alt="Logo" class="h-10 sm:h-12 hover:scale-105 transition">
-            </a>
-        </div>
+        <a href="/" class="flex items-center flex-shrink-0 cursor-pointer hover:scale-105 transition">
+            <img src="/img/logo.png" alt="Logo" class="h-7 md:h-12 xl:h-14">
+        </a>
 
         <!-- Hamburger (mobile) -->
         <button @click="open = !open" class="md:hidden focus:outline-none">

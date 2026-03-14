@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
         // get program service by slug
         View::composer('*', function ($view) {
             $dropdownProgramServices = ProgramService::where('show_in_dropdown', true)
-                ->orderBy('name')
+                ->orderBy('created_at')
                 ->get(['id', 'name', 'slug', 'hero_text', 'subhero_text', 'hero_image']);
 
             $view->with('dropdownProgramServices', $dropdownProgramServices);

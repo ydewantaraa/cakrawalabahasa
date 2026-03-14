@@ -6,13 +6,17 @@
             <span class="text-base" x-text="section.title"></span>
         </h2>
         <div x-data="carousel(section.cards)" x-init="init()" x-ref="wrapper" class="relative overflow-hidden">
-            <div x-ref="inner" class="flex justify-center cursor-grab select-none" @mousedown="startDrag"
-                @touchstart="startDrag" @mouseup="endDrag" @mouseleave="endDrag" @touchend="endDrag" @mousemove="drag"
-                @touchmove="drag" :style="`transform: translateX(-${position}px); transition: transform 0.1s linear;`">
+            <div x-ref="inner" class="flex justify-center cursor-grab select-none min-w-max gap-1 sm:gap-2"
+                @mousedown="startDrag" @touchstart="startDrag" @mouseup="endDrag" @mouseleave="endDrag"
+                @touchend="endDrag" @mousemove="drag" @touchmove="drag"
+                :style="`transform: translateX(-${position}px); transition: transform 0.1s linear;`">
+
                 <template x-for="card in cards" :key="card.id">
                     <div class="flex justify-center">
                         <div
-                            class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] m-2 md:m-4 overflow-hidden min-w-[180px] sm:min-w-[210px] md:min-w-[180px] xl:min-w-[240px]">
+                            class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] m-2 xl:m-4 overflow-hidden
+                                   w-[170px] sm:w-[200px] md:w-[230px] xl:w-[240px]">
+                            <!-- pakai width tetap -->
                             <img :src="card.img" :alt="card.title"
                                 class="w-full object-cover h-[150px] sm:h-[180px] md:h-[200px] lg:h-[250px]" />
                             <div class="p-4 md:p-6 lg:p-8 text-center">
@@ -26,6 +30,7 @@
                         </div>
                     </div>
                 </template>
+
             </div>
         </div>
     </section>

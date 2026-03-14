@@ -5,7 +5,7 @@
     <x-head />
 </head>
 
-<body class="mx-auto font-sans bg-[#f0f5ff]">
+<body class="mx-auto font-sans bg-[#f0f5ff]" x-data="{ open: false, openProgram: false, openLayanan: false, mobileProgram: false, mobileLayanan: false }">
     <x-header />
     @php
         $servicesJson = $course->course_services->map(function ($s) {

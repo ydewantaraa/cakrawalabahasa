@@ -2,7 +2,7 @@
     $activeTab = request('tab', 'overview');
 @endphp
 
-<a href="{{ route('dashboard', ['tab' => 'students-management']) }}"
+<a href="{{ route('dashboard', ['tab' => 'students-management']) }}" title="Manajemen Siswa"
     class="flex items-center gap-2 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base rounded transition {{ $activeTab === 'students-management' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
 
     <x-heroicon-o-academic-cap class="w-5 h-5 sm:w-6 sm:h-6" />
@@ -10,7 +10,7 @@
     <span x-show="open">Manajemen Siswa</span>
 </a>
 
-<a href="{{ route('dashboard', ['tab' => 'classes-management']) }}"
+<a href="{{ route('dashboard', ['tab' => 'classes-management']) }}" title="Manajemen Kelas"
     class="flex items-center gap-2 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base rounded transition {{ $activeTab === 'classes-management' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -23,7 +23,7 @@
     <span x-show="open">Manajemen Kelas</span>
 </a>
 
-<a href="{{ route('dashboard', ['tab' => 'popular-classes']) }}"
+<a href="{{ route('dashboard', ['tab' => 'popular-classes']) }}" title="Kelas Populer"
     class="flex items-center gap-2 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base rounded transition {{ $activeTab === 'popular-classes' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -38,7 +38,7 @@
     <span x-show="open">Kelas Populer</span>
 </a>
 
-<a href="{{ route('dashboard', ['tab' => 'incoming-courses']) }}"
+<a href="{{ route('dashboard', ['tab' => 'incoming-courses']) }}" title="Kelas Segera Launching"
     class="flex items-center gap-2 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base rounded transition {{ $activeTab === 'incoming-courses' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -52,7 +52,7 @@
     <span x-show="open">Kelas Segera Launching</span>
 </a>
 
-<a href="{{ route('dashboard', ['tab' => 'program-services']) }}"
+<a href="{{ route('dashboard', ['tab' => 'program-services']) }}" title="Layanan Program"
     class="flex items-center gap-2 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base rounded transition {{ $activeTab === 'program-services' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24"
         stroke-width="1.5" stroke="currentColor">
@@ -63,7 +63,7 @@
     <span x-show="open">Layanan Program</span>
 </a>
 
-<a href="{{ route('dashboard', ['tab' => 'teachers-management']) }}"
+<a href="{{ route('dashboard', ['tab' => 'teachers-management']) }}" title="Manajemen Guru"
     class="flex items-center gap-2 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base rounded transition {{ $activeTab === 'teachers-management' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -77,7 +77,7 @@
     <span x-show="open">Manajemen Guru</span>
 </a>
 
-<a href="{{ route('dashboard', ['tab' => 'transaction-history']) }}"
+<a href="{{ route('dashboard', ['tab' => 'transaction-history']) }}" title="Riwayat Transaksi"
     class="flex items-center gap-2 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base rounded transition {{ $activeTab === 'transaction-history' ? 'bg-white/20 font-semibold' : 'hover:bg-white/10' }}">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

@@ -8,23 +8,24 @@
             Manajemen Incoming Course
         </h1>
 
-        <div class="flex flex-col sm:flex-row gap-2 items-start sm:items-center">
+        <div class="flex flex-wrap items-center gap-2">
 
-            <!-- Search Form -->
-            <form method="GET" action="{{ route('dashboard') }}" class="flex gap-2">
+            <form method="GET" action="{{ route('dashboard') }}" class="flex flex-wrap items-center gap-2">
                 <input type="hidden" name="tab" value="{{ $tab }}">
+
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search..."
-                    class="border rounded px-2 py-1 text-xs sm:text-sm">
+                    class="border rounded px-2 py-1 sm:py-2 text-xs sm:text-sm">
+
                 <button type="submit"
-                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm hover:bg-gray-500">
+                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm hover:bg-gray-500">
                     Cari
                 </button>
-            </form>
 
-            <button @click="$store.modal.show('Tambah Incoming Class', $refs.createForm.innerHTML)"
-                class="bg-navy_1 hover:bg-navy_2 text-white px-3 py-2 rounded text-xs sm:text-sm whitespace-nowrap">
-                + Tambah Incoming
-            </button>
+                <button type="button" @click="$store.modal.show('Tambah Kelas', $refs.createForm.innerHTML)"
+                    class="bg-navy_1 hover:bg-navy_2 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm whitespace-nowrap">
+                    + Tambah Incoming Class
+                </button>
+            </form>
 
         </div>
     </div>
@@ -54,33 +55,37 @@
                             {{ \Carbon\Carbon::parse($incoming->incoming_date)->format('d M Y') }}
                         </td>
 
-                        <td class="p-2 sm:p-3 flex flex-wrap gap-1 sm:gap-2 justify-center">
+                        <td class="p-2 sm:p-3 text-center">
+                            <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
 
-                            <!-- Edit -->
-                            <button
-                                @click="$store.modal.show('Edit Incoming Course', $refs.edit{{ $incoming->id }}.innerHTML)"
-                                class="bg-blue-600 hover:bg-blue-500 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                Edit
-                            </button>
-
-                            <!-- Delete -->
-                            <form action="{{ route('incoming-courses.destroy', $incoming) }}" method="POST"
-                                @submit.prevent="$store.alert.confirm({ title: 'Hapus Incoming Course?' }, ()=> $el.submit())">
-                                @csrf
-                                @method('DELETE')
-
+                                <!-- Edit -->
                                 <button
-                                    class="bg-red-600 hover:bg-red-500 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                    Hapus
+                                    @click="$store.modal.show('Edit Incoming Course', $refs.edit{{ $incoming->id }}.innerHTML)"
+                                    class="bg-blue-600 hover:bg-blue-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center">
+                                    Edit
                                 </button>
-                            </form>
 
-                            <!-- Detail -->
-                            <button @click="detailId = {{ $incoming->id }}"
-                                class="bg-gray-600 hover:bg-gray-500 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                Detail
-                            </button>
+                                <!-- Delete -->
+                                <form action="{{ route('incoming-courses.destroy', $incoming) }}" method="POST"
+                                    class="flex"
+                                    @submit.prevent="$store.alert.confirm({ title: 'Hapus Incoming Course?' }, ()=> $el.submit())">
 
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button
+                                        class="bg-red-600 hover:bg-red-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center">
+                                        Hapus
+                                    </button>
+                                </form>
+
+                                <!-- Detail -->
+                                <button @click="detailId = {{ $incoming->id }}"
+                                    class="bg-gray-600 hover:bg-gray-500 text-white px-3 h-8 rounded text-xs sm:text-sm flex items-center justify-center">
+                                    Detail
+                                </button>
+
+                            </div>
                         </td>
                     </tr>
 

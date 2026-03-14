@@ -4,24 +4,25 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-4 gap-2">
         <h1 class="text-lg sm:text-2xl font-semibold break-words">Manajemen Kelas</h1>
+        <div class="flex flex-wrap items-center gap-2">
 
-        <div class="flex gap-2 flex-wrap">
-            <!-- Search Form -->
-            <form method="GET" action="{{ route('dashboard') }}" class="flex gap-2">
+            <form method="GET" action="{{ route('dashboard') }}" class="flex flex-wrap items-center gap-2">
                 <input type="hidden" name="tab" value="{{ $tab }}">
+
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search..."
-                    class="border rounded px-2 py-1 text-xs sm:text-sm">
+                    class="border rounded px-2 py-1 sm:py-2 text-xs sm:text-sm">
+
                 <button type="submit"
-                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm hover:bg-gray-500">
+                    class="bg-gray-600 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm hover:bg-gray-500">
                     Cari
+                </button>
+
+                <button type="button" @click="$store.modal.show('Tambah Kelas', $refs.createForm.innerHTML)"
+                    class="bg-navy_1 hover:bg-navy_2 text-white px-2 sm:px-3 py-1 sm:py-2 rounded text-xs sm:text-sm whitespace-nowrap">
+                    + Tambah Kelas
                 </button>
             </form>
 
-            <!-- Tambah Button -->
-            <button @click="$store.modal.show('Tambah Kelas', $refs.createForm.innerHTML)"
-                class="bg-navy_1 hover:bg-navy_2 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded whitespace-nowrap text-xs sm:text-base">
-                Tambah Kelas
-            </button>
         </div>
     </div>
     <hr>
@@ -83,26 +84,36 @@
                             </button>
                         </td>
 
-                        <td class="p-2 sm:p-3 flex flex-wrap gap-1 sm:gap-2 justify-center">
-                            <button @click="$store.modal.show('Edit Kelas', $refs.edit{{ $course->id }}.innerHTML)"
-                                class="bg-blue-600 hover:bg-blue-500 text-white px-2 sm:px-3 py-1 rounded text-[11px] sm:text-sm">
-                                Edit
-                            </button>
+                        <td class="p-2 sm:p-3 text-center">
+                            <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
 
-                            <form action="{{ route('courses.destroy', $course) }}" method="POST"
-                                @submit.prevent="$store.alert.confirm({ title: 'Hapus Kelas?' }, ()=> $el.submit())">
-                                @csrf
-                                @method('DELETE')
+                                <!-- Edit -->
                                 <button
-                                    class="bg-red-600 hover:bg-red-500 text-white px-2 sm:px-3 py-1 rounded text-[11px] sm:text-sm">
-                                    Hapus
+                                    @click="$store.modal.show('Edit Kelas', $refs.edit{{ $course->id }}.innerHTML)"
+                                    class="bg-blue-600 hover:bg-blue-500 text-white px-3 h-8 rounded text-[11px] sm:text-sm flex items-center justify-center">
+                                    Edit
                                 </button>
-                            </form>
 
-                            <button @click="detailId = {{ $course->id }}"
-                                class="bg-gray-600 hover:bg-gray-500 text-white px-2 sm:px-3 py-1 rounded text-[11px] sm:text-sm">
-                                Detail
-                            </button>
+                                <!-- Delete -->
+                                <form action="{{ route('courses.destroy', $course) }}" method="POST" class="flex"
+                                    @submit.prevent="$store.alert.confirm({ title: 'Hapus Kelas?' }, ()=> $el.submit())">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button
+                                        class="bg-red-600 hover:bg-red-500 text-white px-3 h-8 rounded text-[11px] sm:text-sm flex items-center justify-center">
+                                        Hapus
+                                    </button>
+                                </form>
+
+                                <!-- Detail -->
+                                <button @click="detailId = {{ $course->id }}"
+                                    class="bg-gray-600 hover:bg-gray-500 text-white px-3 h-8 rounded text-[11px] sm:text-sm flex items-center justify-center">
+                                    Detail
+                                </button>
+
+                            </div>
                         </td>
                     </tr>
 

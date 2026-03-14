@@ -20,7 +20,7 @@ class AdvantageProgramService extends Model
         return Attribute::make(
             get: fn($value) => $value
                 ? asset('storage/' . $value)
-                : asset('img/default-thumbnail-feature.png')
+                : asset('img/default-thumbnail-advantage.png')
         );
     }
 
@@ -29,7 +29,7 @@ class AdvantageProgramService extends Model
         return Attribute::make(
             get: fn($value) => $value
                 ? asset('storage/' . $value)
-                : asset('img/default-thumbnail-feature.png')
+                : asset('img/default-icon-advantage.png')
         );
     }
 
