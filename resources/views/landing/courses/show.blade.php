@@ -174,7 +174,8 @@
                     <p class="font-semibold mb-2">Layanan</p>
                     <div class="flex gap-2 flex-wrap">
                         @foreach ($course->course_services as $service)
-                            <button @click="activeService={{ $service->id }}; activeSub=null; quantity=1"
+                            <button
+                                @click="activeService={{ $service->id }}; activeSub=null; activeMedia=null; quantity=1"
                                 :class="activeService === {{ $service->id }} ?
                                     'border-[#f78a28] shadow-lg shadow-orange-300' :
                                     'bg-white text-black border-gray-300'"
