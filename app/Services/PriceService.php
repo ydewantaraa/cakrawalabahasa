@@ -16,6 +16,13 @@ class PriceService
         //
     }
 
+    public function getByCourse(int $courseId)
+    {
+        return Price::where('course_id', $courseId)
+            ->with(['service', 'subService'])
+            ->get();
+    }
+
     public function store(array $data): void
     {
         $learningTypes = $data['learning_type'] ?? [null];
@@ -83,18 +90,6 @@ class PriceService
             ->where('id', '<>', $price->id)
             ->pluck('learning_type')
             ->toArray();
-
-        // dd([
-        //     'price_id' => $price->id,
-        //     'course_service_id' => $courseServiceId,
-        //     'course_id_from_service' => $courseId,
-        //     'sub_id' => $subId,
-        //     'unit_type' => $unitType,
-        //     'package_size' => $packageSize,
-        //     'label_type' => $labelType,
-        //     'learningTypes_input' => $learningTypes,
-        //     'existingPrices' => $existingPrices,
-        // ]);
 
         // Cek apakah ada learning_type yang duplikat
         $duplicates = array_intersect($learningTypes, $existingPrices);

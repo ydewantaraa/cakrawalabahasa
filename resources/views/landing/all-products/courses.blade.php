@@ -18,7 +18,7 @@
                     <div class="flex justify-center">
                         <div
                             class="shadow-[0_6px_12px_rgba(0,0,0,0.40)] bg-white rounded-[2rem] m-2 xl:m-4 overflow-hidden
-                                   w-[170px] sm:w-[200px] md:w-[230px] xl:w-[240px]">
+                                   w-[170px] sm:w-[200px] md:w-[220px] xl:w-[240px]">
                             <img src="{{ $course->thumbnail }}"
                                 class="w-full object-cover h-[150px] sm:h-[180px] md:h-[200px] lg:h-[250px]" />
 

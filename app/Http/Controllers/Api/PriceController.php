@@ -16,7 +16,15 @@ class PriceController extends Controller
     {
         $this->service = $service;
     }
+    /**
+     * GET api/courses/{course}/prices
+     */
+    public function indexByCourse($courseId)
+    {
+        $prices = $this->service->getByCourse($courseId);
 
+        return response()->json($prices);
+    }
     /**
      * GET /api/prices/{price}
      */
