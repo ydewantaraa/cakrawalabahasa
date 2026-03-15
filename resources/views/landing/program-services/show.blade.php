@@ -34,12 +34,14 @@
 
         <!-- Hiasan pattern -->
         <img src="/img/hiasan1.png" alt="Pattern"
-            class="absolute right-0 bottom-0 h-[200px] md:h-[300px] xl:h-[400px] 2xl:h-[500px] w-auto z-0 md:bottom-0">
+            class="absolute right-0 bottom-0 h-[330px] md:h-[430px] xl:h-[530px] 2xl:h-[630px] w-auto z-0 md:bottom-0">
 
-        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between z-10">
+        <div
+            class="relative flex flex-col md:flex-row items-start md:items-center justify-center md:justify-between z-10">
 
             <!-- Teks Kiri -->
-            <div class="md:w-1/3 text-left pl-10 md:pl-8 lg:pl-16 mb-10 md:mb-0 md:-mt-16 xl:-mt-20 2xl:-mt-24">
+            <div
+                class="md:w-2/5 text-left pl-7 pr-6 sm:pr-0 md:pl-8 lg:pl-16 mb-10 md:mb-0 md:-mt-16 xl:-mt-20 2xl:-mt-24">
                 <p class="text-[#151d52] font-semibold text-xl md:text-3xl mb-3">
                     {{ $programService->name }}
                 </p>
