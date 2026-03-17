@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         // =====================
         User::create([
             'full_name' => 'Super Admin',
-            'email' => 'admin@demo.com',
+            'email' => 'superadmin@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'admin',
             'email_verified_at' => now(),
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
         // =====================
         User::create([
             'full_name' => 'Admin Kedua',
-            'email' => 'admin2@demo.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'admin',
             'email_verified_at' => now(),
@@ -40,8 +40,8 @@ class UserSeeder extends Seeder
         // TEACHER
         // =====================
         User::create([
-            'full_name' => 'Guru Matematika',
-            'email' => 'iklimamardiana@gmail.com',
+            'full_name' => 'Guru Bahasa Indonesia',
+            'email' => 'yudha.dewantaraa@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'teacher',
             'email_verified_at' => now(),
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
         // =====================
         User::create([
             'full_name' => 'Siswa Pertama',
-            'email' => 'iklimardiana911@gmail.com',
+            'email' => 'tesbelajar99@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'student',
             'email_verified_at' => now(),
