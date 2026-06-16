@@ -208,6 +208,10 @@ Route::get('/komunitas permainan', function () {
     return view('landing.komunitas permainan');
 });
 
+Route::get('/berita/{id}', function ($id) {
+    return view('berita.show');
+});
+
 Route::get('/semua-produk', function (ProgramServiceService $service) {
 
     $incomingCourses = IncomingCourse::with('course')
